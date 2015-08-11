@@ -1,0 +1,3 @@
+set tabnumbers
+map gr gT
+nmap <Space> :
