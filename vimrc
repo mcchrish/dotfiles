@@ -21,7 +21,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-"Plugin 'jelera/vim-javascript-syntax'
+Plugin 'unblevable/quick-scope'
 Plugin 'othree/yajs.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mustache/vim-mustache-handlebars'
@@ -33,8 +33,11 @@ Plugin 'junegunn/limelight.vim'
 Plugin 'reedes/vim-pencil'
 Plugin 'mcchrish/fountain.vim'
 Plugin 'rking/ag.vim'
+
+" currently not necessary
 "Plugin 'airblade/vim-gitgutter'
 "Plugin 'pangloss/vim-javascript'
+"Plugin 'jelera/vim-javascript-syntax'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -106,7 +109,7 @@ set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,*.xc*,*.pbxproj,*.xcodeproj/**,*.
 " Keymapping
 
 " Remap Leader
-let mapleader = ","
+let mapleader = "\<space>"
 let maplocalleader = "\\"
 
 " Better tab nav
@@ -122,16 +125,44 @@ map <C-l> <C-w>l
 inoremap jk <esc>
 
 " Remap Enter
+"nnoremap <CR><CR> <CR>
 "nnoremap <CR> :
+"nnoremap <buffer> <cr> ==
+"xnoremap <buffer> <cr> =
+"nunmap <buffer> <CR>
 
 " Remap <space>
-noremap <space> :
+"noremap <space> :
 
 " Other Remaps
 nnoremap Y y$
+" faster save
+nnoremap <Leader>w :w<CR>
+
+" System clipboards
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" no need command line
+map q: :q
+
+" Faster Goyo toggle
+nnoremap <Leader>gt :Goyo<CR>
 
 " NERDTree toggle
-nnoremap <F4> :NERDTreeToggle<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
+
+" Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
+" Note that you must use nmap/vmap instead of their non-recursive versions (nnoremap/vnoremap).
+" Quickscope only when need
+" from https://gist.github.com/cszentkiralyi/dc61ee28ab81d23a67aa
+nmap <leader>q <plug>(QuickScopeToggle)
+vmap <leader>q <plug>(QuickScopeToggle)
+
 
 " allow command line editing like emacs
 cnoremap <C-A>      <Home>
@@ -169,6 +200,8 @@ colorscheme solarized
 " YouCompleteMe
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Supertab
 let g:SuperTabDefaultCompletionType    = '<C-n>'
@@ -233,6 +266,9 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_html_checkers=['jshint']
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 
 " vim-airline configure
 let g:airline_powerline_fonts = 1
@@ -241,7 +277,7 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_working_path_mode = 'r'
 
 " Auto reload vimrc
-augroup reload_vimrc " {
-	autocmd!
-	autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
+"augroup reload_vimrc " {
+	"autocmd!
+	"autocmd BufWritePost $MYVIMRC source $MYVIMRC
+"augroup END " }
