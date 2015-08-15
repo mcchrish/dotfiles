@@ -1,48 +1,43 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Automatic installation of Vim-Plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'tpope/vim-fugitive'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'ervandew/supertab'
-Plugin 'SirVer/ultisnips'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'unblevable/quick-scope'
-Plugin 'othree/yajs.vim'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'othree/html5.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'honza/vim-snippets'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'reedes/vim-pencil'
-Plugin 'mcchrish/fountain.vim'
-Plugin 'rking/ag.vim'
+call plug#begin('~/.vim/bundle')
+Plug 'tpope/vim-fugitive'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'ervandew/supertab'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'unblevable/quick-scope'
+Plug 'othree/yajs.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'othree/html5.vim'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown'] }
+Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
+Plug 'rking/ag.vim'
 
 " currently not necessary
-"Plugin 'airblade/vim-gitgutter'
-"Plugin 'pangloss/vim-javascript'
-"Plugin 'jelera/vim-javascript-syntax'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-syntax enable
+"Plug 'airblade/vim-gitgutter'
+"Plug 'pangloss/vim-javascript'
+"Plug 'jelera/vim-javascript-syntax'
+call plug#end()
 
 " Basics
 set autoread
