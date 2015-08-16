@@ -15,7 +15,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
 Plug 'altercation/vim-colors-solarized'
@@ -23,13 +23,13 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'unblevable/quick-scope'
-Plug 'othree/yajs.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'othree/html5.vim'
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
+Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown'] }
 Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
 Plug 'rking/ag.vim'
@@ -40,7 +40,7 @@ Plug 'rking/ag.vim'
 "Plug 'jelera/vim-javascript-syntax'
 call plug#end()
 
-" Basics
+" ==== ~Basics ====
 set autoread
 set fileformats+=mac
 set ttimeout
@@ -61,6 +61,11 @@ set splitright
 set laststatus=2
 set breakindent
 set showbreak=…\
+set clipboard=unnamed " system clipboard for yanking
+set ttyfast " faster terminal redraw
+set noshowmode " airline shows the mode
+
+set shell=$SHELL " whatever is default. most probably zsh
 
 " Better Completion
 "set complete=.,w,b,u,t
@@ -102,6 +107,9 @@ endif
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store,*.class,*.manifest,*~,#*#,%*
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,*.xc*,*.pbxproj,*.xcodeproj/**,*.xcassets/**
 
+" ==== ~Functions ====
+
+" Remove whitespaces
 function! <SID>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
   let _s=@/
@@ -114,7 +122,25 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-" GUI
+" ag + ctrlp
+if exists("g:ctrlp_user_command")
+  unlet g:ctrlp_user_command
+endif
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command =
+    \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+else
+  " Fall back to using git ls-files if Ag is not available
+  let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
+endif
+
+
+" ==== ~GUI ====
 " Solarized Theme
 if has('gui_running')
 	set background=light
@@ -133,6 +159,8 @@ if has('gui_running')
 endif
 
 colorscheme solarized
+
+" ==== ~Plugin-Options ====
 
 " YouCompleteMe
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
@@ -213,7 +241,10 @@ let g:airline_powerline_fonts = 1
 " ctrlp
 let g:ctrlp_working_path_mode = 'r'
 
-" Keymapping
+" NERDTree
+let NERDTreeDirArrows = 1
+
+" ==== ~Keymapping ====
 
 " Remap Leader
 let mapleader = "\<space>"
@@ -242,6 +273,7 @@ inoremap jk <esc>
 "noremap <space> :
 
 " Other Remaps
+nnoremap Q <nop>
 nnoremap Y y$
 nmap <Leader>fu :set fullscreen<CR>
 " faster save
@@ -263,6 +295,14 @@ nnoremap <Leader>gt :Goyo<CR>
 
 " NERDTree toggle
 nnoremap <leader>nt :NERDTreeToggle<CR>
+
+" Ag
+nmap <leader>ag :Ag ""<Left>
+nmap <leader>af :AgFile ""<Left>
+
+" ctrlP
+let g:ctrlp_map = '<leader>o'
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 " Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
 " Note that you must use nmap/vmap instead of their non-recursive versions (nnoremap/vnoremap).
