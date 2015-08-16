@@ -14,6 +14,7 @@ Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
@@ -59,7 +60,7 @@ set splitbelow
 set splitright
 set laststatus=2
 set breakindent
-set showbreak=…\ 
+set showbreak=…\
 
 " Better Completion
 "set complete=.,w,b,u,t
@@ -101,82 +102,23 @@ endif
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store,*.class,*.manifest,*~,#*#,%*
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,*.xc*,*.pbxproj,*.xcodeproj/**,*.xcassets/**
 
-" Keymapping
-
-" Remap Leader
-let mapleader = "\<space>"
-let maplocalleader = "\\"
-
-" Better tab nav
-map gr gT
-
-" Switch windows with ctrl + hjkl
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" Remap esc
-inoremap jk <esc>
-
-" Remap Enter
-"nnoremap <CR><CR> <CR>
-"nnoremap <CR> :
-"nnoremap <buffer> <cr> ==
-"xnoremap <buffer> <cr> =
-"nunmap <buffer> <CR>
-
-" Remap <space>
-"noremap <space> :
-
-" Other Remaps
-nnoremap Y y$
-" faster save
-nnoremap <Leader>w :w<CR>
-
-" System clipboards
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
-
-" no need command line
-map q: :q
-
-" Faster Goyo toggle
-nnoremap <Leader>gt :Goyo<CR>
-
-" NERDTree toggle
-nnoremap <leader>nt :NERDTreeToggle<CR>
-
-" Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
-" Note that you must use nmap/vmap instead of their non-recursive versions (nnoremap/vnoremap).
-" Quickscope only when need
-" from https://gist.github.com/cszentkiralyi/dc61ee28ab81d23a67aa
-nmap <leader>q <plug>(QuickScopeToggle)
-vmap <leader>q <plug>(QuickScopeToggle)
-
-
-" allow command line editing like emacs
-cnoremap <C-A>      <Home>
-cnoremap <C-B>      <Left>
-cnoremap <C-E>      <End>
-cnoremap <C-F>      <Right>
-cnoremap <C-N>      <End>
-cnoremap <C-P>      <Up>
-cnoremap <ESC>b     <S-Left>
-cnoremap <ESC><C-B> <S-Left>
-cnoremap <ESC>f     <S-Right>
-cnoremap <ESC><C-F> <S-Right>
-cnoremap <ESC><C-H> <C-W>
+function! <SID>StripTrailingWhitespaces()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
 
 " GUI
 " Solarized Theme
 if has('gui_running')
 	set background=light
-else 
+else
 	set background=dark
 endif
 
@@ -270,6 +212,80 @@ let g:airline_powerline_fonts = 1
 
 " ctrlp
 let g:ctrlp_working_path_mode = 'r'
+
+" Keymapping
+
+" Remap Leader
+let mapleader = "\<space>"
+let maplocalleader = "\\"
+
+" Better tab nav
+map gr gT
+
+" Switch windows with ctrl + hjkl
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Remap esc
+inoremap jk <esc>
+
+" Remap Enter
+"nnoremap <CR><CR> <CR>
+"nnoremap <CR> :
+"nnoremap <buffer> <cr> ==
+"xnoremap <buffer> <cr> =
+"nunmap <buffer> <CR>
+
+" Remap <space>
+"noremap <space> :
+
+" Other Remaps
+nnoremap Y y$
+nmap <Leader>fu :set fullscreen<CR>
+" faster save
+nnoremap <Leader>w :w<CR>
+
+" System clipboards
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" no need command line
+map q: :q
+
+" Faster Goyo toggle
+nnoremap <Leader>gt :Goyo<CR>
+
+" NERDTree toggle
+nnoremap <leader>nt :NERDTreeToggle<CR>
+
+" Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
+" Note that you must use nmap/vmap instead of their non-recursive versions (nnoremap/vnoremap).
+" Quickscope only when need
+" from https://gist.github.com/cszentkiralyi/dc61ee28ab81d23a67aa
+nmap <leader>q <plug>(QuickScopeToggle)
+vmap <leader>q <plug>(QuickScopeToggle)
+
+" allow command line editing like emacs
+cnoremap <C-A>      <Home>
+cnoremap <C-B>      <Left>
+cnoremap <C-E>      <End>
+cnoremap <C-F>      <Right>
+cnoremap <C-N>      <End>
+cnoremap <C-P>      <Up>
+cnoremap <ESC>b     <S-Left>
+cnoremap <ESC><C-B> <S-Left>
+cnoremap <ESC>f     <S-Right>
+cnoremap <ESC><C-F> <S-Right>
+cnoremap <ESC><C-H> <C-W>
+
+" remove whitespaces
+nnoremap <silent> <Leader>tr :call <SID>StripTrailingWhitespaces()<CR>
 
 " Auto reload vimrc
 "augroup reload_vimrc " {

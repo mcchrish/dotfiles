@@ -20,3 +20,5 @@ export VISUAL='vim'
 # Some aliases
 alias v='f -e vim'
 alias tmux="TERM=screen-256color-bce tmux"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
