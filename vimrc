@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 
+" ##Vim-Plug {{{
 " Automatic installation of Vim-Plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -15,6 +16,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'sjl/gundo.vim'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/syntastic'
@@ -41,8 +43,10 @@ Plug 'rking/ag.vim'
 "Plug 'pangloss/vim-javascript'
 "Plug 'jelera/vim-javascript-syntax'
 call plug#end()
+" }}}
 
-" ==== ~Basics ====
+" ##Basics {{{
+set modelines=1
 set autoread
 set fileformats+=mac
 set ttimeout
@@ -62,11 +66,12 @@ set splitbelow
 set splitright
 set laststatus=2
 set breakindent
+set autoindent
 set showbreak=…\
 set clipboard=unnamed " system clipboard for yanking
 set ttyfast " faster terminal redraw
 set noshowmode " airline shows the mode
-
+set hidden
 set shell=$SHELL " whatever is default. most probably zsh
 
 " Better Completion
@@ -79,9 +84,14 @@ au VimResized * :wincmd =
 " Hard tab indentation
 set shiftwidth=2
 set tabstop=2
-set autoindent
-set linebreak
+set softtabstop=2
 set expandtab
+
+" wrapping
+set wrap
+set linebreak
+set textwidth=80
+set formatoptions=cq " format using textwidth, including comments and gq
 
 if !&scrolloff
   set scrolloff=1
@@ -108,8 +118,9 @@ endif
 
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store,*.class,*.manifest,*~,#*#,%*
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,*.xc*,*.pbxproj,*.xcodeproj/**,*.xcassets/**
+" }}}
 
-" ==== ~Functions ====
+" ##Functions {{{
 
 " Remove whitespaces
 function! <SID>StripTrailingWhitespaces()
@@ -140,9 +151,10 @@ else
   let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
 endif
+" }}}
 
 
-" ==== ~GUI ====
+"  ##GUI {{{
 " Solarized Theme
 if has('gui_running')
 	set background=light
@@ -162,7 +174,9 @@ endif
 
 colorscheme solarized
 
-" ==== ~Plugin-Options ====
+" }}}
+
+"  ##Plugin-Options {{{
 
 " YouCompleteMe
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
@@ -207,7 +221,8 @@ let g:pencil#wrapModeDefault = 'soft'
 
 augroup pencil
 	autocmd!
-	autocmd FileType fountain call pencil#init()
+	autocmd FileType fountain       call pencil#init()
+	autocmd FileType mardown, mkd   call pencil#init()
 augroup END
 
 " Javascript autocomplete
@@ -246,7 +261,9 @@ let g:ctrlp_working_path_mode = 'r'
 " NERDTree
 let NERDTreeDirArrows = 1
 
-" ==== ~Keymapping ====
+" }}}
+
+"  ##Keymapping {{{
 
 " Remap Leader
 let mapleader = "\<space>"
@@ -260,6 +277,14 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" reselect indent in visual mode
+vnoremap < <gv
+vnoremap > >gv
 
 " Remap esc
 inoremap jk <esc>
@@ -292,11 +317,11 @@ vmap <Leader>P "+P
 " no need command line
 map q: :q
 
-" Faster Goyo toggle
-nnoremap <Leader>gt :Goyo<CR>
+" Goyo toggle
+nnoremap <Leader>- :Goyo<CR>
 
 " NERDTree toggle
-nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>= :NERDTreeToggle<CR>
 
 " Ag
 nmap <leader>ag :Ag ""<Left>
@@ -313,6 +338,8 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 nmap <leader>q <plug>(QuickScopeToggle)
 vmap <leader>q <plug>(QuickScopeToggle)
 
+nnoremap <leader>u :GundoToggle<CR>
+
 " allow command line editing like emacs
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
@@ -328,8 +355,6 @@ cnoremap <M-f> <S-Right>
 " remove whitespaces
 nnoremap <silent> <Leader>tr :call <SID>StripTrailingWhitespaces()<CR>
 
-" Auto reload vimrc
-"augroup reload_vimrc " {
-	"autocmd!
-	"autocmd BufWritePost $MYVIMRC source $MYVIMRC
-"augroup END " }
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0
