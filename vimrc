@@ -26,6 +26,7 @@ Plug 'unblevable/quick-scope'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
+Plug 'slava/vim-spacebars'
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -35,6 +36,7 @@ Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
 Plug 'rking/ag.vim'
 
 " currently not necessary
+"Plug 'sheerun/vim-polyglot'
 "Plug 'airblade/vim-gitgutter'
 "Plug 'pangloss/vim-javascript'
 "Plug 'jelera/vim-javascript-syntax'
@@ -275,7 +277,7 @@ inoremap jk <esc>
 " Other Remaps
 nnoremap Q <nop>
 nnoremap Y y$
-nmap <Leader>fu :set fullscreen<CR>
+"nmap <Leader>fu :set fullscreen<CR>
 " faster save
 nnoremap <Leader>w :w<CR>
 
