@@ -235,6 +235,11 @@ let g:mustache_abbreviations = 1
 " Enable matchit.vim
 runtime macros/matchit.vim
 
+" Emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key='<C-A>'
+
 " For YCM
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 

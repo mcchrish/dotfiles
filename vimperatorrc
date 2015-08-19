@@ -1,3 +1,4 @@
 set tabnumbers
+set scrollbars=false
 map gr gT
 nmap <Space> :
