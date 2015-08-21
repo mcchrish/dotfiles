@@ -274,9 +274,6 @@ let NERDTreeDirArrows = 1
 let mapleader = "\<space>"
 let maplocalleader = "\\"
 
-" Better tab nav
-map gr gT
-
 " Switch windows with ctrl + hjkl
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -307,7 +304,7 @@ inoremap jk <esc>
 " Other Remaps
 nnoremap Q <nop>
 nnoremap Y y$
-"nmap <Leader>fu :set fullscreen<CR>
+
 " faster save
 nnoremap <Leader>w :w<CR>
 
@@ -321,6 +318,7 @@ vmap <Leader>P "+P
 
 " no need command line
 map q: :q
+set pastetoggle=<F2>
 
 " Goyo toggle
 nnoremap <Leader>- :Goyo<CR>
@@ -329,8 +327,8 @@ nnoremap <Leader>- :Goyo<CR>
 nnoremap <leader>= :NERDTreeToggle<CR>
 
 " Ag
-nmap <leader>ag :Ag ""<Left>
-nmap <leader>af :AgFile ""<Left>
+nnoremap <leader>ag :Ag ""<Left>
+nnoremap <leader>af :AgFile ""<Left>
 
 " ctrlP
 let g:ctrlp_map = '<leader>o'
