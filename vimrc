@@ -284,6 +284,10 @@ map <C-l> <C-w>l
 nnoremap j gj
 nnoremap k gk
 
+" more scoll
+nnoremap <C-Y> 4<C-Y>
+nnoremap <C-E> 4<C-E>
+
 " reselect indent in visual mode
 vnoremap < <gv
 vnoremap > >gv
