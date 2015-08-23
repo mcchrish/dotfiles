@@ -21,4 +21,13 @@ export VISUAL='vim'
 alias v='f -e vim'
 alias tmux="TERM=screen-256color-bce tmux"
 
+# Remove delay
+export KEYTIMEOUT=1
+
+# Use vim cli mode
+#bindkey '^P' up-history
+#bindkey '^N' down-history
+bindkey '^P' up-line-or-search
+bindkey '^N' down-line-or-search
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
