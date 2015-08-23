@@ -27,7 +27,9 @@ export KEYTIMEOUT=1
 # Use vim cli mode
 #bindkey '^P' up-history
 #bindkey '^N' down-history
-bindkey '^P' up-line-or-search
-bindkey '^N' down-line-or-search
+#bindkey '^P' up-line-or-search
+#bindkey '^N' down-line-or-search
+bindkey '^P' history-substring-search-up
+bindkey '^N' history-substring-search-down
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
