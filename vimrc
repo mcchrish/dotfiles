@@ -10,7 +10,7 @@ endif
 
 call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-fugitive'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
@@ -18,7 +18,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'sjl/gundo.vim'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
-Plug 'scrooloose/nerdcommenter'
+Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/syntastic'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
@@ -42,6 +42,7 @@ Plug 'rking/ag.vim'
 "Plug 'airblade/vim-gitgutter'
 "Plug 'pangloss/vim-javascript'
 "Plug 'jelera/vim-javascript-syntax'
+"Plug 'scrooloose/nerdcommenter'
 call plug#end()
 " }}}
 
@@ -360,7 +361,7 @@ cnoremap <M-f> <S-Right>
 "cnoremap ƒ <S-Right>
 
 " remove whitespaces
-nnoremap <silent> <Leader>tr :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
 
 " }}}
 
