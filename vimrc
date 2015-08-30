@@ -82,7 +82,7 @@ set shell=$SHELL " whatever is default. most probably zsh
 " Resize splits when the window is resized
 au VimResized * :wincmd =
 
-" Hard tab indentation
+" space as tab indentation
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
@@ -164,7 +164,7 @@ else
 endif
 
 if has('gui_running')
-	set guifont=Source\ Code\ Pro:h12
+	set guifont=Source\ Code\ Pro:h10
 	set guioptions-=r
   set guioptions-=l
   set guioptions-=L
@@ -331,6 +331,9 @@ nnoremap <Leader>- :Goyo<CR>
 " NERDTree toggle
 nnoremap <leader>= :NERDTreeToggle<CR>
 
+" Gundo
+nnoremap <leader>u :GundoToggle<CR>
+
 " Ag
 nnoremap <leader>ag :Ag ""<Left>
 nnoremap <leader>af :AgFile ""<Left>
@@ -345,8 +348,6 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 " from https://gist.github.com/cszentkiralyi/dc61ee28ab81d23a67aa
 nmap <leader>q <plug>(QuickScopeToggle)
 vmap <leader>q <plug>(QuickScopeToggle)
-
-nnoremap <leader>u :GundoToggle<CR>
 
 " allow command line editing like emacs
 cnoremap <C-a> <Home>
