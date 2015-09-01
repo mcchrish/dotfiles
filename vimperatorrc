@@ -1,4 +1,7 @@
 set tabnumbers
 "set scrollbars=false
 map gr gT
+inoremap jk <ESC>
 nmap <Space> :
+set hintchars=asdfghjkl
+set editor='/usr/local/bin/mvim -f'
