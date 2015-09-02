@@ -15,6 +15,7 @@ Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rking/ag.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'sjl/gundo.vim'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
@@ -25,20 +26,19 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'unblevable/quick-scope'
+Plug 'sheerun/vim-polyglot'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
-Plug 'slava/vim-spacebars'
+Plug 'slava/vim-spacebars', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown'] }
 Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
-Plug 'rking/ag.vim'
 
 " currently not necessary
-"Plug 'sheerun/vim-polyglot'
 "Plug 'airblade/vim-gitgutter'
 "Plug 'pangloss/vim-javascript'
 "Plug 'jelera/vim-javascript-syntax'
