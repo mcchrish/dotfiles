@@ -26,7 +26,6 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'unblevable/quick-scope'
-Plug 'sheerun/vim-polyglot'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
@@ -39,6 +38,7 @@ Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown'] }
 Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
 
 " currently not necessary
+" Plug 'sheerun/vim-polyglot'
 "Plug 'airblade/vim-gitgutter'
 "Plug 'pangloss/vim-javascript'
 "Plug 'jelera/vim-javascript-syntax'
@@ -363,6 +363,9 @@ cnoremap <M-f> <S-Right>
 
 " remove whitespaces
 nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
+
+" Check JS style-guide using jscs
+nnoremap <F7> :SyntasticCheck jscs<CR> <bar> :Errors<CR>
 
 " }}}
 
