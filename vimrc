@@ -16,12 +16,14 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'sjl/gundo.vim'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/syntastic'
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -31,7 +33,7 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
 Plug 'slava/vim-spacebars', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'mattn/emmet-vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown'] }
@@ -169,11 +171,22 @@ if has('gui_running')
   set guioptions-=l
   set guioptions-=L
   set guioptions-=R
-  set lines=999
-  set columns=9999
+  set lines=25
+  set columns=80
 endif
 
-colorscheme solarized
+" colorscheme solarized
+colorscheme gruvbox
+
+" }}}
+
+" ##NEOVIM {{{
+if has('nvim')
+  " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  " workaround for the current nevom + tmux bug
+  nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+endif
 
 " }}}
 
@@ -276,10 +289,10 @@ let mapleader = "\<space>"
 let maplocalleader = "\\"
 
 " Switch windows with ctrl + hjkl
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" map <C-h> <C-w>h
+" map <C-j> <C-w>j
+" map <C-k> <C-w>k
+" map <C-l> <C-w>l
 
 " move vertically by visual line
 nnoremap j gj
@@ -360,6 +373,9 @@ cnoremap <M-b> <S-Left>
 "cnoremap ˘ <S-Left>
 cnoremap <M-f> <S-Right>
 "cnoremap ƒ <S-Right>
+
+" Fugitive status
+nnoremap <leader>gs :Gstatus<CR>
 
 " remove whitespaces
 nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>

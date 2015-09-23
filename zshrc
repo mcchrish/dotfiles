@@ -18,18 +18,21 @@ export EDITOR='vim'
 export VISUAL='vim'
 
 # Some aliases
-alias v='f -e vim'
+alias v='f -e nvim'
+alias vim=nvim
 alias tmux="TERM=screen-256color-bce tmux"
 
 # Remove delay
 export KEYTIMEOUT=1
 
 # Use vim cli mode
-#bindkey '^P' up-history
-#bindkey '^N' down-history
-#bindkey '^P' up-line-or-search
-#bindkey '^N' down-line-or-search
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# For Gruvbox
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+
+# Fix for tmux <c-h> navigation
+export TERM='xterm-256color'
