@@ -18,7 +18,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-Plug 'sjl/gundo.vim'
+Plug 'simnalamburt/vim-mundo'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/syntastic'
@@ -45,6 +45,7 @@ Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
 "Plug 'pangloss/vim-javascript'
 "Plug 'jelera/vim-javascript-syntax'
 "Plug 'scrooloose/nerdcommenter'
+" Plug 'sjl/gundo.vim'
 call plug#end()
 " }}}
 
@@ -185,7 +186,7 @@ if has('nvim')
   " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   " workaround for the current nevom + tmux bug
-  nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+  nmap <silent> <bs> :<c-u>TmuxNavigateLeft<cr>
 endif
 
 " }}}
@@ -339,10 +340,10 @@ map q: :q
 set pastetoggle=<F2>
 
 " Goyo toggle
-nnoremap <Leader>- :Goyo<CR>
+nnoremap <silent> <Leader>- :Goyo<CR>
 
 " NERDTree toggle
-nnoremap <leader>= :NERDTreeToggle<CR>
+nnoremap <silent> <leader>= :NERDTreeToggle<CR>
 
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>
@@ -370,18 +371,16 @@ cnoremap <C-n> <Down>
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
-"cnoremap ˘ <S-Left>
 cnoremap <M-f> <S-Right>
-"cnoremap ƒ <S-Right>
 
 " Fugitive status
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gs :Gstatus<CR>
 
 " remove whitespaces
 nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
 
 " Check JS style-guide using jscs
-nnoremap <F7> :SyntasticCheck jscs<CR> <bar> :Errors<CR>
+nnoremap <silent> <F7> :SyntasticCheck jscs<CR> <bar> :Errors<CR>
 
 " }}}
 
