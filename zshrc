@@ -34,5 +34,18 @@ bindkey '^N' history-substring-search-down
 # For Gruvbox
 source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 
+# Fast vim swithing from sheerun
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 # Fix for tmux <c-h> navigation
-export TERM='xterm-256color'
+# export TERM='xterm-256color'

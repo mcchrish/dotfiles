@@ -1,5 +1,5 @@
-set tabnumbers
-"set scrollbars=false
+" set tabnumbers
+" set scrollbars=false
 map gr gT
 inoremap jk <ESC>
 nmap <Space> :

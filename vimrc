@@ -29,6 +29,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'unblevable/quick-scope'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
 Plug 'slava/vim-spacebars', { 'for': 'html' }
