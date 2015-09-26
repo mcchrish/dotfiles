@@ -18,9 +18,10 @@ export EDITOR='vim'
 export VISUAL='vim'
 
 # Some aliases
-alias v='f -e nvim'
+alias v="f -e nvim"
 alias vim=nvim
 alias tmux="TERM=screen-256color-bce tmux"
+alias say="say -v Daniel"
 
 # Remove delay
 export KEYTIMEOUT=1
@@ -46,6 +47,3 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
-
-# Fix for tmux <c-h> navigation
-# export TERM='xterm-256color'
