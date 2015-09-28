@@ -178,6 +178,7 @@ if has('gui_running')
 endif
 
 " colorscheme solarized
+let g:gruvbox_italic=1
 colorscheme gruvbox
 
 " }}}
