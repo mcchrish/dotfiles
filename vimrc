@@ -21,6 +21,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'simnalamburt/vim-mundo'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'tomtom/tcomment_vim'
+Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/syntastic'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
@@ -282,6 +283,9 @@ let g:ctrlp_working_path_mode = 'r'
 
 " NERDTree
 let NERDTreeDirArrows = 1
+
+" delimitMate
+let delimitMate_expand_cr = 1
 
 " }}}
 

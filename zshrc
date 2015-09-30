@@ -18,8 +18,8 @@ export EDITOR='vim'
 export VISUAL='vim'
 
 # Some aliases
-alias v="f -e nvim"
-alias vim=nvim
+alias v="f -e vim"
+alias nv="f -e nvim"
 alias tmux="TERM=screen-256color-bce tmux"
 alias say="say -v Daniel"
 
