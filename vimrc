@@ -14,10 +14,9 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'rking/ag.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'tomtom/tcomment_vim'
@@ -141,27 +140,7 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-" ag + ctrlp
-if exists("g:ctrlp_user_command")
-  unlet g:ctrlp_user_command
-endif
-if executable('ag')
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command =
-    \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-else
-  " Fall back to using git ls-files if Ag is not available
-  let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
-endif
-" }}}
-
-
 "  ##GUI {{{
-" Solarized Theme
 if has('gui_running')
 	set background=light
 else
@@ -201,6 +180,7 @@ let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_filepath_completion_use_working_dir = 1
 
 " Supertab
 let g:SuperTabDefaultCompletionType    = '<C-n>'
@@ -278,8 +258,8 @@ let g:syntastic_warning_symbol='⚠'
 " vim-airline configure
 let g:airline_powerline_fonts = 1
 
-" ctrlp
-let g:ctrlp_working_path_mode = 'r'
+" fzf
+let g:fzf_command_prefix = 'Fzf'
 
 " NERDTree
 let NERDTreeDirArrows = 1
@@ -295,12 +275,6 @@ let delimitMate_expand_cr = 1
 let mapleader = "\<space>"
 let maplocalleader = "\\"
 
-" Switch windows with ctrl + hjkl
-" map <C-h> <C-w>h
-" map <C-j> <C-w>j
-" map <C-k> <C-w>k
-" map <C-l> <C-w>l
-
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -315,16 +289,6 @@ vnoremap > >gv
 
 " Remap esc
 inoremap jk <esc>
-
-" Remap Enter
-"nnoremap <CR><CR> <CR>
-"nnoremap <CR> :
-"nnoremap <buffer> <cr> ==
-"xnoremap <buffer> <cr> =
-"nunmap <buffer> <CR>
-
-" Remap <space>
-"noremap <space> :
 
 " Other Remaps
 nnoremap Q <nop>
@@ -342,7 +306,6 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 " no need command line
-map q: :q
 set pastetoggle=<F2>
 
 " Goyo toggle
@@ -354,13 +317,10 @@ nnoremap <silent> <leader>= :NERDTreeToggle<CR>
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>
 
-" Ag
-nnoremap <leader>ag :Ag ""<Left>
-nnoremap <leader>af :AgFile ""<Left>
-
-" ctrlP
-let g:ctrlp_map = '<leader>o'
-nnoremap <leader>b :CtrlPBuffer<CR>
+" fzf
+nnoremap <leader>f :FzfFiles<CR>
+nnoremap <leader>ag :FzfAg<CR>
+nnoremap <leader>b :FzfBuffers<CR>
 
 " Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
 " Note that you must use nmap/vmap instead of their non-recursive versions (nnoremap/vnoremap).
