@@ -30,6 +30,9 @@ export KEYTIMEOUT=1
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
+# Fzf
+export FZF_DEFAULT_COMMAND='ag -l -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # For Gruvbox
