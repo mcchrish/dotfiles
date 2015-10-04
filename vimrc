@@ -27,6 +27,7 @@ Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
 Plug 'unblevable/quick-scope'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
@@ -40,13 +41,6 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown'] }
 Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
 
-" currently not necessary
-" Plug 'sheerun/vim-polyglot'
-"Plug 'airblade/vim-gitgutter'
-"Plug 'pangloss/vim-javascript'
-"Plug 'jelera/vim-javascript-syntax'
-"Plug 'scrooloose/nerdcommenter'
-" Plug 'sjl/gundo.vim'
 call plug#end()
 " }}}
 
@@ -262,6 +256,10 @@ let g:airline_powerline_fonts = 1
 
 " fzf
 let g:fzf_command_prefix = 'Fzf'
+let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit' }
 
 " NERDTree
 let NERDTreeDirArrows = 1
@@ -320,9 +318,9 @@ nnoremap <silent> <leader>= :NERDTreeToggle<CR>
 nnoremap <leader>u :GundoToggle<CR>
 
 " fzf
-nnoremap <leader>f :FzfFiles<CR>
-nnoremap <leader>ag :FzfAg<CR>
-nnoremap <leader>b :FzfBuffers<CR>
+nnoremap <silent> <leader>f :FzfFiles<CR>
+nnoremap <silent> <leader>ag :FzfAg<CR>
+nnoremap <silent> <leader>b :FzfBuffers<CR>
 
 " Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
 " Note that you must use nmap/vmap instead of their non-recursive versions (nnoremap/vnoremap).
