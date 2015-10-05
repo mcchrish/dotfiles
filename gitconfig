@@ -9,7 +9,7 @@
 	helper = osxkeychain
 [core]
 	excludesfile = /Users/mclopez/.gitignore_global
-	editor = vim
+	editor = nvim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
