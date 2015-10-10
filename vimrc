@@ -65,6 +65,7 @@ set splitbelow
 set splitright
 set laststatus=2
 set breakindent
+set showmatch
 set autoindent
 set showbreak=…\
 set clipboard=unnamed " system clipboard for yanking
@@ -72,6 +73,11 @@ set ttyfast " faster terminal redraw
 set noshowmode " airline shows the mode
 set hidden
 set shell=$SHELL " whatever is default. most probably zsh
+
+set scrolloff=2
+set sidescrolloff=5
+set history=1000
+set tabpagemax=50
 
 " Better Completion
 "set complete=.,w,b,u,t
@@ -91,29 +97,6 @@ set wrap
 set linebreak
 set textwidth=80
 set formatoptions=cq " format using textwidth, including comments and gq
-
-if !&scrolloff
-  set scrolloff=1
-endif
-if !&sidescrolloff
-  set sidescrolloff=5
-endif
-set display+=lastline
-
-if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
-
-if has('path_extra')
-  setglobal tags-=./tags tags-=./tags; tags^=./tags;
-endif
-
-if &history < 1000
-  set history=1000
-endif
-if &tabpagemax < 50
-  set tabpagemax=50
-endif
 
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store,*.class,*.manifest,*~,#*#,%*
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,*.xc*,*.pbxproj,*.xcodeproj/**,*.xcassets/**
@@ -149,8 +132,8 @@ if has('gui_running')
   set guioptions-=l
   set guioptions-=L
   set guioptions-=R
-  set lines=25
-  set columns=80
+  set lines=45
+  set columns=120
 endif
 
 " colorscheme solarized
@@ -348,6 +331,13 @@ nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
 " Check JS style-guide using jscs
 nnoremap <silent> <F7> :SyntasticCheck jscs<CR> <bar> :Errors<CR>
 
+" }}}
+
+" ##Autocmd {{{
+augroup configgroup
+  autocmd!
+  autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
+augroup END
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
