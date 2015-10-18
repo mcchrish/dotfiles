@@ -30,15 +30,15 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'unblevable/quick-scope'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
-Plug 'slava/vim-spacebars', { 'for': 'html' }
 Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'slava/vim-spacebars', { 'for': 'html' }
+Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
+Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
-Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown'] }
+Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown', 'text'] }
 Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
 
 call plug#end()
@@ -200,6 +200,7 @@ augroup pencil
 	autocmd!
 	autocmd FileType fountain       call pencil#init()
 	autocmd FileType mardown, mkd   call pencil#init()
+	autocmd FileType text           call pencil#init()
 augroup END
 
 " Javascript autocomplete
@@ -226,7 +227,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
@@ -236,6 +237,7 @@ let g:syntastic_warning_symbol='⚠'
 
 " vim-airline configure
 let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 " fzf
 let g:fzf_command_prefix = 'Fzf'
@@ -302,8 +304,29 @@ nnoremap <leader>u :GundoToggle<CR>
 
 " fzf
 nnoremap <silent> <leader>f :FzfFiles<CR>
-nnoremap <silent> <leader>ag :FzfAg<CR>
+nnoremap <silent> <leader>a :FzfAg<CR>
 nnoremap <silent> <leader>b :FzfBuffers<CR>
+nnoremap <silent> K :call SearchWordWithAg()<CR>
+vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
+
+imap <C-x><C-f> <plug>(fzf-complete-file-ag)
+imap <C-x><C-l> <plug>(fzf-complete-line)
+
+function! SearchWordWithAg()
+  execute 'FzfAg' expand('<cword>')
+endfunction
+
+function! SearchVisualSelectionWithAg() range
+  let old_reg = getreg('"')
+  let old_regtype = getregtype('"')
+  let old_clipboard = &clipboard
+  set clipboard&
+  normal! ""gvy
+  let selection = getreg('"')
+  call setreg('"', old_reg, old_regtype)
+  let &clipboard = old_clipboard
+  execute 'FzfAg' selection
+endfunction
 
 " Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
 " Note that you must use nmap/vmap instead of their non-recursive versions (nnoremap/vnoremap).
@@ -327,9 +350,6 @@ nnoremap <silent> <leader>gs :Gstatus<CR>
 
 " remove whitespaces
 nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
-
-" Check JS style-guide using jscs
-nnoremap <silent> <F7> :SyntasticCheck jscs<CR> <bar> :Errors<CR>
 
 " }}}
 
