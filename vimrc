@@ -117,6 +117,23 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
+function! SearchWordWithAg()
+  execute 'FzfAg' expand('<cword>')
+endfunction
+
+function! SearchVisualSelectionWithAg() range
+  let old_reg = getreg('"')
+  let old_regtype = getregtype('"')
+  let old_clipboard = &clipboard
+  set clipboard&
+  normal! ""gvy
+  let selection = getreg('"')
+  call setreg('"', old_reg, old_regtype)
+  let &clipboard = old_clipboard
+  execute 'FzfAg' selection
+endfunction
+
+
 " "}}}
 
 "  ##GUI {{{
@@ -264,7 +281,7 @@ let maplocalleader = "\\"
 nnoremap j gj
 nnoremap k gk
 
-" more scoll
+" more scroll
 nnoremap <C-Y> 4<C-Y>
 nnoremap <C-E> 4<C-E>
 
@@ -312,22 +329,6 @@ vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
 imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
 
-function! SearchWordWithAg()
-  execute 'FzfAg' expand('<cword>')
-endfunction
-
-function! SearchVisualSelectionWithAg() range
-  let old_reg = getreg('"')
-  let old_regtype = getregtype('"')
-  let old_clipboard = &clipboard
-  set clipboard&
-  normal! ""gvy
-  let selection = getreg('"')
-  call setreg('"', old_reg, old_regtype)
-  let &clipboard = old_clipboard
-  execute 'FzfAg' selection
-endfunction
-
 " Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
 " Note that you must use nmap/vmap instead of their non-recursive versions (nnoremap/vnoremap).
 " Quickscope only when need
@@ -345,7 +346,7 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
-" Fugitive status
+" Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
 
 " remove whitespaces
