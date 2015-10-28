@@ -2,11 +2,14 @@
 " set scrollbars=false
 
 " Mappings
-map gr gT
-" map j 5<C-e>
-" map k 5<C-y>
+nnoremap gr gT
+" nnoremap j 5<C-e>
+" nnoremap k 5<C-y>
 inoremap jk <ESC>
 nmap <Space> :
+
+nnoremap x d
+nnoremap d <esc>
 
 cmap <c-p> <up>
 cmap <c-n> <down>

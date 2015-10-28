@@ -13,7 +13,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
@@ -31,6 +30,8 @@ Plug 'tpope/vim-repeat'
 Plug 'unblevable/quick-scope'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'slava/vim-spacebars', { 'for': 'html' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
@@ -132,7 +133,6 @@ function! SearchVisualSelectionWithAg() range
   let &clipboard = old_clipboard
   execute 'FzfAg' selection
 endfunction
-
 
 " "}}}
 
@@ -350,7 +350,10 @@ cnoremap <M-f> <S-Right>
 nnoremap <silent> <leader>gs :Gstatus<CR>
 
 " remove whitespaces
-nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces() <bar> :echo 'Whitespace trimmed!'<CR>
+
+" refresh
+nnoremap <silent> <f5> :checktime <bar> :redraw <bar> :echo 'Refreshed!'<CR>
 
 " }}}
 
