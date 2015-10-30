@@ -11,6 +11,8 @@ nmap <Space> :
 nnoremap x d
 nnoremap d <esc>
 
+nnoremap ~ <S-ESC>
+
 cmap <c-p> <up>
 cmap <c-n> <down>
 
@@ -27,3 +29,5 @@ hi HintElem background-color: rgba(254, 255, 240, 1);  color: rgba(48, 28, 77, 1
 hi CompItem>* height: 18px; min-height: 18px; padding: 0 0.5ex; font-family: Fira Mono;
 
 hi CompTitle>* color: #333; border-top: 1px solid gray; border-bottom: 1px solid #BBB; padding: 1px 0.5ex; text-shadow: 1px 1px 0px #E0E0E0; font-family: Fira Mono;
+
+" ignorekeys add www\\.inoreader\\.com -except=:,g,t,o,a,x,r,u,/
