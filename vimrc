@@ -16,11 +16,12 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
+Plug 'justinmk/vim-sneak'
 Plug 'simnalamburt/vim-mundo'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
+Plug 'benekastah/neomake'
 Plug 'tomtom/tcomment_vim'
 Plug 'Raimondi/delimitMate'
-Plug 'scrooloose/syntastic'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
@@ -41,6 +42,7 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown', 'text'] }
 Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
+Plug 'tpope/vim-capslock'
 
 call plug#end()
 " }}}
@@ -238,19 +240,15 @@ let g:user_emmet_leader_key='<C-A>'
 " For YCM
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
-" Syntastic Recommended setting
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_open_list = 0
+let g:neomake_verbose = 0
+autocmd! BufWritePost * Neomake
+autocmd! BufRead * Neomake
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_html_checkers=['eslint']
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+" sneak
+let g:sneak#streak = 1
 
 " vim-airline configure
 let g:airline_powerline_fonts = 1
