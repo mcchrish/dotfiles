@@ -242,6 +242,7 @@ let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 " neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_html_enabled_makers = []
 let g:neomake_open_list = 0
 let g:neomake_verbose = 0
 autocmd! BufWritePost * Neomake
