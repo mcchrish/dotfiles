@@ -118,6 +118,7 @@ function! <SID>StripTrailingWhitespaces()
   " Clean up: restore previous search history, and cursor position
   let @/=_s
   call cursor(l, c)
+  echo 'Whitespace trimmed!'
 endfunction
 
 function! SearchWordWithAg()
@@ -134,6 +135,13 @@ function! SearchVisualSelectionWithAg() range
   call setreg('"', old_reg, old_regtype)
   let &clipboard = old_clipboard
   execute 'FzfAg' selection
+endfunction
+
+function! <SID>Refresh()
+  checktime
+  redraw
+  nohlsearch
+  echo 'Refreshed'
 endfunction
 
 " "}}}
@@ -347,12 +355,14 @@ cnoremap <M-f> <S-Right>
 
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
 
 " remove whitespaces
-nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces() <bar> :echo 'Whitespace trimmed!'<CR>
+nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
 
 " refresh
-nnoremap <silent> <f5> :checktime <bar> :redraw <bar> :echo 'Refreshed!'<CR>
+nnoremap <silent> <f5> :call <SID>Refresh()<CR>
 
 " }}}
 
