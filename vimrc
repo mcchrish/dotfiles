@@ -148,14 +148,14 @@ endfunction
 
 "  ##GUI {{{
 if has('gui_running')
-	set background=light
+  set background=light
 else
-	set background=dark
+  set background=dark
 endif
 
 if has('gui_running')
-	set guifont=Source\ Code\ Pro:h10
-	set guioptions-=r
+  set guifont=Source\ Code\ Pro:h10
+  set guioptions-=r
   set guioptions-=l
   set guioptions-=L
   set guioptions-=R
@@ -202,15 +202,15 @@ au FileType fountain let g:goyo_width=60
 
 " Goyo
 function! s:goyo_enter()
-	if has('gui_running')
-		"set guioptions-=r
-	endif
+  if has('gui_running')
+    "set guioptions-=r
+  endif
 endfunction
 
 function! s:goyo_leave()
-	if has('gui_running')
-		"set guioptions+=r
-	endif
+  if has('gui_running')
+    "set guioptions+=r
+  endif
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -224,10 +224,10 @@ let g:limelight_conceal_ctermfg = 240
 let g:pencil#wrapModeDefault = 'soft'
 
 augroup pencil
-	autocmd!
-	autocmd FileType fountain       call pencil#init()
-	autocmd FileType mardown, mkd   call pencil#init()
-	autocmd FileType text           call pencil#init()
+  autocmd!
+  autocmd FileType fountain       call pencil#init()
+  autocmd FileType mardown, mkd   call pencil#init()
+  autocmd FileType text           call pencil#init()
 augroup END
 
 " Javascript autocomplete
@@ -262,6 +262,21 @@ let g:sneak#streak = 1
 " vim-airline configure
 let g:airline_powerline_fonts = 1
 " let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_x = ''
+let g:airline_section_y = airline#section#create(['tagbar', 'filetype'])
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
 
 " fzf
 let g:fzf_command_prefix = 'Fzf'

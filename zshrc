@@ -17,6 +17,7 @@ alias v="f -e vim"
 alias nv="f -e nvim"
 alias tmux="TERM=screen-256color-bce tmux"
 alias say="say -v Daniel"
+alias mtr="meteor"
 
 # Remove delay
 export KEYTIMEOUT=1
