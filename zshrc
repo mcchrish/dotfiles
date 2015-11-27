@@ -1,7 +1,7 @@
 # Source Prezto.
 if [[ -s "${HOME}/.zgen/zgen.zsh" ]]; then
   source "${HOME}/.zgen/zgen.zsh"
-  ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
+  # ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
 fi
 
 if ! zgen saved; then

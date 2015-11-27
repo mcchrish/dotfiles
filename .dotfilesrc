@@ -3,4 +3,17 @@ repository = ~/dotfiles
 ignore = [
   '.git',
   '.gitignore',
-  '.swp']
+  '.gitmodules',
+  '.swp',
+  '.DS_Store',
+  
+  'firefox',
+  'README.md',
+  'LICENSE',
+  'osx-tweaks',
+  'scripts',
+
+  'zpreztorc',
+  'zgen'
+  ]
+
