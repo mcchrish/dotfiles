@@ -14,6 +14,7 @@ ignore = [
   'scripts',
 
   'zpreztorc',
-  'zgen'
+  'zgen',
+  'term-italic'
   ]
 
