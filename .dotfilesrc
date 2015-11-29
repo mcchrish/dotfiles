@@ -6,6 +6,7 @@ ignore = [
   '.gitmodules',
   '.swp',
   '.DS_Store',
+  'submodules',
   
   'firefox',
   'README.md',
@@ -14,7 +15,8 @@ ignore = [
   'scripts',
 
   'zpreztorc',
-  'zgen',
   'term-italic'
   ]
+
+packages = ['zgen']
 
