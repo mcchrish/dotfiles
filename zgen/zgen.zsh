@@ -1,1 +1,1 @@
-/Users/mclopez/dotfiles/submodules/zgen/zgen.zsh
+../submodules/zgen/zgen.zsh
