@@ -1,1 +1,4 @@
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+
+// Export Karabiner settings
+/Applications/Karabiner.app/Contents/Library/bin/karabiner export > ~/dotfiles/karabiner-export.sh
