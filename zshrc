@@ -1,7 +1,7 @@
-# Source Prezto.
+# Source zgen
 if [[ -s "${HOME}/.zgen/zgen.zsh" ]]; then
   source "${HOME}/.zgen/zgen.zsh"
-  # ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
+  ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
 fi
 
 if ! zgen saved; then
@@ -32,6 +32,7 @@ if ! zgen saved; then
   zgen prezto spectrum
   zgen prezto homebrew
   zgen prezto node
+  zgen prezto python
   zgen prezto command-not-found
   zgen prezto history
   zgen prezto utility
@@ -43,12 +44,13 @@ if ! zgen saved; then
   zgen save
 fi
 
-# Customize to your needs...
+# Extra PATHs
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
-export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
 eval "$(jenv init -)"
 eval "$(fasd --init auto)"
 export EDITOR='nvim'

@@ -8,15 +8,17 @@ ignore = [
   '.DS_Store',
   '.Trash',
   'submodules',
-  
+  'iterm2',
+
   'firefox',
+  'karabiner',
   'README.md',
   'LICENSE',
   'osx-tweaks',
   'scripts',
 
   'zpreztorc',
-  'term-italic'
+  'term-italic',
   ]
 
 packages = ['zgen']
