@@ -1,17 +1,14 @@
-set nocompatible              " be iMproved, required
-
 " ##Vim-Plug {{{
 " Automatic installation of Vim-Plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
 
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'ervandew/supertab'
+Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -72,7 +69,6 @@ set showmatch
 set autoindent
 set showbreak=…\
 set clipboard=unnamed " system clipboard for yanking
-set ttyfast " faster terminal redraw
 set noshowmode " airline shows the mode
 set hidden
 set shell=$SHELL " whatever is default. most probably zsh
@@ -84,7 +80,8 @@ set tabpagemax=50
 
 " Better Completion
 "set complete=.,w,b,u,t
-"set completeopt=longest,menuone,preview
+set completeopt-=preview
+set completeopt+=menuone
 
 " Resize splits when the window is resized
 au VimResized * :wincmd =
@@ -103,6 +100,11 @@ set formatoptions=cq " format using textwidth, including comments and gq
 
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store,*.class,*.manifest,*~,#*#,%*
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,*.xc*,*.pbxproj,*.xcodeproj/**,*.xcassets/**
+
+
+" Neovim bug workaround
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+nmap <silent> <bs> :<c-u>TmuxNavigateLeft<cr>
 " }}}
 
 " ##Functions {{{
@@ -147,55 +149,47 @@ endfunction
 " "}}}
 
 "  ##GUI {{{
-if has('gui_running')
-  set background=light
-else
-  set background=dark
-endif
-
-if has('gui_running')
-  set guifont=Source\ Code\ Pro:h10
-  set guioptions-=r
-  set guioptions-=l
-  set guioptions-=L
-  set guioptions-=R
-  set lines=45
-  set columns=120
-endif
+" if has('gui_running')
+"   set background=light
+" else
+"   set background=dark
+" endif
+"
+" if has('gui_running')
+"   set guifont=Source\ Code\ Pro:h10
+"   set guioptions-=r
+"   set guioptions-=l
+"   set guioptions-=L
+"   set guioptions-=R
+"   set lines=45
+"   set columns=120
+" endif
 
 " colorscheme solarized
+set background=dark
 let g:gruvbox_italic=1
 colorscheme gruvbox
 
 " }}}
 
-" ##NEOVIM {{{
-if has('nvim')
-  " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-  " workaround for the current nevom + tmux bug
-  nmap <silent> <bs> :<c-u>TmuxNavigateLeft<cr>
-endif
-
-" }}}
-
 "  ##Plugin-Options {{{
 
-" YouCompleteMe
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+" Deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
 
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_filepath_completion_use_working_dir = 1
-
-" Supertab
-let g:SuperTabDefaultCompletionType    = '<C-n>'
-let g:SuperTabCrMapping                = 0
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:python_host_prog='/usr/local/bin/python2.7'
+let g:python3_host_prog='/usr/local/bin/python3.5'
+let g:UltiSnipsUsePythonVersion = 3
 
 " For fountain syntax
 au FileType fountain let g:goyo_width=60
@@ -231,22 +225,15 @@ augroup pencil
 augroup END
 
 " Javascript autocomplete
-" autocmd FileType javascript setlocal omnifunc=tern#Complete
 let g:used_javascript_libs = 'jquery,underscore,requirejs,handlebars'
 
 " Handlebars
 let g:mustache_abbreviations = 1
 
-" Enable matchit.vim
-runtime macros/matchit.vim
-
 " Emmet
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key='<C-A>'
-
-" For YCM
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 " neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
@@ -263,7 +250,6 @@ let g:sneak#streak = 1
 
 " vim-airline configure
 let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_x = ''
 let g:airline_section_y = airline#section#create(['tagbar', 'filetype'])
 let g:airline_mode_map = {
@@ -313,6 +299,9 @@ nnoremap <C-E> 4<C-E>
 vnoremap < <gv
 vnoremap > >gv
 
+" easy reindenting
+nnoremap g= gg=Gg``
+
 " Remap esc
 inoremap jk <esc>
 
@@ -331,7 +320,7 @@ nmap <Leader>P "+P
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
-" no need command line
+" Paste mode
 set pastetoggle=<F2>
 
 " Goyo toggle
@@ -387,6 +376,9 @@ nnoremap <silent> <f5> :call <SID>Refresh()<CR>
 augroup configgroup
   autocmd!
   autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
 augroup END
 " }}}
 

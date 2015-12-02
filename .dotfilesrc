@@ -16,10 +16,13 @@ ignore = [
   'LICENSE',
   'osx-tweaks',
   'scripts',
+  'config',
 
   'zpreztorc',
   'term-italic',
   ]
+
+externals = { 'config/nvim/init.vim': '~/dotfiles/config/nvim/init.vim' }
 
 packages = ['zgen']
 

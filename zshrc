@@ -26,7 +26,6 @@ if ! zgen saved; then
   zgen prezto editor
   zgen prezto tmux
   zgen prezto directory
-  zgen prezto completion
   zgen prezto osx
   zgen prezto git
   zgen prezto spectrum
@@ -36,6 +35,7 @@ if ! zgen saved; then
   zgen prezto command-not-found
   zgen prezto history
   zgen prezto utility
+  zgen prezto completion
   zgen prezto fasd
   zgen prezto syntax-highlighting
   zgen prezto history-substring-search
@@ -82,7 +82,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # For Gruvbox
-source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+source "$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 
 # Fast vim swithing from sheerun
 fancy-ctrl-z () {

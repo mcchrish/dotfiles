@@ -1,4 +1,5 @@
+# Remove spotlight icon in menu bar
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
-// Export Karabiner settings
+# Export Karabiner settings
 /Applications/Karabiner.app/Contents/Library/bin/karabiner export > ~/dotfiles/karabiner-export.sh
