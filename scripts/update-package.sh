@@ -11,7 +11,8 @@ echo "Updating npm..."
 npm update -g
 
 echo "Updating pip..."
-pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
+# pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
+pip list --local --outdated | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip install -U
 
 echo "Updating neovim..."
 nvim +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall!

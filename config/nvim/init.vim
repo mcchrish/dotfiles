@@ -9,13 +9,14 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/deoplete.nvim'
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'justinmk/vim-dirvish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'simnalamburt/vim-mundo'
-Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'benekastah/neomake'
 Plug 'tomtom/tcomment_vim'
 Plug 'Raimondi/delimitMate'
@@ -25,6 +26,7 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
 Plug 'unblevable/quick-scope'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
@@ -34,6 +36,7 @@ Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'slava/vim-spacebars', { 'for': 'html' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
 Plug 'groenewege/vim-less', { 'for': 'less' }
+Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
@@ -84,9 +87,9 @@ set completeopt-=preview
 set completeopt+=menuone
 
 " Resize splits when the window is resized
-au VimResized * :wincmd =
+autocmd VimResized * :wincmd =
 
-" space as tab indentation
+" Indentation
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
@@ -139,31 +142,31 @@ function! SearchVisualSelectionWithAg() range
   execute 'FzfAg' selection
 endfunction
 
-function! <SID>Refresh()
+function! Refresh()
   checktime
   redraw
   nohlsearch
   echo 'Refreshed'
 endfunction
 
+function! SetAsDjangoProject()
+  augroup ft_django
+    autocmd BufNewFile,BufRead *.html,*.swig,*.twig setlocal filetype=htmldjango
+    autocmd FileType html,htmldjango setlocal foldmethod=manual
+
+    autocmd BufNewFile,BufRead admin.py        setlocal filetype=python.django
+    autocmd BufNewFile,BufRead urls.py         setlocal filetype=python.django
+    autocmd BufNewFile,BufRead models.py       setlocal filetype=python.django
+    autocmd BufNewFile,BufRead views.py        setlocal filetype=python.django
+    autocmd BufNewFile,BufRead settings.py     setlocal filetype=python.django
+    autocmd BufNewFile,BufRead settings.py     setlocal foldmethod=marker
+    autocmd BufNewFile,BufRead forms.py        setlocal filetype=python.django
+  augroup END
+endfunction
+
 " "}}}
 
 "  ##GUI {{{
-" if has('gui_running')
-"   set background=light
-" else
-"   set background=dark
-" endif
-"
-" if has('gui_running')
-"   set guifont=Source\ Code\ Pro:h10
-"   set guioptions-=r
-"   set guioptions-=l
-"   set guioptions-=L
-"   set guioptions-=R
-"   set lines=45
-"   set columns=120
-" endif
 
 " colorscheme solarized
 set background=dark
@@ -183,6 +186,13 @@ function! s:my_cr_function()
   return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 
+" Deoplete x Jedi
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#show_call_signatures = 0
+
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -192,7 +202,7 @@ let g:python3_host_prog='/usr/local/bin/python3.5'
 let g:UltiSnipsUsePythonVersion = 3
 
 " For fountain syntax
-au FileType fountain let g:goyo_width=60
+autocmd FileType fountain let g:goyo_width=60
 
 " Goyo
 function! s:goyo_enter()
@@ -227,6 +237,9 @@ augroup END
 " Javascript autocomplete
 let g:used_javascript_libs = 'jquery,underscore,requirejs,handlebars'
 
+" Python
+let python_highlight_all = 1
+
 " Handlebars
 let g:mustache_abbreviations = 1
 
@@ -237,6 +250,7 @@ let g:user_emmet_leader_key='<C-A>'
 
 " neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_less_enabled_makers = ['lessc']
 let g:neomake_shell_enabled_makers = ['shellcheck']
 let g:neomake_html_enabled_makers = []
@@ -273,8 +287,9 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 
-" NERDTree
-let NERDTreeDirArrows = 1
+" Dirvish
+let g:dirvish_hijack_netrw = 1
+let g:dirvish_relative_paths = 1
 
 " delimitMate
 let delimitMate_expand_cr = 1
@@ -326,9 +341,6 @@ set pastetoggle=<F2>
 " Goyo toggle
 nnoremap <silent> <Leader>- :Goyo<CR>
 
-" NERDTree toggle
-nnoremap <silent> <leader>= :NERDTreeToggle<CR>
-
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>
 
@@ -368,18 +380,48 @@ nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
 
 " refresh
-nnoremap <silent> <f5> :call <SID>Refresh()<CR>
+nnoremap <silent> <f5> :call Refresh()<CR>
 
 " }}}
 
 " ##Autocmd {{{
-augroup configgroup
+
+augroup ft_javascript
+  autocmd FileType javascript setlocal shiftwidth=2
+  autocmd FileType javascript setlocal tabstop=2
+  autocmd FileType javascript setlocal softtabstop=2
+  autocmd FileType javascript setlocal expandtab
+augroup END
+
+
+augroup ft_python
+  au!
+  autocmd FileType python setlocal shiftwidth=4
+  autocmd FileType python setlocal shiftround
+  autocmd FileType python setlocal tabstop=4
+  autocmd FileType python setlocal softtabstop=4
+  autocmd FileType python setlocal expandtab
+  autocmd FileType python setlocal foldmethod=indent
+  autocmd FileType python setlocal nofoldenable
+augroup END
+
+augroup general
   autocmd!
   autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType less, scss, sass, css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=tern#Complete
 augroup END
+" }}}
+
+" ##Local {{{
+
+" Detect Django project
+if filereadable(glob("manage.py")) 
+  " autocmd FileType html set filetype=django syntax=django
+  call SetAsDjangoProject()
+endif
+
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
