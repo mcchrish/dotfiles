@@ -20,7 +20,6 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'benekastah/neomake'
 Plug 'tomtom/tcomment_vim'
 Plug 'Raimondi/delimitMate'
-Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-surround'
@@ -33,7 +32,6 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'slava/vim-spacebars', { 'for': 'html' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
@@ -164,6 +162,14 @@ function! SetAsDjangoProject()
   augroup END
 endfunction
 
+
+function! SetAsMeteorProject()
+  augroup meteor
+    au!
+    autocmd BufNewFile,BufRead *.html setlocal filetype=html.mustache
+  augroup END
+endfunction
+
 " "}}}
 
 "  ##GUI {{{
@@ -201,22 +207,6 @@ let g:python_host_prog='/usr/local/bin/python2.7'
 let g:python3_host_prog='/usr/local/bin/python3.5'
 let g:UltiSnipsUsePythonVersion = 3
 
-" For fountain syntax
-autocmd FileType fountain let g:goyo_width=60
-
-" Goyo
-function! s:goyo_enter()
-  if has('gui_running')
-    "set guioptions-=r
-  endif
-endfunction
-
-function! s:goyo_leave()
-  if has('gui_running')
-    "set guioptions+=r
-  endif
-endfunction
-
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
@@ -226,13 +216,6 @@ let g:limelight_conceal_ctermfg = 240
 
 " vim-pencil
 let g:pencil#wrapModeDefault = 'soft'
-
-augroup pencil
-  autocmd!
-  autocmd FileType fountain       call pencil#init()
-  autocmd FileType mardown, mkd   call pencil#init()
-  autocmd FileType text           call pencil#init()
-augroup END
 
 " Javascript autocomplete
 let g:used_javascript_libs = 'jquery,underscore,requirejs,handlebars'
@@ -386,6 +369,13 @@ nnoremap <silent> <f5> :call Refresh()<CR>
 
 " ##Autocmd {{{
 
+augroup pencil
+  autocmd!
+  autocmd FileType fountain       call pencil#init()
+  autocmd FileType mardown, mkd   call pencil#init()
+  autocmd FileType text           call pencil#init()
+augroup END
+
 augroup ft_javascript
   autocmd FileType javascript setlocal shiftwidth=2
   autocmd FileType javascript setlocal tabstop=2
@@ -417,9 +407,13 @@ augroup END
 " ##Local {{{
 
 " Detect Django project
-if filereadable(glob("manage.py")) 
-  " autocmd FileType html set filetype=django syntax=django
+if filereadable(glob("manage.py"))
   call SetAsDjangoProject()
+endif
+
+" Detect Meteor project
+if filereadable(glob(".meteor/versions"))
+  call SetAsMeteorProject()
 endif
 
 " }}}
