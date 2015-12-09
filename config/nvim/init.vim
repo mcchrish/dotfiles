@@ -29,6 +29,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'unblevable/quick-scope'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'millermedeiros/vim-esformatter', { 'for': 'javascript'}
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 Plug 'othree/html5.vim', { 'for': 'html' }
@@ -40,7 +41,6 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown', 'text'] }
 Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
-Plug 'tpope/vim-capslock'
 
 call plug#end()
 " }}}
@@ -149,16 +149,10 @@ endfunction
 
 function! SetAsDjangoProject()
   augroup ft_django
-    autocmd BufNewFile,BufRead *.html,*.swig,*.twig setlocal filetype=htmldjango
-    autocmd FileType html,htmldjango setlocal foldmethod=manual
-
-    autocmd BufNewFile,BufRead admin.py        setlocal filetype=python.django
-    autocmd BufNewFile,BufRead urls.py         setlocal filetype=python.django
-    autocmd BufNewFile,BufRead models.py       setlocal filetype=python.django
-    autocmd BufNewFile,BufRead views.py        setlocal filetype=python.django
-    autocmd BufNewFile,BufRead settings.py     setlocal filetype=python.django
-    autocmd BufNewFile,BufRead settings.py     setlocal foldmethod=marker
-    autocmd BufNewFile,BufRead forms.py        setlocal filetype=python.django
+    autocmd BufNewFile,BufRead *.html setlocal filetype=htmldjango
+    autocmd FileType html,htmldjango setlocal foldmethod=indent
+    autocmd FileType html,htmldjango setlocal nofoldenable
+    autocmd BufNewFile,BufRead *.py setlocal filetype=python.django
   augroup END
 endfunction
 
@@ -186,13 +180,23 @@ colorscheme gruvbox
 " Deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_auto_pairs = 0
 
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 
+if !exists('g:deoplete#keyword_patterns')
+  let g:deoplete#keyword_patterns = {}
+endif
+let g:deoplete#keyword_patterns['default'] = '\h\w*'
+if !exists('g:deoplete#omni_patterns')
+  let g:deoplete#omni_patterns = {}
+endif
+
 " Deoplete x Jedi
+let g:deoplete#omni_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
 autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
@@ -204,7 +208,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:python_host_prog='/usr/local/bin/python2.7'
-let g:python3_host_prog='/usr/local/bin/python3.5'
+let g:python3_host_prog='/usr/local/bin/python3'
 let g:UltiSnipsUsePythonVersion = 3
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -228,7 +232,7 @@ let g:mustache_abbreviations = 1
 
 " Emmet
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,htmldjango,scss,less EmmetInstall
 let g:user_emmet_leader_key='<C-A>'
 
 " neomake
@@ -359,6 +363,10 @@ nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 
+" Esformatter
+nnoremap <silent> <leader>es :Esformatter<CR>
+vnoremap <silent> <leader>es :EsformatterVisual<CR>
+
 " remove whitespaces
 nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
 
@@ -372,8 +380,14 @@ nnoremap <silent> <f5> :call Refresh()<CR>
 augroup pencil
   autocmd!
   autocmd FileType fountain       call pencil#init()
-  autocmd FileType mardown, mkd   call pencil#init()
+  autocmd FileType mardown,mkd    call pencil#init()
   autocmd FileType text           call pencil#init()
+augroup END
+
+augroup ft_html
+  autocmd!
+  autocmd FileType html setlocal foldmethod=indent
+  autocmd FileType html setlocal nofoldenable
 augroup END
 
 augroup ft_javascript
@@ -398,7 +412,7 @@ augroup END
 augroup general
   autocmd!
   autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
-  autocmd FileType less, scss, sass, css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType less,scss,sass,css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript setlocal omnifunc=tern#Complete
 augroup END

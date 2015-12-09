@@ -2,9 +2,11 @@
 	"libs": [
 		"browser",
 		"underscore",
+    "ecma6",
 		"jquery"
 	],
 	"plugins": {
-		"meteor": {}
+		"meteor": {},
+    "node": {}
 	}
 }
