@@ -1,12 +1,12 @@
 {
-	"libs": [
-		"browser",
-		"underscore",
+  "libs": [
+    "browser",
+    "underscore",
     "ecma6",
-		"jquery"
-	],
-	"plugins": {
-		"meteor": {},
+    "jquery"
+  ],
+  "plugins": {
+    "meteor": {},
     "node": {}
-	}
+  }
 }

@@ -1,10 +1,10 @@
 {
-	"libs": [
-		"browser",
-		"underscore",
-		"jquery"
-	],
-	"plugins": {
-		"meteor": {}
-	}
+  "libs": [
+    "browser",
+    "underscore",
+    "jquery"
+  ],
+  "plugins": {
+    "meteor": {}
+  }
 }

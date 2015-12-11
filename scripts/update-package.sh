@@ -1,24 +1,25 @@
 #!/bin/bash
 
-echo "###############################"
-echo "Updating" `date`
+printf %"$(tput cols)"s |tr " " "#"
+printf  "Updating" "$(date)"
 
-echo "Updating brew..."
+printf  "Updating brew..."
 brew update && brew upgrade
 brew cask update
 
-echo "Updating npm..."
+printf  "Updating npm..."
 npm update -g
 
-echo "Updating pip..."
-# pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
+printf  "Updating pip..."
 pip list --local --outdated | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip install -U
 
-echo "Updating neovim..."
+printf  "Updating neovim..."
 nvim +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall!
 
-echo "Cleaning up"
+printf  "Cleaning up"
 brew cleanup
+printf  "removing .DS_Store"
+osx-rm-dir-metadata
 
-echo "Done"
-echo "###############################"
+printf  "Done"
+printf %"$(tput cols)"s |tr " " "#"
