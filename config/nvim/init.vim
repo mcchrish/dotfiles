@@ -25,7 +25,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
-Plug 'unblevable/quick-scope'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'millermedeiros/vim-esformatter', { 'for': 'javascript'}
@@ -242,6 +241,17 @@ let g:neomake_shell_enabled_makers = ['shellcheck']
 let g:neomake_html_enabled_makers = []
 let g:neomake_open_list = 0
 let g:neomake_verbose = 0
+
+let g:neomake_error_sign = {
+      \ 'text': '✖',
+      \ 'texthl': 'SyntasticErrorSign',
+      \ }
+
+let g:neomake_warning_sign = {
+      \ 'text': '⚠',
+      \ 'texthl': 'SyntasticWarningSign',
+      \ }
+
 autocmd! BufWritePost * Neomake
 autocmd! BufRead * Neomake
 
@@ -336,13 +346,6 @@ vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
 
 imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
-
-" Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
-" Note that you must use nmap/vmap instead of their non-recursive versions (nnoremap/vnoremap).
-" Quickscope only when need
-" from https://gist.github.com/cszentkiralyi/dc61ee28ab81d23a67aa
-nmap <leader>q <plug>(QuickScopeToggle)
-vmap <leader>q <plug>(QuickScopeToggle)
 
 " allow command line editing like emacs
 cnoremap <C-a> <Home>

@@ -10,6 +10,8 @@
 [core]
 	excludesfile = /Users/mclopez/.gitignore_global
 	editor = nvim
+	autocrlf = false
+	pager = less
 [pull]
   rebase = true
 [push]
