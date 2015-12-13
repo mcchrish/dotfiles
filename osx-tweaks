@@ -3,3 +3,21 @@ sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
 # Export Karabiner settings
 /Applications/Karabiner.app/Contents/Library/bin/karabiner export > ~/dotfiles/karabiner-export.sh
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Minimize to app icon
+defaults write com.apple.dock minimize-to-application -bool true
+
+# show file exntension
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Homebrew
+if !(which brew > /dev/null); then
+  echo 'Installing brew...'
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi

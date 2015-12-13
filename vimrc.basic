@@ -1,0 +1,27 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-unimpaired'
+call plug#end()
+
+set number
+set splitbelow
+set splitright
+set laststatus=2
+
+set wildmenu
+set wildmode=longest:full,full
+
+" Keybindings
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" Remap esc
+inoremap jk <esc>

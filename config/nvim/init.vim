@@ -19,7 +19,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'simnalamburt/vim-mundo'
 Plug 'benekastah/neomake'
 Plug 'tomtom/tcomment_vim'
-Plug 'Raimondi/delimitMate'
 Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-surround'
@@ -277,9 +276,6 @@ let g:fzf_action = {
 " Dirvish
 let g:dirvish_hijack_netrw = 1
 let g:dirvish_relative_paths = 1
-
-" delimitMate
-let delimitMate_expand_cr = 1
 
 " }}}
 

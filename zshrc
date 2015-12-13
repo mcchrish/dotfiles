@@ -7,7 +7,7 @@ fi
 if ! zgen saved; then
   zgen prezto editor key-bindings 'emacs'
   zgen prezto prompt theme 'pure'
-  zgen prezto dot-expansion 'yes'
+  zgen prezto editor dot-expansion 'yes'
   zgen prezto '*:*' color 'yes'
   zgen prezto syntax-highlighting highlighters \
    'main' \
@@ -24,7 +24,6 @@ if ! zgen saved; then
   zgen prezto environment
   zgen prezto terminal
   zgen prezto editor
-  zgen prezto tmux
   zgen prezto directory
   zgen prezto osx
   zgen prezto git
@@ -37,6 +36,7 @@ if ! zgen saved; then
   zgen prezto utility
   zgen prezto completion
   zgen prezto fasd
+  zgen prezto tmux
   zgen prezto syntax-highlighting
   zgen prezto history-substring-search
   zgen prezto prompt
@@ -59,8 +59,6 @@ export VISUAL='nvim'
 # Some aliases
 alias v="f -e vim"
 alias nv="f -e nvim"
-alias tmux="TERM=screen-256color-bce tmux"
-alias tmuxat="tmux attach -t"
 alias say="say -v Daniel"
 alias mtr="meteor"
 alias cmus="cmus 2> /dev/null"
@@ -68,6 +66,12 @@ alias cplay="cmus-remote --play"
 alias cpause="cmus-remote --pause"
 alias cnext="cmus-remote --next"
 alias cprev="cmus-remote --prev"
+
+# Tmux
+alias tmux="TERM=screen-256color-bce tmux"
+alias ta="tmux attach -t"
+alias tls="tmux ls"
+alias tkill="tmux kill-session -t"
 
 # Remove delay
 export KEYTIMEOUT=1

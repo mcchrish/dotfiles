@@ -20,6 +20,9 @@ ignore = [
 
   'zpreztorc',
   'term-italic',
+
+  'vimrc.basic',
+  'esformatter'
   ]
 
 externals = { 'config/nvim/init.vim': '~/dotfiles/config/nvim/init.vim' }
