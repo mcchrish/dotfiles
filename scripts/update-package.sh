@@ -20,5 +20,11 @@ nvim +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall!
 printf "%s\n" "Cleaning up"
 brew cleanup
 
+printf "%s\n" "Removing .DS_Store"
+find "${@:-$PWD}" \( \
+  -type f -name '.DS_Store' -o \
+  -type d -name '__MACOSX' \
+\) -print0 | xargs -0 rm -rf
+
 printf "%s\n" "Done"
 printf "%80s\n" |tr " " "#"
