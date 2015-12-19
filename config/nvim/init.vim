@@ -71,6 +71,7 @@ set clipboard=unnamed " system clipboard for yanking
 set noshowmode " airline shows the mode
 set hidden
 set shell=$SHELL " whatever is default. most probably zsh
+set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
 
 set scrolloff=2
 set sidescrolloff=5
