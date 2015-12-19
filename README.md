@@ -17,4 +17,4 @@ Symlink files using Stow:
 stow zsh
 ```
 
-Install all dependecies. Honestly I haven't sort out everything yet.
+Install all dependencies. Honestly I haven't sort out everything yet.
