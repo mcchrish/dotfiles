@@ -5,6 +5,16 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
+# Setup fzf
+if [[ ! "$PATH" == */Users/mclopez/.fzf/bin* ]]; then
+  export PATH="$PATH:/Users/mclopez/.fzf/bin"
+fi
+
+# Fzf Man path
+if [[ ! "$MANPATH" == */Users/mclopez/.fzf/man* && -d "/Users/mclopez/.fzf/man" ]]; then
+  export MANPATH="$MANPATH:/Users/mclopez/.fzf/man"
+fi
+
 # PAGER
 PAGER=less
 export LESS='-R -f -X -i -P ?f%f:(stdin). ?lb%lb?L/%L.. [?eEOF:?pb%pb\%..]'

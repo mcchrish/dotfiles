@@ -54,9 +54,6 @@ unset fasd_cache
 # For Gruvbox
 source "$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 
-# Fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Functions
 [[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
 
