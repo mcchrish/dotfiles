@@ -39,19 +39,6 @@ if ! zgen saved; then
   zgen save
 fi
 
-# Extra PATHs
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.jenv/bin:$PATH"
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-
-# Default Editor
-export EDITOR='nvim'
-export VISUAL='nvim'
-
-# Pass
-export PASSWORD_STORE_DIR="$HOME/.password-store"
 
 # Jenv
 eval "$(jenv init -)"
@@ -59,53 +46,25 @@ eval "$(jenv init -)"
 # Fasd
 fasd_cache="$HOME/.cache/fasd"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-  fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install posix-alias posix-hook >| "$fasd_cache"
+  fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install posix-alias >| "$fasd_cache"
 fi
 source "$fasd_cache"
 unset fasd_cache
 
-# Some aliases
-alias say="say -v Daniel"
-alias mtr="meteor"
-alias cmus="cmus 2> /dev/null"
-alias cplay="cmus-remote --play"
-alias cpause="cmus-remote --pause"
-alias cnext="cmus-remote --next"
-alias cprev="cmus-remote --prev"
-
-# Fzf
-alias ff="fzf"
-
-# Tmux
-alias tmux="TERM=screen-256color-bce tmux"
-alias ta="tmux attach -t"
-alias tls="tmux ls"
-alias tkill="tmux kill-session -t"
-
-# Remove delay
-export KEYTIMEOUT=1
-
-# Use vim cli mode
-bindkey '^P' history-substring-search-up
-bindkey '^N' history-substring-search-down
-
 # For Gruvbox
 source "$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 
-# Fast vim swithing from sheerun
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
 # Fzf
-export FZF_DEFAULT_COMMAND='ag -l -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Functions
+[[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
+
+# Completions
+[[ -f ~/.zsh/completions.zsh ]] && source ~/.zsh/completions.zsh
+
+# Aliases
+[[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
+
+# Aliases
+[[ -f ~/.zsh/keybindings.zsh ]] && source ~/.zsh/keybindings.zsh

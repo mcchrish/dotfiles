@@ -1,36 +1,15 @@
-# Setup fzf
-# ---------
-if [[ ! "$PATH" == */Users/mclopez/.fzf/bin* ]]; then
-  export PATH="$PATH:/Users/mclopez/.fzf/bin"
-fi
-
-# Man path
-# --------
-if [[ ! "$MANPATH" == */Users/mclopez/.fzf/man* && -d "/Users/mclopez/.fzf/man" ]]; then
-  export MANPATH="$MANPATH:/Users/mclopez/.fzf/man"
-fi
-
-# Auto-completion
-# ---------------
-[[ $- == *i* ]] && source "/Users/mclopez/.fzf/shell/completion.zsh" 2> /dev/null
-
-# Key bindings
-# ------------
-source "/Users/mclopez/.fzf/shell/key-bindings.zsh"
-
-
-# pass completion suggested by @d4ndo (#362)
-_fzf_complete_pass() {
-  _fzf_complete '+m' "$@" < <(
-  pwdir=${PASSWORD_STORE_DIR-~/.password-store/}
-  stringsize="${#pwdir}"
-  find "$pwdir" -name "*.gpg" -print |
-    cut -c "$((stringsize + 1))"-  |
-    sed -e 's/\(.*\)\.gpg/\1/'
-  )
+# Fast vim swithing from sheerun
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
 }
-
-[ -n "$BASH" ] && complete -F _fzf_complete_pass -o default -o bashdefault pass
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
 
 #Suggested by @l4u and @epiloque
 # V
