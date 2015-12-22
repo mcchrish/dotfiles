@@ -1,0 +1,74 @@
+// tap
+brew tap caskroom/cask
+brew tap caskroom/fonts
+brew tap caskroom/versions
+brew tap neovim/neovim
+brew tap rogual/neovim-dot-app
+
+// brew
+brew install brew-cask
+brew install curl
+brew install dos2unix
+brew install cmus --HEAD --with-ffmpeg --with-jack
+brew install fasd
+brew install fzf
+brew install git
+brew install jenv
+brew install macvim --with-lua --with-luajit --with-override-system-vim
+brew install neovim --HEAD
+brew install neovim-dot-app
+brew install node
+brew install openssl
+brew install pandoc
+brew install pass
+brew install python
+brew install python3
+brew install ranger
+brew install shellcheck
+brew install stow
+brew install the_sliver_searcher
+brew install tmux
+brew install trash
+brew install tree
+brew install wget
+brew install zsh
+
+// cask
+brew cask install alfred
+brew cask install atom
+brew cask install calibre
+brew cask install colorpicker-skalacolor
+brew cask install firefox
+brew cask install font-courier-prime
+brew cask install font-fira-mono
+brew cask install font-fira-sans
+brew cask install font-source-code-pro
+brew cask install google-chrome
+brew cask install handbrake
+brew cask install iterm2-beta
+brew cask install java7
+brew cask install karabiner
+brew cask install macpass
+brew cask install nvalt
+brew cask install openemu-experimental
+brew cask install visual-studio-code
+brew cask install xld
+
+
+// npm
+npm install -g bower
+npm install -g esformatter
+npm install -g eslint
+npm install -g less
+npm install -g pen.md
+
+// pip
+pip install neovim
+pip install virtualenv
+pip install jedi
+pip install flake8
+
+pip3 install neovim
+pip3 install virtualenv
+pip3 install jedi
+pip3 install flake8

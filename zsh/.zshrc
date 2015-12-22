@@ -1,7 +1,6 @@
 # Source zgen
 if [[ -s "${HOME}/.zgen/zgen.zsh" ]]; then
   source "${HOME}/.zgen/zgen.zsh"
-  ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
 fi
 
 if ! zgen saved; then
@@ -18,7 +17,6 @@ if ! zgen saved; then
   zgen prezto terminal auto-title 'yes'
   zgen prezto 'terminal:window-title' format '%n@%m: %s'
   zgen prezto 'terminal:tab-title' format '%m: %s'
-  zgen prezto 'tmux:iterm' integrate 'yes'
 
   zgen prezto
   zgen prezto environment
@@ -27,7 +25,6 @@ if ! zgen saved; then
   zgen prezto directory
   zgen prezto osx
   zgen prezto git
-  zgen prezto spectrum
   zgen prezto homebrew
   zgen prezto node
   zgen prezto python
@@ -35,8 +32,6 @@ if ! zgen saved; then
   zgen prezto history
   zgen prezto utility
   zgen prezto completion
-  zgen prezto fasd
-  zgen prezto tmux
   zgen prezto syntax-highlighting
   zgen prezto history-substring-search
   zgen prezto prompt
@@ -51,14 +46,25 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
-eval "$(jenv init -)"
-eval "$(fasd --init auto)"
+# Default Editor
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+# Pass
+export PASSWORD_STORE_DIR="$HOME/.password-store"
+
+# Jenv
+eval "$(jenv init -)"
+
+# Fasd
+fasd_cache="$HOME/.cache/fasd"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+  fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install posix-alias posix-hook >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
 # Some aliases
-alias v="f -e vim"
-alias nv="f -e nvim"
 alias say="say -v Daniel"
 alias mtr="meteor"
 alias cmus="cmus 2> /dev/null"
@@ -66,6 +72,9 @@ alias cplay="cmus-remote --play"
 alias cpause="cmus-remote --pause"
 alias cnext="cmus-remote --next"
 alias cprev="cmus-remote --prev"
+
+# Fzf
+alias ff="fzf"
 
 # Tmux
 alias tmux="TERM=screen-256color-bce tmux"
@@ -79,11 +88,6 @@ export KEYTIMEOUT=1
 # Use vim cli mode
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
-
-# Fzf
-export FZF_DEFAULT_COMMAND='ag -l -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # For Gruvbox
 source "$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh"
@@ -100,3 +104,8 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+# Fzf
+export FZF_DEFAULT_COMMAND='ag -l -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
