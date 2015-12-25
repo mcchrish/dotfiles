@@ -1,1 +1,4 @@
-0 11 * * * /Users/mclopez/dotfiles/scripts/update-package.sh
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+HOME=/Users/mclopez
+0 11 * * 1,3,5 /bin/bash /Users/mclopez/dotfiles/scripts/update-package.sh

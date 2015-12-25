@@ -1,30 +1,37 @@
 #!/bin/bash
 
-printf "%80s\n" |tr " " "#"
-printf "%s\n" "Updating" "$(date)"
+LOG_FILE="$HOME/.logs/updates.log"
 
-printf "%s\n" "Updating brew..."
-brew update && brew upgrade
-brew cask update
+if [[ ! -d "$HOME/.logs" ]]; then
+  mkdir "$HOME/.logs"
+  touch "$HOME/.logs/updates.log"
+fi
 
-printf "%s\n" "Updating npm..."
-npm update -g
+printf "%80s\n" |tr " " "#" | tee -a "$LOG_FILE"
+printf "%s\n" "Updating" "$(date)" | tee -a "$LOG_FILE"
 
-printf "%s\n" "Updating pip..."
-pip list --local --outdated | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip install -U
-pip3 list --local --outdated | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip3 install -U
+printf "%s\n" "Updating brew..." | tee -a "$LOG_FILE"
+brew update && brew upgrade 2>> "$LOG_FILE"
+brew cask update 2>> "$LOG_FILE"
 
-printf "%s\n" "Updating neovim..."
-nvim +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall!
+printf "%s\n" "Updating npm..." | tee -a "$LOG_FILE"
+npm update -g 2>> "$LOG_FILE"
 
-printf "%s\n" "Cleaning up"
-brew cleanup
+printf "%s\n" "Updating pip..." | tee -a "$LOG_FILE"
+pip list --local --outdated | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip install -U 2>> "$LOG_FILE"
+pip3 list --local --outdated | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip3 install -U 2>> "$LOG_FILE"
 
-printf "%s\n" "Removing .DS_Store"
+printf "%s\n" "Updating neovim..." | tee -a "$LOG_FILE"
+nvim +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall
+
+printf "%s\n" "Cleaning up" | tee -a "$LOG_FILE"
+brew cleanup 2>> "$LOG_FILE"
+
+printf "%s\n" "Removing .DS_Store" | tee -a "$LOG_FILE"
 find "${@:-$PWD}" \( \
   -type f -name '.DS_Store' -o \
   -type d -name '__MACOSX' \
 \) -print0 | xargs -0 rm -rf
 
-printf "%s\n" "Done"
-printf "%80s\n" |tr " " "#"
+printf "%s\n" "Updating done on " "$(date)" | tee -a "$LOG_FILE"
+printf "%80s\n" |tr " " "#" | tee -a "$LOG_FILE"

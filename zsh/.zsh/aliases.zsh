@@ -17,3 +17,4 @@ alias tkill="tmux kill-session -t"
 # Misc
 alias say="say -v Daniel"
 alias mtr="meteor"
+alias rng="ranger"
