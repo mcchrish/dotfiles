@@ -1,3 +1,8 @@
+# Language
+if [[ -z "$LANG" ]]; then
+  export LANG='en_US.UTF-8'
+fi
+
 # Extra PATHs
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="/usr/local/bin:$PATH"
@@ -16,8 +21,13 @@ if [[ ! "$MANPATH" == */Users/mclopez/.fzf/man* && -d "/Users/mclopez/.fzf/man" 
 fi
 
 # PAGER
-PAGER=less
-export LESS='-R -f -X -i -P ?f%f:(stdin). ?lb%lb?L/%L.. [?eEOF:?pb%pb\%..]'
+export PAGER=less
+export LESS='-F -g -i -M -R -S -w -X -z-4'
+
+# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
+if (( $#commands[(i)lesspipe(|.sh)] )); then
+  export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
+fi
 
 # Default Editor
 export EDITOR='nvim'

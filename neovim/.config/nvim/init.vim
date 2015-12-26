@@ -9,6 +9,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/echodoc.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'christoomey/vim-tmux-navigator'
@@ -67,20 +68,18 @@ set laststatus=2
 set breakindent
 set showmatch
 set autoindent
-set showbreak=…\
+set showbreak=↪︎\ 
 set clipboard=unnamed " system clipboard for yanking
 set noshowmode " airline shows the mode
 set hidden
 set shell=$SHELL " whatever is default. most probably zsh
-set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
-
+set listchars=tab:▸\ ,eol:¬,trail:⋅,space:\|,nbsp:␣,extends:❯,precedes:❮
 set scrolloff=2
 set sidescrolloff=5
 set history=1000
 set tabpagemax=50
 
 " Better Completion
-"set complete=.,w,b,u,t
 set completeopt-=preview
 set completeopt+=menuone
 
@@ -176,6 +175,9 @@ colorscheme gruvbox
 " }}}
 
 "  ##Plugin-Options {{{
+
+" Echodoc
+let g:echodoc_enable_at_startup = 1
 
 " Deoplete.nvim
 let g:deoplete#enable_at_startup = 1
@@ -296,6 +298,16 @@ let g:dirvish_relative_paths = 1
 " Remap Leader
 let mapleader = "\<space>"
 let maplocalleader = "\\"
+
+" Enter command line mode
+noremap <cr> :
+
+" make Enter/CR work normally in quickfix and command-window
+augroup enter_correctly
+  autocmd!
+  autocmd BufReadPost quickfix nnoremap <buffer> <cr> <cr>
+  autocmd CmdWinEnter * nnoremap <buffer> <cr> <cr>
+augroup END
 
 " move vertically by visual line
 nnoremap j gj
