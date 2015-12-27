@@ -213,9 +213,6 @@ let g:python_host_prog='/usr/local/bin/python2.7'
 let g:python3_host_prog='/usr/local/bin/python3'
 let g:UltiSnipsUsePythonVersion = 3
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
 " Limelight
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
