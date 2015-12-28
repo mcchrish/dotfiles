@@ -1,6 +1,12 @@
 # Source zgen
-if [[ -s "${HOME}/.zgen/zgen.zsh" ]]; then
-  source "${HOME}/.zgen/zgen.zsh"
+if [[ -z "${XDG_CACHE_HOME}" ]]; then
+  _zgen_dir="${ZDG_CONFIG_HOME}/zgen"
+else
+  _zgen_dir="${HOME}/.config/zgen"
+fi
+
+if [[ -s "${_zgen_dir}/zgen.zsh" ]]; then
+  source "${_zgen_dir}/zgen.zsh"
 fi
 
 if ! zgen saved; then
@@ -29,7 +35,6 @@ if ! zgen saved; then
   zgen prezto node
   zgen prezto python
   zgen prezto command-not-found
-  zgen prezto history
   zgen prezto utility
   zgen prezto completion
   zgen prezto syntax-highlighting
@@ -44,7 +49,11 @@ fi
 eval "$(jenv init -)"
 
 # Fasd
-fasd_cache="$HOME/.cache/fasd"
+if [[ ! -d "${XDG_CACHE_HOME}/fasd" ]]; then
+  mkdir -p "${XDG_CACHE_HOME}/fasd"
+fi
+
+fasd_cache="$XDG_CACHE_HOME/fasd/fasd_cache"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
   fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install posix-alias >| "$fasd_cache"
 fi
@@ -52,16 +61,16 @@ source "$fasd_cache"
 unset fasd_cache
 
 # For Gruvbox
-source "$HOME/.config/nvim/plugged/gruvbox/gruvbox_256palette.sh"
+source "$XDG_CONFIG_HOME/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 
 # Functions
-[[ -f ~/.zsh/functions.zsh ]] && source ~/.zsh/functions.zsh
+[[ -f "$XDG_CONFIG_HOME/zsh/functions.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/functions.zsh"
 
 # Completions
-[[ -f ~/.zsh/completions.zsh ]] && source ~/.zsh/completions.zsh
+[[ -f "$XDG_CONFIG_HOME/zsh/completions.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/completions.zsh"
 
 # Aliases
-[[ -f ~/.zsh/aliases.zsh ]] && source ~/.zsh/aliases.zsh
+[[ -f "$XDG_CONFIG_HOME/zsh/aliases.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 
 # Aliases
-[[ -f ~/.zsh/keybindings.zsh ]] && source ~/.zsh/keybindings.zsh
+[[ -f "$XDG_CONFIG_HOME/zsh/keybindings.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/keybindings.zsh"
