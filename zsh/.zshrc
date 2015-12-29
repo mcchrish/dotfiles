@@ -1,46 +1,62 @@
-# Source zgen
-if [[ -z "${XDG_CACHE_HOME}" ]]; then
-  _zgen_dir="${ZDG_CONFIG_HOME}/zgen"
+# fpaths
+fpath=(~/.zsh/Completion(N-/) $fpath)
+fpath=(~/.zsh/functions/*(N-/) $fpath)
+
+# Autoloads
+autoload -Uz url-quote-magic
+autoload -Uz colors; colors
+autoload -Uz compinit; compinit -u
+zle -N self-insert url-quote-magic
+
+# Shell options
+[[ -f "$XDG_CONFIG_HOME/zsh/shelloptions.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/shelloptions.zsh"
+
+
+# Check zplug location
+if [[ -z "${XDG_CONFIG_HOME}" ]]; then
+  _zplug_dir="${ZDG_CONFIG_HOME}/zplug"
 else
-  _zgen_dir="${HOME}/.config/zgen"
+  _zplug_dir="${HOME}/.config/zplug"
 fi
 
-if [[ -s "${_zgen_dir}/zgen.zsh" ]]; then
-  source "${_zgen_dir}/zgen.zsh"
+# Check if zplug is installed
+if [[ ! -d "${_zplug_dir}" ]]; then
+  curl -fLo "${_zplug_dir}/zplug" --create-dirs https://git.io/zplug
+  source "${_zplug_dir}/zplug" && zplug update --self
 fi
 
-if ! zgen saved; then
-  zgen prezto editor key-bindings 'emacs'
-  zgen prezto prompt theme 'pure'
-  zgen prezto editor dot-expansion 'yes'
-  zgen prezto '*:*' color 'yes'
-  zgen prezto syntax-highlighting highlighters \
-   'main' \
-   'brackets' \
-   'pattern' \
-   'cursor' \
-   'root'
-  zgen prezto terminal auto-title 'yes'
+if [[ -s "${_zplug_dir}/zplug" ]]; then
 
-  zgen prezto
-  zgen prezto environment
-  zgen prezto terminal
-  zgen prezto editor
-  zgen prezto directory
-  zgen prezto git
-  zgen prezto homebrew
-  zgen prezto utility
-  zgen prezto completion
-  zgen prezto syntax-highlighting
-  zgen prezto history-substring-search
-  zgen prezto prompt
+  source "${_zplug_dir}/zplug"
 
-  zgen save
+  # Prompt
+  zplug "mafredri/zsh-async"
+  zplug "sindresorhus/pure"
+
+  # Zsh Completions
+  zplug "zsh-users/zsh-completions"
+
+  # Syntax Highlighting
+  zplug "zsh-users/zsh-syntax-highlighting"
+  ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+
+  # History
+  zplug "zsh-users/zsh-history-substring-search", nice:10
+
+  # Install plugins if there are plugins that have not been installed
+  if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+      echo; zplug install
+    fi
+  fi
+
+  zplug load
+
 fi
-
 
 # Jenv
-eval "$(jenv init -)"
+# eval "$(jenv init -)"
 
 # Fasd
 if [[ ! -d "${XDG_CACHE_HOME}/fasd" ]]; then
@@ -66,5 +82,5 @@ source "$XDG_CONFIG_HOME/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 # Aliases
 [[ -f "$XDG_CONFIG_HOME/zsh/aliases.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
 
-# Aliases
+# Keybindings
 [[ -f "$XDG_CONFIG_HOME/zsh/keybindings.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/keybindings.zsh"
