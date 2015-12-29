@@ -61,6 +61,7 @@ npm install -g esformatter
 npm install -g eslint
 npm install -g less
 npm install -g pen.md
+npm install -g trash-cli
 
 // pip
 pip install neovim

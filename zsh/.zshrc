@@ -21,20 +21,14 @@ if ! zgen saved; then
    'cursor' \
    'root'
   zgen prezto terminal auto-title 'yes'
-  zgen prezto 'terminal:window-title' format '%n@%m: %s'
-  zgen prezto 'terminal:tab-title' format '%m: %s'
 
   zgen prezto
   zgen prezto environment
   zgen prezto terminal
   zgen prezto editor
   zgen prezto directory
-  zgen prezto osx
   zgen prezto git
   zgen prezto homebrew
-  zgen prezto node
-  zgen prezto python
-  zgen prezto command-not-found
   zgen prezto utility
   zgen prezto completion
   zgen prezto syntax-highlighting

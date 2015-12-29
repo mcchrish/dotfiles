@@ -11,16 +11,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # Android
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 
-# Setup fzf
-if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
-  _fzf_path="$HOME/.fzf/bin"
-fi
-
-# Fzf Man path
-if [[ ! "$MANPATH" == */Users/mclopez/.fzf/man* && -d "/Users/mclopez/.fzf/man" ]]; then
-  export MANPATH="$MANPATH:/Users/mclopez/.fzf/man"
-fi
-
 # PAGER
 export PAGER=less
 export LESS='-F -g -i -M -R -S -w -X -z-4'
@@ -44,6 +34,10 @@ export PASSWORD_STORE_DIR="$HOME/.password-store"
 # FZF
 export FZF_DEFAULT_COMMAND='ag -l -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+if [[ ! "$MANPATH" == *$HOME.fzf/man* && -d "$HOME.fzf/man" ]]; then
+  export MANPATH="$MANPATH:$HOME.fzf/man"
+fi
 
 # Postgres
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql/history"
@@ -80,13 +74,23 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing non-existent history.
 
+# Fzf path
+if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
+  _fzf_path="$HOME/.fzf/bin"
+fi
+
+# Jen path
+if [[ ! "$PATH" == *$HOME/.jenv/bin* ]]; then
+  _jenv_path="$HOME/.jenv/bin"
+fi
+
 # PATHs
 typeset -gU cdpath fpath mailpath path
 
 path=(
   /usr/local/{bin,sbin}
   $ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-  $HOME/.jenv/bin
+  $_jenv_path
   $_fzf_path
   $path
 )
