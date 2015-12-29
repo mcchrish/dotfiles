@@ -3,9 +3,10 @@ fpath=(~/.zsh/Completion(N-/) $fpath)
 fpath=(~/.zsh/functions/*(N-/) $fpath)
 
 # Autoloads
-autoload -Uz url-quote-magic
 autoload -Uz colors; colors
+autoload history-search-end
 autoload -Uz compinit; compinit -u
+autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
 
 # Shell options
@@ -44,12 +45,7 @@ if [[ -s "${_zplug_dir}/zplug" ]]; then
   zplug "zsh-users/zsh-history-substring-search", nice:10
 
   # Install plugins if there are plugins that have not been installed
-  if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-      echo; zplug install
-    fi
-  fi
+  zplug check || zplug install
 
   zplug load
 

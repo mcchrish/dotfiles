@@ -1,3 +1,8 @@
+# General
+alias mkdir="nocorrect mkdir -p"
+alias mv='nocorrect mv'
+alias cp='nocorrect cp'
+
 # Cmus
 alias cmus="cmus 2> /dev/null"
 alias cplay="cmus-remote --play"
@@ -19,9 +24,62 @@ alias say="say -v Daniel"
 alias mtr="meteor"
 alias rng="ranger"
 alias py="python"
-alias g="git"
 alias cask="brew cask"
-alias mkdir="nocorrect mkdir -p"
+
+#
+# Git
+#
+
+# Branch
+alias g="git"
+alias gb="git branch"
+alias gbc='git checkout -b'
+alias gbx='git branch -d'
+alias gbX='git branch -D'
+
+# Commit
+alias gc='git commit --verbose'
+alias gco='git checkout'
+alias gcA='git commit --amend --reuse-message HEAD'
+
+# Reset
+alias gcr='git checkout --ours --'
+
+# Files
+alias gls='git ls-files'
+
+# Fetch
+alias gf='git fetch'
+alias gpl='git pull'
+
+# Index
+alias ga='git add'
+
+# Log
+alias gl='git log --topo-order --pretty=format:"${_git_log_medium_format}"'
+
+# Merge
+alias gm='git merge'
+
+# Push
+alias gps='git push'
+
+# Rebase
+alias gr='git rebase'
+alias gra='git rebase --abort'
+alias grc='git rebase --continue'
+
+# Stash
+alias gs='git stash'
+alias gsa='git stash apply'
+alias gsx='git stash drop'
+alias gsp='git stash pop'
+
+# Status
+alias gst="git status --short"
+alias gsT="git status"
+alias gd="git diff"
+
 
 # ls
 alias ls="ls -G"
