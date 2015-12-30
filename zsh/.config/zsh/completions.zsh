@@ -12,7 +12,7 @@ _fzf_complete_pass() {
 [ -n "$BASH" ] && complete -F _fzf_complete_pass -o default -o bashdefault pass
 
 # FZF Auto-completion
-[[ $- == *i* ]] && source "/Users/mclopez/.fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "${HOME}/.fzf/shell/completion.zsh" 2> /dev/null
 
 
 #

@@ -2,33 +2,48 @@
 fpath=(~/.zsh/Completion(N-/) $fpath)
 fpath=(~/.zsh/functions/*(N-/) $fpath)
 
+#
 # Autoloads
+#
+
+# General
 autoload -Uz colors; colors
 autoload history-search-end
+
+# Completions
 autoload -Uz compinit; compinit -u
+
+# Smart Url
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
 
-# Shell options
-[[ -f "$XDG_CONFIG_HOME/zsh/shelloptions.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/shelloptions.zsh"
+# Edit command line with EDITOR
+autoload -Uz edit-command-line
+zle -N edit-command-line
 
+# Shell options
+[[ -f "$source_dir/shelloptions.zsh" ]] && source "$source_dir/shelloptions.zsh"
+
+#
+# zplug
+#
 
 # Check zplug location
 if [[ -z "${XDG_CONFIG_HOME}" ]]; then
-  _zplug_dir="${ZDG_CONFIG_HOME}/zplug"
+  zplug_dir="${ZDG_CONFIG_HOME}/zplug"
 else
-  _zplug_dir="${HOME}/.config/zplug"
+  zplug_dir="${HOME}/.config/zplug"
 fi
 
 # Check if zplug is installed
-if [[ ! -d "${_zplug_dir}" ]]; then
-  curl -fLo "${_zplug_dir}/zplug" --create-dirs https://git.io/zplug
-  source "${_zplug_dir}/zplug" && zplug update --self
+if [[ ! -d "${zplug_dir}" ]]; then
+  curl -fLo "${zplug_dir}/zplug" --create-dirs https://git.io/zplug
+  source "${zplug_dir}/zplug" && zplug update --self
 fi
 
-if [[ -s "${_zplug_dir}/zplug" ]]; then
+if [[ -s "${zplug_dir}/zplug" ]]; then
 
-  source "${_zplug_dir}/zplug"
+  source "${zplug_dir}/zplug"
 
   # Prompt
   zplug "mafredri/zsh-async"
@@ -69,14 +84,16 @@ unset fasd_cache
 # For Gruvbox
 source "$XDG_CONFIG_HOME/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 
+source_dir="$XDG_CONFIG_HOME/zsh"
+
 # Functions
-[[ -f "$XDG_CONFIG_HOME/zsh/functions.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/functions.zsh"
+[[ -f "$source_dir/functions.zsh" ]] && source "$source_dir/functions.zsh"
 
 # Completions
-[[ -f "$XDG_CONFIG_HOME/zsh/completions.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/completions.zsh"
+[[ -f "$source_dir/completions.zsh" ]] && source "$source_dir/completions.zsh"
 
 # Aliases
-[[ -f "$XDG_CONFIG_HOME/zsh/aliases.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/aliases.zsh"
+[[ -f "$source_dir/aliases.zsh" ]] && source "$source_dir/aliases.zsh"
 
 # Keybindings
-[[ -f "$XDG_CONFIG_HOME/zsh/keybindings.zsh" ]] && source "$XDG_CONFIG_HOME/zsh/keybindings.zsh"
+[[ -f "$source_dir/keybindings.zsh" ]] && source "$source_dir/keybindings.zsh"

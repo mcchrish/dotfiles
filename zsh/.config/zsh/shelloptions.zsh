@@ -1,3 +1,4 @@
+# General
 setopt BRACE_CCL          # Allow brace character class list expansion.
 setopt LONG_LIST_JOBS     # List jobs in the long format by default.
 setopt AUTO_RESUME        # Attempt to resume existing job before creating a new process.
@@ -5,6 +6,7 @@ setopt NOTIFY             # Report status of background jobs immediately.
 unsetopt BG_NICE          # Don't run all background jobs at a lower priority.
 unsetopt HUP              # Don't kill jobs on shell exit.
 unsetopt CHECK_JOBS       # Don't report on jobs when shell exit.
+setopt CORRECT            # Corrent command
 
 # Directories
 setopt AUTO_CD              # Auto changes to a directory without typing cd.
@@ -19,6 +21,7 @@ setopt EXTENDED_GLOB        # Use extended globbing syntax.
 unsetopt CLOBBER            # Do not overwrite existing files with > and >>.
                             # Use >! and >>! to bypass
 
+# History
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
@@ -32,6 +35,7 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing non-existent history.
 
+# Completions
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
 setopt ALWAYS_TO_END       # Move cursor to the end of a completed word.
 setopt PATH_DIRS           # Perform path search even on command names with slashes.
@@ -40,4 +44,3 @@ setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
 setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a trailing slash.
 unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor.
-
