@@ -11,14 +11,10 @@ _fzf_complete_pass() {
 
 [ -n "$BASH" ] && complete -F _fzf_complete_pass -o default -o bashdefault pass
 
-# FZF Auto-completion
-[[ $- == *i* ]] && source "${HOME}/.fzf/shell/completion.zsh" 2> /dev/null
-
 
 #
 # Styles options
 #
-
 
 unsetopt CASE_GLOB
 
@@ -105,3 +101,8 @@ zstyle ':completion:*:*:kill:*' insert-ids single
 # Man
 zstyle ':completion:*:manuals' separate-sections true
 zstyle ':completion:*:manuals.(^1*)' insert-sections true
+
+
+# FZF Auto-completion
+[[ $- == *i* ]] && source "${HOME}/.fzf/shell/completion.zsh" 2> /dev/null
+
