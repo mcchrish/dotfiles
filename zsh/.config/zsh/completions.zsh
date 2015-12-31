@@ -19,9 +19,13 @@ _fzf_complete_pass() {
 # Styles options
 #
 
+
+unsetopt CASE_GLOB
+
 # Use caching to make completion for commands such as dpkg and apt usable.
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "${XDG_CACHE_HOME}/zsh/compcache"
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # Group matches and describe.
 zstyle ':completion:*:*:*:*:*' menu select

@@ -3,6 +3,9 @@ alias mkdir="nocorrect mkdir -p"
 alias mv="nocorrect mv"
 alias cp="nocorrect cp"
 alias -g L="| less"
+alias -g F="| fpp"
+alias du="du -h"
+alias df="df -h"
 
 # Cmus
 alias cmus="cmus 2> /dev/null"

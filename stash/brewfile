@@ -11,10 +11,12 @@ brew install curl
 brew install dos2unix
 brew install cmus --HEAD --with-ffmpeg --with-jack
 brew install fasd
+brew install fpp
 brew install fzf
 brew install git
 brew install jenv
 brew install macvim --with-lua --with-luajit --with-override-system-vim
+brew install mosh
 brew install neovim --HEAD
 brew install neovim-dot-app
 brew install node

@@ -10,9 +10,6 @@ fpath=(~/.zsh/functions/*(N-/) $fpath)
 autoload -Uz colors; colors
 autoload history-search-end
 
-# Completions
-autoload -Uz compinit; compinit -u
-
 # Smart Url
 autoload -Uz url-quote-magic
 zle -N self-insert url-quote-magic
@@ -86,6 +83,9 @@ source "$XDG_CONFIG_HOME/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 
 source_dir="$XDG_CONFIG_HOME/zsh"
 
+# Keybindings
+[[ -f "$source_dir/keybindings.zsh" ]] && source "$source_dir/keybindings.zsh"
+
 # Functions
 [[ -f "$source_dir/functions.zsh" ]] && source "$source_dir/functions.zsh"
 
@@ -94,6 +94,3 @@ source_dir="$XDG_CONFIG_HOME/zsh"
 
 # Aliases
 [[ -f "$source_dir/aliases.zsh" ]] && source "$source_dir/aliases.zsh"
-
-# Keybindings
-[[ -f "$source_dir/keybindings.zsh" ]] && source "$source_dir/keybindings.zsh"

@@ -1,12 +1,21 @@
 # Language
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
-fi
+export LANGUAGE="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
 # XDG
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
+if [[ -z "$XDG_CONFIG_HOME" ]]; then
+  export XDG_CONFIG_HOME="$HOME/.config"
+fi
+
+if [[ -z "$XDG_CACHE_HOME" ]]; then
+  export XDG_CACHE_HOME="$HOME/.cache"
+fi
+
+if [[ -z "$XDG_DATA_HOME" ]]; then
+  export XDG_DATA_HOME="$HOME/.local/share"
+fi
 
 # Android
 export ANDROID_HOME="$HOME/Library/Android/sdk"
@@ -43,8 +52,19 @@ export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 # Pass
 export PASSWORD_STORE_DIR="$HOME/.password-store"
 
+# npm
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+
+# Ruby gems
+export GEM_PATH="$XDG_DATA_HOME/gem"
+
+# Atom Editor
+export ATOM_HOME="$XDG_CONFIG_HOME/atom"
+
+
 # FZF
-export FZF_DEFAULT_COMMAND='ag -l -g ""'
+export FZF_DEFAULT_COMMAND='ag -l --hidden --path-to-agignore="$XDG_CONFIG_HOME/ag/fzfignore" -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 if [[ ! "$MANPATH" == *$HOME.fzf/man* && -d "$HOME.fzf/man" ]]; then
@@ -53,6 +73,9 @@ fi
 
 # Postgres
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql/history"
+
+# Httpie
+export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 
 # Mail
 export MBOX="$XDG_DATA_HOME/mail/mbox"
