@@ -18,6 +18,9 @@ zle -N self-insert url-quote-magic
 autoload -Uz edit-command-line
 zle -N edit-command-line
 
+
+source_dir="$XDG_CONFIG_HOME/zsh"
+
 # Shell options
 [[ -f "$source_dir/shelloptions.zsh" ]] && source "$source_dir/shelloptions.zsh"
 
@@ -80,8 +83,6 @@ unset fasd_cache
 
 # For Gruvbox
 source "$XDG_CONFIG_HOME/nvim/plugged/gruvbox/gruvbox_256palette.sh"
-
-source_dir="$XDG_CONFIG_HOME/zsh"
 
 # Keybindings
 [[ -f "$source_dir/keybindings.zsh" ]] && source "$source_dir/keybindings.zsh"

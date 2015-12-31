@@ -6,7 +6,6 @@ setopt NOTIFY             # Report status of background jobs immediately.
 unsetopt BG_NICE          # Don't run all background jobs at a lower priority.
 unsetopt HUP              # Don't kill jobs on shell exit.
 unsetopt CHECK_JOBS       # Don't report on jobs when shell exit.
-setopt CORRECT            # Corrent command
 
 # Directories
 setopt AUTO_CD              # Auto changes to a directory without typing cd.
@@ -44,3 +43,5 @@ setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
 setopt AUTO_PARAM_SLASH    # If completed parameter is a directory, add a trailing slash.
 unsetopt MENU_COMPLETE     # Do not autoselect the first completion entry.
 unsetopt FLOW_CONTROL      # Disable start/stop characters in shell editor.
+
+setopt CORRECT            # Corrent command
