@@ -49,6 +49,10 @@ export VISUAL='nvim'
 # gnupg
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 
+# Terminfo / ncurses
+export TERMINFO="$XDG_DATA_HOME/terminfo"
+export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
+
 # Pass
 export PASSWORD_STORE_DIR="$HOME/.password-store"
 
@@ -56,12 +60,8 @@ export PASSWORD_STORE_DIR="$HOME/.password-store"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
-# Ruby gems
-export GEM_PATH="$XDG_DATA_HOME/gem"
-
 # Atom Editor
 export ATOM_HOME="$XDG_CONFIG_HOME/atom"
-
 
 # FZF
 export FZF_DEFAULT_COMMAND='ag -l --hidden --path-to-agignore="$XDG_CONFIG_HOME/ag/fzfignore" -g ""'
@@ -80,9 +80,6 @@ export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 # Mail
 export MBOX="$XDG_DATA_HOME/mail/mbox"
 
-# Remove delay
-export KEYTIMEOUT=1
-
 # Zgen
 export ZGEN_DIR="$XDG_CONFIG_HOME/zgen"
 export ZGEN_PREZTO_LOAD_DEFAULT=0
@@ -99,14 +96,17 @@ export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
+# Remove delay
+export KEYTIMEOUT=1
+
 # Fzf path
 if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
-  _fzf_path="$HOME/.fzf/bin"
+  fzf_path="$HOME/.fzf/bin"
 fi
 
 # Jen path
 if [[ ! "$PATH" == *$HOME/.jenv/bin* ]]; then
-  _jenv_path="$HOME/.jenv/bin"
+  jenv_path="$HOME/.jenv/bin"
 fi
 
 # PATHs
@@ -115,7 +115,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
   /usr/local/{bin,sbin}
   $ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-  $_jenv_path
-  $_fzf_path
+  $jenv_path
+  $fzf_path
   $path
 )

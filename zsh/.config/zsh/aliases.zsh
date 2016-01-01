@@ -2,10 +2,16 @@
 alias mkdir="nocorrect mkdir -p"
 alias mv="nocorrect mv"
 alias cp="nocorrect cp"
-alias -g L="| less"
-alias -g F="| fpp"
 alias du="du -h"
 alias df="df -h"
+alias sudo="sudo "
+
+# Quick piping
+alias -g L="| less"
+alias -g F="| fpp"
+alias -g Z="| fzf"
+alias -g G="| ag"
+alias -g C="| pbcopy"
 
 # Cmus
 alias cmus="cmus 2> /dev/null"
