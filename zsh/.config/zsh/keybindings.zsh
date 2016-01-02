@@ -1,6 +1,3 @@
-# Emacs is better in cli
-bindkey -e
-
 # Use vim-like keys for history substring
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
@@ -23,6 +20,3 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
-
-# FZF
-source "${HOME}/.fzf/shell/key-bindings.zsh"

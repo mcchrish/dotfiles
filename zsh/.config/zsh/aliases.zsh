@@ -2,6 +2,9 @@
 alias mkdir="nocorrect mkdir -p"
 alias mv="nocorrect mv"
 alias cp="nocorrect cp"
+alias rm="nocorrect rm"
+alias man="nocorrect man"
+alias ln="nocorrect ln"
 alias du="du -h"
 alias df="df -h"
 alias sudo="sudo "
@@ -31,9 +34,8 @@ alias tkill="tmux kill-session -t"
 
 # Cd
 alias ".."="cd .."
-alias -g ...="../.."
-alias -g ....="../../.."
-alias -g .....="../../../.."
+alias cdh="~"
+alias j="cd -"
 
 # Misc
 alias say="say -v Daniel"
@@ -41,7 +43,6 @@ alias mtr="meteor"
 alias rng="ranger"
 alias py="python"
 alias cask="brew cask"
-alias j="z"
 
 #
 # Git

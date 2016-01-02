@@ -200,7 +200,7 @@ let g:dirvish_relative_paths = 1
 " }}}
 
 " fzf {{{
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
@@ -437,6 +437,7 @@ function! Refresh()
   checktime
   redraw
   nohlsearch
+  AirlineRefresh
   echo 'Refreshed'
 endfunction
 

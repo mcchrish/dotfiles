@@ -1,18 +1,3 @@
-#Suggested by @l4u and @epiloque
-# V
-nv() {
-  local file
-  file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && nvim "${file}" || return 1
-}
-
-#Suggested by @l4u and @epiloque
-# Z
-unalias z
-z() {
-  local dir
-  dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
-}
-
 # Git
 
 # fshow - git commit browser

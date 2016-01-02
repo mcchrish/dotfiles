@@ -17,6 +17,9 @@ if [[ -z "$XDG_DATA_HOME" ]]; then
   export XDG_DATA_HOME="$HOME/.local/share"
 fi
 
+# Zplug
+export ZPLUG_HOME="$XDG_CONFIG_HOME/zplug"
+
 # Android
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 
@@ -60,6 +63,13 @@ export PASSWORD_STORE_DIR="$HOME/.password-store"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
+# Node
+if [[ ! -d "${XDG_DATA_HOME}/node" ]]; then
+  mkdir -p "${XDG_DATA_HOME}/node"
+fi
+
+export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node/repl_history"
+
 # Atom Editor
 export ATOM_HOME="$XDG_CONFIG_HOME/atom"
 
@@ -67,8 +77,12 @@ export ATOM_HOME="$XDG_CONFIG_HOME/atom"
 export FZF_DEFAULT_COMMAND='ag -l --hidden --path-to-agignore="$XDG_CONFIG_HOME/ag/fzfignore" -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-if [[ ! "$MANPATH" == *$HOME.fzf/man* && -d "$HOME.fzf/man" ]]; then
-  export MANPATH="$MANPATH:$HOME.fzf/man"
+# Enhancd
+# export ENHANCD_COMMAND=ecd
+
+fzf_man="$ZPLUG_HOME/repos/junegunn/fzf/man"
+if [[ ! "$MANPATH" == *$fzf_man* && -d "$fzf_man" ]]; then
+  export MANPATH="$MANPATH:$fzf_man"
 fi
 
 # Postgres
@@ -79,13 +93,6 @@ export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 
 # Mail
 export MBOX="$XDG_DATA_HOME/mail/mbox"
-
-# Zgen
-export ZGEN_DIR="$XDG_CONFIG_HOME/zgen"
-export ZGEN_PREZTO_LOAD_DEFAULT=0
-
-# Zplug
-export ZPLUG_HOME="$XDG_CONFIG_HOME/zplug"
 
 # Zsh
 if [[ ! -d "${XDG_DATA_HOME}/zsh" ]]; then
@@ -99,11 +106,6 @@ export SAVEHIST=10000
 # Remove delay
 export KEYTIMEOUT=1
 
-# Fzf path
-if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
-  fzf_path="$HOME/.fzf/bin"
-fi
-
 # Jen path
 if [[ ! "$PATH" == *$HOME/.jenv/bin* ]]; then
   jenv_path="$HOME/.jenv/bin"
@@ -116,6 +118,5 @@ path=(
   /usr/local/{bin,sbin}
   $ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
   $jenv_path
-  $fzf_path
   $path
 )

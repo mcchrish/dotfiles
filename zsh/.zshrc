@@ -18,6 +18,9 @@ zle -N self-insert url-quote-magic
 autoload -Uz edit-command-line
 zle -N edit-command-line
 
+# Emacs is better in cli
+bindkey -e
+
 
 source_dir="$XDG_CONFIG_HOME/zsh"
 
@@ -49,6 +52,32 @@ if [[ -s "${zplug_dir}/zplug" ]]; then
   zplug "mafredri/zsh-async"
   zplug "sindresorhus/pure"
 
+  # Improved cd
+  zplug "b4b4r07/enhancd", of:enhancd.sh
+
+  # Fuzzy filter
+  zplug "junegunn/fzf", \
+    as:command, \
+    do:"./install --bin", \
+    of:"bin/fzf", \
+    file:fzf \
+
+  zplug "junegunn/fzf", \
+    as:command, \
+    of:"bin/fzf-tmux", \
+    file:fzf-tmux \
+
+  zplug "junegunn/fzf", \
+    as:plugin, \
+    of:"shell/completion.zsh", \
+    nice: 12
+
+  zplug "junegunn/fzf", \
+    as:plugin, \
+    of:"shell/key-bindings.zsh", \
+    nice: 13
+
+
   # Zsh Completions
   zplug "zsh-users/zsh-completions"
 
@@ -69,20 +98,11 @@ fi
 # Jenv
 # eval "$(jenv init -)"
 
-# Fasd
-if [[ ! -d "${XDG_CACHE_HOME}/fasd" ]]; then
-  mkdir -p "${XDG_CACHE_HOME}/fasd"
-fi
-
-fasd_cache="$XDG_CACHE_HOME/fasd/fasd_cache"
-if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-  fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install posix-alias >| "$fasd_cache"
-fi
-source "$fasd_cache"
-unset fasd_cache
-
 # For Gruvbox
 source "$XDG_CONFIG_HOME/nvim/plugged/gruvbox/gruvbox_256palette.sh"
+
+# Completions
+[[ -f "$source_dir/completions.zsh" ]] && source "$source_dir/completions.zsh"
 
 # Keybindings
 [[ -f "$source_dir/keybindings.zsh" ]] && source "$source_dir/keybindings.zsh"
@@ -90,8 +110,9 @@ source "$XDG_CONFIG_HOME/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 # Functions
 [[ -f "$source_dir/functions.zsh" ]] && source "$source_dir/functions.zsh"
 
-# Completions
-[[ -f "$source_dir/completions.zsh" ]] && source "$source_dir/completions.zsh"
-
 # Aliases
 [[ -f "$source_dir/aliases.zsh" ]] && source "$source_dir/aliases.zsh"
+
+# enhancd bug workaround
+export ENHANCD_DIR="$XDG_CACHE_HOME/enhancd"
+export ENHANCD_LOG="$ENHANCD_DIR/enhancd.log"
