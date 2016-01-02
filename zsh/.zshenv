@@ -78,12 +78,13 @@ export FZF_DEFAULT_COMMAND='ag -l --hidden --path-to-agignore="$XDG_CONFIG_HOME/
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Enhancd
-# export ENHANCD_COMMAND=ecd
+export ENHANCD_DIR="$XDG_CACHE_HOME/enhancd"
 
 fzf_man="$ZPLUG_HOME/repos/junegunn/fzf/man"
 if [[ ! "$MANPATH" == *$fzf_man* && -d "$fzf_man" ]]; then
   export MANPATH="$MANPATH:$fzf_man"
 fi
+unset fzf_man
 
 # Postgres
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql/history"
@@ -106,17 +107,13 @@ export SAVEHIST=10000
 # Remove delay
 export KEYTIMEOUT=1
 
-# Jen path
-if [[ ! "$PATH" == *$HOME/.jenv/bin* ]]; then
-  jenv_path="$HOME/.jenv/bin"
-fi
-
 # PATHs
-typeset -gU cdpath fpath mailpath path
-
 path=(
   /usr/local/{bin,sbin}
   $ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-  $jenv_path
+  $HOME/.jenv/bin
   $path
 )
+
+# Ensure unique path
+typeset -gU cdpath fpath mailpath path
