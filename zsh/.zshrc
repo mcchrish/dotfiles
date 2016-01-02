@@ -52,41 +52,39 @@ if [[ -s "${zplug_dir}/zplug" ]]; then
   zplug "mafredri/zsh-async"
   zplug "sindresorhus/pure"
 
-  # Improved cd
-  zplug "b4b4r07/enhancd", of:enhancd.sh
-
   # Fuzzy filter
+  zplug "junegunn/fzf", \
+    of:"shell/key-bindings.zsh" \
+
+  zplug "junegunn/fzf", \
+    of:"shell/completion.zsh" \
+
   zplug "junegunn/fzf", \
     as:command, \
     do:"./install --bin", \
-    of:"bin/fzf", \
-    file:fzf \
+    of:"bin/fzf-tmux", \
+    file:fzf-tmux, \
+    nice:11
 
   zplug "junegunn/fzf", \
     as:command, \
-    of:"bin/fzf-tmux", \
-    file:fzf-tmux \
+    of:"bin/fzf", \
+    file:fzf, \
+    nice:12
 
-  zplug "junegunn/fzf", \
-    as:plugin, \
-    of:"shell/completion.zsh", \
-    nice: 12
-
-  zplug "junegunn/fzf", \
-    as:plugin, \
-    of:"shell/key-bindings.zsh", \
-    nice: 13
-
+  # Improved cd
+  ENHANCD_DISABLE_DOT=1
+  zplug "b4b4r07/enhancd", of:enhancd.sh
 
   # Zsh Completions
   zplug "zsh-users/zsh-completions"
 
-  # Syntax Highlighting
-  zplug "zsh-users/zsh-syntax-highlighting"
-  ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
-
   # History
-  zplug "zsh-users/zsh-history-substring-search", nice:10
+  zplug "zsh-users/zsh-history-substring-search"
+
+  # Syntax Highlighting
+  ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+  zplug "zsh-users/zsh-syntax-highlighting", nice:18
 
   # Install plugins if there are plugins that have not been installed
   zplug check || zplug install
@@ -94,6 +92,8 @@ if [[ -s "${zplug_dir}/zplug" ]]; then
   zplug load
 
 fi
+
+unset zplug_dir
 
 # Jenv
 # eval "$(jenv init -)"
@@ -113,6 +113,7 @@ source "$XDG_CONFIG_HOME/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 # Aliases
 [[ -f "$source_dir/aliases.zsh" ]] && source "$source_dir/aliases.zsh"
 
-# enhancd bug workaround
-export ENHANCD_DIR="$XDG_CACHE_HOME/enhancd"
-export ENHANCD_LOG="$ENHANCD_DIR/enhancd.log"
+unset source_dir
+
+# Ensure unique path
+typeset -gU cdpath fpath mailpath path
