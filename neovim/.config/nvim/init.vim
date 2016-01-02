@@ -60,8 +60,6 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 nmap <silent> <bs> :<c-u>TmuxNavigateLeft<cr>
 
 " Persistent undo and swap files directory
-" let s:dir = $XDG_DATA_HOME.'/nvim'
-" let &undodir = expand(s:dir, 1).'/undo'.&undodir
 set undofile
 
 " }}}
@@ -209,6 +207,16 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 
+let g:fzf#vim#default_layout = {'down': '~40%'}
+
+command! -nargs=* AgAll call fzf#vim#ag(<q-args>,
+      \ '--hidden --path-to-agignore="'.$XDG_CONFIG_HOME.'/ag/fzfignore"',
+      \ { 'options': '--ansi --delimiter : --nth 4..,.. --prompt "Ag> " '.
+      \            '--multi --bind ctrl-a:select-all,ctrl-d:deselect-all '.
+      \            '--color hl:68,hl+:110', 'down': '~40%' })
+
+nnoremap <silent> <leader>A :AgAll<CR>
+
 nnoremap <silent> <leader>f :FzfFiles<CR>
 nnoremap <silent> <leader>a :FzfAg<CR>
 nnoremap <silent> <leader>b :FzfBuffers<CR>
@@ -355,22 +363,23 @@ let g:limelight_conceal_ctermfg = 240
 " }}}
 
 " incsearch.vim {{{
-Plug 'haya14busa/incsearch.vim'
+" Not working properly in neovim
+" Plug 'haya14busa/incsearch.vim'
 
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+" map /  <Plug>(incsearch-forward)
+" map ?  <Plug>(incsearch-backward)
+" map g/ <Plug>(incsearch-stay)
 
-" auto noh
-let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
+" " auto noh
+" let g:incsearch#auto_nohlsearch = 1
+" map n  <Plug>(incsearch-nohl-n)
+" map N  <Plug>(incsearch-nohl-N)
+" map *  <Plug>(incsearch-nohl-*)
+" map #  <Plug>(incsearch-nohl-#)
+" map g* <Plug>(incsearch-nohl-g*)
+" map g# <Plug>(incsearch-nohl-g#)
 
-let g:incsearch#separate_highlight = 1
+" let g:incsearch#separate_highlight = 1
 
 " }}}
 
