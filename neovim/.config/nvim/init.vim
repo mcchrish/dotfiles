@@ -321,8 +321,8 @@ let g:airline#extensions#whitespace#trailing_format = '|| :%s'
 let g:airline#extensions#whitespace#mixed_indent_format = '>> :%s'
 let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
 
-" let g:airline#extensions#wordcount#filetypes = [ 'markdown', 'text', 'help', 'fountain' ]
-let g:airline#extensions#wordcount#filetypes = '\vhelp|markdown|rst|org|fountain'
+let g:airline#extensions#wordcount#filetypes = '\vmarkdown|rst|org|fountain'
+let g:airline#extensions#wordcount#format = '%d w'
 
 " }}}
 
