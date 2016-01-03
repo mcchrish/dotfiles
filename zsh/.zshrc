@@ -31,22 +31,15 @@ source_dir="$XDG_CONFIG_HOME/zsh"
 # zplug
 #
 
-# Check zplug location
-if [[ -z "${XDG_CONFIG_HOME}" ]]; then
-  zplug_dir="${ZDG_CONFIG_HOME}/zplug"
-else
-  zplug_dir="${HOME}/.config/zplug"
-fi
-
 # Check if zplug is installed
-if [[ ! -d "${zplug_dir}" ]]; then
-  curl -fLo "${zplug_dir}/zplug" --create-dirs https://git.io/zplug
-  source "${zplug_dir}/zplug" && zplug update --self
+if [[ ! -d "$ZPLUG_HOME" ]]; then
+  curl -fLo "$ZPLUG_HOME/zplug" --create-dirs https://git.io/zplug
+  source "$ZPLUG_HOME/zplug" && zplug update --self
 fi
 
-if [[ -s "${zplug_dir}/zplug" ]]; then
+if [[ -s "$ZPLUG_HOME/zplug" ]]; then
 
-  source "${zplug_dir}/zplug"
+  source "$ZPLUG_HOME/zplug"
 
   # Prompt
   zplug "mafredri/zsh-async"
@@ -54,17 +47,17 @@ if [[ -s "${zplug_dir}/zplug" ]]; then
 
   # Fuzzy filter
   zplug "junegunn/fzf", \
-    of:"shell/key-bindings.zsh" \
-
-  zplug "junegunn/fzf", \
-    of:"shell/completion.zsh" \
-
-  zplug "junegunn/fzf", \
     as:command, \
     do:"./install --bin", \
     of:"bin/fzf-tmux", \
     file:fzf-tmux, \
     nice:11
+
+  zplug "junegunn/fzf", \
+    of:"shell/key-bindings.zsh" \
+
+  zplug "junegunn/fzf", \
+    of:"shell/completion.zsh" \
 
   zplug "junegunn/fzf", \
     as:command, \
@@ -92,8 +85,6 @@ if [[ -s "${zplug_dir}/zplug" ]]; then
   zplug load
 
 fi
-
-unset zplug_dir
 
 # Jenv
 # eval "$(jenv init -)"

@@ -34,8 +34,8 @@ alias tkill="tmux kill-session -t"
 
 # Cd
 alias ".."="cd .."
-alias ....="cd ../.."
-alias ......="cd ../../.."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 alias cdh="~"
 alias j="cd -"
 
