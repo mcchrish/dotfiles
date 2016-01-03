@@ -39,13 +39,13 @@ set completeopt+=menuone
 " Resize splits when the window is resized
 autocmd VimResized * :wincmd =
 
-" Indentation
+" Indentation, 2 spaces no tabs
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
 set expandtab
 
-" wrapping
+" Wrapping
 set wrap
 set linebreak
 set textwidth=80
@@ -126,6 +126,9 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
+" Remove search highlight
+nnoremap <silent> <leader><CR> :nohlsearch<CR>
+
 " }}}
 
 " ##Plugins {{{
@@ -155,7 +158,9 @@ let g:deoplete#enable_auto_pairs = 0
 if !exists('g:deoplete#keyword_patterns')
   let g:deoplete#keyword_patterns = {}
 endif
+
 let g:deoplete#keyword_patterns['default'] = '\h\w*'
+
 if !exists('g:deoplete#omni_patterns')
   let g:deoplete#omni_patterns = {}
 endif
@@ -166,7 +171,6 @@ endif
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
 let g:deoplete#omni_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
-autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#smart_auto_mappings = 0
@@ -270,9 +274,6 @@ let g:neomake_warning_sign = {
       \ 'text': '⚠',
       \ 'texthl': 'SyntasticWarningSign',
       \ }
-
-autocmd! BufWritePost * Neomake
-autocmd! BufRead * Neomake
 " }}}
 
 Plug 'tomtom/tcomment_vim'
@@ -290,6 +291,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
+" No powerline for latest Fira Mono
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_left_alt_sep = '|'
@@ -317,10 +319,12 @@ let g:airline_mode_map = {
       \ '' : 'S',
       \ }
 
+" Shorter error status line
 let g:airline#extensions#whitespace#trailing_format = '|| :%s'
 let g:airline#extensions#whitespace#mixed_indent_format = '>> :%s'
 let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
 
+" Include fountain word count
 let g:airline#extensions#wordcount#filetypes = '\vmarkdown|rst|org|fountain'
 let g:airline#extensions#wordcount#format = '%d w'
 
@@ -336,13 +340,15 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'html'] }
 
+Plug 'othree/html5.vim', { 'for': 'html' }
+
 " javascript-libraries-syntax.vim {{{
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 let g:used_javascript_libs = 'jquery,underscore,requirejs,handlebars'
 " }}}
 
 " vim-esformatter {{{
-Plug 'millermedeiros/vim-esformatter', { 'for': 'javascript'}
+Plug 'millermedeiros/vim-esformatter', { 'for': 'javascript' }
 nnoremap <silent> <leader>es :Esformatter<CR>
 vnoremap <silent> <leader>es :EsformatterVisual<CR>
 " }}}
@@ -351,11 +357,8 @@ Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
 
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 
-Plug 'othree/html5.vim', { 'for': 'html' }
-
-" vim-mustache-handlebars {{{
+" vim-mustasche-handlebars {{{
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
-
 let g:mustache_abbreviations = 1
 " }}}
 
@@ -370,7 +373,6 @@ let python_highlight_all = 1
 Plug 'mattn/emmet-vim'
 
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,htmldjango,scss,less EmmetInstall
 let g:user_emmet_leader_key='<C-A>'
 " }}}
 
@@ -410,13 +412,14 @@ let g:limelight_conceal_ctermfg = 240
 " vim-pencil {{{
 Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown', 'text'] }
 let g:pencil#wrapModeDefault = 'soft'
-Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
 " }}}
+
+Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
 
 call plug#end()
 " }}}
 
-" On Plugin loaded {{{
+" ##On Plugin loaded {{{
 
 " gruvbox
 colorscheme gruvbox
@@ -424,6 +427,10 @@ colorscheme gruvbox
 " airline
 let g:airline_section_y = airline#section#create(['tagbar', 'filetype'])
 
+" Neomake
+" Check syntax on file open and write
+autocmd! BufWritePost * Neomake
+autocmd! BufRead * Neomake
 " }}}
 
 " ##Functions {{{
@@ -469,9 +476,8 @@ endfunction
 function! Refresh()
   checktime
   redraw
-  nohlsearch
   AirlineRefresh
-  echo 'Refreshed'
+  echo 'Refreshed!'
 endfunction
 
 nnoremap <silent> <f5> :call Refresh()<CR>
@@ -512,6 +518,7 @@ augroup ft_html
   autocmd!
   autocmd FileType html setlocal foldmethod=indent
   autocmd FileType html setlocal nofoldenable
+  autocmd FileType html,css,htmldjango,scss,less EmmetInstall
 augroup END
 
 augroup ft_javascript
@@ -523,7 +530,7 @@ augroup END
 
 
 augroup ft_python
-  au!
+  autocmd!
   autocmd FileType python setlocal shiftwidth=4
   autocmd FileType python setlocal shiftround
   autocmd FileType python setlocal tabstop=4
@@ -531,6 +538,7 @@ augroup ft_python
   autocmd FileType python setlocal expandtab
   autocmd FileType python setlocal foldmethod=indent
   autocmd FileType python setlocal nofoldenable
+  autocmd FileType python setlocal omnifunc=jedi#completions
 augroup END
 
 augroup general
