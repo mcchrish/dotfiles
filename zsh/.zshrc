@@ -1,7 +1,3 @@
-# fpaths
-fpath=(~/.zsh/Completion(N-/) $fpath)
-fpath=(~/.zsh/functions/*(N-/) $fpath)
-
 #
 # Autoloads
 #
@@ -54,10 +50,7 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
     nice:11
 
   zplug "junegunn/fzf", \
-    of:"shell/key-bindings.zsh" \
-
-  zplug "junegunn/fzf", \
-    of:"shell/completion.zsh" \
+    of:"shell/{key-bindings,completion}.zsh"
 
   zplug "junegunn/fzf", \
     as:command, \
