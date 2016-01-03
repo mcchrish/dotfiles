@@ -209,13 +209,14 @@ let g:fzf_action = {
 
 let g:fzf#vim#default_layout = {'down': '~40%'}
 
-command! -nargs=* AgAll call fzf#vim#ag(<q-args>,
+" Search all file content including hidden files and directories
+command! -nargs=* FzfAgAll call fzf#vim#ag(<q-args>,
       \ '--hidden --path-to-agignore="'.$XDG_CONFIG_HOME.'/ag/fzfignore"',
-      \ { 'options': '--ansi --delimiter : --nth 4..,.. --prompt "Ag> " '.
+      \ { 'options': '--ansi --delimiter : --nth 4..,.. --prompt "AgAll> " '.
       \            '--multi --bind ctrl-a:select-all,ctrl-d:deselect-all '.
       \            '--color hl:68,hl+:110', 'down': '~40%' })
 
-nnoremap <silent> <leader>A :AgAll<CR>
+nnoremap <silent> <leader>A :FzfAgAll<CR>
 
 nnoremap <silent> <leader>f :FzfFiles<CR>
 nnoremap <silent> <leader>a :FzfAg<CR>
@@ -285,8 +286,23 @@ let g:gruvbox_italic=1
 " vim-airline {{{
 Plug 'bling/vim-airline'
 
-let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep = '|'
+let g:airline_right_alt_sep = '|'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.readonly = 'ṟ'
+let g:airline_symbols.crypt = 'ṟ'
+
 let g:airline_section_x = ''
+
 let g:airline_mode_map = {
       \ '__' : '-',
       \ 'n'  : 'N',
@@ -300,6 +316,14 @@ let g:airline_mode_map = {
       \ 'S'  : 'S',
       \ '' : 'S',
       \ }
+
+let g:airline#extensions#whitespace#trailing_format = '|| :%s'
+let g:airline#extensions#whitespace#mixed_indent_format = '>> :%s'
+let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
+
+" let g:airline#extensions#wordcount#filetypes = [ 'markdown', 'text', 'help', 'fountain' ]
+let g:airline#extensions#wordcount#filetypes = '\vhelp|markdown|rst|org|fountain'
+
 " }}}
 
 Plug 'tpope/vim-surround'
