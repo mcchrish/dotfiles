@@ -76,7 +76,10 @@ alias gpl="git pull"
 alias ga="git add"
 
 # Log
-alias gl="git log --topo-order"
+alias gl="git log --topo-order --abbrev-commit --pretty=format:'%C(auto)%h %ae%n%s%n' "
+alias gll="git log --topo-order --oneline"
+alias glv="git log --topo-order --pretty=medium"
+alias glf="fshow"
 
 # Merge
 alias gm="git merge"
