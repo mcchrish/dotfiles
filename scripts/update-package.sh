@@ -1,10 +1,6 @@
 #!/bin/bash
 
-if [[ -z "${XDG_CACHE_HOME}" ]]; then
-  LOG_DIR="${XDG_CACHE_HOME}/personal/logs"
-else
-  LOG_DIR="${HOME}/.cache/personal/logs"
-fi
+LOG_DIR="${HOME}/.cache/personal/logs"
 
 LOG_FILE="${LOG_DIR}/updates.log"
 

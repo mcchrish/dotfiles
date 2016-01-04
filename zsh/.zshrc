@@ -15,6 +15,7 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 
 # Emacs is better in cli
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 bindkey -e
 
 

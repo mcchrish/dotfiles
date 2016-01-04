@@ -54,6 +54,8 @@ set formatoptions=cq " format using textwidth, including comments and gq
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store,*.class,*.manifest,*~,#*#,%*
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,*.xc*,*.pbxproj,*.xcodeproj/**,*.xcassets/**
 
+" True color
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Neovim bug workaround
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -509,15 +511,16 @@ endfunction
 
 augroup pencil
   autocmd!
-  autocmd FileType fountain       call pencil#init()
-  autocmd FileType mardown,mkd    call pencil#init()
-  autocmd FileType text           call pencil#init()
+  autocmd FileType fountain    call pencil#init()
+  autocmd FileType fountain    setlocal showbreak=
+  autocmd FileType mardown,mkd call pencil#init()
+  autocmd FileType text        call pencil#init()
 augroup END
 
 augroup ft_html
   autocmd!
-  autocmd FileType html setlocal foldmethod=indent
-  autocmd FileType html setlocal nofoldenable
+  autocmd FileType html                          setlocal foldmethod=indent
+  autocmd FileType html                          setlocal nofoldenable
   autocmd FileType html,css,htmldjango,scss,less EmmetInstall
 augroup END
 
@@ -545,8 +548,8 @@ augroup general
   autocmd!
   autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
   autocmd FileType less,scss,sass,css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
+  autocmd FileType html,markdown      setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript         setlocal omnifunc=tern#Complete
 augroup END
 " }}}
 
