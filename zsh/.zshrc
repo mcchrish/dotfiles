@@ -44,20 +44,12 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
 
   # Fuzzy filter
   zplug "junegunn/fzf", \
-    as:command, \
     do:"./install --bin", \
-    of:"bin/fzf-tmux", \
-    file:fzf-tmux, \
-    nice:11
-
-  zplug "junegunn/fzf", \
     of:"shell/{key-bindings,completion}.zsh"
 
   zplug "junegunn/fzf", \
     as:command, \
-    of:"bin/fzf", \
-    file:fzf, \
-    nice:12
+    of:"bin/{fzf,fzf-tmux}"
 
   # Improved cd
   ENHANCD_DISABLE_DOT=1
@@ -70,7 +62,7 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
   zplug "zsh-users/zsh-history-substring-search"
 
   # Syntax Highlighting
-  ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+  ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor)
   zplug "zsh-users/zsh-syntax-highlighting", nice:18
 
   # Install plugins if there are plugins that have not been installed

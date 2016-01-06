@@ -17,6 +17,16 @@ if [[ -z "$XDG_DATA_HOME" ]]; then
   export XDG_DATA_HOME="$HOME/.local/share"
 fi
 
+if [[ -z "$XDG_DATA_DIRS" ]]; then
+  export XDG_DATA_DIRS="/usr/local/share:/usr/share"
+fi
+
+if [[ -z "$XDG_CONFIG_DIRS" ]]; then
+  export XDG_CONFIG_DIRS="/etc/xdg"
+else
+  export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
+fi
+
 # Zplug
 export ZPLUG_HOME="$XDG_CACHE_HOME/zplug"
 
@@ -25,7 +35,6 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 
 # Listing
 export LSCOLORS='exfxcxdxbxGxDxabagacad'
-export CLICOLOR=true
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
 
 # PAGER
@@ -75,7 +84,7 @@ export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node/repl_history"
 export ATOM_HOME="$XDG_CONFIG_HOME/atom"
 
 # FZF
-export FZF_DEFAULT_COMMAND='ag -l --hidden --path-to-agignore="$XDG_CONFIG_HOME/ag/fzfignore" -g ""'
+export FZF_DEFAULT_COMMAND="ag -l --hidden --path-to-agignore=\"$XDG_CONFIG_HOME/ag/fzfignore\" -g \"\""
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Enhancd
@@ -111,7 +120,7 @@ export KEYTIMEOUT=1
 # PATHs
 path=(
   /usr/local/{bin,sbin}
-  $ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+  $ANDROID_HOME/{tools,platform-tools}
   $HOME/.jenv/bin
   $path
 )

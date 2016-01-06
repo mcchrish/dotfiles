@@ -25,6 +25,8 @@ alias cprev="cmus-remote --prev"
 
 # Fzf
 alias ff="fzf"
+alias agc="ag --nobreak --nonumbers --noheading . | fzf"
+alias agC="ag --nobreak --nonumbers --noheading --hidden --path-to-agignore="$XDG_CONFIG_HOME/ag/fzfignore" . | fzf"
 
 # Tmux
 alias tmux="TERM=screen-256color-bce tmux"
@@ -36,7 +38,7 @@ alias tkill="tmux kill-session -t"
 alias ".."="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias cdh="~"
+alias cdh="cd ~"
 alias j="cd -"
 
 # Misc
@@ -110,7 +112,7 @@ alias l="ls -1A"         # Lists in one column, hidden files.
 alias ll="ls -lh"        # Lists human readable sizes.
 alias lr="ll -R"         # Lists human readable sizes, recursively.
 alias la="ll -A"         # Lists human readable sizes, hidden files.
-alias lm="la | $PAGER" # Lists human readable sizes, hidden files through pager.
+alias lm="la | $PAGER"   # Lists human readable sizes, hidden files through pager.
 alias lx="ll -XB"        # Lists sorted by extension (GNU only).
 alias lk="ll -Sr"        # Lists sorted by size, largest last.
 alias lt="ll -tr"        # Lists sorted by date, most recent last.
