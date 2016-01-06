@@ -128,9 +128,6 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
-" Remove search highlight
-nnoremap <silent> <leader><CR> :nohlsearch<CR>
-
 " }}}
 
 " ##Plugins {{{
@@ -364,6 +361,7 @@ Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handleb
 let g:mustache_abbreviations = 1
 " }}}
 
+Plug 'othree/csscomplete.vim', { 'for': [ 'sass', 'css', 'less' ] }
 Plug 'groenewege/vim-less', { 'for': 'less' }
 
 " python-syntax {{{
@@ -483,6 +481,9 @@ function! Refresh()
 endfunction
 
 nnoremap <silent> <f5> :call Refresh()<CR>
+
+" Remove search highlight
+nnoremap <silent> <leader><CR> :nohlsearch <bar> :call Refresh()<CR>
 " }}}
 
 " SetAsDjangoProject {{{
@@ -547,7 +548,7 @@ augroup END
 augroup general
   autocmd!
   autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
-  autocmd FileType less,scss,sass,css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType less,scss,sass,css setlocal omnifunc=csscomplete#CompleteCSS noci
   autocmd FileType html,markdown      setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript         setlocal omnifunc=tern#Complete
 augroup END
