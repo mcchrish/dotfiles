@@ -4,6 +4,9 @@ LOG_DIR="${HOME}/.cache/personal/logs"
 
 LOG_FILE="${LOG_DIR}/updates.log"
 
+# Prevent npm update from using the wrong cache directory
+export NPM_CONFIG_CACHE="${HOME}/.cache/npm"
+
 if [[ ! -d "${LOG_DIR}" ]]; then
   mkdir -p "${LOG_DIR}"
   touch "${LOG_FILE}"
