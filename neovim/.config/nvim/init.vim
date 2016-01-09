@@ -291,16 +291,16 @@ if !exists('g:airline_symbols')
 endif
 
 " No powerline for latest Fira Mono
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep = '|'
-let g:airline_right_alt_sep = '|'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
+let g:airline_left_sep           = ''
+let g:airline_right_sep          = ''
+let g:airline_left_alt_sep       = '|'
+let g:airline_right_alt_sep      = '|'
+let g:airline_symbols.linenr     = '␊'
+let g:airline_symbols.branch     = '⎇'
+let g:airline_symbols.paste      = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.readonly = 'ṟ'
-let g:airline_symbols.crypt = 'ṟ'
+let g:airline_symbols.readonly   = 'Ʀ'
+let g:airline_symbols.crypt      = 'Ʀ'
 
 let g:airline_section_x = ''
 
@@ -317,6 +317,14 @@ let g:airline_mode_map = {
       \ 'S'  : 'S',
       \ '' : 'S',
       \ }
+
+let g:airline_extensions = [
+      \ 'branch',
+      \ 'quickfix',
+      \ 'wordcount',
+      \ 'whitespace',
+      \ 'neomake',
+      \ 'undotree' ]
 
 " Shorter error status line
 let g:airline#extensions#whitespace#trailing_format = '|| :%s'
