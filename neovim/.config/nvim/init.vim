@@ -256,7 +256,8 @@ nnoremap <leader>u :UndotreeToggle<CR>
 " neomake {{{
 Plug 'benekastah/neomake'
 
-let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_enabled_makers = ['standard']
+" let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_less_enabled_makers = ['lessc']
 let g:neomake_shell_enabled_makers = ['shellcheck']
@@ -321,14 +322,14 @@ let g:airline_mode_map = {
 let g:airline_extensions = [
       \ 'branch',
       \ 'quickfix',
+      \ 'neomake',
       \ 'wordcount',
       \ 'whitespace',
-      \ 'neomake',
       \ 'undotree' ]
 
 " Shorter error status line
-let g:airline#extensions#whitespace#trailing_format = '|| :%s'
-let g:airline#extensions#whitespace#mixed_indent_format = '>> :%s'
+let g:airline#extensions#whitespace#trailing_format = '||:%s'
+let g:airline#extensions#whitespace#mixed_indent_format = '>>:%s'
 let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
 
 " Include fountain word count
@@ -358,6 +359,9 @@ let g:used_javascript_libs = 'jquery,underscore,requirejs,handlebars'
 Plug 'millermedeiros/vim-esformatter', { 'for': 'javascript' }
 nnoremap <silent> <leader>es :Esformatter<CR>
 vnoremap <silent> <leader>es :EsformatterVisual<CR>
+
+" JS standard formatter
+nnoremap <leader>ej :silent !standard % --format <CR>
 " }}}
 
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
