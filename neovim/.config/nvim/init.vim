@@ -340,6 +340,8 @@ let g:airline#extensions#wordcount#format = '%d w'
 
 Plug 'tpope/vim-surround'
 
+Plug 'rstacruz/vim-closer'
+
 Plug 'tpope/vim-unimpaired'
 
 Plug 'tpope/vim-repeat'
@@ -374,6 +376,9 @@ let g:mustache_abbreviations = 1
 " }}}
 
 Plug 'othree/csscomplete.vim', { 'for': [ 'sass', 'css', 'less' ] }
+
+Plug 'rstacruz/vim-hyperstyle', { 'for': [ 'sass', 'css', 'less' ] }
+
 Plug 'groenewege/vim-less', { 'for': 'less' }
 
 " python-syntax {{{
