@@ -147,6 +147,10 @@ nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 " }}}
 
+" gv.vim {{{
+Plug 'junegunn/gv.vim'
+" }}}
+
 " deoplete.nvim {{{
 Plug 'Shougo/deoplete.nvim'
 
@@ -198,6 +202,11 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-dirvish'
 let g:dirvish_hijack_netrw = 1
 let g:dirvish_relative_paths = 1
+" }}}
+
+" vim-gtfo {{{
+Plug 'justinmk/vim-gtfo'
+let g:gtfo#terminals = { 'mac' : 'iterm' }
 " }}}
 
 " fzf {{{
@@ -257,6 +266,7 @@ nnoremap <leader>u :UndotreeToggle<CR>
 Plug 'benekastah/neomake'
 
 let g:neomake_javascript_enabled_makers = ['standard']
+let g:neomake_jsx_enabled_makers = ['standard']
 " let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_less_enabled_makers = ['lessc']
@@ -350,6 +360,8 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'html'] }
 
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
+
 Plug 'othree/html5.vim', { 'for': 'html' }
 
 " javascript-libraries-syntax.vim {{{
@@ -389,7 +401,7 @@ let python_highlight_all = 1
 " emmet-vim {{{
 Plug 'mattn/emmet-vim'
 
-let g:user_emmet_install_global = 0
+let g:user_emmet_install_global = 1
 let g:user_emmet_leader_key='<C-A>'
 " }}}
 
@@ -564,7 +576,7 @@ augroup END
 
 augroup general
   autocmd!
-  autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
+  autocmd BufWritePre *.php,*.py,*.js,*.jsx,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
   autocmd FileType less,scss,sass,css setlocal omnifunc=csscomplete#CompleteCSS noci
   autocmd FileType html,markdown      setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript         setlocal omnifunc=tern#Complete
