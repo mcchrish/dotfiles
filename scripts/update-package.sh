@@ -17,7 +17,6 @@ printf "%s\n" "Updating" "$(date)" | tee -a "${LOG_FILE}"
 
 printf "%s\n" "Updating brew..." | tee -a "${LOG_FILE}"
 brew update && brew upgrade 2>> "${LOG_FILE}"
-brew cask update 2>> "${LOG_FILE}"
 
 printf "%s\n" "Updating npm..." | tee -a "${LOG_FILE}"
 npm update -g 2>> "${LOG_FILE}"
