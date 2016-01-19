@@ -1,2 +1,3 @@
 .git
 .meteor
+.DS_Store
