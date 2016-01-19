@@ -2453,9 +2453,9 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1920 1080 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 655 570 402 0 0 1920 1057 </string>
+	<string>-654 506 570 402 -1280 241 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>541 645 490 352 0 0 1920 1057 </string>
+	<string>0 0 1280 800 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>290 61 490 352 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
@@ -3301,6 +3301,8 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Thin Strokes</key>
+			<integer>0</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
@@ -5650,7 +5652,7 @@
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
 	<key>NoSyncLastTipTime</key>
-	<real>464863502.51908898</real>
+	<real>474897115.40216899</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -5672,6 +5674,7 @@
 		<string>0001</string>
 		<string>0002</string>
 		<string>0003</string>
+		<string>0004</string>
 		<string>0004</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
@@ -5746,7 +5749,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-01-05T09:20:41Z</date>
+	<date>2016-01-19T02:04:02Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -5802,7 +5805,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20160102</string>
+	<string>2.9.20160113</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
