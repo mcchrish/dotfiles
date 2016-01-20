@@ -2453,7 +2453,7 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1920 1080 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-654 506 570 402 -1280 241 1280 777 </string>
+	<string>-616 258 570 402 -1280 241 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 0 1280 800 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -3302,7 +3302,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Thin Strokes</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
