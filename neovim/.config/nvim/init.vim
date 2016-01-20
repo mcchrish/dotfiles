@@ -280,9 +280,8 @@ Plug 'benekastah/neomake'
 
 let g:neomake_javascript_enabled_makers = ['standard']
 let g:neomake_jsx_enabled_makers = ['standard']
-" let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_python_enabled_makers = ['flake8']
-let g:neomake_less_enabled_makers = ['lessc']
+let g:neomake_less_enabled_makers = []
 let g:neomake_shell_enabled_makers = ['shellcheck']
 let g:neomake_html_enabled_makers = []
 let g:neomake_open_list = 0
@@ -371,9 +370,9 @@ Plug 'tpope/vim-repeat'
 
 Plug 'tpope/vim-eunuch'
 
-Plug 'othree/yajs.vim', { 'for': ['javascript', 'html'] }
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
 
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 
 Plug 'othree/html5.vim', { 'for': 'html' }
 
@@ -391,9 +390,9 @@ vnoremap <silent> <leader>es :EsformatterVisual<CR>
 nnoremap <leader>ej :silent !standard % --format <CR>
 " }}}
 
-Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
+Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
 
 " vim-mustasche-handlebars {{{
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
