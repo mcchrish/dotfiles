@@ -7,6 +7,7 @@ alias man="nocorrect man"
 alias ln="nocorrect ln"
 alias du="du -h"
 alias df="df -h"
+alias which="command -v"
 alias sudo="sudo "
 
 # Quick piping
