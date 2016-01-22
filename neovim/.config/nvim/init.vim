@@ -130,8 +130,11 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
+" JS standard formatter
+nnoremap <leader>ej :silent !standard % --format <CR>
+
 " Hightlight 80 characters
-nnoremap <silent> <Leader>l
+nnoremap <silent> <Leader>h
       \ :if exists('w:long_line_match') <Bar>
       \   silent! call matchdelete(w:long_line_match) <Bar>
       \   unlet w:long_line_match <Bar>
@@ -246,9 +249,14 @@ nnoremap <silent> <leader>A :FzfAgAll<CR>
 nnoremap <silent> <leader>f :FzfFiles<CR>
 nnoremap <silent> <leader>a :FzfAg<CR>
 nnoremap <silent> <leader>b :FzfBuffers<CR>
+nnoremap <silent> <leader>l :FzfBLines<CR>
+nnoremap <silent> <leader>L :FzfLines<CR>
+nnoremap <silent> <leader>m :FzfMarks<CR>
 nnoremap <silent> K :call SearchWordWithAg()<CR>
 vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
 
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
 
@@ -379,15 +387,6 @@ Plug 'othree/html5.vim', { 'for': 'html' }
 " javascript-libraries-syntax.vim {{{
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 let g:used_javascript_libs = 'jquery,underscore,requirejs,handlebars'
-" }}}
-
-" vim-esformatter {{{
-Plug 'millermedeiros/vim-esformatter', { 'for': 'javascript' }
-nnoremap <silent> <leader>es :Esformatter<CR>
-vnoremap <silent> <leader>es :EsformatterVisual<CR>
-
-" JS standard formatter
-nnoremap <leader>ej :silent !standard % --format <CR>
 " }}}
 
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
