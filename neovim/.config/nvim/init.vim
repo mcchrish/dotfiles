@@ -1,17 +1,15 @@
 " ##Basics {{{
 set modelines=1
 set autoread
-set fileformats+=mac
-" No windows allowed
-set fileformats-=dos
+set fileformats=unix,mac
+set fileformat=unix
+set encoding=utf-8
 set ttimeout
 set ttimeoutlen=100
 set backspace=indent,eol,start
 set smarttab
 set ruler
 set showcmd
-set wildmenu
-set wildmode=longest:full,full
 set relativenumber
 set number
 set hlsearch incsearch
@@ -24,10 +22,14 @@ set breakindent
 set showmatch
 set autoindent
 set showbreak=↪︎\ 
-set clipboard=unnamed " system clipboard for yanking
-set noshowmode " airline shows the mode
+" Sytem clipboard for yanking
+set clipboard=unnamed
+" Airline shows mode
+set noshowmode
+" Easy buffer switching
 set hidden
-set shell=$SHELL " whatever is default. most probably zsh
+" Default shell
+set shell=$SHELL
 set listchars=tab:▸\ ,eol:¬,trail:⋅,space:\|,nbsp:␣,extends:❯,precedes:❮
 set scrolloff=2
 set sidescrolloff=5
@@ -53,6 +55,9 @@ set linebreak
 set textwidth=80
 set formatoptions=cq " format using textwidth, including comments and gq
 
+" Menu complete
+set wildmenu
+set wildmode=longest:full,full
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store,*.class,*.manifest,*~,#*#,%*
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,*.xc*,*.pbxproj,*.xcodeproj/**,*.xcassets/**
 
@@ -280,7 +285,7 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 let g:undotree_WindowLayout = 2
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_SplitWidth = 40
-nnoremap <leader>u :UndotreeToggle<CR>
+nnoremap <silent> <leader>u :UndotreeToggle<CR>
 " }}}
 
 " neomake {{{
@@ -315,7 +320,7 @@ let g:gruvbox_italic=1
 " }}}
 
 " vim-airline {{{
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -366,6 +371,15 @@ let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
 let g:airline#extensions#wordcount#filetypes = '\vmarkdown|rst|org|fountain'
 let g:airline#extensions#wordcount#format = '%d w'
 
+" }}}
+
+" indentLine {{{
+Plug 'Yggdroot/indentLine'
+let g:indentLine_char = '│'
+let g:indentLine_maxLines = 1000
+let g:indentLine_enabled = 0
+let g:indentLine_fileTypeExclude = ['text']
+nnoremap <silent> <F7> :IndentLinesToggle<CR>
 " }}}
 
 Plug 'tpope/vim-surround'
@@ -455,6 +469,8 @@ let g:pencil#wrapModeDefault = 'soft'
 " }}}
 
 Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
+
+Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 
 call plug#end()
 " }}}
