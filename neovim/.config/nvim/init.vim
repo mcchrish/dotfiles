@@ -399,8 +399,8 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 Plug 'othree/html5.vim', { 'for': 'html' }
 
 " javascript-libraries-syntax.vim {{{
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-let g:used_javascript_libs = 'jquery,underscore,requirejs,handlebars'
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
+let g:used_javascript_libs = 'jquery,underscore,react,handlebars'
 " }}}
 
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
