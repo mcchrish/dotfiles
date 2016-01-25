@@ -373,15 +373,6 @@ let g:airline#extensions#wordcount#format = '%d w'
 
 " }}}
 
-" indentLine {{{
-Plug 'Yggdroot/indentLine'
-let g:indentLine_char = '│'
-let g:indentLine_maxLines = 1000
-let g:indentLine_enabled = 0
-let g:indentLine_fileTypeExclude = ['text']
-nnoremap <silent> <F7> :IndentLinesToggle<CR>
-" }}}
-
 Plug 'tpope/vim-surround'
 
 Plug 'rstacruz/vim-closer'
