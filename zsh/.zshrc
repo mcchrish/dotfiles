@@ -1,6 +1,6 @@
-#
+###################
 # Autoloads
-#
+###################
 
 # General
 autoload -Uz colors; colors
@@ -24,9 +24,9 @@ source_dir="$XDG_CONFIG_HOME/zsh"
 # Shell options
 [[ -f "$source_dir/shelloptions.zsh" ]] && source "$source_dir/shelloptions.zsh"
 
-#
+###################
 # zplug
-#
+###################
 
 # Check if zplug is installed
 if [[ ! -d "$ZPLUG_HOME" ]]; then
