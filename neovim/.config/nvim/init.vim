@@ -207,7 +207,7 @@ let g:echodoc_enable_at_startup = 1
 " }}}
 
 " ultisnips {{{
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips' | Plug 'mcchrish/vim-snippets'
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
