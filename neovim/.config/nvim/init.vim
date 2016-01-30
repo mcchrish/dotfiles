@@ -299,6 +299,7 @@ let g:neomake_shell_enabled_makers = ['shellcheck']
 let g:neomake_html_enabled_makers = []
 let g:neomake_open_list = 0
 let g:neomake_verbose = 0
+let g:neomake_airline = 1
 
 let g:neomake_error_sign = {
       \ 'text': '✖',
@@ -319,6 +320,11 @@ set background=dark
 let g:gruvbox_italic=1
 " }}}
 
+" Alduin {{{
+Plug 'AlessandroYorba/Alduin'
+let g:alduin_Shout_Windhelm = 1
+"}}}
+
 " vim-airline {{{
 Plug 'vim-airline/vim-airline'
 
@@ -331,14 +337,12 @@ let g:airline_left_sep           = ''
 let g:airline_right_sep          = ''
 let g:airline_left_alt_sep       = '|'
 let g:airline_right_alt_sep      = '|'
-let g:airline_symbols.linenr     = '␊'
+let g:airline_symbols.linenr     = '␤'
 let g:airline_symbols.branch     = '⎇'
 let g:airline_symbols.paste      = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.readonly   = 'Ʀ'
 let g:airline_symbols.crypt      = 'Ʀ'
-
-let g:airline_section_x = ''
 
 let g:airline_mode_map = {
       \ '__' : '-',
@@ -471,9 +475,16 @@ call plug#end()
 
 " gruvbox
 colorscheme gruvbox
+" colorscheme alduin
 
 " airline
-let g:airline_section_y = airline#section#create(['tagbar', 'filetype'])
+function! AirlineInit()
+let g:airline_section_x = ''
+let g:airline_section_y = airline#section#create(['filetype'])
+let g:airline_section_warning = airline#section#create(['whitespace'])
+endfunction
+
+autocmd User AirlineAfterInit call AirlineInit()
 
 " Neomake
 " Check syntax on file open and write
