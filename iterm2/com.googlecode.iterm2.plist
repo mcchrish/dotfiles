@@ -2445,7 +2445,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>866 216 445 77 0 0 1920 1057 </string>
+	<string>950 281 445 77 0 0 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>17 597 606 456 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
@@ -2453,7 +2453,7 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1920 1080 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-616 258 570 402 -1280 241 1280 777 </string>
+	<string>-845 364 570 402 -1280 241 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 0 1280 800 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -3142,7 +3142,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>FiraMono-Regular 12</string>
+			<string>FiraCode-Regular 12</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -4004,7 +4004,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>FiraMono-Medium 12</string>
+			<string>FiraCode-Retina 12</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -5749,7 +5749,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-01-19T02:04:02Z</date>
+	<date>2016-01-30T06:54:38Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>

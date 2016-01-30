@@ -328,21 +328,13 @@ let g:alduin_Shout_Windhelm = 1
 " vim-airline {{{
 Plug 'vim-airline/vim-airline'
 
+let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-" No powerline for latest Fira Mono
-let g:airline_left_sep           = ''
-let g:airline_right_sep          = ''
-let g:airline_left_alt_sep       = '|'
-let g:airline_right_alt_sep      = '|'
-let g:airline_symbols.linenr     = '␤'
-let g:airline_symbols.branch     = '⎇'
 let g:airline_symbols.paste      = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.readonly   = 'Ʀ'
-let g:airline_symbols.crypt      = 'Ʀ'
 
 let g:airline_mode_map = {
       \ '__' : '-',
@@ -481,6 +473,7 @@ colorscheme gruvbox
 function! AirlineInit()
 let g:airline_section_x = ''
 let g:airline_section_y = airline#section#create(['filetype'])
+let g:airline_section_error = ''
 let g:airline_section_warning = airline#section#create(['whitespace'])
 endfunction
 
