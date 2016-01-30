@@ -80,9 +80,6 @@ fi
 
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node/repl_history"
 
-# Atom Editor
-export ATOM_HOME="$XDG_CONFIG_HOME/atom"
-
 # FZF
 export FZF_DEFAULT_COMMAND="ag -l --hidden --path-to-agignore=\"$XDG_CONFIG_HOME/ag/fzfignore\" -g \"\""
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

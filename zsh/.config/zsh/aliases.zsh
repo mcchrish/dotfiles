@@ -89,6 +89,7 @@ alias gm="git merge"
 
 # Push
 alias gp="git push"
+alias gpu="git push -u"
 
 # Rebase
 alias gr="git rebase"
