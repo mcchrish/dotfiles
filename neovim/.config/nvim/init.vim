@@ -333,6 +333,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
+let g:airline_theme='gruvbox'
 let g:airline_symbols.paste      = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 
@@ -390,7 +391,7 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascri
 let g:used_javascript_libs = 'jquery,underscore,react,handlebars'
 " }}}
 
-Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
+Plug 'gavocanov/vim-js-indent', { 'commit': '2db4a7c', 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
 
