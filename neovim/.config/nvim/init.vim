@@ -380,6 +380,8 @@ Plug 'tpope/vim-repeat'
 
 Plug 'tpope/vim-eunuch'
 
+Plug 'tpope/vim-endwise'
+
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
 
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
@@ -393,7 +395,11 @@ let g:used_javascript_libs = 'jquery,underscore,react,handlebars'
 
 Plug 'gavocanov/vim-js-indent', { 'commit': '2db4a7c', 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
+" tern_for_vim {{{
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
+nnoremap <silent> <leader>td :TernDef<CR>
+nnoremap <silent> <leader>ts :TernDefSplit<CR>
+" }}}
 
 " vim-mustasche-handlebars {{{
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }

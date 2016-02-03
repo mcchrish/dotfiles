@@ -1,12 +1,12 @@
 {
   "libs": [
     "browser",
-    "underscore",
-    "ecma6",
-    "jquery"
+    "ecma6"
   ],
+  "loadEagerly": [],
   "plugins": {
-    "meteor": {},
-    "node": {}
+    "node": {},
+    "es_modules": {},
+    "webpack": {}
   }
 }
