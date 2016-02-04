@@ -382,6 +382,8 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'tpope/vim-endwise'
 
+Plug 'Konfekt/FastFold'
+
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
 
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
