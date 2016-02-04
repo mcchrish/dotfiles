@@ -33,6 +33,7 @@ set shell=$SHELL
 set listchars=tab:▸\ ,eol:¬,trail:⋅,space:\|,nbsp:␣,extends:❯,precedes:❮
 set scrolloff=2
 set sidescrolloff=5
+set synmaxcol=200
 set history=1000
 set tabpagemax=50
 
@@ -75,19 +76,19 @@ set undofile
 
 "  ##Keymapping {{{
 
-" Remap Leader
+" Remap leader
 let mapleader = "\<space>"
 let maplocalleader = "\\"
 
 " Enter command line mode
 noremap <cr> :
 
-" make Enter/CR work normally in quickfix and command-window
+" make Enter/cr work normally in quickfix and command-window
 augroup enter_correctly
   autocmd!
   autocmd BufReadPost quickfix nnoremap <buffer> <cr> <cr>
   autocmd CmdWinEnter * nnoremap <buffer> <cr> <cr>
-augroup END
+augroup end
 
 " move vertically by visual line
 nnoremap j gj
@@ -111,16 +112,11 @@ inoremap jk <esc>
 nnoremap Q <nop>
 nnoremap Y y$
 
-" faster save
-nnoremap <Leader>w :w<CR>
+" Toggle relativenumber
+nnoremap <leader>N :set relativenumber!<cr>
 
-" System clipboards
-vmap <Leader>y "+y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+" faster save
+nnoremap <leader>w :w<cr>
 
 " Paste mode
 set pastetoggle=<F2>
@@ -136,18 +132,18 @@ cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
 " JS standard formatter
-nnoremap <leader>ej :silent !standard % --format <CR>
+nnoremap <leader>ej :silent !standard % --format <cr>
 
 " Hightlight 80 characters
-nnoremap <silent> <Leader>h
-      \ :if exists('w:long_line_match') <Bar>
-      \   silent! call matchdelete(w:long_line_match) <Bar>
-      \   unlet w:long_line_match <Bar>
-      \ elseif &textwidth > 0 <Bar>
-      \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <Bar>
-      \ else <Bar>
-      \   let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <Bar>
-      \ endif<CR>
+nnoremap <silent> <leader>h
+      \ :if exists('w:long_line_match') <bar>
+      \   silent! call matchdelete(w:long_line_match) <bar>
+      \   unlet w:long_line_match <bar>
+      \ elseif &textwidth > 0 <bar>
+      \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <bar>
+      \ else <bar>
+      \   let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <bar>
+      \ endif<cr>
 
 " }}}
 
@@ -163,9 +159,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 " vim-fugitive {{{
 Plug 'tpope/vim-fugitive'
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
 " gv.vim {{{
@@ -249,16 +245,16 @@ command! -nargs=* FzfAgAll call fzf#vim#ag(<q-args>,
       \            '--multi --bind ctrl-a:select-all,ctrl-d:deselect-all '.
       \            '--color hl:68,hl+:110', 'down': '~40%' })
 
-nnoremap <silent> <leader>A :FzfAgAll<CR>
+nnoremap <silent> <leader>A :FzfAgAll<cr>
 
-nnoremap <silent> <leader>f :FzfFiles<CR>
-nnoremap <silent> <leader>a :FzfAg<CR>
-nnoremap <silent> <leader>b :FzfBuffers<CR>
-nnoremap <silent> <leader>l :FzfBLines<CR>
-nnoremap <silent> <leader>L :FzfLines<CR>
-nnoremap <silent> <leader>m :FzfMarks<CR>
-nnoremap <silent> K :call SearchWordWithAg()<CR>
-vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
+nnoremap <silent> <leader>f :FzfFiles<cr>
+nnoremap <silent> <leader>a :FzfAg<cr>
+nnoremap <silent> <leader>b :FzfBuffers<cr>
+nnoremap <silent> <leader>l :FzfBLines<cr>
+nnoremap <silent> <leader>L :FzfLines<cr>
+nnoremap <silent> <leader>m :FzfMarks<cr>
+nnoremap <silent> K :call SearchWordWithAg()<cr>
+vnoremap <silent> K :call SearchVisualSelectionWithAg()<cr>
 
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
@@ -302,12 +298,12 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 let g:undotree_WindowLayout = 2
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_SplitWidth = 40
-nnoremap <silent> <leader>u :UndotreeToggle<CR>
+nnoremap <silent> <leader>u :UndotreeToggle<cr>
 " }}}
 
 " vim-signature {{{
 Plug 'kshenoy/vim-signature'
-nnoremap <silent> <leader>' :SignatureToggleSigns<CR>
+nnoremap <silent> <leader>' :SignatureToggleSigns<cr>
 " }}}
 
 " neomake {{{
@@ -400,7 +396,7 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 let g:gitgutter_grep_command = 'ag --nocolor'
 
-nnoremap <silent> <F3> :GitGutterToggle<CR>
+nnoremap <silent> <F3> :GitGutterToggle<cr>
 "}}}
 
 Plug 'tpope/vim-surround'
@@ -430,8 +426,8 @@ Plug 'gavocanov/vim-js-indent', { 'commit': '2db4a7c', 'for': ['javascript', 'ja
 
 " tern_for_vim {{{
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
-nnoremap <silent> <leader>td :TernDef<CR>
-nnoremap <silent> <leader>ts :TernDefSplit<CR>
+nnoremap <silent> <leader>td :TernDef<cr>
+nnoremap <silent> <leader>ts :TernDefSplit<cr>
 " }}}
 
 " vim-mustasche-handlebars {{{
@@ -460,7 +456,7 @@ let g:user_emmet_settings = { 'javascript': { 'quote_char': "'" } }
 
 " goyo.vim {{{
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-nnoremap <silent> <Leader>- :Goyo<CR>
+nnoremap <silent> <leader>- :Goyo<cr>
 " }}}
 
 " limelight.vim {{{
@@ -509,9 +505,10 @@ call plug#end()
 colorscheme gruvbox
 " colorscheme alduin
 
+" vim-signature
 let g:SignatureEnabledAtStartup=0
 
-" airline
+" vim-airline
 function! AirlineInit()
 let g:airline_section_x = ''
 let g:airline_section_y = airline#section#create(['filetype'])
@@ -529,8 +526,8 @@ autocmd! BufRead * Neomake
 
 " ##Functions {{{
 
-" Remove whitespaces {{{
-function! <SID>StripTrailingWhitespaces()
+" StripTrailingWhitespaces {{{
+function! <sid>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
   let _s=@/
   let l = line(".")
@@ -543,7 +540,7 @@ function! <SID>StripTrailingWhitespaces()
   echo 'Whitespace trimmed!'
 endfunction
 
-nnoremap <silent> <F4> :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <F4> :call <sid>StripTrailingWhitespaces()<cr>
 " }}}
 
 " SearchWordWithAg {{{
@@ -575,7 +572,7 @@ function! Refresh()
 endfunction
 
 " Remove search highlight
-nnoremap <silent> <leader><CR> :nohlsearch <bar> :call Refresh()<CR>
+nnoremap <silent> <leader><cr> :nohlsearch <bar> :call Refresh()<cr>
 " }}}
 
 " SetAsDjangoProject {{{
@@ -585,7 +582,7 @@ function! SetAsDjangoProject()
     autocmd FileType html,htmldjango setlocal foldmethod=indent
     autocmd FileType html,htmldjango setlocal nofoldenable
     autocmd BufNewFile,BufRead *.py setlocal filetype=python.django
-  augroup END
+  augroup end
 endfunction
 " }}}
 
@@ -594,7 +591,7 @@ function! SetAsMeteorProject()
   augroup meteor
     au!
     autocmd BufNewFile,BufRead *.html setlocal filetype=html.mustache
-  augroup END
+  augroup end
 endfunction
 " }}}
 
@@ -608,21 +605,21 @@ augroup pencil
   autocmd FileType fountain    setlocal showbreak=
   autocmd FileType mardown,mkd call pencil#init()
   autocmd FileType text        call pencil#init()
-augroup END
+augroup end
 
 augroup ft_html
   autocmd!
   autocmd FileType html                          setlocal foldmethod=indent
   autocmd FileType html                          setlocal nofoldenable
   autocmd FileType html,css,htmldjango,scss,less EmmetInstall
-augroup END
+augroup end
 
 augroup ft_javascript
   autocmd FileType javascript setlocal shiftwidth=2
   autocmd FileType javascript setlocal tabstop=2
   autocmd FileType javascript setlocal softtabstop=2
   autocmd FileType javascript setlocal expandtab
-augroup END
+augroup end
 
 
 augroup ft_python
@@ -635,15 +632,15 @@ augroup ft_python
   autocmd FileType python setlocal foldmethod=indent
   autocmd FileType python setlocal nofoldenable
   autocmd FileType python setlocal omnifunc=jedi#completions
-augroup END
+augroup end
 
 augroup general
   autocmd!
-  autocmd BufWritePre *.php,*.py,*.js,*.jsx,*.txt,*.hs,*.java,*.md,*.rb :call <SID>StripTrailingWhitespaces()
+  autocmd BufWritePre *.php,*.py,*.js,*.jsx,*.txt,*.hs,*.java,*.md,*.rb :call <sid>StripTrailingWhitespaces()
   autocmd FileType less,scss,sass,css setlocal omnifunc=csscomplete#CompleteCSS noci
   autocmd FileType html,markdown      setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript         setlocal omnifunc=tern#Complete
-augroup END
+augroup end
 " }}}
 
 " ##Local {{{
