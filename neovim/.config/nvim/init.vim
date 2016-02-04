@@ -169,7 +169,7 @@ nnoremap <silent> <leader>gb :Gblame<CR>
 " }}}
 
 " gv.vim {{{
-Plug 'junegunn/gv.vim'
+Plug 'junegunn/gv.vim', { 'on': 'GV' }
 " }}}
 
 " deoplete.nvim {{{
@@ -275,6 +275,23 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " }}}
 
+Plug 'Konfekt/FastFold'
+
+Plug 'romainl/vim-qf'
+
+" quick-scope {{{
+Plug 'unblevable/quick-scope'
+let g:qs_first_occurrence_highlight_color = '#fabd2f'
+let g:qs_second_occurrence_highlight_color = '#d65d0e'
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+nmap <leader>q <plug>(QuickScopeToggle)
+vmap <leader>q <plug>(QuickScopeToggle)
+" }}}
+
+Plug 'wellle/targets.vim'
+
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
 let g:sneak#streak = 1
@@ -286,6 +303,11 @@ let g:undotree_WindowLayout = 2
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_SplitWidth = 40
 nnoremap <silent> <leader>u :UndotreeToggle<CR>
+" }}}
+
+" vim-signature {{{
+Plug 'kshenoy/vim-signature'
+nnoremap <silent> <leader>' :SignatureToggleSigns<CR>
 " }}}
 
 " neomake {{{
@@ -370,6 +392,17 @@ let g:airline#extensions#wordcount#format = '%d w'
 
 " }}}
 
+" vim-gitgutter {{{
+" Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
+let g:gitgutter_max_signs = 200
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+let g:gitgutter_grep_command = 'ag --nocolor'
+
+nnoremap <silent> <F3> :GitGutterToggle<CR>
+"}}}
+
 Plug 'tpope/vim-surround'
 
 Plug 'rstacruz/vim-closer'
@@ -381,8 +414,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 
 Plug 'tpope/vim-endwise'
-
-Plug 'Konfekt/FastFold'
 
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
 
@@ -478,6 +509,8 @@ call plug#end()
 colorscheme gruvbox
 " colorscheme alduin
 
+let g:SignatureEnabledAtStartup=0
+
 " airline
 function! AirlineInit()
 let g:airline_section_x = ''
@@ -540,8 +573,6 @@ function! Refresh()
   AirlineRefresh
   echo 'Refreshed!'
 endfunction
-
-nnoremap <silent> <f5> :call Refresh()<CR>
 
 " Remove search highlight
 nnoremap <silent> <leader><CR> :nohlsearch <bar> :call Refresh()<CR>
