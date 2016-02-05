@@ -10,7 +10,6 @@ set backspace=indent,eol,start
 set smarttab
 set ruler
 set showcmd
-set relativenumber
 set number
 set hlsearch incsearch
 set ignorecase smartcase
@@ -59,8 +58,7 @@ set formatoptions=cq " format using textwidth, including comments and gq
 " Menu complete
 set wildmenu
 set wildmode=longest:full,full
-set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store,*.class,*.manifest,*~,#*#,%*
-set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.zip,*.xc*,*.pbxproj,*.xcodeproj/**,*.xcassets/**
+set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store
 
 " True color
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -347,13 +345,7 @@ let g:alduin_Shout_Windhelm = 1
 Plug 'vim-airline/vim-airline'
 
 let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
 let g:airline_theme='gruvbox'
-let g:airline_symbols.paste      = 'ρ'
-let g:airline_symbols.whitespace = 'Ξ'
 
 let g:airline_mode_map = {
       \ '__' : '-',
@@ -374,13 +366,7 @@ let g:airline_extensions = [
       \ 'quickfix',
       \ 'neomake',
       \ 'wordcount',
-      \ 'whitespace',
       \ 'undotree' ]
-
-" Shorter error status line
-let g:airline#extensions#whitespace#trailing_format = '||:%s'
-let g:airline#extensions#whitespace#mixed_indent_format = '>>:%s'
-let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
 
 " Include fountain word count
 let g:airline#extensions#wordcount#filetypes = '\vmarkdown|rst|org|fountain'
@@ -510,10 +496,10 @@ let g:SignatureEnabledAtStartup=0
 
 " vim-airline
 function! AirlineInit()
-let g:airline_section_x = ''
-let g:airline_section_y = airline#section#create(['filetype'])
-let g:airline_section_error = ''
-let g:airline_section_warning = airline#section#create(['whitespace'])
+  let g:airline_section_x = ''
+  let g:airline_section_y = airline#section#create(['filetype'])
+  let g:airline_section_error = ''
+  let g:airline_section_warning = ''
 endfunction
 
 autocmd User AirlineAfterInit call AirlineInit()
