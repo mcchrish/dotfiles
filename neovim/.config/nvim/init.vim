@@ -29,8 +29,8 @@ set noshowmode
 set hidden
 " Default shell
 set shell=$SHELL
-set listchars=tab:▸\ ,eol:¬,trail:⋅,space:\|,nbsp:␣,extends:❯,precedes:❮
-set scrolloff=2
+set listchars=tab:\|\ ,eol:¬,trail:⌴,extends:❯,precedes:❮
+set scrolloff=4
 set sidescrolloff=5
 set synmaxcol=200
 set history=1000
@@ -91,6 +91,8 @@ augroup end
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
 " more scroll
 nnoremap <C-Y> 4<C-Y>
@@ -102,6 +104,10 @@ vnoremap > >gv
 
 " easy reindenting
 nnoremap g= gg=Gg``
+
+" saner regex
+nnoremap / /\v
+vnoremap / /\v
 
 " Remap esc
 inoremap jk <esc>
@@ -408,7 +414,7 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascri
 let g:used_javascript_libs = 'jquery,underscore,react,handlebars'
 " }}}
 
-Plug 'gavocanov/vim-js-indent', { 'commit': '2db4a7c', 'for': ['javascript', 'javascript.jsx', 'jsx'] }
+Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 
 " tern_for_vim {{{
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
