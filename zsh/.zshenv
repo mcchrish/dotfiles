@@ -39,7 +39,7 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg
 
 # PAGER
 export PAGER=less
-export LESS='-F -g -i -M -R -S -w -X -z-4'
+export LESS='-F -g -i -M -R -S -w -X -z-4 -j4'
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 
 export LESS_TERMCAP_mb=$'\E[01;31m'      # Begins blinking.
