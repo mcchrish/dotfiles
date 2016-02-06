@@ -1,3 +1,0 @@
-[submodule "zgen"]
-	path = submodules/zgen
-	url = https://github.com/tarjoilija/zgen.git
