@@ -23,7 +23,6 @@ set autoindent
 set showbreak=↪︎\ 
 " Sytem clipboard for yanking
 set clipboard=unnamed
-" Airline shows mode
 set noshowmode
 " Easy buffer switching
 set hidden
@@ -321,7 +320,6 @@ let g:neomake_shell_enabled_makers = ['shellcheck']
 let g:neomake_html_enabled_makers = []
 let g:neomake_open_list = 0
 let g:neomake_verbose = 0
-let g:neomake_airline = 1
 
 let g:neomake_error_sign = {
       \ 'text': '✖',
@@ -347,37 +345,89 @@ Plug 'AlessandroYorba/Alduin'
 let g:alduin_Shout_Windhelm = 1
 "}}}
 
-" vim-airline {{{
-Plug 'vim-airline/vim-airline'
+" lightline.vim {{{
+Plug 'itchyny/lightline.vim'
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme='gruvbox'
-
-let g:airline_mode_map = {
-      \ '__' : '-',
-      \ 'n'  : 'N',
-      \ 'i'  : 'I',
-      \ 'R'  : 'R',
-      \ 'c'  : 'C',
-      \ 'v'  : 'V',
-      \ 'V'  : 'V',
-      \ '' : 'V',
-      \ 's'  : 'S',
-      \ 'S'  : 'S',
-      \ '' : 'S',
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
+      \   'right': [ [ 'percent', 'lineinfo' ], [ 'filetype' ], [ 'fileformat', 'fileencoding' ] ]
+      \ },
+      \ 'component': {
+      \   'lineinfo': ' %3l:%-2v',
+      \ },
+      \ 'component_function': {
+      \   'readonly': 'LightLineReadonly',
+      \   'fugitive': 'LightLineFugitive',
+      \   'mode': 'LightLineMode',
+      \   'filename': 'LightLineFilename',
+      \   'fileformat': 'LightLineFileformat',
+      \   'filetype': 'LightLineFiletype',
+      \   'fileencoding': 'LightLineFileencoding'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ 'tabline_separator': { 'left': '', 'right': '' },
+      \ 'tabline_subseparator': { 'left': '|', 'right': '|' },
       \ }
 
-let g:airline_extensions = [
-      \ 'branch',
-      \ 'quickfix',
-      \ 'neomake',
-      \ 'wordcount',
-      \ 'undotree' ]
+let s:except_ft = 'help\|undotree\|fzf'
+function! LightLineReadonly()
+  return &ft !~? s:except_ft && &readonly ? '' : ''
+endfunction
 
-" Include fountain word count
-let g:airline#extensions#wordcount#filetypes = '\vmarkdown|rst|org|fountain'
-let g:airline#extensions#wordcount#format = '%d w'
+function! LightLineModified()
+  return &ft =~ s:except_ft ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
 
+function! LightLineFugitive()
+  if &ft !~? s:except_ft && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? ' '._ : ''
+  endif
+  return ''
+endfunction
+
+function! LightLineMode()
+  return &ft == 'help' ? 'help' :
+        \ &ft == 'undotree' ? 'undotree' :
+        \ &ft == 'fzf' ? 'FZF' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightLineFilename()
+  let fname = expand('%:f')
+  return &ft =~ s:except_ft ? '' :
+        \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 && &ft !~? s:except_ft ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70  && &ft !~? s:except_ft ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70  && &ft !~? s:except_ft ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+let g:lightline.mode_map = {
+      \ 'n' : 'N',
+      \ 'i' : 'I',
+      \ 'R' : 'R',
+      \ 'v' : 'V',
+      \ 'V' : 'VL',
+      \ 'c' : 'C',
+      \ "\<C-v>": 'VB',
+      \ 's' : 'SELECT',
+      \ 'S' : 'S-LINE',
+      \ "\<C-s>": 'S-BLOCK',
+      \ '?': '      ' }
 " }}}
 
 " vim-gitgutter {{{
@@ -500,16 +550,6 @@ colorscheme gruvbox
 " vim-signature
 let g:SignatureEnabledAtStartup=0
 
-" vim-airline
-function! AirlineInit()
-  let g:airline_section_x = ''
-  let g:airline_section_y = airline#section#create(['filetype'])
-  let g:airline_section_error = ''
-  let g:airline_section_warning = ''
-endfunction
-
-autocmd User AirlineAfterInit call AirlineInit()
-
 " Neomake
 " Check syntax on file open and write
 autocmd! BufWritePost * Neomake
@@ -559,7 +599,7 @@ endfunction
 function! Refresh()
   checktime
   redraw
-  AirlineRefresh
+  call lightline#update()
   echo 'Refreshed!'
 endfunction
 
