@@ -352,10 +352,16 @@ let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
-      \   'right': [ [ 'percent', 'lineinfo' ], [ 'filetype' ], [ 'fileformat', 'fileencoding' ] ]
+      \   'right': [ [ 'neomake', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'fileformat', 'fileencoding' ] ]
       \ },
       \ 'component': {
-      \   'lineinfo': ' %3l:%-2v',
+      \   'lineinfo': ' %3l:%-2v'
+      \ },
+      \ 'component_expand': {
+      \   'neomake': 'neomake#statusline#LoclistStatus'
+      \ },
+      \ 'component_type': {
+      \   'neomake': 'error'
       \ },
       \ 'component_function': {
       \   'readonly': 'LightLineReadonly',
