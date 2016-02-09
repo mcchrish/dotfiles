@@ -378,7 +378,7 @@ let g:lightline = {
       \ 'tabline_subseparator': { 'left': '|', 'right': '|' },
       \ }
 
-let s:except_ft = 'help\|undotree\|fzf'
+let s:except_ft = 'help\|undotree\|fzf\|vim-plug'
 function! LightLineReadonly()
   return &ft !~? s:except_ft && &readonly ? '' : ''
 endfunction
@@ -398,7 +398,8 @@ endfunction
 function! LightLineMode()
   return &ft == 'help' ? 'help' :
         \ &ft == 'undotree' ? 'undotree' :
-        \ &ft == 'fzf' ? 'FZF' :
+        \ &ft == 'fzf' ? 'fzf' :
+        \ &ft == 'vim-plug' ? 'plugin' :
         \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
@@ -411,15 +412,15 @@ function! LightLineFilename()
 endfunction
 
 function! LightLineFileformat()
-  return winwidth(0) > 70 && &ft !~? s:except_ft ? &fileformat : ''
+  return winwidth(0) > 90 && &ft !~? s:except_ft ? &fileformat : ''
 endfunction
 
 function! LightLineFiletype()
-  return winwidth(0) > 70  && &ft !~? s:except_ft ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+  return winwidth(0) > 90  && &ft !~? s:except_ft ? (strlen(&filetype) ? &filetype : 'no ft') : ''
 endfunction
 
 function! LightLineFileencoding()
-  return winwidth(0) > 70  && &ft !~? s:except_ft ? (strlen(&fenc) ? &fenc : &enc) : ''
+  return winwidth(0) > 90  && &ft !~? s:except_ft ? (strlen(&fenc) ? &fenc : &enc) : ''
 endfunction
 
 let g:lightline.mode_map = {
