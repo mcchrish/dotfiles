@@ -97,14 +97,14 @@ alias gra="git rebase --abort"
 alias grc="git rebase --continue"
 
 # Stash
-alias gs="git stash"
+alias gst="git stash"
 alias gsa="git stash apply"
 alias gsx="git stash drop"
 alias gsp="git stash pop"
 
 # Status
-alias gst="git status --short"
-alias gsT="git status"
+alias gs="git status --short"
+alias gsv="git status"
 alias gd="git diff"
 
 
