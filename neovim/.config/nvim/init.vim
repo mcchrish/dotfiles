@@ -1,7 +1,7 @@
 " ##Basics {{{
 set modelines=1
 set autoread
-set fileformats=unix,mac
+set fileformats=unix,mac,dos
 set fileformat=unix
 set encoding=utf-8
 set ttimeout
@@ -135,7 +135,7 @@ cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
 " JS standard formatter
-nnoremap <leader>ej :silent !standard % --format <cr>
+nnoremap <leader>ej :silent !standard-format % --write <cr>
 
 " Hightlight 80 characters
 nnoremap <silent> <leader>h
