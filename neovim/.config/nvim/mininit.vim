@@ -127,17 +127,6 @@ cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
 
-" Hightlight 80 characters
-nnoremap <silent> <leader>h
-      \ :if exists('w:long_line_match') <bar>
-      \   silent! call matchdelete(w:long_line_match) <bar>
-      \   unlet w:long_line_match <bar>
-      \ elseif &textwidth > 0 <bar>
-      \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <bar>
-      \ else <bar>
-      \   let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <bar>
-      \ endif<cr>
-
 " }}}
 
 " ##Plugins {{{
@@ -161,9 +150,7 @@ nnoremap <silent> <leader>gb :Gblame<cr>
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 " }}}
 
-" neoman.vim {{{
 Plug 'nhooyr/neoman.vim'
-" }}}
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -190,11 +177,6 @@ Plug 'morhetz/gruvbox'
 set background=dark
 let g:gruvbox_italic=1
 " }}}
-
-" Alduin {{{
-Plug 'AlessandroYorba/Alduin'
-let g:alduin_Shout_Windhelm = 1
-"}}}
 
 " lightline.vim {{{
 Plug 'itchyny/lightline.vim'
