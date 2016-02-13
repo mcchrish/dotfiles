@@ -59,9 +59,6 @@ fi
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-# gnupg
-export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-
 # Terminfo / ncurses
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
@@ -87,11 +84,10 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Enhancd
 export ENHANCD_DIR="$XDG_CACHE_HOME/enhancd"
 
-fzf_man="$ZPLUG_HOME/repos/junegunn/fzf/man"
+local fzf_man="$ZPLUG_HOME/repos/junegunn/fzf/man"
 if [[ ! "$MANPATH" == *$fzf_man* && -d "$fzf_man" ]]; then
   export MANPATH="$MANPATH:$fzf_man"
 fi
-unset fzf_man
 
 # Postgres
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql/history"
