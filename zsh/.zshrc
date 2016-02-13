@@ -19,7 +19,7 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 bindkey -e
 
 
-source_dir="$XDG_CONFIG_HOME/zsh"
+local source_dir="$XDG_CONFIG_HOME/zsh"
 
 # Shell options
 [[ -f "$source_dir/shelloptions.zsh" ]] && source "$source_dir/shelloptions.zsh"
@@ -50,6 +50,11 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
   zplug "junegunn/fzf", \
     as:command, \
     of:"bin/{fzf,fzf-tmux}"
+
+  # nvr - neovim remote
+  zplug "mhinz/neovim-remote", \
+    as:command, \
+    of:"nvr"
 
   # Improved cd
   ENHANCD_DISABLE_DOT=1
@@ -89,8 +94,6 @@ source "$XDG_CONFIG_HOME/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 
 # Aliases
 [[ -f "$source_dir/aliases.zsh" ]] && source "$source_dir/aliases.zsh"
-
-unset source_dir
 
 # Ensure unique path
 typeset -gU cdpath fpath mailpath path

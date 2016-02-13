@@ -9,7 +9,7 @@
 	helper = osxkeychain
 [core]
 	excludesfile = /Users/mclopez/.gitignore_global
-	editor = nvim
+	editor = nvim -u /Users/mclopez/.config/nvim/mininit.vim +startinsert
 	autocrlf = false
 	pager = less
 [pull]

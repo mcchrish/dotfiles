@@ -87,3 +87,34 @@ cdf() {
   dir=$(osascript -e 'tell application "Finder" to get the POSIX path of (target of front window as alias)' 2> /dev/null) \
     && cd "$dir"
 }
+
+# nman - use neovim as man pager
+function _nman {
+  if [[ "$@" == "" ]]; then
+    print "What manual page do you want?"
+    return
+  fi
+  /usr/bin/man "$@" > /dev/null 2>&1
+  if [[ "$?" != "0" ]]; then
+    print "No manual entry for $*"
+    return
+  fi
+  if [[ -z $NVIM_LISTEN_ADDRESS ]]; then
+    /usr/bin/env nvim -u $XDG_CONFIG_HOME/nvim/mininit.vim -c $cmd
+  else
+    nvr --remote-send "<c-n>" -c $cmd
+  fi
+}
+
+function nman {
+  cmd="Neoman $*"
+  _nman "$@"
+}
+
+function nman! {
+  cmd="Neoman! $*"
+  _nman "$@"
+}
+
+compdef nman="man"
+compdef nman!="man"
