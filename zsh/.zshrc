@@ -56,6 +56,11 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
     as:command, \
     of:"nvr"
 
+  # Textplay - convert fountain to HTML
+  zplug "olivertaylor/Textplay", \
+    as:command, \
+    of:"textplay"
+
   # Improved cd
   ENHANCD_DISABLE_DOT=1
   zplug "b4b4r07/enhancd", of:enhancd.sh
