@@ -1,0 +1,383 @@
+" ##Basics {{{
+set modelines=1
+set autoread
+set fileformats=unix,mac,dos
+set fileformat=unix
+set encoding=utf-8
+set ttimeout
+set ttimeoutlen=100
+set backspace=indent,eol,start
+set smarttab
+set ruler
+set showcmd
+set number
+set hlsearch incsearch
+set ignorecase smartcase
+set lazyredraw
+set splitbelow
+set splitright
+set laststatus=2
+set breakindent
+set showmatch
+set autoindent
+set showbreak=↪︎\ 
+" Sytem clipboard for yanking
+set clipboard=unnamed
+set noshowmode
+" Easy buffer switching
+set hidden
+" Default shell
+set shell=$SHELL
+set listchars=tab:\|\ ,eol:¬,trail:⌴,extends:❯,precedes:❮
+set scrolloff=4
+set sidescrolloff=5
+set synmaxcol=200
+set history=1000
+set tabpagemax=50
+
+" Better Completion
+set completeopt-=preview
+set completeopt+=menuone
+
+" Resize splits when the window is resized
+autocmd VimResized * :wincmd =
+
+" Indentation, 2 spaces no tabs
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+set expandtab
+
+" Wrapping
+set wrap
+set linebreak
+set textwidth=80
+set formatoptions=cq " format using textwidth, including comments and gq
+
+" Menu complete
+set wildmenu
+set wildmode=longest:full,full
+set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store
+
+" }}}
+
+"  ##Keymapping {{{
+
+" Remap leader
+let mapleader = "\<space>"
+let maplocalleader = "\\"
+
+" Enter command line mode
+noremap <cr> :
+
+" make Enter/cr work normally in quickfix and command-window
+augroup enter_correctly
+  autocmd!
+  autocmd BufReadPost quickfix nnoremap <buffer> <cr> <cr>
+  autocmd CmdWinEnter * nnoremap <buffer> <cr> <cr>
+augroup end
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" more scroll
+nnoremap <C-Y> 4<C-Y>
+nnoremap <C-E> 4<C-E>
+
+" reselect indent in visual mode
+vnoremap < <gv
+vnoremap > >gv
+
+" easy reindenting
+nnoremap g= gg=Gg``
+
+" saner regex
+nnoremap / /\v
+vnoremap / /\v
+
+" Remap esc
+inoremap jk <esc>
+
+" Other Remaps
+nnoremap Q <nop>
+nnoremap Y y$
+
+" Toggle relativenumber
+nnoremap <leader>N :set relativenumber!<cr>
+
+" faster save
+nnoremap <leader>w :w<cr>
+
+" Paste mode
+set pastetoggle=<F2>
+
+" allow command line editing like emacs
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+
+" Preview Marked 2
+nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
+
+" Hightlight 80 characters
+nnoremap <silent> <leader>h
+      \ :if exists('w:long_line_match') <bar>
+      \   silent! call matchdelete(w:long_line_match) <bar>
+      \   unlet w:long_line_match <bar>
+      \ elseif &textwidth > 0 <bar>
+      \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <bar>
+      \ else <bar>
+      \   let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <bar>
+      \ endif<cr>
+
+" }}}
+
+" ##Plugins {{{
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+call plug#begin('~/.config/nvim/plugged')
+
+" vim-fugitive {{{
+Plug 'tpope/vim-fugitive'
+nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>gb :Gblame<cr>
+" }}}
+
+" vim-easy-align {{{
+Plug 'junegunn/vim-easy-align'
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" }}}
+
+Plug 'Konfekt/FastFold'
+
+Plug 'romainl/vim-qf'
+
+" quick-scope {{{
+Plug 'unblevable/quick-scope'
+let g:qs_first_occurrence_highlight_color = '214'
+let g:qs_second_occurrence_highlight_color = '166'
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+nmap <leader>q <plug>(QuickScopeToggle)
+vmap <leader>q <plug>(QuickScopeToggle)
+" }}}
+
+Plug 'wellle/targets.vim'
+
+" vim-sneak {{{
+Plug 'justinmk/vim-sneak'
+let g:sneak#streak = 1
+" }}}
+
+" gruvbox {{{
+Plug 'morhetz/gruvbox'
+set background=dark
+let g:gruvbox_italic=1
+" }}}
+
+" lightline.vim {{{
+Plug 'itchyny/lightline.vim'
+
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
+      \   'right': [ [ 'neomake', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'fileformat', 'fileencoding' ] ]
+      \ },
+      \ 'component': {
+      \   'lineinfo': ' %3l:%-2v'
+      \ },
+      \ 'component_expand': {
+      \   'neomake': 'neomake#statusline#LoclistStatus'
+      \ },
+      \ 'component_type': {
+      \   'neomake': 'error'
+      \ },
+      \ 'component_function': {
+      \   'readonly': 'LightLineReadonly',
+      \   'fugitive': 'LightLineFugitive',
+      \   'mode': 'LightLineMode',
+      \   'filename': 'LightLineFilename',
+      \   'fileformat': 'LightLineFileformat',
+      \   'filetype': 'LightLineFiletype',
+      \   'fileencoding': 'LightLineFileencoding'
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' },
+      \ 'tabline_separator': { 'left': '', 'right': '' },
+      \ 'tabline_subseparator': { 'left': '|', 'right': '|' },
+      \ }
+
+let s:except_ft = 'help\|undotree\|fzf\|vim-plug'
+function! LightLineReadonly()
+  return &ft !~? s:except_ft && &readonly ? '' : ''
+endfunction
+
+function! LightLineModified()
+  return &ft =~ s:except_ft ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightLineFugitive()
+  if &ft !~? s:except_ft && exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? ' '._ : ''
+  endif
+  return ''
+endfunction
+
+function! LightLineMode()
+  return &ft == 'help' ? 'help' :
+        \ &ft == 'undotree' ? 'undotree' :
+        \ &ft == 'fzf' ? 'fzf' :
+        \ &ft == 'vim-plug' ? 'plugin' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightLineFilename()
+  let fname = expand('%:f')
+  return &ft =~ s:except_ft ? '' :
+        \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 90 && &ft !~? s:except_ft ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 90  && &ft !~? s:except_ft ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 90  && &ft !~? s:except_ft ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+let g:lightline.mode_map = {
+      \ 'n' : 'N',
+      \ 'i' : 'I',
+      \ 'R' : 'R',
+      \ 'v' : 'V',
+      \ 'V' : 'VL',
+      \ 'c' : 'C',
+      \ "\<C-v>": 'VB',
+      \ 's' : 'SELECT',
+      \ 'S' : 'S-LINE',
+      \ "\<C-s>": 'S-BLOCK',
+      \ '?': '      ' }
+" }}}
+
+Plug 'tpope/vim-surround'
+
+Plug 'tpope/vim-unimpaired'
+
+Plug 'tpope/vim-repeat'
+
+" goyo.vim {{{
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+nnoremap <silent> <leader>- :Goyo<cr>
+" }}}
+
+" limelight.vim {{{
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+" }}}
+
+" vim-pencil {{{
+Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown', 'text'] }
+let g:pencil#wrapModeDefault = 'soft'
+" }}}
+
+Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
+
+call plug#end()
+" }}}
+
+" ##On Plugin loaded {{{
+
+" gruvbox
+let g:gruvbox_italic=0
+colorscheme gruvbox
+
+" }}}
+
+" ##Functions {{{
+
+" StripTrailingWhitespaces {{{
+function! <sid>StripTrailingWhitespaces()
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+  echo 'Whitespace trimmed!'
+endfunction
+
+nnoremap <silent> <F4> :call <sid>StripTrailingWhitespaces()<cr>
+" }}}
+
+" Refresh {{{
+function! Refresh()
+  checktime
+  redraw
+  call lightline#update()
+  echo 'Refreshed!'
+endfunction
+
+" Remove search highlight
+nnoremap <silent> <leader><cr> :nohlsearch <bar> :call Refresh()<cr>
+" }}}
+
+" }}}
+
+" ##Autocmd {{{
+
+augroup pencil
+  autocmd!
+  autocmd FileType fountain    call pencil#init()
+  autocmd FileType fountain    setlocal showbreak=
+  autocmd FileType mardown,mkd call pencil#init()
+  autocmd FileType text        call pencil#init()
+augroup end
+
+function! s:goyo_enter()
+  silent !tmux set status off
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0
