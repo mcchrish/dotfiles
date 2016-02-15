@@ -137,6 +137,9 @@ cnoremap <M-f> <S-Right>
 " JS standard formatter
 nnoremap <leader>ej :silent !standard-format % --write <cr>
 
+" Preview Marked 2
+nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
+
 " Hightlight 80 characters
 nnoremap <silent> <leader>h
       \ :if exists('w:long_line_match') <bar>
@@ -382,7 +385,7 @@ let g:lightline = {
       \ 'tabline_subseparator': { 'left': '|', 'right': '|' },
       \ }
 
-let s:except_ft = 'help\|undotree\|fzf\|vim-plug'
+let s:except_ft = 'help\|qf\|undotree\|fzf\|vim-plug'
 function! LightLineReadonly()
   return &ft !~? s:except_ft && &readonly ? '' : ''
 endfunction
@@ -404,6 +407,7 @@ function! LightLineMode()
         \ &ft == 'undotree' ? 'undotree' :
         \ &ft == 'fzf' ? 'fzf' :
         \ &ft == 'vim-plug' ? 'plugin' :
+        \ &ft == 'qf' ? 'quickfix' :
         \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
@@ -649,6 +653,17 @@ augroup pencil
   autocmd FileType mardown,mkd call pencil#init()
   autocmd FileType text        call pencil#init()
 augroup end
+
+function! s:goyo_enter()
+  silent !tmux set status off
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 augroup ft_html
   autocmd!
