@@ -95,7 +95,7 @@ source "$XDG_CONFIG_HOME/nvim/plugged/gruvbox/gruvbox_256palette.sh"
 [[ -f "$source_dir/keybindings.zsh" ]] && source "$source_dir/keybindings.zsh"
 
 # Functions
-[[ -f "$source_dir/functions.zsh" ]] && source "$source_dir/functions.zsh"
+for func ($source_dir/functions/*.zsh) source $func
 
 # Aliases
 [[ -f "$source_dir/aliases.zsh" ]] && source "$source_dir/aliases.zsh"
