@@ -59,6 +59,8 @@ set wildmenu
 set wildmode=longest:full,full
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store
 
+" Change viminfo location
+set viminfo+=n~/.vim/viminfo
 " }}}
 
 "  ##Keymapping {{{
@@ -168,6 +170,12 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " }}}
 
+" vim-dirvish {{{
+Plug 'justinmk/vim-dirvish'
+let g:dirvish_hijack_netrw = 1
+let g:dirvish_relative_paths = 1
+" }}}
+
 Plug 'Konfekt/FastFold'
 
 Plug 'romainl/vim-qf'
@@ -229,7 +237,7 @@ let g:lightline = {
       \ 'tabline_subseparator': { 'left': '|', 'right': '|' },
       \ }
 
-let s:except_ft = 'help\|undotree\|fzf\|vim-plug'
+let s:except_ft = 'help\|qf\|undotree\|fzf\|vim-plug'
 function! LightLineReadonly()
   return &ft !~? s:except_ft && &readonly ? '' : ''
 endfunction
@@ -251,6 +259,7 @@ function! LightLineMode()
         \ &ft == 'undotree' ? 'undotree' :
         \ &ft == 'fzf' ? 'fzf' :
         \ &ft == 'vim-plug' ? 'plugin' :
+        \ &ft == 'qf' ? 'quickfix' :
         \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
