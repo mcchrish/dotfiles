@@ -51,6 +51,11 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
     as:command, \
     of:"bin/{fzf,fzf-tmux}"
 
+  local fzf_man="$ZPLUG_HOME/repos/junegunn/fzf/man"
+  if [[ ! "$MANPATH" == *$fzf_man* && -d "$fzf_man" ]]; then
+    export MANPATH="$MANPATH:$fzf_man"
+  fi
+
   # nvr - neovim remote
   zplug "mhinz/neovim-remote", \
     as:command, \
@@ -62,7 +67,7 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
     of:"textplay"
 
   # Improved cd
-  ENHANCD_DISABLE_DOT=1
+  export ENHANCD_DISABLE_DOT=1
   zplug "b4b4r07/enhancd", of:enhancd.sh
 
   # Zsh Completions

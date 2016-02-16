@@ -5,11 +5,15 @@ alias cp="nocorrect cp"
 alias rm="nocorrect rm"
 alias man="nocorrect man"
 alias ln="nocorrect ln"
-alias minvim="nvim -u $XDG_CONFIG_HOME/nvim/mininit.vim"
 alias du="du -h"
 alias df="df -h"
 alias which="command -v"
 alias sudo="sudo "
+
+# Vim
+alias minvim="nvim -u $XDG_CONFIG_HOME/nvim/mininit.vim"
+alias nv="nvim"
+alias v="vim"
 
 # Quick piping
 alias -g L="| less"

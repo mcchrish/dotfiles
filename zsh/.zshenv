@@ -50,11 +50,6 @@ export LESS_TERMCAP_so=$'\E[00;47;30m'   # Begins standout-mode.
 export LESS_TERMCAP_ue=$'\E[0m'          # Ends underline.
 export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 
-# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
-if (( $#commands[(i)lesspipe(|.sh)] )); then
-  export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
-fi
-
 # Default Editor
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -71,9 +66,7 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
 # Node
-if [[ ! -d "${XDG_DATA_HOME}/node" ]]; then
-  mkdir -p "${XDG_DATA_HOME}/node"
-fi
+[[ ! -d "${XDG_DATA_HOME}/node" ]] && mkdir -p "${XDG_DATA_HOME}/node"
 
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node/repl_history"
 
@@ -83,11 +76,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Enhancd
 export ENHANCD_DIR="$XDG_CACHE_HOME/enhancd"
-
-local fzf_man="$ZPLUG_HOME/repos/junegunn/fzf/man"
-if [[ ! "$MANPATH" == *$fzf_man* && -d "$fzf_man" ]]; then
-  export MANPATH="$MANPATH:$fzf_man"
-fi
 
 # Postgres
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql/history"
@@ -99,9 +87,7 @@ export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export MBOX="$XDG_DATA_HOME/mail/mbox"
 
 # Zsh
-if [[ ! -d "${XDG_DATA_HOME}/zsh" ]]; then
-  mkdir -p "${XDG_DATA_HOME}/zsh"
-fi
+[[ ! -d "${XDG_DATA_HOME}/zsh" ]] && mkdir -p "${XDG_DATA_HOME}/zsh"
 
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export HISTSIZE=10000
