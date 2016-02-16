@@ -117,16 +117,6 @@ nnoremap <leader>w :w<cr>
 " Paste mode
 set pastetoggle=<F2>
 
-" allow command line editing like emacs
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
-cnoremap <M-b> <S-Left>
-cnoremap <M-f> <S-Right>
-
 " }}}
 
 " ##Plugins {{{
@@ -213,6 +203,8 @@ let g:lightline.mode_map = {
 Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-unimpaired'
+
+Plug 'tpope/vim-rsi'
 
 call plug#end()
 " }}}

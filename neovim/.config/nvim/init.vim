@@ -124,16 +124,6 @@ nnoremap <leader>w :w<cr>
 " Paste mode
 set pastetoggle=<F2>
 
-" allow command line editing like emacs
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
-cnoremap <M-b> <S-Left>
-cnoremap <M-f> <S-Right>
-
 " JS standard formatter
 nnoremap <leader>ej :silent !standard-format % --write <cr>
 
@@ -339,19 +329,6 @@ let g:neomake_warning_sign = {
       \ }
 " }}}
 
-Plug 'tomtom/tcomment_vim'
-
-" gruvbox {{{
-Plug 'morhetz/gruvbox'
-set background=dark
-let g:gruvbox_italic=1
-" }}}
-
-" Alduin {{{
-Plug 'AlessandroYorba/Alduin'
-let g:alduin_Shout_Windhelm = 1
-"}}}
-
 " lightline.vim {{{
 Plug 'itchyny/lightline.vim'
 
@@ -456,9 +433,15 @@ let g:gitgutter_grep_command = 'ag --nocolor'
 nnoremap <silent> <F3> :GitGutterToggle<cr>
 "}}}
 
-Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
 
 Plug 'rstacruz/vim-closer'
+
+Plug 'tpope/vim-surround'
+
+Plug 'tpope/vim-rsi'
+
+Plug 'tpope/vim-sleuth'
 
 Plug 'tpope/vim-unimpaired'
 
@@ -468,11 +451,29 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'tpope/vim-endwise'
 
+Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
+
+" goyo.vim {{{
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+nnoremap <silent> <leader>- :Goyo<cr>
+" }}}
+
+" limelight.vim {{{
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+" }}}
+
+" vim-pencil {{{
+Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown', 'text'] }
+let g:pencil#wrapModeDefault = 'soft'
+" }}}
+
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
 
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 
-Plug 'othree/html5.vim', { 'for': 'html' }
 
 " javascript-libraries-syntax.vim {{{
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
@@ -485,6 +486,16 @@ Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx', 'jsx']
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
 nnoremap <silent> <leader>td :TernDef<cr>
 nnoremap <silent> <leader>ts :TernDefSplit<cr>
+" }}}
+
+Plug 'othree/html5.vim', { 'for': 'html' }
+
+" emmet-vim {{{
+Plug 'mattn/emmet-vim'
+
+let g:user_emmet_install_global = 1
+let g:user_emmet_leader_key='<C-A>'
+let g:user_emmet_settings = { 'javascript': { 'quote_char': "'" } }
 " }}}
 
 " vim-mustasche-handlebars {{{
@@ -503,55 +514,24 @@ Plug 'hdima/python-syntax', { 'for': 'python' }
 let python_highlight_all = 1
 " }}}
 
-" emmet-vim {{{
-Plug 'mattn/emmet-vim'
-
-let g:user_emmet_install_global = 1
-let g:user_emmet_leader_key='<C-A>'
-let g:user_emmet_settings = { 'javascript': { 'quote_char': "'" } }
-" }}}
-
-" goyo.vim {{{
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-nnoremap <silent> <leader>- :Goyo<cr>
-" }}}
-
-" limelight.vim {{{
-Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
-
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-" }}}
-
-" incsearch.vim {{{
-" Not working properly in neovim
-" Plug 'haya14busa/incsearch.vim'
-
-" map /  <Plug>(incsearch-forward)
-" map ?  <Plug>(incsearch-backward)
-" map g/ <Plug>(incsearch-stay)
-
-" " auto noh
-" let g:incsearch#auto_nohlsearch = 1
-" map n  <Plug>(incsearch-nohl-n)
-" map N  <Plug>(incsearch-nohl-N)
-" map *  <Plug>(incsearch-nohl-*)
-" map #  <Plug>(incsearch-nohl-#)
-" map g* <Plug>(incsearch-nohl-g*)
-" map g# <Plug>(incsearch-nohl-g#)
-
-" let g:incsearch#separate_highlight = 1
-
-" }}}
-
-" vim-pencil {{{
-Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown', 'text'] }
-let g:pencil#wrapModeDefault = 'soft'
-" }}}
+Plug 'hynek/vim-python-pep8-indent'
 
 Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
 
-Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
+" gruvbox {{{
+Plug 'morhetz/gruvbox'
+set background=dark
+let g:gruvbox_italic=1
+" }}}
+
+" Alduin {{{
+Plug 'AlessandroYorba/Alduin'
+let g:alduin_Shout_Windhelm = 1
+"}}}
+
+" Sierra {{{
+Plug 'AlessandroYorba/Sierra'
+" }}}
 
 call plug#end()
 " }}}
@@ -560,6 +540,7 @@ call plug#end()
 
 " gruvbox
 colorscheme gruvbox
+" colorscheme sierra
 " colorscheme alduin
 
 " vim-signature
@@ -665,39 +646,14 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
-augroup ft_html
-  autocmd!
-  autocmd FileType html                          setlocal foldmethod=indent
-  autocmd FileType html                          setlocal nofoldenable
-  autocmd FileType html,css,htmldjango,scss,less EmmetInstall
-augroup end
-
-augroup ft_javascript
-  autocmd FileType javascript setlocal shiftwidth=2
-  autocmd FileType javascript setlocal tabstop=2
-  autocmd FileType javascript setlocal softtabstop=2
-  autocmd FileType javascript setlocal expandtab
-augroup end
-
-
-augroup ft_python
-  autocmd!
-  autocmd FileType python setlocal shiftwidth=4
-  autocmd FileType python setlocal shiftround
-  autocmd FileType python setlocal tabstop=4
-  autocmd FileType python setlocal softtabstop=4
-  autocmd FileType python setlocal expandtab
-  autocmd FileType python setlocal foldmethod=indent
-  autocmd FileType python setlocal nofoldenable
-  autocmd FileType python setlocal omnifunc=jedi#completions
-augroup end
-
 augroup general
   autocmd!
   autocmd BufWritePre *.php,*.py,*.js,*.jsx,*.txt,*.hs,*.java,*.md,*.rb :call <sid>StripTrailingWhitespaces()
+  autocmd FileType html,css,htmldjango,scss,less EmmetInstall
   autocmd FileType less,scss,sass,css setlocal omnifunc=csscomplete#CompleteCSS noci
   autocmd FileType html,markdown      setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript         setlocal omnifunc=tern#Complete
+  autocmd FileType python setlocal omnifunc=jedi#completions
 augroup end
 " }}}
 
