@@ -64,11 +64,6 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
     export MANPATH="$MANPATH:$fzf_man"
   fi
 
-  # nvr - neovim remote
-  zplug "mhinz/neovim-remote", \
-    as:command, \
-    of:"nvr"
-
   # Textplay - convert fountain to HTML
   zplug "olivertaylor/Textplay", \
     as:command, \
