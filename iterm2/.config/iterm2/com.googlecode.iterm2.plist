@@ -2261,17 +2261,52 @@
 	<real>1</real>
 	<key>GlobalKeyMap</key>
 	<dict>
-		<key>0x45-0x60000</key>
+		<key>0x19-0x60000</key>
 		<dict>
 			<key>Action</key>
-			<integer>7</integer>
+			<integer>39</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x59-0x60000</key>
+		<key>0x48-0x60000</key>
 		<dict>
 			<key>Action</key>
-			<integer>8</integer>
+			<integer>18</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x4a-0x60000</key>
+		<dict>
+			<key>Action</key>
+			<integer>20</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x4b-0x60000</key>
+		<dict>
+			<key>Action</key>
+			<integer>21</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x4c-0x60000</key>
+		<dict>
+			<key>Action</key>
+			<integer>19</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x68-0x140000</key>
+		<dict>
+			<key>Action</key>
+			<integer>2</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x6c-0x140000</key>
+		<dict>
+			<key>Action</key>
+			<integer>0</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -2279,6 +2314,20 @@
 		<dict>
 			<key>Action</key>
 			<integer>32</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0xf700-0x300000</key>
+		<dict>
+			<key>Action</key>
+			<integer>7</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0xf701-0x300000</key>
+		<dict>
+			<key>Action</key>
+			<integer>6</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -2396,7 +2445,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/iterm2</string>
+	<string>~/dotfiles/iterm2/.config/iterm2</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSNavPanelExpandedSizeForSaveMode</key>
@@ -2447,13 +2496,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>950 37 445 77 0 0 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>6 313 606 456 0 0 1280 777 </string>
+	<string>17 585 606 456 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>760 697 400 129 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>330 289 620 392 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1280 800 0 0 1280 777 </string>
+	<string>0 0 1920 1080 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>-1280 241 1280 800 -1280 241 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -5733,7 +5782,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/mclopez/dotfiles/iterm2</string>
+	<string>/Users/mclopez/dotfiles/iterm2/.config/iterm2</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -5753,7 +5802,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-02-19T02:01:23Z</date>
+	<date>2016-02-20T02:56:06Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
