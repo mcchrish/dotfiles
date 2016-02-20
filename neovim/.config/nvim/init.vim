@@ -16,6 +16,8 @@ let g:did_install_default_menus = 1
 
 let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
+let g:python_host_prog='/usr/local/bin/python2.7'
+let g:python3_host_prog='/usr/local/bin/python3'
 
 set modelines=1
 set autoread
@@ -201,14 +203,18 @@ endif
 
 " }}}
 
-" deoplete.nvim x jedi.vim {{{
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-
+" deoplete-jedi {{{
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 let g:deoplete#omni_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#smart_auto_mappings = 0
-let g:jedi#show_call_signatures = 0
+" }}}
+
+" ultisnips {{{
+" Plug 'SirVer/ultisnips' | Plug 'mcchrish/vim-snippets'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsUsePythonVersion = 3
 " }}}
 
 " echodoc.vim {{{
@@ -217,18 +223,7 @@ let g:echodoc_enable_at_startup = 1
 " }}}
 
 " neoman.vim {{{
-Plug 'nhooyr/neoman.vim'
-" }}}
-
-" ultisnips {{{
-Plug 'SirVer/ultisnips' | Plug 'mcchrish/vim-snippets'
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:python_host_prog='/usr/local/bin/python2.7'
-let g:python3_host_prog='/usr/local/bin/python3'
-let g:UltiSnipsUsePythonVersion = 3
+Plug 'nhooyr/neoman.vim', { 'on': 'Nman' }
 " }}}
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -282,7 +277,7 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 " }}}
 
 " vim-easy-align {{{
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align', { 'on': '<plug>(EasyAlign)' }
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
@@ -441,7 +436,6 @@ let g:lightline.mode_map = {
 " }}}
 
 " vim-gitgutter {{{
-" Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 let g:gitgutter_max_signs = 200
 let g:gitgutter_realtime = 0
@@ -506,6 +500,8 @@ nnoremap <silent> <leader>td :TernDef<cr>
 nnoremap <silent> <leader>ts :TernDefSplit<cr>
 " }}}
 
+Plug 'tpope/vim-jdaddy'
+
 Plug 'othree/html5.vim', { 'for': 'html' }
 
 " emmet-vim {{{
@@ -521,9 +517,9 @@ Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handleb
 let g:mustache_abbreviations = 1
 " }}}
 
-Plug 'othree/csscomplete.vim', { 'for': [ 'sass', 'css', 'less' ] }
+Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
-Plug 'rstacruz/vim-hyperstyle', { 'for': [ 'sass', 'css', 'less' ] }
+Plug 'rstacruz/vim-hyperstyle', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
 
@@ -667,8 +663,8 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 augroup general
   autocmd!
   autocmd BufWritePre *.php,*.py,*.js,*.jsx,*.txt,*.hs,*.java,*.md,*.rb :call <sid>StripTrailingWhitespaces()
-  autocmd FileType html,css,htmldjango,scss,less EmmetInstall
-  autocmd FileType less,scss,sass,css setlocal omnifunc=csscomplete#CompleteCSS noci
+  autocmd FileType html,css,htmldjango,sass,scss,less EmmetInstall
+  autocmd FileType less,scss,sass,css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown      setlocal omnifunc=htmlcomplete#CompleteTags
   autocmd FileType javascript         setlocal omnifunc=tern#Complete
   autocmd FileType python setlocal omnifunc=jedi#completions
