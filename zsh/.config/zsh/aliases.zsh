@@ -37,6 +37,8 @@ alias agC="ag --nobreak --nonumbers --noheading --hidden --path-to-agignore="$XD
 # Tmux
 alias tmux="TERM=screen-256color-bce tmux"
 alias ta="tmux attach -t"
+alias tcc="tmux -CC"
+alias tcca="tmux -CC attach -t"
 alias tls="tmux ls"
 alias tkill="tmux kill-session -t"
 
