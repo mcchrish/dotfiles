@@ -488,8 +488,8 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 
 
 " javascript-libraries-syntax.vim {{{
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
-let g:used_javascript_libs = 'jquery,underscore,react,handlebars'
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
+let g:used_javascript_libs = 'jquery,underscore,react'
 " }}}
 
 Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
@@ -516,6 +516,8 @@ let g:user_emmet_settings = { 'javascript': { 'quote_char': "'" } }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
 let g:mustache_abbreviations = 1
 " }}}
+
+Plug 'hail2u/vim-css3-syntax', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
 Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
@@ -550,9 +552,9 @@ Plug 'AlessandroYorba/Sierra'
 call plug#end()
 " }}}
 
-" ##On Plugin loaded {{{
+" ##On plugin loaded {{{
 
-" gruvbox
+" colorscheme
 colorscheme gruvbox
 " colorscheme sierra
 " colorscheme alduin
@@ -560,10 +562,6 @@ colorscheme gruvbox
 " vim-signature
 let g:SignatureEnabledAtStartup=0
 
-" Neomake
-" Check syntax on file open and write
-autocmd! BufWritePost * Neomake
-autocmd! BufRead * Neomake
 " }}}
 
 " ##Functions {{{
@@ -641,12 +639,13 @@ endfunction
 
 " ##Autocmd {{{
 
+autocmd! BufWritePost * Neomake
+autocmd! BufRead * Neomake
+
 augroup pencil
   autocmd!
-  autocmd FileType fountain    call pencil#init()
+  autocmd FileType fountain,mardown,text call pencil#init()
   autocmd FileType fountain    setlocal showbreak=
-  autocmd FileType mardown,mkd call pencil#init()
-  autocmd FileType text        call pencil#init()
 augroup end
 
 function! s:goyo_enter()
@@ -662,12 +661,9 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 augroup general
   autocmd!
-  autocmd BufWritePre *.php,*.py,*.js,*.jsx,*.txt,*.hs,*.java,*.md,*.rb :call <sid>StripTrailingWhitespaces()
-  autocmd FileType html,css,htmldjango,sass,scss,less EmmetInstall
-  autocmd FileType less,scss,sass,css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown      setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd BufWritePre *.py,*.js,*.jsx,*.txt,*.md,*.fountain :call <sid>StripTrailingWhitespaces()
   autocmd FileType javascript         setlocal omnifunc=tern#Complete
-  autocmd FileType python setlocal omnifunc=jedi#completions
+  autocmd FileType python             setlocal omnifunc=jedi#completions
 augroup end
 " }}}
 
