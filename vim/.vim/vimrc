@@ -88,13 +88,6 @@ let maplocalleader = "\\"
 " Enter command line mode
 noremap <cr> :
 
-" make Enter/cr work normally in quickfix and command-window
-augroup enter_correctly
-  autocmd!
-  autocmd BufReadPost quickfix nnoremap <buffer> <cr> <cr>
-  autocmd CmdWinEnter * nnoremap <buffer> <cr> <cr>
-augroup end
-
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -168,14 +161,6 @@ nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
-" vim-easy-align {{{
-Plug 'junegunn/vim-easy-align'
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-" }}}
-
 " vim-dirvish {{{
 Plug 'justinmk/vim-dirvish'
 let g:dirvish_hijack_netrw = 1
@@ -186,22 +171,26 @@ Plug 'Konfekt/FastFold'
 
 Plug 'romainl/vim-qf'
 
-" quick-scope {{{
-Plug 'unblevable/quick-scope'
-let g:qs_first_occurrence_highlight_color = '214'
-let g:qs_second_occurrence_highlight_color = '166'
-
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-nmap <leader>q <plug>(QuickScopeToggle)
-vmap <leader>q <plug>(QuickScopeToggle)
-" }}}
-
 Plug 'wellle/targets.vim'
 
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
 let g:sneak#streak = 1
+
+"replace 'f' with 1-char Sneak
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+"replace 't' with 1-char Sneak
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
 " }}}
 
 " gruvbox {{{
@@ -391,6 +380,13 @@ endfunction
 function! s:goyo_leave()
   silent !tmux set status on
 endfunction
+
+" make <cr> normal in quickfix
+augroup enter_qf
+  autocmd!
+  autocmd BufReadPost quickfix nnoremap <buffer> <cr> <cr>
+  autocmd CmdWinEnter * nnoremap <buffer> <cr> <cr>
+augroup end
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()

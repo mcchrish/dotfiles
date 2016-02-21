@@ -91,8 +91,8 @@ let maplocalleader = "\\"
 " Enter command line mode
 noremap <cr> :
 
-" make Enter/cr work normally in quickfix and command-window
-augroup enter_correctly
+" make <cr> normal in quickfix
+augroup enter_qf
   autocmd!
   autocmd BufReadPost quickfix nnoremap <buffer> <cr> <cr>
   autocmd CmdWinEnter * nnoremap <buffer> <cr> <cr>
@@ -135,6 +135,9 @@ nnoremap <leader>w :w<cr>
 " Paste mode
 set pastetoggle=<F2>
 
+" Preview Marked 2
+nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
+
 " }}}
 
 " ##Plugins {{{
@@ -162,22 +165,24 @@ Plug 'nhooyr/neoman.vim'
 
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'Konfekt/FastFold'
-
-" quick-scope {{{
-Plug 'unblevable/quick-scope'
-let g:qs_first_occurrence_highlight_color = '#fabd2f'
-let g:qs_second_occurrence_highlight_color = '#d65d0e'
-
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-nmap <leader>q <plug>(QuickScopeToggle)
-vmap <leader>q <plug>(QuickScopeToggle)
-" }}}
-
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
 let g:sneak#streak = 1
+
+"replace 'f' with 1-char Sneak
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+"replace 't' with 1-char Sneak
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
 " }}}
 
 " gruvbox {{{

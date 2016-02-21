@@ -196,11 +196,6 @@ endif
 
 " }}}
 
-" deoplete-jedi {{{
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-let g:deoplete#omni_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
-" }}}
-
 " ultisnips {{{
 " Plug 'SirVer/ultisnips' | Plug 'mcchrish/vim-snippets'
 
@@ -293,22 +288,26 @@ nmap <silent> <c-end> <Plug>QfLnext
 
 " }}}
 
-" quick-scope {{{
-Plug 'unblevable/quick-scope'
-let g:qs_first_occurrence_highlight_color = '#fabd2f'
-let g:qs_second_occurrence_highlight_color = '#d65d0e'
-
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-nmap <leader>q <plug>(QuickScopeToggle)
-vmap <leader>q <plug>(QuickScopeToggle)
-" }}}
-
 Plug 'wellle/targets.vim'
 
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
 let g:sneak#streak = 1
+
+"replace 'f' with 1-char Sneak
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+"replace 't' with 1-char Sneak
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
 " }}}
 
 " undotree {{{
@@ -478,8 +477,8 @@ nnoremap <silent> <leader>- :Goyo<cr>
 " limelight.vim {{{
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
+let g:limelight_conceal_guifg = 'DarkGray'
 let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
 " }}}
 
 " vim-pencil {{{
@@ -490,7 +489,6 @@ let g:pencil#wrapModeDefault = 'soft'
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
 
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
-
 
 " javascript-libraries-syntax.vim {{{
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
@@ -505,7 +503,7 @@ nnoremap <silent> <leader>td :TernDef<cr>
 nnoremap <silent> <leader>ts :TernDefSplit<cr>
 " }}}
 
-Plug 'tpope/vim-jdaddy'
+Plug 'tpope/vim-jdaddy', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'json' ] }
 
 Plug 'othree/html5.vim', { 'for': 'html' }
 
@@ -530,19 +528,55 @@ Plug 'rstacruz/vim-hyperstyle', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
 
+" deoplete-jedi {{{
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+let g:deoplete#omni_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
+" }}}
+
 " python-syntax {{{
 Plug 'hdima/python-syntax', { 'for': 'python' }
 let python_highlight_all = 1
 " }}}
 
-Plug 'hynek/vim-python-pep8-indent'
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 
 Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
 
 " gruvbox {{{
 Plug 'morhetz/gruvbox'
 set background=dark
-let g:gruvbox_italic=1
+
+" dark0 + gray
+let g:terminal_color_0 = "#928374"
+let g:terminal_color_8 = "#282828"
+
+" neurtral_red + bright_red
+let g:terminal_color_1 = "#fb4934"
+let g:terminal_color_9 = "#cc241d"
+
+" neutral_green + bright_green
+let g:terminal_color_2 = "#b8bb26"
+let g:terminal_color_10 = "#98971a"
+
+" neutral_yellow + bright_yellow
+let g:terminal_color_3 = "#fabd2f"
+let g:terminal_color_11 = "#d79921"
+
+" neutral_blue + bright_blue
+let g:terminal_color_4 = "#83a598"
+let g:terminal_color_12 = "#458588"
+
+" neutral_purple + bright_purple
+let g:terminal_color_5 = "#d3869b"
+let g:terminal_color_13 = "#b16286"
+
+" neutral_aqua + faded_aqua
+let g:terminal_color_6 = "#8ec07c"
+let g:terminal_color_14 = "#689d6a"
+
+" light4 + light1
+let g:terminal_color_7 = "#ebdbb2"
+let g:terminal_color_15 = "#a89984"
 " }}}
 
 " Alduin {{{
