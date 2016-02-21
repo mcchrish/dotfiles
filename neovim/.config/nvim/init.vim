@@ -48,19 +48,18 @@ set noshowmode
 set hidden
 " Default shell
 set shell=$SHELL
-set listchars=tab:\|\ ,eol:¬,trail:⌴,extends:❯,precedes:❮
+set listchars=tab:\|\ ,eol:¬,trail:~,extends:❯,precedes:❮
 set scrolloff=4
 set sidescrolloff=5
 set synmaxcol=200
 set history=1000
 set tabpagemax=50
+set foldlevelstart=99
+set noerrorbells novisualbell
 
 " Better Completion
 set completeopt-=preview
 set completeopt+=menuone
-
-" Resize splits when the window is resized
-autocmd VimResized * :wincmd =
 
 " Indentation, 2 spaces no tabs
 set shiftwidth=2
@@ -116,10 +115,6 @@ vnoremap > >gv
 
 " easy reindenting
 nnoremap g= gg=Gg``
-
-" saner regex
-nnoremap / /\v
-vnoremap / /\v
 
 " Remap esc
 inoremap jk <esc>
@@ -264,6 +259,28 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 
 " }}}
 
+" vim-sneak {{{
+Plug 'justinmk/vim-sneak'
+let g:sneak#streak = 1
+
+"replace 'f' with 1-char Sneak
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+"replace 't' with 1-char Sneak
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
+" }}}
+
+Plug 'pgdouyon/vim-evanesco'
+
 " vim-easy-align {{{
 Plug 'junegunn/vim-easy-align', { 'on': '<plug>(EasyAlign)' }
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -289,26 +306,6 @@ nmap <silent> <c-end> <Plug>QfLnext
 " }}}
 
 Plug 'wellle/targets.vim'
-
-" vim-sneak {{{
-Plug 'justinmk/vim-sneak'
-let g:sneak#streak = 1
-
-"replace 'f' with 1-char Sneak
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-omap f <Plug>Sneak_f
-omap F <Plug>Sneak_F
-"replace 't' with 1-char Sneak
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-omap t <Plug>Sneak_t
-omap T <Plug>Sneak_T
-" }}}
 
 " undotree {{{
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -677,6 +674,9 @@ endfunction
 " }}}
 
 " ##Autocmd {{{
+
+" Resize splits when the window is resized
+autocmd VimResized * :wincmd =
 
 autocmd! BufWritePost * Neomake
 autocmd! BufRead * Neomake
