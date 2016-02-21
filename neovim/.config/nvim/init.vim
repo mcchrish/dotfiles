@@ -100,13 +100,6 @@ let maplocalleader = "\\"
 " Enter command line mode
 noremap <cr> :
 
-" make Enter/cr work normally in quickfix and command-window
-augroup enter_correctly
-  autocmd!
-  autocmd BufReadPost quickfix nnoremap <buffer> <cr> <cr>
-  autocmd CmdWinEnter * nnoremap <buffer> <cr> <cr>
-augroup end
-
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -284,9 +277,21 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " }}}
 
+" FastFold {{{
 Plug 'Konfekt/FastFold'
+let g:fastfold_force = 1
+" }}}
 
+" vim-qf {{{
 Plug 'romainl/vim-qf'
+let g:qf_mapping_ack_style = 1
+
+nmap <silent> <home> <Plug>QfCprevious
+nmap <silent> <end> <Plug>QfCnext
+nmap <silent> <c-home> <Plug>QfLprevious
+nmap <silent> <c-end> <Plug>QfLnext
+
+" }}}
 
 " quick-scope {{{
 Plug 'unblevable/quick-scope'
@@ -658,6 +663,13 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" make <cr> normal in quickfix
+augroup enter_qf
+  autocmd!
+  autocmd BufReadPost quickfix nnoremap <buffer> <cr> <cr>
+  autocmd CmdWinEnter * nnoremap <buffer> <cr> <cr>
+augroup end
 
 augroup general
   autocmd!
