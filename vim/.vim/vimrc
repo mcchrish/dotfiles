@@ -169,8 +169,6 @@ let g:dirvish_relative_paths = 1
 
 Plug 'Konfekt/FastFold'
 
-Plug 'romainl/vim-qf'
-
 Plug 'wellle/targets.vim'
 
 " vim-sneak {{{
@@ -307,9 +305,7 @@ nnoremap <silent> <leader>- :Goyo<cr>
 
 " limelight.vim {{{
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
-
 let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
 " }}}
 
 " vim-pencil {{{

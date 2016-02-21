@@ -157,10 +157,6 @@ nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
-" gv.vim {{{
-Plug 'junegunn/gv.vim', { 'on': 'GV' }
-" }}}
-
 Plug 'nhooyr/neoman.vim'
 
 Plug 'christoomey/vim-tmux-navigator'
