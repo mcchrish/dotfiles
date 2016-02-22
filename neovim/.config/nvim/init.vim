@@ -56,6 +56,7 @@ set history=1000
 set tabpagemax=50
 set foldlevelstart=99
 set noerrorbells novisualbell
+set nojoinspaces
 
 " Better Completion
 set completeopt-=preview
@@ -96,9 +97,6 @@ set undofile
 let mapleader = "\<space>"
 let maplocalleader = "\\"
 
-" Enter command line mode
-noremap <cr> :
-
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -106,8 +104,8 @@ nnoremap gj j
 nnoremap gk k
 
 " more scroll
-nnoremap <C-Y> 4<C-Y>
-nnoremap <C-E> 4<C-E>
+nnoremap <c-y> 4<c-y>
+nnoremap <c-e> 4<c-e>
 
 " reselect indent in visual mode
 vnoremap < <gv
@@ -262,6 +260,7 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
 let g:sneak#streak = 1
+let g:sneak#use_ic_scs = 1
 
 "replace 'f' with 1-char Sneak
 nmap f <Plug>Sneak_f
@@ -277,6 +276,9 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
+
+nmap <expr> ; sneak#is_sneaking() ? '<Plug>SneakNext' : ':'
+vmap <expr> ; sneak#is_sneaking() ? '<Plug>SneakNext' : ':'
 " }}}
 
 Plug 'pgdouyon/vim-evanesco'
@@ -697,13 +699,6 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-" make <cr> normal in quickfix
-augroup enter_qf
-  autocmd!
-  autocmd BufReadPost quickfix nnoremap <buffer> <cr> <cr>
-  autocmd CmdWinEnter * nnoremap <buffer> <cr> <cr>
-augroup end
 
 augroup general
   autocmd!

@@ -11,7 +11,6 @@ let g:loaded_vimballPlugin = 1
 let g:loaded_rrhelper = 1
 let g:loaded_getscriptPlugin = 1
 let g:loaded_2html_plugin = 1
-let g:loaded_netrwPlugin = 1
 let g:did_install_default_menus = 1
 
 let g:python_host_skip_check = 1
@@ -88,16 +87,6 @@ set undofile
 let mapleader = "\<space>"
 let maplocalleader = "\\"
 
-" Enter command line mode
-noremap <cr> :
-
-" make <cr> normal in quickfix
-augroup enter_qf
-  autocmd!
-  autocmd BufReadPost quickfix nnoremap <buffer> <cr> <cr>
-  autocmd CmdWinEnter * nnoremap <buffer> <cr> <cr>
-augroup end
-
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -162,8 +151,8 @@ Plug 'nhooyr/neoman.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 " vim-sneak {{{
-Plug 'justinmk/vim-sneak'
 let g:sneak#streak = 1
+let g:sneak#use_ic_scs = 1
 
 "replace 'f' with 1-char Sneak
 nmap f <Plug>Sneak_f
@@ -179,6 +168,9 @@ xmap t <Plug>Sneak_t
 xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
+
+nmap <expr> ; sneak#is_sneaking() ? '<Plug>SneakNext' : ':'
+vmap <expr> ; sneak#is_sneaking() ? '<Plug>SneakNext' : ':'
 " }}}
 
 " gruvbox {{{
