@@ -97,21 +97,21 @@ set undofile
 let mapleader = "\<space>"
 let maplocalleader = "\\"
 
-" move vertically by visual line
+" Move vertically by visual line
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-" more scroll
+" More scroll
 nnoremap <c-y> 4<c-y>
 nnoremap <c-e> 4<c-e>
 
-" reselect indent in visual mode
+" Reselect indent in visual mode
 vnoremap < <gv
 vnoremap > >gv
 
-" easy reindenting
+" Easy reindenting
 nnoremap g= gg=Gg``
 
 " Remap esc
@@ -124,7 +124,7 @@ nnoremap Y y$
 " Toggle relativenumber
 nnoremap <leader>N :set relativenumber!<cr>
 
-" faster save
+" Faster save
 nnoremap <leader>w :w<cr>
 
 " Paste mode
@@ -299,12 +299,6 @@ let g:fastfold_force = 1
 " vim-qf {{{
 Plug 'romainl/vim-qf'
 let g:qf_mapping_ack_style = 1
-
-nmap <silent> <home> <Plug>QfCprevious
-nmap <silent> <end> <Plug>QfCnext
-nmap <silent> <c-home> <Plug>QfLprevious
-nmap <silent> <c-end> <Plug>QfLnext
-
 " }}}
 
 Plug 'wellle/targets.vim'
@@ -592,7 +586,15 @@ call plug#end()
 
 " ##On plugin loaded {{{
 
-" colorscheme
+" Load immediately so we can override keymappings later
+runtime! plugin/unimpaired.vim
+
+nmap <silent> [q <Plug>QfCprevious
+nmap <silent> ]q <Plug>QfCnext
+nmap <silent> [l <Plug>QfLprevious
+nmap <silent> ]l <Plug>QfLnext
+
+" Colorscheme
 colorscheme gruvbox
 " colorscheme sierra
 " colorscheme alduin
