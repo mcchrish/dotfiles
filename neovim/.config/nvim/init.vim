@@ -41,11 +41,16 @@ set breakindent
 set showmatch
 set autoindent
 set showbreak=↪︎\ 
+
 " Sytem clipboard for yanking
 set clipboard=unnamed
+
+" Mode shown by statusline
 set noshowmode
+
 " Easy buffer switching
 set hidden
+
 " Default shell
 set shell=$SHELL
 set listchars=tab:\|\ ,eol:¬,trail:~,extends:❯,precedes:❮
@@ -54,9 +59,16 @@ set sidescrolloff=5
 set synmaxcol=200
 set history=1000
 set tabpagemax=50
+
+" Start with open folds
 set foldlevelstart=99
+
+" No bells
 set noerrorbells novisualbell
 set nojoinspaces
+
+" Nicer vertical splits
+set fillchars=vert:\ ,fold:·
 
 " Better Completion
 set completeopt-=preview
@@ -117,15 +129,33 @@ nnoremap g= gg=Gg``
 " Remap esc
 inoremap jk <esc>
 
-" Other Remaps
+" Move in insert mode
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>a
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-^> <C-o><C-^>
+
+" No ex mode
 nnoremap Q <nop>
-nnoremap Y y$
 
 " Toggle relativenumber
 nnoremap <leader>N :set relativenumber!<cr>
 
 " Faster save
-nnoremap <leader>w :w<cr>
+nnoremap <leader>w :update<cr>
+
+" Delete without overwriting default register
+nnoremap vd "_d
+xnoremap x  "_d
+nnoremap vD "_D
+
+" Disable F1
+noremap! <F1> <nop>
+noremap <F1> <nop>
+
+" Actual Y
+nnoremap Y y$
 
 " Paste mode
 set pastetoggle=<F2>
