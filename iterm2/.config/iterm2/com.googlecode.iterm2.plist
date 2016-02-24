@@ -2271,42 +2271,42 @@
 		<key>0x48-0x60000</key>
 		<dict>
 			<key>Action</key>
-			<integer>18</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x4a-0x60000</key>
-		<dict>
-			<key>Action</key>
-			<integer>20</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x4b-0x60000</key>
-		<dict>
-			<key>Action</key>
-			<integer>21</integer>
+			<integer>2</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
 		<key>0x4c-0x60000</key>
 		<dict>
 			<key>Action</key>
-			<integer>19</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x68-0x140000</key>
-		<dict>
-			<key>Action</key>
-			<integer>2</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x6c-0x140000</key>
-		<dict>
-			<key>Action</key>
 			<integer>0</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x68-0x80000</key>
+		<dict>
+			<key>Action</key>
+			<integer>18</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x6a-0x80000</key>
+		<dict>
+			<key>Action</key>
+			<integer>20</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x6b-0x80000</key>
+		<dict>
+			<key>Action</key>
+			<integer>21</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
+		<key>0x6c-0x80000</key>
+		<dict>
+			<key>Action</key>
+			<integer>19</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -5802,7 +5802,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-02-20T02:56:06Z</date>
+	<date>2016-02-23T03:30:16Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
