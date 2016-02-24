@@ -34,13 +34,15 @@ set number
 set hlsearch incsearch
 set ignorecase smartcase
 set lazyredraw
-set splitbelow
-set splitright
 set laststatus=2
 set breakindent
 set showmatch
 set autoindent
 set showbreak=↪︎\ 
+
+" Better splitting
+set splitbelow
+set splitright
 
 " Sytem clipboard for yanking
 set clipboard=unnamed
@@ -86,6 +88,9 @@ set linebreak
 set textwidth=80
 set formatoptions=cq " format using textwidth, including comments and gq
 
+" Stay on the same column if possible
+set nostartofline
+
 " Menu complete
 set wildmenu
 set wildmode=longest:full,full
@@ -100,6 +105,24 @@ nmap <silent> <bs> :<c-u>TmuxNavigateLeft<cr>
 
 " Persistent undo and swap files directory
 set undofile
+
+" Change vim temporary directories
+if !has('nvim')
+  set noswapfile
+  set undodir=~/.vim/tmp/undo//
+  set backupdir=~/.vim/tmp/backup//
+
+  " Create tmp directories if not existing
+  if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+  endif
+
+  if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+  endif
+
+  set viminfo+=n~/.vim/viminfo
+endif 
 
 " }}}
 
@@ -189,16 +212,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-" vim-fugitive {{{
-Plug 'tpope/vim-fugitive'
-nnoremap <silent> <leader>gs :Gstatus<cr>
-nnoremap <silent> <leader>gd :Gdiff<cr>
-nnoremap <silent> <leader>gb :Gblame<cr>
-" }}}
-
-" gv.vim {{{
-Plug 'junegunn/gv.vim', { 'on': 'GV' }
-" }}}
+if has('nvim')
 
 " deoplete.nvim {{{
 Plug 'Shougo/deoplete.nvim'
@@ -217,38 +231,13 @@ if !exists('g:deoplete#omni_patterns')
   let g:deoplete#omni_patterns = {}
 endif
 
+let g:deoplete#omni_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
+
 " }}}
 
-" ultisnips {{{
-" Plug 'SirVer/ultisnips' | Plug 'mcchrish/vim-snippets'
+endif
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsUsePythonVersion = 3
-" }}}
-
-" echodoc.vim {{{
-Plug 'Shougo/echodoc.vim'
-let g:echodoc_enable_at_startup = 1
-" }}}
-
-" neoman.vim {{{
-Plug 'nhooyr/neoman.vim', { 'on': 'Nman' }
-" }}}
-
-Plug 'christoomey/vim-tmux-navigator'
-
-" vim-dirvish {{{
-Plug 'justinmk/vim-dirvish'
-let g:dirvish_hijack_netrw = 1
-let g:dirvish_relative_paths = 1
-" }}}
-
-" vim-gtfo {{{
-Plug 'justinmk/vim-gtfo'
-let g:gtfo#terminals = { 'mac' : 'iterm' }
-" }}}
+if !has('gui_running')
 
 " fzf {{{
 Plug 'junegunn/fzf'
@@ -285,6 +274,73 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
 
+" }}}
+
+endif
+
+" neomake {{{
+Plug 'benekastah/neomake'
+
+let g:neomake_javascript_enabled_makers = ['standard']
+let g:neomake_jsx_enabled_makers = ['standard']
+let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_less_enabled_makers = []
+let g:neomake_shell_enabled_makers = ['shellcheck']
+let g:neomake_html_enabled_makers = []
+let g:neomake_open_list = 0
+let g:neomake_verbose = 0
+
+let g:neomake_error_sign = {
+      \ 'text': '✖',
+      \ 'texthl': 'SyntasticErrorSign',
+      \ }
+
+let g:neomake_warning_sign = {
+      \ 'text': '⚠',
+      \ 'texthl': 'SyntasticWarningSign',
+      \ }
+" }}}
+
+" vim-fugitive {{{
+Plug 'tpope/vim-fugitive'
+nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>gb :Gblame<cr>
+" }}}
+
+" gv.vim {{{
+Plug 'junegunn/gv.vim', { 'on': 'GV' }
+" }}}
+
+" ultisnips {{{
+" Plug 'SirVer/ultisnips' | Plug 'mcchrish/vim-snippets'
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsUsePythonVersion = 3
+" }}}
+
+" echodoc.vim {{{
+Plug 'Shougo/echodoc.vim'
+let g:echodoc_enable_at_startup = 1
+" }}}
+
+" neoman.vim {{{
+Plug 'nhooyr/neoman.vim', { 'on': 'Nman' }
+" }}}
+
+Plug 'christoomey/vim-tmux-navigator'
+
+" vim-dirvish {{{
+Plug 'justinmk/vim-dirvish'
+let g:dirvish_hijack_netrw = 1
+let g:dirvish_relative_paths = 1
+" }}}
+
+" vim-gtfo {{{
+Plug 'justinmk/vim-gtfo'
+let g:gtfo#terminals = { 'mac' : 'iterm' }
 " }}}
 
 " vim-sneak {{{
@@ -344,29 +400,6 @@ nnoremap <silent> <leader>u :UndotreeToggle<cr>
 " vim-signature {{{
 Plug 'kshenoy/vim-signature'
 nnoremap <silent> <leader>' :SignatureToggleSigns<cr>
-" }}}
-
-" neomake {{{
-Plug 'benekastah/neomake'
-
-let g:neomake_javascript_enabled_makers = ['standard']
-let g:neomake_jsx_enabled_makers = ['standard']
-let g:neomake_python_enabled_makers = ['flake8']
-let g:neomake_less_enabled_makers = []
-let g:neomake_shell_enabled_makers = ['shellcheck']
-let g:neomake_html_enabled_makers = []
-let g:neomake_open_list = 0
-let g:neomake_verbose = 0
-
-let g:neomake_error_sign = {
-      \ 'text': '✖',
-      \ 'texthl': 'SyntasticErrorSign',
-      \ }
-
-let g:neomake_warning_sign = {
-      \ 'text': '⚠',
-      \ 'texthl': 'SyntasticWarningSign',
-      \ }
 " }}}
 
 " lightline.vim {{{
@@ -551,10 +584,7 @@ Plug 'rstacruz/vim-hyperstyle', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
 
-" deoplete-jedi {{{
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-let g:deoplete#omni_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
-" }}}
 
 " python-syntax {{{
 Plug 'hdima/python-syntax', { 'for': 'python' }
