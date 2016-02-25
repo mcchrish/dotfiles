@@ -109,6 +109,8 @@ nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
+Plug 'rhysd/committia.vim', { 'for': 'gitcommit' }
+
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 
 " ultisnips {{{

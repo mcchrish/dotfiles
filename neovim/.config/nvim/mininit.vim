@@ -20,6 +20,8 @@ nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
+Plug 'rhysd/committia.vim'
+
 Plug 'nhooyr/neoman.vim'
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -50,7 +52,7 @@ vmap <expr> ; sneak#is_sneaking() ? '<Plug>SneakNext' : ':'
 
 " gruvbox {{{
 Plug 'morhetz/gruvbox'
-set background = dark
+set background=dark
 " }}}
 
 " lightline.vim {{{
@@ -109,10 +111,11 @@ let g:loaded_zipPlugin          = 1
 let g:loaded_tarPlugin          = 1
 let g:loaded_gzip               = 1
 
+" Disable python
 let g:python_host_skip_check  = 1
 let g:python3_host_skip_check = 1
-let g:python_host_prog        = '/usr/local/bin/python2.7'
-let g:python3_host_prog       = '/usr/local/bin/python3'
+let g:loaded_python_provider  = 1
+let g:loaded_python3_provider = 1
 
 set modelines=1
 set autoread
