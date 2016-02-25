@@ -62,7 +62,7 @@ alias cask="brew cask"
 
 # Branch
 alias g="git"
-alias gb="git branch"
+alias gb="git branch -vv"
 alias gbc="git checkout -b"
 alias gbx="git branch -d"
 alias gbX="git branch -D"
@@ -112,8 +112,10 @@ alias gsp="git stash pop"
 # Status
 alias gs="git status --short"
 alias gsv="git status"
-alias gd="git diff"
 
+# Diff
+alias gd="git diff"
+alias gds="git diff --stat --color"
 
 # ls
 alias ls="ls -G"

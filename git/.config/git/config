@@ -5,33 +5,57 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+
 [credential]
 	helper = osxkeychain
+
 [core]
 	excludesfile = /Users/mclopez/.gitignore_global
 	editor = nvim -u /Users/mclopez/.config/nvim/mininit.vim +startinsert
 	autocrlf = false
 	pager = less
+
 [pull]
-  rebase = true
+	rebase = true
+
 [push]
 	default = upstream
+
 [merge]
 	tool = vimdiff
+
+[rebase]
+	autosquash = true
+	autostash  = true
+
 [mergetool]
 	prompt = false
+
 [diff]
 	tool = vimdiff
+	algorithm = patience
+
 [pager]
 	diff = diff-so-fancy | less
 	show = diff-so-fancy | less
+
 [color]
 	ui = always
 	diff = auto
 	branch = auto
 	interactive = auto
 	status = auto
+
 [color "diff"]
-	meta = yellow bold
+	meta = bold yellow
+	old  = bold red
+	new  = bold green
+
+[color "diff-highlight"]
+	oldNormal = bold red
+	oldHighlight = "167 bold 88"
+	newNormal = bold green
+	newHighlight = "142 bold 100"
+
 [color "status"]
 	untracked = magenta
