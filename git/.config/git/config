@@ -22,3 +22,16 @@
 	prompt = false
 [diff]
 	tool = vimdiff
+[pager]
+	diff = diff-so-fancy | less
+	show = diff-so-fancy | less
+[color]
+	ui = always
+	diff = auto
+	branch = auto
+	interactive = auto
+	status = auto
+[color "diff"]
+	meta = yellow bold
+[color "status"]
+	untracked = magenta

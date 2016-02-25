@@ -8,12 +8,14 @@ brew tap rogual/neovim-dot-app
 // brew
 brew install brew-cask
 brew install curl
+brew install diff-so-fancy
 brew install dos2unix
-brew install cmus --HEAD --with-ffmpeg --with-jack
+brew install cmus --HEAD --with-ffmpeg --with-jack --with-opusfile
 brew install fasd
 brew install fpp
 brew install fzf
 brew install git
+brew install git-extras
 brew install gpg-agent
 brew install htop
 brew install jenv
@@ -31,6 +33,7 @@ brew install python3
 brew install ranger
 brew install shellcheck
 brew install stow
+brew install tig
 brew install the_sliver_searcher
 brew install tmux
 brew install trash
