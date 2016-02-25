@@ -11,9 +11,10 @@ alias which="command -v"
 alias sudo="sudo "
 
 # Vim
-alias minvim="nvim -u $XDG_CONFIG_HOME/nvim/mininit.vim"
-alias nv="nvim"
 alias v="vim"
+alias mv="mvim"
+alias nv="nvim"
+alias minv="nvim -u $XDG_CONFIG_HOME/nvim/mininit.vim"
 
 # Quick piping
 alias -g L="| less"
