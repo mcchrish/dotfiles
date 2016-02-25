@@ -444,6 +444,7 @@ let g:alduin_Shout_Windhelm = 1
 
 " Sierra {{{
 Plug 'AlessandroYorba/Sierra'
+let g:sierra_Twilight = 1
 " }}}
 
 call plug#end()
