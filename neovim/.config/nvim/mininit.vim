@@ -10,12 +10,6 @@
 let mapleader = "\<space>"
 
 " ##Plugins {{{
-" Automatic installation of Vim-Plug
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
-endif
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -32,7 +26,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
-let g:sneak#streak = 1
+let g:sneak#streak     = 1
 let g:sneak#use_ic_scs = 1
 
 "replace 'f' with 1-char Sneak
@@ -56,8 +50,7 @@ vmap <expr> ; sneak#is_sneaking() ? '<Plug>SneakNext' : ':'
 
 " gruvbox {{{
 Plug 'morhetz/gruvbox'
-set background=dark
-let g:gruvbox_italic=1
+set background = dark
 " }}}
 
 " lightline.vim {{{
@@ -107,15 +100,19 @@ call plug#end()
 colorscheme gruvbox
 
 " Disable some builtin plugins
-let g:loaded_vimballPlugin = 1
-let g:loaded_rrhelper = 1
-let g:loaded_getscriptPlugin = 1
+let g:loaded_2html_plugin       = 1
+let g:loaded_vimballPlugin      = 1
+let g:loaded_rrhelper           = 1
+let g:loaded_getscriptPlugin    = 1
 let g:did_install_default_menus = 1
+let g:loaded_zipPlugin          = 1
+let g:loaded_tarPlugin          = 1
+let g:loaded_gzip               = 1
 
-let g:python_host_skip_check = 1
+let g:python_host_skip_check  = 1
 let g:python3_host_skip_check = 1
-let g:python_host_prog='/usr/local/bin/python2.7'
-let g:python3_host_prog='/usr/local/bin/python3'
+let g:python_host_prog        = '/usr/local/bin/python2.7'
+let g:python3_host_prog       = '/usr/local/bin/python3'
 
 set modelines=1
 set autoread
@@ -145,6 +142,9 @@ set title
 set splitbelow
 set splitright
 
+" Diff Mode
+set diffopt=filler,vertical
+
 " Sytem clipboard for yanking
 set clipboard=unnamed
 
@@ -156,7 +156,7 @@ set hidden
 
 " Default shell
 set shell=$SHELL
-set listchars=tab:\|\ ,eol:¬,trail:~,extends:❯,precedes:❮
+
 set scrolloff=4
 set sidescrolloff=5
 set synmaxcol=500
@@ -171,7 +171,8 @@ set noerrorbells novisualbell
 set nojoinspaces
 
 " Nicer vertical splits
-set fillchars=vert:\ ,fold:·
+let &fillchars='vert: ,fold:·'
+let &listchars='tab:| ,eol:¬,trail:.,extends:❯,precedes:❮'
 
 " Better Completion
 set completeopt-=preview
@@ -194,8 +195,10 @@ set nostartofline
 
 " Menu complete
 set wildmenu
+set wildignorecase
 set wildmode=longest:full,full
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store
+set wildignore+=*/node_modules/*
 
 " True color
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -205,24 +208,6 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " Persistent undo and swap files directory
 set undofile
-
-" Change vim temporary directories
-if !has('nvim')
-  set noswapfile
-  set undodir=~/.vim/tmp/undo//
-  set backupdir=~/.vim/tmp/backup//
-
-  " Create tmp directories if not existing
-  if !isdirectory(expand(&backupdir))
-    call mkdir(expand(&backupdir), "p")
-  endif
-
-  if !isdirectory(expand(&undodir))
-    call mkdir(expand(&undodir), "p")
-  endif
-
-  set viminfo+=n~/.vim/viminfo
-endif
 
 " }}}
 
@@ -280,28 +265,14 @@ nnoremap vD "_D
 nnoremap Y y$
 
 " Buffer navigation
-nnoremap <tab> :bnext<cr>
+nnoremap <tab>   :bnext<cr>
 nnoremap <s-tab> :bprevious<cr>
 
 " Paste mode
 set pastetoggle=<F2>
 
-" JS standard formatter
-nnoremap <leader>ej :silent !standard-format % --write <cr>
-
-" Preview Marked 2
-nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
-
-" Hightlight 80 characters
-nnoremap <silent> <leader>h
-      \ :if exists('w:long_line_match') <bar>
-      \   silent! call matchdelete(w:long_line_match) <bar>
-      \   unlet w:long_line_match <bar>
-      \ elseif &textwidth > 0 <bar>
-      \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <bar>
-      \ else <bar>
-      \   let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <bar>
-      \ endif<cr>
+" Edit vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " }}}
 

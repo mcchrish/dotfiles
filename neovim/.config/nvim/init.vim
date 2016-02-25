@@ -10,12 +10,6 @@
 let mapleader = "\<space>"
 
 " ##Plugins {{{
-" Automatic installation of Vim-Plug
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
-endif
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -89,13 +83,13 @@ endif
 Plug 'benekastah/neomake'
 
 let g:neomake_javascript_enabled_makers = ['standard']
-let g:neomake_jsx_enabled_makers = ['standard']
-let g:neomake_python_enabled_makers = ['flake8']
-let g:neomake_less_enabled_makers = []
-let g:neomake_shell_enabled_makers = ['shellcheck']
-let g:neomake_html_enabled_makers = []
-let g:neomake_open_list = 0
-let g:neomake_verbose = 0
+let g:neomake_jsx_enabled_makers        = ['standard']
+let g:neomake_python_enabled_makers     = ['flake8']
+let g:neomake_less_enabled_makers       = []
+let g:neomake_shell_enabled_makers      = ['shellcheck']
+let g:neomake_html_enabled_makers       = []
+let g:neomake_open_list                 = 0
+let g:neomake_verbose                   = 0
 
 let g:neomake_error_sign = {
       \ 'text': '✖',
@@ -115,16 +109,15 @@ nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
-" gv.vim {{{
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-" }}}
 
 " ultisnips {{{
 " Plug 'SirVer/ultisnips' | Plug 'mcchrish/vim-snippets'
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsExpandTrigger       = "<tab>"
+let g:UltiSnipsJumpForwardTrigger  = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 let g:UltiSnipsUsePythonVersion = 3
 " }}}
 
@@ -133,15 +126,14 @@ Plug 'Shougo/echodoc.vim'
 let g:echodoc_enable_at_startup = 1
 " }}}
 
-" neoman.vim {{{
 Plug 'nhooyr/neoman.vim', { 'on': 'Nman' }
-" }}}
 
 Plug 'christoomey/vim-tmux-navigator'
 
 " vim-dirvish {{{
 Plug 'justinmk/vim-dirvish'
-let g:dirvish_hijack_netrw = 1
+
+let g:dirvish_hijack_netrw   = 1
 let g:dirvish_relative_paths = 1
 " }}}
 
@@ -152,7 +144,7 @@ let g:gtfo#terminals = { 'mac' : 'iterm' }
 
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
-let g:sneak#streak = 1
+let g:sneak#streak     = 1
 let g:sneak#use_ic_scs = 1
 
 "replace 'f' with 1-char Sneak
@@ -177,11 +169,9 @@ vmap <expr> ; sneak#is_sneaking() ? '<Plug>SneakNext' : ':'
 Plug 'pgdouyon/vim-evanesco'
 
 " vim-easy-align {{{
-Plug 'junegunn/vim-easy-align', { 'on': '<plug>(EasyAlign)' }
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+Plug 'junegunn/vim-easy-align', { 'on': '<plug>(LiveEasyAlign)' }
+xmap ga <Plug>(LiveEasyAlign)
+nmap ga <Plug>(LiveEasyAlign)
 " }}}
 
 " FastFold {{{
@@ -198,9 +188,11 @@ Plug 'wellle/targets.vim'
 
 " undotree {{{
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-let g:undotree_WindowLayout = 2
+
+let g:undotree_WindowLayout       = 2
 let g:undotree_SetFocusWhenToggle = 1
-let g:undotree_SplitWidth = 40
+let g:undotree_SplitWidth         = 40
+
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
 " }}}
 
@@ -304,9 +296,10 @@ let g:lightline.mode_map = {
 
 " vim-gitgutter {{{
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
-let g:gitgutter_max_signs = 200
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
+
+let g:gitgutter_max_signs    = 200
+let g:gitgutter_realtime     = 0
+let g:gitgutter_eager        = 0
 let g:gitgutter_grep_command = 'ag --nocolor'
 
 nnoremap <silent> <F3> :GitGutterToggle<cr>
@@ -340,7 +333,7 @@ nnoremap <silent> <leader>- :Goyo<cr>
 " limelight.vim {{{
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
-let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg   = 'DarkGray'
 let g:limelight_conceal_ctermfg = 'gray'
 " }}}
 
@@ -374,8 +367,8 @@ Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'mattn/emmet-vim'
 
 let g:user_emmet_install_global = 1
-let g:user_emmet_leader_key='<C-A>'
-let g:user_emmet_settings = { 'javascript': { 'quote_char': "'" } }
+let g:user_emmet_leader_key     = '<C-A>'
+let g:user_emmet_settings       = { 'javascript': { 'quote_char': "'" } }
 " }}}
 
 " vim-mustasche-handlebars {{{
@@ -407,35 +400,35 @@ Plug 'morhetz/gruvbox'
 set background=dark
 
 " dark0 + gray
-let g:terminal_color_0 = "#928374"
-let g:terminal_color_8 = "#282828"
+let g:terminal_color_0  = "#928374"
+let g:terminal_color_8  = "#282828"
 
 " neurtral_red + bright_red
-let g:terminal_color_1 = "#fb4934"
-let g:terminal_color_9 = "#cc241d"
+let g:terminal_color_1  = "#fb4934"
+let g:terminal_color_9  = "#cc241d"
 
 " neutral_green + bright_green
-let g:terminal_color_2 = "#b8bb26"
+let g:terminal_color_2  = "#b8bb26"
 let g:terminal_color_10 = "#98971a"
 
 " neutral_yellow + bright_yellow
-let g:terminal_color_3 = "#fabd2f"
+let g:terminal_color_3  = "#fabd2f"
 let g:terminal_color_11 = "#d79921"
 
 " neutral_blue + bright_blue
-let g:terminal_color_4 = "#83a598"
+let g:terminal_color_4  = "#83a598"
 let g:terminal_color_12 = "#458588"
 
 " neutral_purple + bright_purple
-let g:terminal_color_5 = "#d3869b"
+let g:terminal_color_5  = "#d3869b"
 let g:terminal_color_13 = "#b16286"
 
 " neutral_aqua + faded_aqua
-let g:terminal_color_6 = "#8ec07c"
+let g:terminal_color_6  = "#8ec07c"
 let g:terminal_color_14 = "#689d6a"
 
 " light4 + light1
-let g:terminal_color_7 = "#ebdbb2"
+let g:terminal_color_7  = "#ebdbb2"
 let g:terminal_color_15 = "#a89984"
 " }}}
 
@@ -462,7 +455,7 @@ nmap <silent> [l <Plug>QfLprevious
 nmap <silent> ]l <Plug>QfLnext
 
 " vim-signature
-let g:SignatureEnabledAtStartup=0
+let g:SignatureEnabledAtStartup = 0
 
 " }}}
 
@@ -472,15 +465,19 @@ let g:SignatureEnabledAtStartup=0
 colorscheme gruvbox
 
 " Disable some builtin plugins
-let g:loaded_vimballPlugin = 1
-let g:loaded_rrhelper = 1
-let g:loaded_getscriptPlugin = 1
+let g:loaded_2html_plugin       = 1
+let g:loaded_vimballPlugin      = 1
+let g:loaded_rrhelper           = 1
+let g:loaded_getscriptPlugin    = 1
 let g:did_install_default_menus = 1
+let g:loaded_zipPlugin          = 1
+let g:loaded_tarPlugin          = 1
+let g:loaded_gzip               = 1
 
-let g:python_host_skip_check = 1
+let g:python_host_skip_check  = 1
 let g:python3_host_skip_check = 1
-let g:python_host_prog='/usr/local/bin/python2.7'
-let g:python3_host_prog='/usr/local/bin/python3'
+let g:python_host_prog        = '/usr/local/bin/python2.7'
+let g:python3_host_prog       = '/usr/local/bin/python3'
 
 set modelines=1
 set autoread
@@ -510,6 +507,9 @@ set title
 set splitbelow
 set splitright
 
+" Diff Mode
+set diffopt=filler,vertical
+
 " Sytem clipboard for yanking
 set clipboard=unnamed
 
@@ -521,7 +521,7 @@ set hidden
 
 " Default shell
 set shell=$SHELL
-set listchars=tab:\|\ ,eol:¬,trail:~,extends:❯,precedes:❮
+
 set scrolloff=4
 set sidescrolloff=5
 set synmaxcol=500
@@ -536,7 +536,8 @@ set noerrorbells novisualbell
 set nojoinspaces
 
 " Nicer vertical splits
-set fillchars=vert:\ ,fold:·
+let &fillchars='vert: ,fold:·'
+let &listchars='tab:| ,eol:¬,trail:⣿,extends:❯,precedes:❮'
 
 " Better Completion
 set completeopt-=preview
@@ -559,8 +560,10 @@ set nostartofline
 
 " Menu complete
 set wildmenu
+set wildignorecase
 set wildmode=longest:full,full
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store
+set wildignore+=*/node_modules/*
 
 " True color
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -574,17 +577,9 @@ set undofile
 " Change vim temporary directories
 if !has('nvim')
   set noswapfile
+
   set undodir=~/.vim/tmp/undo//
   set backupdir=~/.vim/tmp/backup//
-
-  " Create tmp directories if not existing
-  if !isdirectory(expand(&backupdir))
-    call mkdir(expand(&backupdir), "p")
-  endif
-
-  if !isdirectory(expand(&undodir))
-    call mkdir(expand(&undodir), "p")
-  endif
 
   set viminfo+=n~/.vim/viminfo
 endif
@@ -645,14 +640,17 @@ nnoremap vD "_D
 nnoremap Y y$
 
 " Buffer navigation
-nnoremap <tab> :bnext<cr>
+nnoremap <tab>   :bnext<cr>
 nnoremap <s-tab> :bprevious<cr>
 
 " Paste mode
 set pastetoggle=<F2>
 
+" Edit vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
 " JS standard formatter
-nnoremap <leader>ej :silent !standard-format % --write <cr>
+nnoremap <leader>ej :silent !standard-format % --write<cr>
 
 " Preview Marked 2
 nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
@@ -749,12 +747,12 @@ endfunction
 autocmd VimResized * :wincmd =
 
 autocmd! BufWritePost * Neomake
-autocmd! BufRead * Neomake
+autocmd! BufRead      * Neomake
 
 augroup pencil
   autocmd!
   autocmd FileType fountain,mardown,text call pencil#init()
-  autocmd FileType fountain    setlocal showbreak=
+  autocmd FileType fountain              setlocal showbreak=
 augroup end
 
 function! s:goyo_enter()
