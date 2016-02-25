@@ -43,8 +43,6 @@ nnoremap <silent> <leader>gb :Gblame<cr>
 
 Plug 'rhysd/committia.vim'
 
-Plug 'junegunn/vim-emoji'
-
 Plug 'nhooyr/neoman.vim'
 
 Plug 'christoomey/vim-tmux-navigator'

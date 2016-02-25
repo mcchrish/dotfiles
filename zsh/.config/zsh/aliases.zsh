@@ -12,7 +12,6 @@ alias sudo="sudo "
 
 # Vim
 alias v="vim"
-alias mv="mvim"
 alias nv="nvim"
 alias minv="nvim -u $XDG_CONFIG_HOME/nvim/mininit.vim"
 
