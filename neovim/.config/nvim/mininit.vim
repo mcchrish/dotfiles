@@ -13,6 +13,27 @@ let mapleader = "\<space>"
 
 call plug#begin('~/.config/nvim/plugged')
 
+" deoplete.nvim {{{
+Plug 'Shougo/deoplete.nvim'
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_auto_pairs = 0
+
+if !exists('g:deoplete#keyword_patterns')
+  let g:deoplete#keyword_patterns = {}
+endif
+
+let g:deoplete#keyword_patterns['default'] = '\h\w*'
+
+if !exists('g:deoplete#omni_patterns')
+  let g:deoplete#omni_patterns = {}
+endif
+
+let g:deoplete#omni_patterns.gitcommit = ':\w*'
+
+" }}}
+
 " vim-fugitive {{{
 Plug 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<cr>
@@ -21,6 +42,8 @@ nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
 Plug 'rhysd/committia.vim'
+
+Plug 'junegunn/vim-emoji'
 
 Plug 'nhooyr/neoman.vim'
 

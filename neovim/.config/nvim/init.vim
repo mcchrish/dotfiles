@@ -33,6 +33,7 @@ if !exists('g:deoplete#omni_patterns')
 endif
 
 let g:deoplete#omni_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
+let g:deoplete#omni_patterns.gitcommit = ':\w*'
 
 " }}}
 
@@ -338,6 +339,8 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 let g:limelight_conceal_guifg   = 'DarkGray'
 let g:limelight_conceal_ctermfg = 'gray'
 " }}}
+
+Plug 'junegunn/vim-emoji', { 'for': [ 'gitcommit', 'markdown', 'text' ] }
 
 " vim-pencil {{{
 Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown', 'text'] }
@@ -751,12 +754,6 @@ autocmd VimResized * :wincmd =
 autocmd! BufWritePost * Neomake
 autocmd! BufRead      * Neomake
 
-augroup pencil
-  autocmd!
-  autocmd FileType fountain,mardown,text call pencil#init()
-  autocmd FileType fountain              setlocal showbreak=
-augroup end
-
 function! s:goyo_enter()
   silent !tmux set status off
 endfunction
@@ -767,6 +764,18 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+augroup pencil
+  autocmd!
+  autocmd FileType fountain,mardown,text call pencil#init()
+  autocmd FileType fountain              setlocal showbreak=
+  autocmd FileType markdown,text         setlocal omnifunc=emoji#complete
+augroup end
+
+augroup git
+  autocmd!
+  autocmd FileType gitcommit setlocal omnifunc=emoji#complete
+augroup end
 
 augroup general
   autocmd!
