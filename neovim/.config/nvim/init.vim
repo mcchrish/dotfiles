@@ -471,14 +471,16 @@ let g:SignatureEnabledAtStartup = 0
 colorscheme gruvbox
 
 " Disable some builtin plugins
-let g:loaded_2html_plugin       = 1
-let g:loaded_vimballPlugin      = 1
-let g:loaded_rrhelper           = 1
-let g:loaded_getscriptPlugin    = 1
 let g:did_install_default_menus = 1
-let g:loaded_zipPlugin          = 1
-let g:loaded_tarPlugin          = 1
+let g:loaded_2html_plugin       = 1
+let g:loaded_getscriptPlugin    = 1
 let g:loaded_gzip               = 1
+let g:loaded_netrwPlugin        = 1
+let g:loaded_rrhelper           = 1
+let g:loaded_tarPlugin          = 1
+let g:loaded_tutor_mode_plugin  = 1
+let g:loaded_vimballPlugin      = 1
+let g:loaded_zipPlugin          = 1
 
 let g:python_host_skip_check  = 1
 let g:python3_host_skip_check = 1
@@ -602,13 +604,21 @@ vnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-" More scroll
-nnoremap <c-y> 4<c-y>
-nnoremap <c-e> 4<c-e>
+" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Reselect indent in visual mode
 vnoremap < <gv
 vnoremap > >gv
+
+" More scroll
+nnoremap <c-y> 4<c-y>
+nnoremap <c-e> 4<c-e>
+
+" Center search match
+nnoremap n nzz
+nnoremap N Nzz
 
 " Easy reindenting
 nnoremap g= gg=Gg``
