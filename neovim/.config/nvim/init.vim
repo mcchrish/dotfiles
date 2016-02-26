@@ -639,7 +639,9 @@ nnoremap <leader>w :update<cr>
 
 " Delete without overwriting default register
 nnoremap vd "_d
-xnoremap x  "_d
+xnoremap vd "_d
+nnoremap x  "_x
+xnoremap x  "_x
 nnoremap vD "_D
 
 " Actual Y
