@@ -118,6 +118,9 @@ alias gsv="git status"
 alias gd="git diff"
 alias gds="git diff --stat --color"
 
+# Others
+alias ge="git edit"
+
 # ls
 alias ls="ls -G"
 alias l="ls -1A"         # Lists in one column, hidden files.
