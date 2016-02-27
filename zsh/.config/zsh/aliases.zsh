@@ -3,6 +3,7 @@ alias mkdir="nocorrect mkdir -p"
 alias mv="nocorrect mv"
 alias cp="nocorrect cp"
 alias rm="nocorrect rm"
+alias trs="nocorrect trash"
 alias man="nocorrect man"
 alias ln="nocorrect ln"
 alias du="du -h"
@@ -13,7 +14,6 @@ alias sudo="sudo "
 # Vim
 alias v="vim"
 alias nv="nvim"
-alias minv="nvim -u $XDG_CONFIG_HOME/nvim/mininit.vim"
 
 # Quick piping
 alias -g L="| less"

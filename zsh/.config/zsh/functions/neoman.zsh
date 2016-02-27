@@ -1,5 +1,6 @@
 function _nman {
   local l=$#
+  local -a page
   local page=(${@:1:$l-1})
   if [[ -z "$page" ]]; then
     echo "What manual page do you want?"
@@ -17,9 +18,9 @@ function _nman {
     return
   fi
   if [[ -z $NVIM_LISTEN_ADDRESS ]]; then
-    command nvim -u $XDG_CONFIG_HOME/nvim/mininit.vim -c "${@: -1} ${page[*]}"
+    command nvim -c "${@: -1} ${page[*]}"
   else
-    nvr --remote-send "<c-n>" -c "${@: -1} ${page[*]}"
+    nvr -c "${@: -1} ${page[*]}"
   fi
 }
 
@@ -31,5 +32,5 @@ function nman! {
   _nman "$@" 'Nman!'
 }
 
-compdef nman="man"
 compdef nman!="man"
+compdef nman="man"

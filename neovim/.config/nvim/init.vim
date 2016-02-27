@@ -78,8 +78,6 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 
 " }}}
 
-endif
-
 " neomake {{{
 Plug 'benekastah/neomake'
 
@@ -103,6 +101,8 @@ let g:neomake_warning_sign = {
       \ }
 " }}}
 
+endif
+
 " vim-fugitive {{{
 Plug 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<cr>
@@ -110,7 +110,7 @@ nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
-Plug 'rhysd/committia.vim', { 'for': 'gitcommit' }
+Plug 'rhysd/committia.vim'
 
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 
@@ -129,7 +129,7 @@ Plug 'Shougo/echodoc.vim'
 let g:echodoc_enable_at_startup = 1
 " }}}
 
-Plug 'nhooyr/neoman.vim', { 'on': 'Nman' }
+Plug 'nhooyr/neoman.vim', { 'on': [ 'Nman', 'Snman', 'Vnman', 'Tnman' ] }
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -764,8 +764,10 @@ endfunction
 " Resize splits when the window is resized
 autocmd VimResized * :wincmd =
 
-autocmd! BufWritePost * Neomake
-autocmd! BufRead      * Neomake
+if !has('gui_running')
+  autocmd! BufWritePost * Neomake
+  autocmd! BufRead      * Neomake
+endif
 
 function! s:goyo_enter()
   silent !tmux set status off
