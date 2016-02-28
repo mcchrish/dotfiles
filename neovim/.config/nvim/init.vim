@@ -447,6 +447,10 @@ Plug 'AlessandroYorba/Sierra'
 let g:sierra_Twilight = 1
 " }}}
 
+Plug 'pgdouyon/vim-yin-yang'
+
+Plug 'robertmeta/nofrils'
+
 call plug#end()
 " }}}
 
