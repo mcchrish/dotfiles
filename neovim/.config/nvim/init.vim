@@ -668,6 +668,10 @@ nnoremap <s-tab> :bprevious<cr>
 " Paste mode
 set pastetoggle=<F2>
 
+" Terminal
+tnoremap <esc> <c-\><c-n>
+tnoremap jk    <c-\><c-n>
+
 " Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
