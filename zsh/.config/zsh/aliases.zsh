@@ -10,6 +10,7 @@ alias du="du -h"
 alias df="df -h"
 alias which="command -v"
 alias sudo="sudo "
+alias htop="sudo htop"
 
 # Vim
 alias v="vim"
