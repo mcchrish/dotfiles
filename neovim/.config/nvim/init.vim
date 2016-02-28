@@ -99,6 +99,10 @@ let g:neomake_warning_sign = {
       \ 'text': '⚠',
       \ 'texthl': 'SyntasticWarningSign',
       \ }
+
+autocmd! BufWritePost * Neomake
+autocmd! BufRead      * Neomake
+
 " }}}
 
 endif
@@ -330,7 +334,24 @@ Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 
 " goyo.vim {{{
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+
 nnoremap <silent> <leader>- :Goyo<cr>
+
+function! s:goyo_enter()
+  if exists('$TMUX')
+    silent !tmux set status off
+  endif
+endfunction
+
+function! s:goyo_leave()
+  if exists('$TMUX')
+    silent !tmux set status on
+  endif
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 " }}}
 
 " limelight.vim {{{
@@ -340,11 +361,26 @@ let g:limelight_conceal_guifg   = 'DarkGray'
 let g:limelight_conceal_ctermfg = 'gray'
 " }}}
 
+" vim-emoji {{{
 Plug 'junegunn/vim-emoji', { 'for': [ 'gitcommit', 'markdown', 'text' ] }
 
+augroup git
+  autocmd!
+  autocmd FileType gitcommit setlocal omnifunc=emoji#complete
+augroup end
+" }}}
+
 " vim-pencil {{{
-Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown', 'text'] }
+Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown'] }
 let g:pencil#wrapModeDefault = 'soft'
+
+augroup pencil
+  autocmd!
+  autocmd FileType fountain,mardown,text call pencil#init()
+  autocmd FileType fountain              setlocal showbreak=
+  autocmd FileType markdown,text         setlocal omnifunc=emoji#complete
+augroup end
+
 " }}}
 
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
@@ -362,6 +398,8 @@ Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx', 'jsx']
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
 nnoremap <silent> <leader>td :TernDef<cr>
 nnoremap <silent> <leader>ts :TernDefSplit<cr>
+
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 " }}}
 
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'json' ] }
@@ -389,7 +427,10 @@ Plug 'rstacruz/vim-hyperstyle', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
 
+" deoplete-jedi {{{
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+autocmd FileType python setlocal omnifunc=jedi#completions
+" }}}
 
 " python-syntax {{{
 Plug 'hdima/python-syntax', { 'for': 'python' }
@@ -490,6 +531,10 @@ let g:python_host_skip_check  = 1
 let g:python3_host_skip_check = 1
 let g:python_host_prog        = '/usr/local/bin/python2.7'
 let g:python3_host_prog       = '/usr/local/bin/python3'
+
+
+" Resize splits when the window is resized
+autocmd VimResized * :wincmd =
 
 set modelines=1
 set autoread
@@ -710,6 +755,9 @@ function! <sid>StripTrailingWhitespaces()
   echo 'Whitespace trimmed!'
 endfunction
 
+" Automatic
+autocmd BufWritePre *.py,*.js,*.jsx,*.txt,*.md,*.fountain :call <sid>StripTrailingWhitespaces()
+
 nnoremap <silent> <F4> :call <sid>StripTrailingWhitespaces()<cr>
 " }}}
 
@@ -765,47 +813,6 @@ function! SetAsMeteorProject()
 endfunction
 " }}}
 
-" }}}
-
-" ##Autocmd {{{
-
-" Resize splits when the window is resized
-autocmd VimResized * :wincmd =
-
-if !has('gui_running')
-  autocmd! BufWritePost * Neomake
-  autocmd! BufRead      * Neomake
-endif
-
-function! s:goyo_enter()
-  silent !tmux set status off
-endfunction
-
-function! s:goyo_leave()
-  silent !tmux set status on
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-augroup pencil
-  autocmd!
-  autocmd FileType fountain,mardown,text call pencil#init()
-  autocmd FileType fountain              setlocal showbreak=
-  autocmd FileType markdown,text         setlocal omnifunc=emoji#complete
-augroup end
-
-augroup git
-  autocmd!
-  autocmd FileType gitcommit setlocal omnifunc=emoji#complete
-augroup end
-
-augroup general
-  autocmd!
-  autocmd BufWritePre *.py,*.js,*.jsx,*.txt,*.md,*.fountain :call <sid>StripTrailingWhitespaces()
-  autocmd FileType javascript         setlocal omnifunc=tern#Complete
-  autocmd FileType python             setlocal omnifunc=jedi#completions
-augroup end
 " }}}
 
 " ##Local {{{
