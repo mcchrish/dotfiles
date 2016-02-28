@@ -22,4 +22,14 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-*.swp
+
+### Vim ###
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+
