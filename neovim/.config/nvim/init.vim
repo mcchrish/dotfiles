@@ -193,6 +193,14 @@ let g:qf_mapping_ack_style = 1
 
 Plug 'wellle/targets.vim'
 
+" splitjoin.vim {{{
+Plug 'AndrewRadev/splitjoin.vim'
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+nnoremap gss :SplitjoinSplit<cr>
+nnoremap gsj :SplitjoinJoin<cr>
+" }}}
+
 " undotree {{{
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
@@ -796,6 +804,7 @@ nnoremap <silent> <leader><cr> :nohlsearch <bar> :call Refresh()<cr>
 " SetAsDjangoProject {{{
 function! SetAsDjangoProject()
   augroup ft_django
+    autocmd!
     autocmd BufNewFile,BufRead *.html setlocal filetype=htmldjango
     autocmd FileType html,htmldjango setlocal foldmethod=indent
     autocmd FileType html,htmldjango setlocal nofoldenable
@@ -807,7 +816,7 @@ endfunction
 " SetAsMeteorProject {{{
 function! SetAsMeteorProject()
   augroup meteor
-    au!
+    autocmd!
     autocmd BufNewFile,BufRead *.html setlocal filetype=html.mustache
   augroup end
 endfunction
