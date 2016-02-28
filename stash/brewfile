@@ -1,11 +1,11 @@
-// tap
+# tap
 brew tap caskroom/cask
 brew tap caskroom/fonts
 brew tap caskroom/versions
 brew tap neovim/neovim
 brew tap rogual/neovim-dot-app
 
-// brew
+# brew
 brew install brew-cask
 brew install curl
 brew install diff-so-fancy
@@ -41,7 +41,7 @@ brew install tree
 brew install wget
 brew install zsh
 
-// cask
+# cask
 brew cask install alfred
 brew cask install atom
 brew cask install calibre
@@ -64,8 +64,22 @@ brew cask install slack
 brew cask install visual-studio-code
 brew cask install xld
 
+# Quicklook
+brew cask install qlmarkdown
+brew cask install quicklook-json
+brew cask install qlimagesize
+brew cask install provisionql
+brew cask install qlvideo
+brew cask install qlcolorcode
+brew cask install epubquicklook
+defaults write org.n8gray.QLColorCode font "Fira Code"
+defaults write org.n8gray.QLColorCode fontSizePoints 14
 
-// npm
+brew cask install qlmarkdown
+brew cask install qlmarkdown
+brew cask install qlmarkdown
+
+# npm
 npm install -g bower
 npm install -g esformatter
 npm install -g eslint
@@ -76,7 +90,7 @@ npm install -g standard
 npm install -g standard-format
 npm install -g trash-cli
 
-// pip
+# pip
 pip install neovim
 pip install virtualenv
 pip install jedi
