@@ -193,6 +193,8 @@ let g:qf_mapping_ack_style = 1
 
 Plug 'wellle/targets.vim'
 
+Plug 'junegunn/vim-peekaboo'
+
 " splitjoin.vim {{{
 Plug 'AndrewRadev/splitjoin.vim'
 let g:splitjoin_split_mapping = ''
@@ -384,7 +386,7 @@ let g:pencil#wrapModeDefault = 'soft'
 
 augroup pencil
   autocmd!
-  autocmd FileType fountain,mardown,text call pencil#init()
+  autocmd FileType fountain,mardown call pencil#init()
   autocmd FileType fountain              setlocal showbreak=
   autocmd FileType markdown,text         setlocal omnifunc=emoji#complete
 augroup end
