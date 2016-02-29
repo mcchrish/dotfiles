@@ -700,9 +700,6 @@ cabbrev Wq wq
 cabbrev W w
 cabbrev Q q
 
-" Toggle relativenumber
-nnoremap <F1> :set relativenumber!<cr>
-
 " Faster save
 nnoremap <leader>w :update<cr>
 
