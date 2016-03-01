@@ -60,6 +60,24 @@ command! -nargs=* FzfAgAll call fzf#vim#ag(<q-args>,
       \            '--multi --bind ctrl-a:select-all,ctrl-d:deselect-all '.
       \            '--color hl:68,hl+:110', 'down': '~40%' })
 
+" Search current word under cursor
+function! SearchWordWithAg()
+  execute 'FzfAg' expand('<cword>')
+endfunction
+
+" Search visual selected
+function! SearchVisualSelectionWithAg() range
+  let old_reg = getreg('"')
+  let old_regtype = getregtype('"')
+  let old_clipboard = &clipboard
+  set clipboard&
+  normal! ""gvy
+  let selection = getreg('"')
+  call setreg('"', old_reg, old_regtype)
+  let &clipboard = old_clipboard
+  execute 'FzfAg' selection
+endfunction
+
 nnoremap <silent> <leader>A :FzfAgAll<cr>
 
 nnoremap <silent> <leader>f :FzfFiles<cr>
@@ -68,8 +86,8 @@ nnoremap <silent> <leader>b :FzfBuffers<cr>
 nnoremap <silent> <leader>l :FzfBLines<cr>
 nnoremap <silent> <leader>L :FzfLines<cr>
 nnoremap <silent> <leader>m :FzfMarks<cr>
-nnoremap <silent> K :call SearchWordWithAg()<cr>
-vnoremap <silent> K :call SearchVisualSelectionWithAg()<cr>
+nnoremap <silent> <leader>K :call SearchWordWithAg()<cr>
+vnoremap <silent> <leader>K :call SearchVisualSelectionWithAg()<cr>
 
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
@@ -766,26 +784,6 @@ endfunction
 autocmd BufWritePre *.py,*.js,*.jsx,*.txt,*.md,*.fountain :call <sid>StripTrailingWhitespaces()
 
 nnoremap <silent> <F4> :call <sid>StripTrailingWhitespaces()<cr>
-" }}}
-
-" SearchWordWithAg {{{
-function! SearchWordWithAg()
-  execute 'FzfAg' expand('<cword>')
-endfunction
-" }}}
-
-" SearchVisualSelectionWithAg {{{
-function! SearchVisualSelectionWithAg() range
-  let old_reg = getreg('"')
-  let old_regtype = getregtype('"')
-  let old_clipboard = &clipboard
-  set clipboard&
-  normal! ""gvy
-  let selection = getreg('"')
-  call setreg('"', old_reg, old_regtype)
-  let &clipboard = old_clipboard
-  execute 'FzfAg' selection
-endfunction
 " }}}
 
 " Refresh {{{
