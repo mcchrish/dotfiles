@@ -518,8 +518,6 @@ let g:sierra_Twilight = 1
 
 Plug 'pgdouyon/vim-yin-yang'
 
-Plug 'robertmeta/nofrils'
-
 call plug#end()
 " }}}
 
@@ -543,17 +541,26 @@ let g:SignatureEnabledAtStartup = 0
 " Colorscheme
 colorscheme gruvbox
 
-" Disable some builtin plugins
+" disable some builtin plugins
 let g:did_install_default_menus = 1
 let g:loaded_2html_plugin       = 1
-let g:loaded_getscriptPlugin    = 1
+let g:loaded_getscript          = 1
+let g:loaded_getscriptplugin    = 1
 let g:loaded_gzip               = 1
-let g:loaded_netrwPlugin        = 1
+let g:loaded_logipat            = 1
+let g:loaded_man                = 1
+let g:loaded_netrw              = 1
+let g:loaded_netrwfilehandlers  = 1
+let g:loaded_netrwplugin        = 1
+let g:loaded_netrwsettings      = 1
 let g:loaded_rrhelper           = 1
-let g:loaded_tarPlugin          = 1
+let g:loaded_tar                = 1
+let g:loaded_tarplugin          = 1
 let g:loaded_tutor_mode_plugin  = 1
-let g:loaded_vimballPlugin      = 1
-let g:loaded_zipPlugin          = 1
+let g:loaded_vimball            = 1
+let g:loaded_vimballplugin      = 1
+let g:loaded_zip                = 1
+let g:loaded_zipplugin          = 1
 
 let g:python_host_skip_check  = 1
 let g:python3_host_skip_check = 1
@@ -572,17 +579,13 @@ set encoding=utf-8
 set ttimeout
 set ttimeoutlen=100
 set backspace=indent,eol,start
-set smarttab
 set showcmd
 set number
 set hlsearch incsearch
 set ignorecase smartcase
 set lazyredraw
 set laststatus=2
-set breakindent
 set showmatch
-set autoindent
-let &showbreak="↪︎ "
 set shortmess=aIToO
 
 " Change window title to filename
@@ -615,6 +618,7 @@ set tabpagemax=50
 
 " Start with open folds
 set foldlevelstart=99
+set foldnestmax=4
 
 " No bells
 set noerrorbells novisualbell
@@ -625,14 +629,19 @@ let &fillchars='vert: ,fold:·'
 let &listchars='tab:| ,eol:¬,trail:⣿,extends:❯,precedes:❮'
 
 " Better Completion
-set completeopt-=preview
-set completeopt+=menuone
+set completeopt=menuone,longest,noselect
+set pumheight=20
 
-" Indentation, 2 spaces no tabs
+" 2 spaces indentation, no tabs
 set shiftwidth=2
+set shiftround
+set smarttab
 set tabstop=2
 set softtabstop=2
 set expandtab
+set breakindent
+set autoindent
+let &showbreak="↪︎ "
 
 " Wrapping
 set wrap
