@@ -386,7 +386,7 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
 let g:limelight_conceal_guifg   = 'DarkGray'
-let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 'DarkGray'
 " }}}
 
 " vim-emoji {{{
@@ -739,8 +739,10 @@ nnoremap <s-tab> :bprevious<cr>
 set pastetoggle=<F2>
 
 " Terminal
-tnoremap <esc> <c-\><c-n>
-tnoremap jk    <c-\><c-n>
+if has('nvim')
+  tnoremap <esc> <c-\><c-n>
+  tnoremap jk    <c-\><c-n>
+endif
 
 " Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
