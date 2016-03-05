@@ -580,7 +580,6 @@ set ttimeout
 set ttimeoutlen=100
 set backspace=indent,eol,start
 set showcmd
-set number
 set hlsearch incsearch
 set ignorecase smartcase
 set lazyredraw

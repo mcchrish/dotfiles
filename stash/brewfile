@@ -23,7 +23,7 @@ brew install jenv
 brew install macvim --with-lua --with-luajit --with-override-system-vim
 brew install mosh
 brew install neovim --HEAD
-brew install neovim-dot-app
+brew install neovim-dot-app --HEAD
 brew install node
 brew install openssl
 brew install pandoc

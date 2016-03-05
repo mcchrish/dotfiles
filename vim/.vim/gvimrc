@@ -2,4 +2,5 @@ if has("gui_macvim")
   set guifont=Fira\ Code:h14
   set guioptions-=r
   set guioptions-=L
+  set guicursor+=n-v-c:blinkon0,sm:hor30-Cursor,i-ci:ver25-Cursor/lCursor-blinkwait30-blinkoff500-blinkon500
 endif
