@@ -287,7 +287,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>950 37 445 77 0 0 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>17 585 606 456 0 0 1920 1057 </string>
+	<string>17 597 606 456 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>760 697 400 129 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
@@ -306,6 +306,10 @@
 	<string>331 15 490 352 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 6</key>
 	<string>352 624 490 352 0 0 1920 1057 </string>
+	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -4457,7 +4461,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-02-28T05:01:59Z</date>
+	<date>2016-03-05T00:58:20Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
