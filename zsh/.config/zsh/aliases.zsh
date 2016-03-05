@@ -37,7 +37,7 @@ alias agc="ag --nobreak --nonumbers --noheading . | fzf"
 alias agC="ag --nobreak --nonumbers --noheading --hidden --path-to-agignore="$XDG_CONFIG_HOME/ag/fzfignore" . | fzf"
 
 # Tmux
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=screen-256color-bce tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf""
 alias t="tmux"
 alias ta="tmux attach -t"
 alias tcc="tmux -CC"
