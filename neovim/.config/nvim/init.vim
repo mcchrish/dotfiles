@@ -747,12 +747,6 @@ nnoremap <s-tab> :bprevious<cr>
 " Paste mode
 set pastetoggle=<F2>
 
-" Terminal
-if has('nvim')
-  tnoremap <esc> <c-\><c-n>
-  tnoremap jk    <c-\><c-n>
-endif
-
 " Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
