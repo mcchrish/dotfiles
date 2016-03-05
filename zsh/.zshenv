@@ -102,6 +102,9 @@ export PSQL_HISTORY="$XDG_CACHE_HOME/psql/history"
 # Httpie
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 
+# Docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+
 # Mail
 export MBOX="$XDG_DATA_HOME/mail/mbox"
 
