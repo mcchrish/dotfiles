@@ -35,6 +35,17 @@ else
   export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
 fi
 
+# Zsh
+[[ ! -d "${XDG_DATA_HOME}/zsh" ]] && mkdir -p "${XDG_DATA_HOME}/zsh"
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+
+export HISTFILE="$XDG_DATA_HOME/zsh/history"
+export HISTSIZE=10000
+export SAVEHIST=10000
+
+# Remove delay
+export KEYTIMEOUT=1
+
 # Zplug
 export ZPLUG_HOME="$XDG_CACHE_HOME/zplug"
 
@@ -93,16 +104,6 @@ export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 
 # Mail
 export MBOX="$XDG_DATA_HOME/mail/mbox"
-
-# Zsh
-[[ ! -d "${XDG_DATA_HOME}/zsh" ]] && mkdir -p "${XDG_DATA_HOME}/zsh"
-
-export HISTFILE="$XDG_DATA_HOME/zsh/history"
-export HISTSIZE=10000
-export SAVEHIST=10000
-
-# Remove delay
-export KEYTIMEOUT=1
 
 # PATHs
 path=(
