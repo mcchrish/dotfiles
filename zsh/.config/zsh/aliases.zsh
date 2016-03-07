@@ -1,8 +1,8 @@
 # General
 alias mkdir="nocorrect mkdir -p"
-alias mv="nocorrect mv"
-alias cp="nocorrect cp"
-alias rm="nocorrect rm"
+alias mv="nocorrect mv -i"
+alias cp="nocorrect cp -i"
+alias rm="nocorrect rm -i"
 alias trs="nocorrect trash"
 alias man="nocorrect man"
 alias ln="nocorrect ln"
