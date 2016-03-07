@@ -151,7 +151,10 @@ Plug 'Shougo/echodoc.vim'
 let g:echodoc_enable_at_startup = 1
 " }}}
 
+" neoman.vim {{{
 Plug 'nhooyr/neoman.vim', { 'on': [ 'Nman', 'Snman', 'Vnman', 'Tnman' ] }
+cabbrev man Nman
+" }}}
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -399,14 +402,14 @@ augroup end
 " }}}
 
 " vim-pencil {{{
-Plug 'reedes/vim-pencil', { 'for': ['fountain', 'markdown'] }
+Plug 'reedes/vim-pencil'
 let g:pencil#wrapModeDefault = 'soft'
 
 augroup pencil
   autocmd!
   autocmd FileType fountain,mardown call pencil#init()
-  autocmd FileType fountain              setlocal showbreak=
-  autocmd FileType markdown,text         setlocal omnifunc=emoji#complete
+  autocmd FileType fountain         setlocal showbreak=
+  autocmd FileType markdown,text    setlocal omnifunc=emoji#complete
 augroup end
 
 " }}}
@@ -605,9 +608,6 @@ set noshowmode
 
 " Easy buffer switching
 set hidden
-
-" Default shell
-set shell=$SHELL
 
 set scrolloff=4
 set sidescrolloff=5
