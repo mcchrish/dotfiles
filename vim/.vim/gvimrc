@@ -2,5 +2,13 @@ if has("gui_macvim")
   set guifont=Fira\ Code:h14
   set guioptions-=r
   set guioptions-=L
-  set guicursor+=n-v-c:blinkon0,sm:hor30-Cursor,i-ci:ver25-Cursor/lCursor-blinkwait30-blinkoff500-blinkon500
+
+  " No blinking on normal mode
+  set guicursor+=n-v-c:blinkon0,sm:hor30-Cursor,i-ci:ver25-Cursor/lCursor-blinkwait1000-blinkoff500-blinkon500
+
+  " Enable alt keys
+  set macmeta
+
+  " Fancy characters
+  set macligatures
 endif
