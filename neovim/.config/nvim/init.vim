@@ -586,8 +586,15 @@ set showcmd
 set hlsearch incsearch
 set ignorecase smartcase
 set lazyredraw
+
+" Always show statusline
 set laststatus=2
+
+" Flash matching parenthesis
 set showmatch
+set matchtime=2
+
+" Shorter messages
 set shortmess=aIToO
 
 " Change window title to filename
@@ -630,6 +637,9 @@ let &listchars='tab:| ,eol:¬,trail:⣿,extends:❯,precedes:❮'
 " Better Completion
 set completeopt=menuone,longest,noselect
 set pumheight=20
+
+" Visual-block can free move
+set virtualedit=block
 
 " 2 spaces indentation, no tabs
 set shiftwidth=2
