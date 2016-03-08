@@ -668,6 +668,9 @@ set wildmode=longest:full,full
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store
 set wildignore+=*/node_modules/*
 
+" Dictionary
+set dictionary=/usr/share/dict/words
+
 " True color
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
@@ -735,6 +738,9 @@ nnoremap Q <nop>
 cabbrev Wq wq
 cabbrev W w
 cabbrev Q q
+
+" Save file with root access
+cmap w!! w !sudo tee % >/dev/null
 
 " Faster save
 nnoremap <leader>w :update<cr>
