@@ -416,7 +416,10 @@ augroup end
 
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
 
+" vim-jsx {{{
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
+let g:jsx_ext_required = 0
+" }}}
 
 " javascript-libraries-syntax.vim {{{
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
@@ -764,6 +767,13 @@ set pastetoggle=<F2>
 
 " Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" Terminal
+nnoremap <leader>tv :vsplit +terminal<cr>
+nnoremap <leader>ts :split +terminal<cr>
+
+tnoremap <esc> <c-\><c-n>
+
 
 " JS standard formatter
 nnoremap <leader>ej :silent !standard-format % --write<cr>
