@@ -758,6 +758,12 @@ nnoremap vD "_D
 " Actual Y
 nnoremap Y y$
 
+" Repeat substitution with flag
+nnoremap & :&&<CR>
+vnoremap & :&&<CR>
+
+nnoremap <C-]> g<C-]>
+
 " Buffer navigation
 nnoremap <tab>   :bnext<cr>
 nnoremap <s-tab> :bprevious<cr>
