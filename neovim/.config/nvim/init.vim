@@ -414,19 +414,21 @@ augroup end
 
 " }}}
 
-Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'html'] }
+Plug 'othree/yajs.vim'
+
+Plug 'othree/es.next.syntax.vim'
+
+Plug 'gavocanov/vim-js-indent'
 
 " vim-jsx {{{
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
+Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 " }}}
 
 " javascript-libraries-syntax.vim {{{
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
+Plug 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'jquery,underscore,react'
 " }}}
-
-Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx', 'jsx'] }
 
 " tern_for_vim {{{
 Plug 'marijnh/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
@@ -438,7 +440,7 @@ autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'json' ] }
 
-Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'othree/html5.vim'
 
 " emmet-vim {{{
 Plug 'mattn/emmet-vim'
@@ -453,13 +455,13 @@ Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handleb
 let g:mustache_abbreviations = 1
 " }}}
 
-Plug 'hail2u/vim-css3-syntax', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
+Plug 'hail2u/vim-css3-syntax'
 
 Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
 Plug 'rstacruz/vim-hyperstyle', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
-Plug 'groenewege/vim-less', { 'for': 'less' }
+Plug 'groenewege/vim-less'
 
 " deoplete-jedi {{{
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
@@ -467,13 +469,13 @@ autocmd FileType python setlocal omnifunc=jedi#completions
 " }}}
 
 " python-syntax {{{
-Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'hdima/python-syntax'
 let python_highlight_all = 1
 " }}}
 
-Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'hynek/vim-python-pep8-indent'
 
-Plug 'mcchrish/fountain.vim', { 'for': 'fountain' }
+Plug 'mcchrish/fountain.vim'
 
 " gruvbox {{{
 Plug 'morhetz/gruvbox'
@@ -717,10 +719,6 @@ vnoremap > >gv
 nnoremap <c-y> 4<c-y>
 nnoremap <c-e> 4<c-e>
 
-" Center search match
-nnoremap n nzz
-nnoremap N Nzz
-
 " Easy reindenting
 nnoremap g= gg=Gg``
 
@@ -775,6 +773,7 @@ set pastetoggle=<F2>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " Terminal
+nnoremap <leader>tt :terminal<cr>
 nnoremap <leader>tv :vsplit +terminal<cr>
 nnoremap <leader>ts :split +terminal<cr>
 
