@@ -137,13 +137,25 @@ Plug 'rhysd/committia.vim'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 
 " ultisnips {{{
-" Plug 'SirVer/ultisnips' | Plug 'mcchrish/vim-snippets'
+Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'mcchrish/vim-snippets'
 
 let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:UltiSnipsUsePythonVersion = 3
+
+inoremap <silent> <tab> <C-r>=LoadUltiSnips()<cr>
+
+" From @saaguero, this function only runs when UltiSnips is not loaded
+function! LoadUltiSnips()
+  let l:curpos = getcurpos()
+  execute plug#load('ultisnips')
+  call cursor(l:curpos[1], l:curpos[2])
+  call UltiSnips#ExpandSnippet()
+  return ""
+endfunction
 " }}}
 
 " echodoc.vim {{{
@@ -163,6 +175,8 @@ Plug 'justinmk/vim-dirvish'
 
 let g:dirvish_hijack_netrw   = 1
 let g:dirvish_relative_paths = 1
+
+nnoremap <silent> <leader>d :vsplit +Dirvish<cr>
 " }}}
 
 " vim-gtfo {{{
@@ -681,6 +695,9 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Neovim bug workaround
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+" Neovim-qt set font
+command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
 
 " Persistent undo and swap files directory
 set undofile
