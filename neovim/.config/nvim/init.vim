@@ -786,6 +786,9 @@ nnoremap <s-tab> :bprevious<cr>
 " Paste mode
 set pastetoggle=<F2>
 
+" Select just insert text
+nnoremap gV `[V`]
+
 " Edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
