@@ -76,12 +76,12 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
   # Zsh Completions
   zplug "zsh-users/zsh-completions"
 
-  # History
-  zplug "zsh-users/zsh-history-substring-search"
-
   # Syntax Highlighting
   ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor)
-  zplug "zsh-users/zsh-syntax-highlighting", nice:18
+  zplug "zsh-users/zsh-syntax-highlighting", nice:11
+
+  # History
+  zplug "zsh-users/zsh-history-substring-search", nice:12
 
   # Install plugins if there are plugins that have not been installed
   zplug check || zplug install

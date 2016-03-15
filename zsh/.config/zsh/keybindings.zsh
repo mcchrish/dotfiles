@@ -1,6 +1,6 @@
 # Use vim-like keys for history substring
-bindkey '^P' history-substring-search-up
-bindkey '^N' history-substring-search-down
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
 
 # Shift + Tab for cycle back completions
 bindkey '^[[Z' reverse-menu-complete
