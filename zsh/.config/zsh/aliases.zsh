@@ -16,6 +16,14 @@ alias ql="qlmanage -p"
 # Vim
 alias v="vim"
 alias nv="nvim"
+alias nvt="nvim +TerminusOpen"
+
+# While in a nvim terminal, open file to current session
+if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
+  alias nvh='nvr -o'
+  alias nvv='nvr -O'
+  alias nvt='nvr --remote-tab'
+fi
 
 # Quick piping
 alias -g L="| less"

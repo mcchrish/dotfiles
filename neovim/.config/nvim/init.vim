@@ -37,6 +37,22 @@ let g:deoplete#omni_patterns.gitcommit = ':\w*'
 
 " }}}
 
+" nvimux {{{
+Plug 'hkupty/nvimux'
+let g:nvimux_prefix='<c-a>'
+" }}}
+
+" nvim-terminus {{{
+Plug 'brettanomyces/nvim-terminus'
+let g:terminus_default_mappings = 1
+let g:terminus_use_xterm_title = 0
+
+nnoremap <silent> <c-a>t :startinsert <bar> TerminusOpen<cr>
+nnoremap <silent> <c-a>v :vsplit +startinsert <bar> TerminusOpen<cr>
+nnoremap <silent> <c-a>s :split +startinsert <bar> TerminusOpen<cr>
+
+" }}}
+
 endif
 
 if !has('gui_running')
@@ -282,6 +298,10 @@ let g:lightline = {
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
+      \ 'tabline': {
+      \   'left': [ [ 'tabs' ] ],
+      \   'right': [ [ '' ] ]
+      \ },
       \ 'tabline_separator': { 'left': '', 'right': '' },
       \ 'tabline_subseparator': { 'left': '|', 'right': '|' },
       \ }
@@ -333,17 +353,18 @@ function! LightLineFileencoding()
 endfunction
 
 let g:lightline.mode_map = {
-      \ 'n' : 'N',
-      \ 'i' : 'I',
-      \ 'R' : 'R',
-      \ 'v' : 'V',
-      \ 'V' : 'VL',
-      \ 'c' : 'C',
+      \ 'n':      'N',
+      \ 'i':      'I',
+      \ 'R':      'R',
+      \ 'v':      'V',
+      \ 'V':      'VL',
+      \ 'c':      'C',
       \ "\<C-v>": 'VB',
-      \ 's' : 'SELECT',
-      \ 'S' : 'S-LINE',
+      \ 's':      'SELECT',
+      \ 'S':      'S-LINE',
       \ "\<C-s>": 'S-BLOCK',
-      \ '?': '      ' }
+      \ 't':      'T',
+      \ '?':      '      ' }
 " }}}
 
 " vim-gitgutter {{{
@@ -459,9 +480,12 @@ Plug 'othree/html5.vim'
 " emmet-vim {{{
 Plug 'mattn/emmet-vim'
 
-let g:user_emmet_install_global = 1
+let g:user_emmet_mode='i'
 let g:user_emmet_leader_key     = '<C-A>'
 let g:user_emmet_settings       = { 'javascript': { 'quote_char': "'" } }
+
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,sass,scss,less,javascript,jsx EmmetInstall
 " }}}
 
 " vim-mustasche-handlebars {{{
@@ -793,11 +817,16 @@ nnoremap gV `[V`]
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 " Terminal
-nnoremap <leader>tt :terminal<cr>
-nnoremap <leader>tv :vsplit +terminal<cr>
-nnoremap <leader>ts :split +terminal<cr>
+if has('nvim')
+  tnoremap <esc> <c-\><c-n>
+  tnoremap <c-h> <c-\><c-n><c-w>h
+  tnoremap <c-j> <c-\><c-n><c-w>j
+  tnoremap <c-k> <c-\><c-n><c-w>k
+  tnoremap <c-l> <c-\><c-n><c-w>l
 
-tnoremap <esc> <c-\><c-n>
+  autocmd BufWinEnter,WinEnter term://* startinsert
+  autocmd BufLeave term://* stopinsert
+endif
 
 
 " JS standard formatter
