@@ -1,20 +1,23 @@
 function _nman {
-  local l=$#
-  local -a page
-  local page=(${@:1:$l-1})
-  if [[ -z "$page" ]]; then
+  if (( $# > 3 )); then
+    echo "Too many arguments"
+    return
+  elif (( $# == 1 )); then
     echo "What manual page do you want?"
     return
   fi
+  local l=$#
+  local -a page
+  local page=(${@:1:$l-1})
   local tmp=$IFS
   IFS=$'\n' out=($(command man -w ${page[@]} 2>&1))
   local code=$?
   IFS=$tmp
-  if [[ ${#out[@]} > 1 ]]; then
-    echo "Too many manpages"
+  if [[ ${#out[@]} > 1 ]] && (( $# > 2 )); then
+    echo "Too many manpages: ${#out[@]}"
     return
   elif [[ $code != 0 ]]; then
-    echo "No manual entry for ${page[*]}"
+    printf '%s\n' "${out[@]}"
     return
   fi
   if [[ -z $NVIM_LISTEN_ADDRESS ]]; then
