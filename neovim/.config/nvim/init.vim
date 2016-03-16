@@ -470,8 +470,10 @@ Plug 'marijnh/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javas
 nnoremap <silent> <leader>td :TernDef<cr>
 nnoremap <silent> <leader>ts :TernDefSplit<cr>
 
-autocmd FileType javascript setlocal omnifunc=tern#Complete
+" autocmd FileType javascript setlocal omnifunc=tern#Complete
 " }}}
+
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
 
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'json' ] }
 
