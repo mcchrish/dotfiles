@@ -85,6 +85,7 @@ alias gcA="git commit --amend --reuse-message HEAD"
 
 # Reset
 alias gcr="git checkout --ours --"
+alias gcR="git reset --soft HEAD\^"
 
 # Files
 alias gls="git ls-files"
