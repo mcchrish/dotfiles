@@ -47,9 +47,9 @@ Plug 'brettanomyces/nvim-terminus'
 let g:terminus_default_mappings = 1
 let g:terminus_use_xterm_title = 0
 
-nnoremap <silent> <c-a>t :startinsert <bar> TerminusOpen<cr>
-nnoremap <silent> <c-a>v :vsplit +startinsert <bar> TerminusOpen<cr>
-nnoremap <silent> <c-a>s :split +startinsert <bar> TerminusOpen<cr>
+nnoremap <silent> <c-a>t :TerminusOpen<cr>
+nnoremap <silent> <c-a>v :vsplit +TerminusOpen<cr>
+nnoremap <silent> <c-a>s :split +TerminusOpen<cr>
 
 " }}}
 
