@@ -474,6 +474,7 @@ nnoremap <silent> <leader>ts :TernDefSplit<cr>
 " }}}
 
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
+let g:tern_request_timeout = 1
 
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'json' ] }
 
