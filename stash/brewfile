@@ -20,7 +20,7 @@ brew install git-extras
 brew install gpg-agent
 brew install htop
 brew install jenv
-brew install macvim --with-lua --with-luajit --with-override-system-vim
+brew install macvim --HEAD --with-cscope --with-lua --with-override-system-vim --with-luajit --with-python
 brew install mosh
 brew install neovim --HEAD
 brew install neovim-dot-app --HEAD
