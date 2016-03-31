@@ -88,6 +88,9 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node/repl_history"
 
+# Gradle
+export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
+
 # FZF
 export FZF_DEFAULT_COMMAND="ag -l --hidden --path-to-agignore=\"$XDG_CONFIG_HOME/ag/fzfignore\" -g \"\""
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
