@@ -237,6 +237,8 @@ Plug 'Konfekt/FastFold'
 let g:fastfold_force = 1
 " }}}
 
+Plug 'itchyny/vim-parenmatch'
+
 " vim-qf {{{
 Plug 'romainl/vim-qf'
 let g:qf_mapping_ack_style = 1
@@ -598,6 +600,7 @@ let g:loaded_getscriptplugin    = 1
 let g:loaded_gzip               = 1
 let g:loaded_logipat            = 1
 let g:loaded_man                = 1
+let g:loaded_matchparen         = 1
 let g:loaded_netrw              = 1
 let g:loaded_netrwfilehandlers  = 1
 let g:loaded_netrwplugin        = 1
