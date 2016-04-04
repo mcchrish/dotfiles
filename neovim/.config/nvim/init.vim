@@ -787,9 +787,6 @@ cabbrev Wq wq
 cabbrev W w
 cabbrev Q q
 
-" Save file with root access
-cmap w!! w !sudo tee % >/dev/null
-
 " Faster save
 nnoremap <leader>w :update<cr>
 
