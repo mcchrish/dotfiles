@@ -93,9 +93,6 @@ fi
 # Jenv
 # eval "$(jenv init -)"
 
-# For Gruvbox
-source "$XDG_CONFIG_HOME/nvim/plugged/gruvbox/gruvbox_256palette.sh"
-
 # Completions
 [[ -f "$source_dir/completions.zsh" ]] && source "$source_dir/completions.zsh"
 
