@@ -75,5 +75,5 @@ if !(which brew > /dev/null); then
 fi
 
 
-# set zsg as default shell
+# set zsh as default shell
 chsh -s $(which zsh)
