@@ -149,6 +149,8 @@ nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
+Plug 'lambdalisue/vim-gita'
+
 Plug 'rhysd/committia.vim'
 
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
@@ -278,7 +280,7 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
+      \   'left': [ [ 'mode', 'paste' ], [ 'gita' ], [ 'filename' ] ],
       \   'right': [ [ 'neomake', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'fileformat', 'fileencoding' ] ]
       \ },
       \ 'component': {
@@ -292,7 +294,7 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'readonly': 'LightLineReadonly',
-      \   'fugitive': 'LightLineFugitive',
+      \   'gita': 'LightLineGita',
       \   'mode': 'LightLineMode',
       \   'filename': 'LightLineFilename',
       \   'fileformat': 'LightLineFileformat',
@@ -318,9 +320,9 @@ function! LightLineModified()
   return &ft =~ s:except_ft ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
-function! LightLineFugitive()
-  if &ft !~? s:except_ft && exists("*fugitive#head")
-    let _ = fugitive#head()
+function! LightLineGita()
+  if &ft !~? s:except_ft && exists("*gita#statusline#format")
+    let _ = gita#statusline#format('%lb')
     return strlen(_) ? ' '._ : ''
   endif
   return ''
