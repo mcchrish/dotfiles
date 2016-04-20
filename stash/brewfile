@@ -46,6 +46,7 @@ brew install zsh
 
 # cask
 brew cask install alfred
+brew cask install android-file-transfer
 brew cask install atom
 brew cask install bitbar
 brew cask install calibre
