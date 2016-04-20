@@ -40,17 +40,18 @@ let g:deoplete#omni_patterns.gitcommit = ':\w*'
 " nvimux {{{
 Plug 'hkupty/nvimux'
 let g:nvimux_prefix='<c-a>'
+let g:nvimux_no_neoterm = 1
+
+let g:nvimux_custom_bindings = [
+      \['v', ':NvimuxVerticalSplit<CR>', ['n', 'v', 'i', 't']],
+      \['s', ':NvimuxHorizontalSplit<CR>', ['n', 'v', 'i', 't']]
+      \]
 " }}}
 
 " nvim-terminus {{{
-Plug 'brettanomyces/nvim-terminus'
+" Plug 'brettanomyces/nvim-terminus'
 let g:terminus_default_mappings = 1
-let g:terminus_use_xterm_title = 0
-
-nnoremap <silent> <c-a>t :TerminusOpen<cr>
-nnoremap <silent> <c-a>v :vsplit +TerminusOpen<cr>
-nnoremap <silent> <c-a>s :split +TerminusOpen<cr>
-
+let g:terminus_use_xterm_title = 1
 " }}}
 
 endif
