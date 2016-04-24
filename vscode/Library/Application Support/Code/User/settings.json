@@ -1,17 +1,18 @@
 // Place your settings in this file to overwrite the default settings
 {
-	"editor.fontFamily": "Fira Code",
-	"editor.fontSize": 12,
-    "editor.fontLigatures": true,
-    "editor.tabSize": "auto",
-    "editor.wrappingColumn": 0,
-    "editor.wrappingIndent": "indent",
-    
-    // CSS,
-    "css.lint.duplicateProperties": "warning",
-    // SASS
-    "sass.lint.duplicateProperties": "warning",
-    "standard.options": {
-        "parser": "babel-eslint"
-    }
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 12,
+  "editor.fontLigatures": true,
+  "editor.wrappingColumn": 0,
+  "editor.wrappingIndent": "indent",
+  "editor.tabSize": 2,
+  
+  // CSS,
+  "css.lint.duplicateProperties": "warning",
+  
+  // SASS
+  "sass.lint.duplicateProperties": "warning",
+  "standard.options": {
+    "parser": "babel-eslint"
+  }
 }
