@@ -44,14 +44,15 @@ let g:nvimux_no_neoterm = 1
 
 let g:nvimux_custom_bindings = [
       \['v', ':NvimuxVerticalSplit<CR>', ['n', 'v', 'i', 't']],
-      \['s', ':NvimuxHorizontalSplit<CR>', ['n', 'v', 'i', 't']]
+      \['s', ':NvimuxHorizontalSplit<CR>', ['n', 'v', 'i', 't']],
+      \['<space>', '<c-\><c-n>', ['n', 'v', 'i', 't']]
       \]
 " }}}
 
 " nvim-terminus {{{
 " Plug 'brettanomyces/nvim-terminus'
 let g:terminus_default_mappings = 1
-let g:terminus_use_xterm_title = 1
+let g:terminus_use_xterm_title = 0
 " }}}
 
 endif
@@ -489,7 +490,7 @@ Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
 
 let g:user_emmet_mode='i'
-let g:user_emmet_leader_key     = '<C-A>'
+let g:user_emmet_leader_key     = '<c-s>'
 let g:user_emmet_settings       = { 'javascript': { 'quote_char': "'" } }
 
 let g:user_emmet_install_global = 0
@@ -830,8 +831,8 @@ if has('nvim')
   tnoremap <c-k> <c-\><c-n><c-w>k
   tnoremap <c-l> <c-\><c-n><c-w>l
 
-  autocmd BufWinEnter,WinEnter term://* startinsert
-  autocmd BufLeave term://* stopinsert
+  " autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
+  " autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
 endif
 
 
