@@ -83,6 +83,9 @@ export PASSWORD_STORE_DIR="$HOME/.password-store"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
+# Babel
+export BABEL_CACHE_PATH="$XDG_CACHE_HOME/babel/babel.json"
+
 # Node
 [[ ! -d "${XDG_DATA_HOME}/node" ]] && mkdir -p "${XDG_DATA_HOME}/node"
 
