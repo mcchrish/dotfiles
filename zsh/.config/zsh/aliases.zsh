@@ -16,7 +16,8 @@ alias ql="qlmanage -p"
 # Vim
 alias v="vim"
 alias nv="nvim"
-alias nvt="nvim +TerminusOpen"
+alias nv2="nv +tabe +term +NvimuxVerticalSplit +term +tabnext"
+alias nv3="nv +tabe +term +NvimuxVerticalSplit +term +NvimuxHorizontalSplit +term +tabnext"
 
 # While in a nvim terminal, open file to current session
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then

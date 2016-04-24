@@ -831,8 +831,8 @@ if has('nvim')
   tnoremap <c-k> <c-\><c-n><c-w>k
   tnoremap <c-l> <c-\><c-n><c-w>l
 
-  " autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
-  " autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
+  autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
+  autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
 endif
 
 
