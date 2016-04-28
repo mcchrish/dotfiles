@@ -38,13 +38,14 @@ local source_dir="$XDG_CONFIG_HOME/zsh"
 
 # Check if zplug is installed
 if [[ ! -d "$ZPLUG_HOME" ]]; then
-  curl -fLo "$ZPLUG_HOME/zplug" --create-dirs https://git.io/zplug
-  source "$ZPLUG_HOME/zplug" && zplug update --self
+  # curl -fLo "$ZPLUG_HOME/zplug" --create-dirs https://git.io/zplug
+  git clone https://github.com/b4b4r07/zplug "$ZPLUG_HOME"
+  source "$ZPLUG_HOME/init.zsh" && zplug update --self
 fi
 
 if [[ -s "$ZPLUG_HOME/zplug" ]]; then
 
-  source "$ZPLUG_HOME/zplug"
+  source "$ZPLUG_HOME/init.zsh"
 
   # Prompt
   zplug "mafredri/zsh-async"
@@ -52,12 +53,12 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
 
   # Fuzzy filter
   zplug "junegunn/fzf", \
-    do:"./install --bin", \
-    of:"shell/{key-bindings,completion}.zsh"
+    hook-build:"./install --bin", \
+    use:"shell/{key-bindings,completion}.zsh"
 
   zplug "junegunn/fzf", \
     as:command, \
-    of:"bin/{fzf,fzf-tmux}"
+    use:"bin/{fzf,fzf-tmux}"
 
   local fzf_man="$ZPLUG_HOME/repos/junegunn/fzf/man"
   if [[ ! "$MANPATH" == *$fzf_man* && -d "$fzf_man" ]]; then
@@ -67,11 +68,11 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
   # Textplay - convert fountain to HTML
   zplug "olivertaylor/Textplay", \
     as:command, \
-    of:"textplay"
+    use:"textplay"
 
   # Improved cd
   export ENHANCD_DISABLE_DOT=1
-  zplug "b4b4r07/enhancd", of:enhancd.sh
+  zplug "b4b4r07/enhancd", use:enhancd.sh
 
   # Zsh Completions
   zplug "zsh-users/zsh-completions"
