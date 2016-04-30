@@ -1,17 +1,26 @@
 // Place your settings in this file to overwrite the default settings
 {
-  "editor.fontFamily": "Fira Code",
+  "editor.fontFamily": "FiraCode-Retina",
   "editor.fontSize": 12,
   "editor.fontLigatures": true,
   "editor.wrappingColumn": 0,
   "editor.wrappingIndent": "indent",
   "editor.tabSize": 2,
-  
+  "editor.insertSpaces": true,
+  "editor.rulers": [80],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true
+  },
+  // Javascript
+  "javascript.validate.enable": false,
   // CSS,
   "css.lint.duplicateProperties": "warning",
-  
   // SASS
   "sass.lint.duplicateProperties": "warning",
+  // Opt out
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
   "standard.options": {
     "parser": "babel-eslint"
   }
