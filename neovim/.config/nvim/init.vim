@@ -33,6 +33,7 @@ if !exists('g:deoplete#omni_patterns')
 endif
 
 let g:deoplete#omni_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
+" let g:deoplete#omni_patterns.javascript = '[^. \t]\.\w*'
 let g:deoplete#omni_patterns.gitcommit = ':\w*'
 
 " }}}
@@ -64,6 +65,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
+let g:fzf_buffers_jump = 1
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-s': 'split',
@@ -150,7 +152,12 @@ nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
+" vim-gita {{{
 Plug 'lambdalisue/vim-gita'
+" nnoremap <silent> <leader>gs :Gita status<cr>
+" nnoremap <silent> <leader>gd :Gita diff --split<cr>
+" nnoremap <silent> <leader>gb :Gita blame<cr>
+" }}}
 
 Plug 'rhysd/committia.vim'
 
@@ -312,7 +319,7 @@ let g:lightline = {
       \ 'tabline_subseparator': { 'left': '|', 'right': '|' },
       \ }
 
-let s:except_ft = 'help\|qf\|undotree\|fzf\|vim-plug'
+let s:except_ft = 'help\|qf\|undotree\|fzf\|vim-plug\|gita-status'
 function! LightLineReadonly()
   return &ft !~? s:except_ft && &readonly ? '' : ''
 endfunction
@@ -322,7 +329,7 @@ function! LightLineModified()
 endfunction
 
 function! LightLineGita()
-  if &ft !~? s:except_ft && exists("*gita#statusline#format")
+  if winwidth(0) > 90 && &ft !~? s:except_ft
     let _ = gita#statusline#format('%lb')
     return strlen(_) ? ' '._ : ''
   endif
@@ -476,10 +483,10 @@ Plug 'marijnh/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javas
 nnoremap <silent> <leader>td :TernDef<cr>
 nnoremap <silent> <leader>ts :TernDefSplit<cr>
 
-" autocmd FileType javascript setlocal omnifunc=tern#Complete
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 " }}}
 
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
+" Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
 let g:tern_request_timeout = 1
 
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'json' ] }
