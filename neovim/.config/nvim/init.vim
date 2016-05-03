@@ -32,9 +32,13 @@ if !exists('g:deoplete#omni_patterns')
   let g:deoplete#omni_patterns = {}
 endif
 
-let g:deoplete#omni_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
-" let g:deoplete#omni_patterns.javascript = '[^. \t]\.\w*'
-let g:deoplete#omni_patterns.gitcommit = ':\w*'
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+
+let g:deoplete#omni#input_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
+" let g:deoplete#omni#input_patterns.javascript = '[^. \t]\.\w*'
+let g:deoplete#omni#input_patterns.gitcommit = ':\w*'
 
 " }}}
 
@@ -466,6 +470,8 @@ Plug 'othree/yajs.vim'
 
 Plug 'othree/es.next.syntax.vim'
 
+" Plug 'pangloss/vim-javascript'
+
 Plug 'gavocanov/vim-js-indent'
 
 " vim-jsx {{{
@@ -475,7 +481,7 @@ let g:jsx_ext_required = 0
 
 " javascript-libraries-syntax.vim {{{
 Plug 'othree/javascript-libraries-syntax.vim'
-let g:used_javascript_libs = 'jquery,underscore,react'
+let g:used_javascript_libs = 'jquery,underscore,react,chai'
 " }}}
 
 " tern_for_vim {{{
@@ -814,6 +820,9 @@ nnoremap Y y$
 " Repeat substitution with flag
 nnoremap & :&&<CR>
 vnoremap & :&&<CR>
+
+" Repeat macro over all selected lines
+vnoremap @ :norm@
 
 nnoremap <C-]> g<C-]>
 
