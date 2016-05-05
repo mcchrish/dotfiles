@@ -38,14 +38,15 @@ local source_dir="$XDG_CONFIG_HOME/zsh"
 
 # Check if zplug is installed
 if [[ ! -d "$ZPLUG_HOME" ]]; then
-  # curl -fLo "$ZPLUG_HOME/zplug" --create-dirs https://git.io/zplug
-  git clone https://github.com/b4b4r07/zplug "$ZPLUG_HOME"
+  git clone https://github.com/zplug/zplug "$ZPLUG_HOME"
   source "$ZPLUG_HOME/init.zsh" && zplug update --self
 fi
 
 if [[ -s "$ZPLUG_HOME/zplug" ]]; then
 
   source "$ZPLUG_HOME/init.zsh"
+
+  zplug "zplug/zplug"
 
   # Prompt
   zplug "mafredri/zsh-async"
