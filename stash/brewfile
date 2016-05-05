@@ -7,7 +7,6 @@ brew tap rogual/neovim-dot-app
 
 # brew
 brew install android-sdk
-brew install brew-cask
 brew install cmatrix
 brew install curl
 brew install diff-so-fancy
@@ -20,6 +19,7 @@ brew install git
 brew install git-extras
 brew install gpg-agent
 brew install htop
+brew install httpie
 brew install jenv
 brew install kwm
 brew install macvim --with-cscope --with-lua --with-override-system-vim --with-luajit --with-python
@@ -56,12 +56,13 @@ brew cask install dash
 brew cask install disk-inventory-x
 brew cask install dropbox
 brew cask install firefoxdeveloperedition
-brew cask install flux-beta
+brew cask install flux
 brew cask install font-courier-prime
 brew cask install font-fira-mono
 brew cask install font-fira-code
 brew cask install font-fira-sans
 brew cask install font-source-code-pro
+brew cask install franz
 brew cask install gitup
 brew cask install google-chrome
 brew cask install handbrake
@@ -76,7 +77,6 @@ brew cask install nvalt
 brew cask install openemu-experimental
 brew cask install postman
 brew cask install skype
-brew cask install slack
 brew cask install spectacle
 brew cask install sublime-text3
 brew cask install transmission
