@@ -683,6 +683,7 @@ set noshowmode
 set hidden
 
 set scrolloff=4
+set sidescroll=1
 set sidescrolloff=5
 set synmaxcol=500
 set history=1000
