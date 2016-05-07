@@ -156,13 +156,6 @@ nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
-" vim-gita {{{
-Plug 'lambdalisue/vim-gita'
-" nnoremap <silent> <leader>gs :Gita status<cr>
-" nnoremap <silent> <leader>gd :Gita diff --split<cr>
-" nnoremap <silent> <leader>gb :Gita blame<cr>
-" }}}
-
 Plug 'rhysd/committia.vim'
 
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
@@ -292,7 +285,7 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'gita' ], [ 'filename' ] ],
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
       \   'right': [ [ 'neomake', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'fileformat', 'fileencoding' ] ]
       \ },
       \ 'component': {
@@ -306,7 +299,7 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'readonly': 'LightLineReadonly',
-      \   'gita': 'LightLineGita',
+      \   'fugitive': 'LightLineFugitive',
       \   'mode': 'LightLineMode',
       \   'filename': 'LightLineFilename',
       \   'fileformat': 'LightLineFileformat',
@@ -323,7 +316,7 @@ let g:lightline = {
       \ 'tabline_subseparator': { 'left': '|', 'right': '|' },
       \ }
 
-let s:except_ft = 'help\|qf\|undotree\|fzf\|vim-plug\|gita-status'
+let s:except_ft = 'help\|qf\|undotree\|fzf\|vim-plug'
 function! LightLineReadonly()
   return &ft !~? s:except_ft && &readonly ? '' : ''
 endfunction
@@ -332,9 +325,9 @@ function! LightLineModified()
   return &ft =~ s:except_ft ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
-function! LightLineGita()
-  if winwidth(0) > 90 && &ft !~? s:except_ft
-    let _ = gita#statusline#format('%lb')
+function! LightLineFugitive()
+  if winwidth(0) > 90 && &ft !~? s:except_ft && exists("*fugitive#head")
+    let _ = fugitive#head()
     return strlen(_) ? ' '._ : ''
   endif
   return ''
@@ -924,15 +917,6 @@ function! SetAsDjangoProject()
 endfunction
 " }}}
 
-" SetAsMeteorProject {{{
-function! SetAsMeteorProject()
-  augroup meteor
-    autocmd!
-    autocmd BufNewFile,BufRead *.html setlocal filetype=html.mustache
-  augroup end
-endfunction
-" }}}
-
 " }}}
 
 " ##Local {{{
@@ -940,11 +924,6 @@ endfunction
 " Detect Django project
 if filereadable(glob("manage.py"))
   call SetAsDjangoProject()
-endif
-
-" Detect Meteor project
-if filereadable(glob(".meteor/versions"))
-  call SetAsMeteorProject()
 endif
 
 " }}}
