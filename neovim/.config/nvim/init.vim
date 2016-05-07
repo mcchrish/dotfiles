@@ -657,7 +657,7 @@ set matchtime=2
 set shortmess=aIToO
 
 " Change window title to filename
-set title
+" set title
 
 " Better splitting
 set splitbelow
