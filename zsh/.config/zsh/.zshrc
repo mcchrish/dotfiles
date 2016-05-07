@@ -22,10 +22,10 @@ zle -N self-insert url-quote-magic
 autoload -Uz edit-command-line
 zle -N edit-command-line
 
-# Emacs is better in cli
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-bindkey -e
 
+# Emacs keybindings
+bindkey -e
 
 local source_dir="$XDG_CONFIG_HOME/zsh"
 
@@ -46,8 +46,6 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
 
   source "$ZPLUG_HOME/init.zsh"
 
-  zplug "zplug/zplug"
-
   # Prompt
   zplug "mafredri/zsh-async"
   zplug "sindresorhus/pure"
@@ -61,19 +59,10 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
     as:command, \
     use:"bin/{fzf,fzf-tmux}"
 
-  local fzf_man="$ZPLUG_HOME/repos/junegunn/fzf/man"
-  if [[ ! "$MANPATH" == *$fzf_man* && -d "$fzf_man" ]]; then
-    export MANPATH="$MANPATH:$fzf_man"
-  fi
-
   # Textplay - convert fountain to HTML
   zplug "olivertaylor/Textplay", \
     as:command, \
     use:"textplay"
-
-  # Improved cd
-  export ENHANCD_DISABLE_DOT=1
-  zplug "b4b4r07/enhancd", use:enhancd.sh
 
   # Zsh Completions
   zplug "zsh-users/zsh-completions"
@@ -91,9 +80,6 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
   zplug load
 
 fi
-
-# Jenv
-# eval "$(jenv init -)"
 
 # Completions
 [[ -f "$source_dir/completions.zsh" ]] && source "$source_dir/completions.zsh"
