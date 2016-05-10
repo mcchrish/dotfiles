@@ -88,3 +88,9 @@ fs() {
     fzf --query="$1" --select-1 --exit-0) &&
   tmux switch-client -t "$session"
 }
+
+# Z
+j() {
+  [ $# -gt 0 ] && _z "$*" && return
+  cd "$(_z -l 2>&1 | fzf-tmux +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
+}

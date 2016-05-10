@@ -51,6 +51,9 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
   zplug "sindresorhus/pure"
 
   # Fuzzy filter
+  export FZF_DEFAULT_COMMAND="ag -l --hidden --path-to-agignore=\"$XDG_CONFIG_HOME/ag/fzfignore\" -g \"\""
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
   zplug "junegunn/fzf", \
     hook-build:"./install --bin", \
     use:"shell/{key-bindings,completion}.zsh"
@@ -63,6 +66,10 @@ if [[ -s "$ZPLUG_HOME/zplug" ]]; then
   zplug "olivertaylor/Textplay", \
     as:command, \
     use:"textplay"
+
+  # Z
+  export _Z_DATA="$XDG_CACHE_HOME/z/data"
+  zplug "rupa/z", use:z.sh
 
   # Zsh Completions
   zplug "zsh-users/zsh-completions"
