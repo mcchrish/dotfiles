@@ -821,8 +821,8 @@ vnoremap @ :norm@
 nnoremap <C-]> g<C-]>
 
 " Buffer navigation
-nnoremap <tab>   :bnext<cr>
-nnoremap <s-tab> :bprevious<cr>
+" nnoremap <tab>   :bnext<cr>
+" nnoremap <s-tab> :bprevious<cr>
 
 " Paste mode
 set pastetoggle=<F2>
