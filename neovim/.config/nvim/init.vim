@@ -732,7 +732,7 @@ set wildignore+=*/node_modules/*
 set dictionary=/usr/share/dict/words
 
 " True color
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
 
 " Neovim bug workaround
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
