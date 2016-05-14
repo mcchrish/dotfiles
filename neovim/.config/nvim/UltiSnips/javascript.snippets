@@ -1,0 +1,93 @@
+# Basics
+snippet for "for loop" b
+for (var i = 0, len = ${1:list}.length; i < len; i++) {
+	var ${2:item} = $1[i];
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fun "function (fun)"
+function ${1:function_name} (${2:argument}) {
+	${VISUAL}$0
+}
+endsnippet
+
+# JSDoc snippets
+
+snippet /* "A JSDoc comment" b
+/**
+ * ${1:${VISUAL}}$0
+ */
+endsnippet
+
+# Modules
+snippet req
+const ${1} = require('${0}')
+endsnippet
+
+snippet mex
+modules.exports = ${1}
+endsnippet
+
+# ES6
+snippet const
+const ${1} = ${0}
+endsnippet
+
+snippet let
+let ${1} = ${0}
+endsnippet
+
+snippet im
+import ${1} from '${0}'
+endsnippet
+
+snippet ex
+export ${1:default} ${2}
+endsnippet
+
+snippet cla
+class ${1} {
+  ${0}
+}
+endsnippet
+
+snippet clax
+class ${1} extends ${2} {
+  ${0}
+}
+endsnippet
+
+# Snippets for Console Debug Output
+
+snippet ce "console.error" b
+console.error(${1:"${2:value}"})
+endsnippet
+
+snippet ci "console.info" b
+console.info(${1:"${2:value}"})
+endsnippet
+
+snippet cl "console.log" b
+console.log(${1:'${2:value}'})
+endsnippet
+
+snippet cd "console.debug" b
+console.debug(${1:'${2:value}'})
+endsnippet
+
+snippet ctable "console.table" b
+console.table(${1:'${2:value}'})
+endsnippet
+
+snippet ctimestamp "console.timeStamp" b
+console.timeStamp('${1:label}')
+endsnippet
+
+snippet ctrace "console.trace" b
+console.trace()
+endsnippet
+
+snippet cw "console.warn" b
+console.warn(${1:'${2:value}'})
+endsnippet

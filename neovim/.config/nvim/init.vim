@@ -121,7 +121,7 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 " }}}
 
 " neomake {{{
-Plug 'benekastah/neomake'
+Plug 'neomake/neomake'
 
 let g:neomake_javascript_enabled_makers = ['standard']
 let g:neomake_jsx_enabled_makers        = ['standard']
@@ -143,7 +143,6 @@ let g:neomake_warning_sign = {
       \ }
 
 autocmd! BufWritePost * Neomake
-autocmd! BufRead      * Neomake
 
 " }}}
 
@@ -162,7 +161,6 @@ Plug 'junegunn/gv.vim', { 'on': 'GV' }
 
 " ultisnips {{{
 Plug 'SirVer/ultisnips', { 'on': [] }
-Plug 'mcchrish/vim-snippets'
 
 let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<tab>"
@@ -478,15 +476,19 @@ let g:used_javascript_libs = 'jquery,underscore,react,chai'
 " }}}
 
 " tern_for_vim {{{
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
+let g:tern_show_argument_hints = 'on_hold'
+let g:tern_show_signature_in_pum = 1
 nnoremap <silent> <leader>td :TernDef<cr>
 nnoremap <silent> <leader>ts :TernDefSplit<cr>
 
-autocmd FileType javascript setlocal omnifunc=tern#Complete
+" autocmd FileType javascript,jsx setlocal omnifunc=tern#Complete
 " }}}
 
-" Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
+" deoplete-ternjs {{{
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
 let g:tern_request_timeout = 1
+" }}}
 
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'json' ] }
 
