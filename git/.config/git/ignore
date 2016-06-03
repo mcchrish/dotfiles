@@ -33,3 +33,5 @@ Session.vim
 .netrwhist
 *~
 
+# Node
+node_modules
