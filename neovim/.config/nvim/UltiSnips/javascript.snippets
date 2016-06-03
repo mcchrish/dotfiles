@@ -12,6 +12,31 @@ function ${1:function_name} (${2:argument}) {
 }
 endsnippet
 
+snippet if "if"
+if (${1:true}) {
+  ${VISUAL}$0
+}
+endsnippet
+
+snippet ife "if"
+if (${1:true}) {
+  ${VISUAL}$0
+} else $3 {
+  ${VISUAL}$2
+}
+endsnippet
+
+snippet switch "switch"
+switch (${1:condition}) {
+  case $0:
+    ${visual}$2
+    break
+  
+  default:
+    ${visual}$3
+}
+endsnippet
+
 # JSDoc snippets
 
 snippet /* "A JSDoc comment" b
