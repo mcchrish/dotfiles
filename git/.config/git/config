@@ -29,6 +29,7 @@
 
 [mergetool]
 	prompt = false
+	path = nvim
 
 [diff]
 	tool = vimdiff
