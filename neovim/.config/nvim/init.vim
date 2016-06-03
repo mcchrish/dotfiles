@@ -54,12 +54,6 @@ let g:nvimux_custom_bindings = [
       \]
 " }}}
 
-" nvim-terminus {{{
-" Plug 'brettanomyces/nvim-terminus'
-let g:terminus_default_mappings = 1
-let g:terminus_use_xterm_title = 0
-" }}}
-
 endif
 
 if !has('gui_running')
@@ -126,7 +120,10 @@ Plug 'neomake/neomake'
 let g:neomake_javascript_enabled_makers = ['standard']
 let g:neomake_jsx_enabled_makers        = ['standard']
 let g:neomake_python_enabled_makers     = ['flake8']
-let g:neomake_less_enabled_makers       = []
+let g:neomake_less_enabled_makers       = ['stylelint']
+let g:neomake_scss_enabled_makers       = ['stylelint']
+let g:neomake_sass_enabled_makers       = ['stylelint']
+let g:neomake_css_enabled_makers        = ['stylelint']
 let g:neomake_shell_enabled_makers      = ['shellcheck']
 let g:neomake_html_enabled_makers       = []
 let g:neomake_open_list                 = 0
@@ -194,8 +191,6 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " vim-dirvish {{{
 Plug 'justinmk/vim-dirvish'
-
-let g:dirvish_hijack_netrw   = 1
 let g:dirvish_relative_paths = 1
 
 nnoremap <silent> <leader>d :vsplit +Dirvish<cr>
@@ -378,12 +373,14 @@ let g:lightline.mode_map = {
 " vim-gitgutter {{{
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 
+set updatetime=500
 let g:gitgutter_max_signs    = 200
-let g:gitgutter_realtime     = 0
-let g:gitgutter_eager        = 0
+let g:gitgutter_realtime     = 1
+let g:gitgutter_eager        = 1
 let g:gitgutter_grep_command = 'ag --nocolor'
 
-nnoremap <silent> <F3> :GitGutterToggle<cr>
+nnoremap <silent> <leader>gg :GitGutterToggle<cr>
+nnoremap <silent> <leader>gh :GitGutterLineHighlightsToggle<cr>
 "}}}
 
 Plug 'tomtom/tcomment_vim'
@@ -461,9 +458,9 @@ Plug 'othree/yajs.vim'
 
 Plug 'othree/es.next.syntax.vim'
 
-" Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 
-Plug 'gavocanov/vim-js-indent'
+Plug 'jason0x43/vim-js-indent'
 
 " vim-jsx {{{
 Plug 'mxw/vim-jsx'
@@ -479,6 +476,10 @@ let g:used_javascript_libs = 'jquery,underscore,react,chai'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
 let g:tern_show_argument_hints = 'on_hold'
 let g:tern_show_signature_in_pum = 1
+
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+
 nnoremap <silent> <leader>td :TernDef<cr>
 nnoremap <silent> <leader>ts :TernDefSplit<cr>
 
@@ -502,13 +503,10 @@ let g:user_emmet_leader_key     = '<c-s>'
 let g:user_emmet_settings       = { 'javascript': { 'quote_char': "'" } }
 
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,sass,scss,less,javascript,jsx EmmetInstall
+autocmd FileType html,ejs,css,sass,scss,less,javascript,jsx EmmetInstall
 " }}}
 
-" vim-mustasche-handlebars {{{
-Plug 'mustache/vim-mustache-handlebars', { 'for': ['html', 'mustasche', 'handlebar'] }
-let g:mustache_abbreviations = 1
-" }}}
+Plug 'digitaltoad/vim-pug'
 
 Plug 'hail2u/vim-css3-syntax'
 
@@ -589,10 +587,11 @@ call plug#end()
 " Load immediately so we can override keymappings later
 runtime! plugin/unimpaired.vim
 
-nmap <silent> [q <Plug>QfCprevious
-nmap <silent> ]q <Plug>QfCnext
-nmap <silent> [l <Plug>QfLprevious
-nmap <silent> ]l <Plug>QfLnext
+" NOT WORKING
+" nmap <silent> [q <Plug>QfCprevious
+" nmap <silent> ]q <Plug>QfCnext
+" nmap <silent> [l <Plug>QfLprevious
+" nmap <silent> ]l <Plug>QfLnext
 
 " vim-signature
 let g:SignatureEnabledAtStartup = 0
@@ -694,7 +693,7 @@ set nojoinspaces
 
 " Nicer vertical splits
 let &fillchars='vert: ,fold:·'
-let &listchars='tab:| ,eol:¬,trail:⣿,extends:❯,precedes:❮'
+let &listchars='tab:| ,eol:¬,trail:⣿,extends:→,precedes:←'
 
 " Better Completion
 set completeopt=menuone,longest,noselect
@@ -712,7 +711,8 @@ set softtabstop=2
 set expandtab
 set breakindent
 set autoindent
-let &showbreak="↪︎ "
+" let &showbreak="+>"
+let &showbreak="↳ "
 
 " Wrapping
 set wrap
@@ -742,12 +742,14 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " Neovim-qt set font
 command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
 
+" No need
+set noswapfile
+
 " Persistent undo and swap files directory
 set undofile
 
 " Change vim temporary directories
 if !has('nvim')
-  set noswapfile
 
   set undodir=~/.vim/tmp/undo//
   set backupdir=~/.vim/tmp/backup//
