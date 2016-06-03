@@ -9,7 +9,7 @@ alias ln="nocorrect ln"
 alias du="du -h"
 alias df="df -h"
 alias which="command -v"
-alias sudo="sudo "
+# alias sudo="sudo "
 alias htop="sudo htop"
 alias ql="qlmanage -p"
 
@@ -34,7 +34,6 @@ alias -g G="| ag"
 alias -g C="| pbcopy"
 
 # Cmus
-alias cmus="cmus 2> /dev/null"
 alias cplay="cmus-remote --play"
 alias cpause="cmus-remote --pause"
 alias cnext="cmus-remote --next"
