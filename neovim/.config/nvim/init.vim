@@ -454,13 +454,13 @@ augroup end
 
 " }}}
 
-Plug 'othree/yajs.vim'
+" Plug 'othree/yajs.vim'
 
-Plug 'othree/es.next.syntax.vim'
+" Plug 'othree/es.next.syntax.vim'
 
 Plug 'pangloss/vim-javascript'
 
-Plug 'jason0x43/vim-js-indent'
+" Plug 'jason0x43/vim-js-indent'
 
 " vim-jsx {{{
 Plug 'mxw/vim-jsx'
@@ -667,9 +667,6 @@ set splitright
 " Diff Mode
 set diffopt=filler,vertical
 
-" Sytem clipboard for yanking
-set clipboard=unnamed
-
 " Mode shown by statusline
 set noshowmode
 
@@ -814,6 +811,16 @@ nnoremap vD "_D
 
 " Actual Y
 nnoremap Y y$
+
+" Clipboard
+vnoremap <leader>d "+d
+vnoremap <leader>y "+y
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+nnoremap <leader>d "+d
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
 
 " Repeat substitution with flag
 nnoremap & :&&<CR>

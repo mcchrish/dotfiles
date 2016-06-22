@@ -64,6 +64,7 @@ brew cask install font-fira-sans
 brew cask install font-source-code-pro
 brew cask install franz
 brew cask install gitup
+brew cask install gog-galaxy
 brew cask install google-chrome
 brew cask install handbrake
 brew cask install iterm2-beta
