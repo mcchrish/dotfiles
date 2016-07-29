@@ -29,7 +29,9 @@ module.exports = {
 
     // some color overrides. see http://bit.ly/29k1iU2 for
     // the full list
-    colors: []
+    colors: [],
+
+    shell: 'zsh'
   },
 
   // a list of plugins to fetch and install from npm
