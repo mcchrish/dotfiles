@@ -454,22 +454,18 @@ augroup end
 
 " }}}
 
-" Plug 'othree/yajs.vim'
 
-" Plug 'othree/es.next.syntax.vim'
+" tigris.nvim {{{
+" Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
+" Plug 'neovim/node-host', { 'do': 'npm install' }
+" let g:tigris#enabled = 1
+" }}}
 
 Plug 'pangloss/vim-javascript'
-
-" Plug 'jason0x43/vim-js-indent'
 
 " vim-jsx {{{
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
-" }}}
-
-" javascript-libraries-syntax.vim {{{
-Plug 'othree/javascript-libraries-syntax.vim'
-let g:used_javascript_libs = 'jquery,underscore,react,chai'
 " }}}
 
 " tern_for_vim {{{
@@ -578,6 +574,8 @@ let g:sierra_Twilight = 1
 " }}}
 
 Plug 'pgdouyon/vim-yin-yang'
+
+Plug 'rakr/vim-two-firewatch'
 
 call plug#end()
 " }}}
