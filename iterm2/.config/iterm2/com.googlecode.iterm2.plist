@@ -597,7 +597,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Downloads</string>
+	<string>~/Desktop</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSNavPanelExpandedSizeForSaveMode</key>
@@ -648,13 +648,15 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>535 64 445 77 0 0 1280 777 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>17 595 606 456 0 0 1920 1057 </string>
+	<string>6 318 606 456 0 0 1280 777 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>760 697 400 129 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>330 289 620 392 0 0 1280 777 </string>
+	<string>330 307 620 392 0 0 1280 800 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>287 329 918 381 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 655 570 402 0 0 1920 1057 </string>
+	<string>0 0 1280 800 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>-1280 241 1280 800 -1280 241 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -697,13 +699,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.11759774386882782</real>
+				<real>0.097711890935897827</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.11759573966264725</real>
+				<real>0.095032960176467896</real>
 				<key>Red Component</key>
-				<real>0.11759927868843079</real>
+				<real>0.087016984820365906</real>
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
@@ -788,13 +790,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73338055610656738</real>
+				<real>0.63873869180679321</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.93639552593231201</real>
+				<real>0.82989895343780518</real>
 				<key>Red Component</key>
-				<real>0.97939503192901611</real>
+				<real>0.90061241388320923</real>
 			</dict>
 			<key>Ansi 2 Color</key>
 			<dict>
@@ -866,13 +868,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.63873869180679321</real>
+				<real>0.73338055610656738</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.82989895343780518</real>
+				<real>0.93639552593231201</real>
 				<key>Red Component</key>
-				<real>0.90061241388320923</real>
+				<real>0.97939503192901611</real>
 			</dict>
 			<key>Ansi 8 Color</key>
 			<dict>
@@ -4281,7 +4283,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-07-03T04:17:33Z</date>
+	<date>2016-08-17T06:27:09Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -4339,7 +4341,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.4</string>
+	<string>3.0.7</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
