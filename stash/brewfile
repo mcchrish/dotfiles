@@ -17,6 +17,7 @@ brew install fpp
 brew install fzf
 brew install git
 brew install git-extras
+brew install gnupg2
 brew install gpg-agent
 brew install htop
 brew install httpie
