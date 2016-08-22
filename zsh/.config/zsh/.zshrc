@@ -42,9 +42,11 @@ if [[ ! -d "$ZPLUG_HOME" ]]; then
   source "$ZPLUG_HOME/init.zsh" && zplug update --self
 fi
 
-if [[ -s "$ZPLUG_HOME/zplug" ]]; then
+if [[ -s "$ZPLUG_HOME" ]]; then
 
   source "$ZPLUG_HOME/init.zsh"
+
+  zplug "zplug/zplug"
 
   # Prompt
   zplug "mafredri/zsh-async"
