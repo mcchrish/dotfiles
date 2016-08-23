@@ -454,6 +454,7 @@ augroup end
 
 " }}}
 
+Plug 'elixir-lang/vim-elixir'
 
 " tigris.nvim {{{
 " Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
