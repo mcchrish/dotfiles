@@ -1,6 +1,7 @@
 [user]
 	name = mcchrish
 	email = mcchrish@gmail.com
+	signingkey = 2F13B6AE9F19E530
 [filter "lfs"]
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
