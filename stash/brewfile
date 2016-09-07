@@ -85,6 +85,7 @@ brew cask install sublime-text3
 brew cask install transmission
 brew cask install visual-studio-code
 brew cask install vlc
+brew cask install whatsapp
 brew cask install xld
 
 # Quicklook
