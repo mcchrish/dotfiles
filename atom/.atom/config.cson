@@ -1,0 +1,31 @@
+"*":
+  "base16-syntax":
+    scheme: "Ocean"
+  core:
+    automaticallyUpdate: false
+    disabledPackages: [
+      "color-picker"
+      "pigments"
+      "react"
+    ]
+    themes: [
+      "nucleus-dark-ui"
+      "gruvbox"
+    ]
+  editor:
+    fontFamily: "FiraCode-Retina"
+    fontSize: 12
+    invisibles: {}
+    showIndentGuide: true
+    softWrap: true
+  "exception-reporting":
+    userId: "90213270-73c7-3762-b7f6-5ef09dbc48e6"
+  "language-babel": {}
+  react: {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false
