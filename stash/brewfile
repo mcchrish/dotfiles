@@ -62,6 +62,7 @@ brew cask install font-courier-prime
 brew cask install font-fira-mono
 brew cask install font-fira-code
 brew cask install font-fira-sans
+brew cask install font-mononoki
 brew cask install font-source-code-pro
 brew cask install franz
 brew cask install gitup
@@ -73,6 +74,7 @@ brew cask install iterm2-beta
 brew cask install java
 brew cask install karabiner
 brew cask install keeweb
+brew cask install licecap
 brew cask install macpass
 brew cask install macclean
 brew cask install marked
