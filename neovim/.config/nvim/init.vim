@@ -40,6 +40,9 @@ let g:deoplete#omni#input_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
 " let g:deoplete#omni#input_patterns.javascript = '[^. \t]\.\w*'
 let g:deoplete#omni#input_patterns.gitcommit = ':\w*'
 
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+
 " }}}
 
 " nvimux {{{
@@ -531,6 +534,8 @@ Plug 'mcchrish/fountain.vim'
 Plug 'morhetz/gruvbox'
 set background=dark
 
+let g:gruvbox_italic = 1
+
 " dark0 + gray
 let g:terminal_color_0  = "#928374"
 let g:terminal_color_8  = "#282828"
@@ -684,7 +689,7 @@ set foldlevelstart=99
 set foldnestmax=4
 
 " No bells
-set noerrorbells novisualbell
+set visualbell t_vb=
 set nojoinspaces
 
 " Nicer vertical splits
