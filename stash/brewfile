@@ -64,7 +64,6 @@ brew cask install font-fira-code
 brew cask install font-fira-sans
 brew cask install font-mononoki
 brew cask install font-source-code-pro
-brew cask install franz
 brew cask install gitup
 brew cask install gog-galaxy
 brew cask install google-chrome
@@ -73,6 +72,7 @@ brew cask install handbrake
 brew cask install iterm2-beta
 brew cask install java
 brew cask install karabiner
+brew cask install keepingyouawake
 brew cask install keeweb
 brew cask install licecap
 brew cask install macpass
@@ -81,38 +81,31 @@ brew cask install marked
 brew cask install nvalt
 brew cask install openemu-experimental
 brew cask install postman
+brew cask install qtpass
+brew cask install slack-beta
 brew cask install skype
 brew cask install spectacle
 brew cask install sublime-text3
 brew cask install transmission
 brew cask install visual-studio-code
 brew cask install vlc
+brew cask install vox
+brew cask install vox-preferences-pane
 brew cask install whatsapp
 brew cask install xld
 
-# Quicklook
-brew cask install qlmarkdown
-brew cask install quicklook-json
-brew cask install qlimagesize
-brew cask install provisionql
-brew cask install qlvideo
-brew cask install qlcolorcode
-brew cask install epubquicklook
-defaults write org.n8gray.QLColorCode font "Fira Code"
-defaults write org.n8gray.QLColorCode fontSizePoints 14
-
-brew cask install qlmarkdown
-brew cask install qlmarkdown
-brew cask install qlmarkdown
-
 # npm
-npm install -g eslint
-npm install -g less
+npm install -g babel-eslint
+npm install -g knex
+npm install -g mocha
+npm install -g neovim-client
 npm install -g npm-check
-npm install -g nyaovim
 npm install -g pen.md
+npm install -g react-native-cli
+npm install -g snazzy
 npm install -g standard
-npm install -g standard-format
+npm install -g stylelint
+npm install -g tern
 npm install -g trash-cli
 
 # pip
