@@ -76,9 +76,6 @@ export VISUAL='nvim'
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 
-# Homebrew
-export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
-
 # Pass
 export PASSWORD_STORE_DIR="$HOME/.password-store"
 

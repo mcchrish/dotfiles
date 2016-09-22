@@ -30,7 +30,7 @@ brew install neovim-dot-app --HEAD
 brew install node
 brew install openssl
 brew install pandoc
-brew install pass
+brew install pass --HEAD
 brew install pinentry-mac
 brew install python
 brew install python3
@@ -55,8 +55,7 @@ brew cask install colorpicker-skalacolor
 brew cask install coconutbattery
 brew cask install dash
 brew cask install disk-inventory-x
-brew cask install dropbox
-brew cask install firefoxdeveloperedition
+brew cask install firefox
 brew cask install flux
 brew cask install font-courier-prime
 brew cask install font-fira-mono
@@ -67,6 +66,7 @@ brew cask install font-source-code-pro
 brew cask install gitup
 brew cask install gog-galaxy
 brew cask install google-chrome
+brew cask install google-drive
 brew cask install gpgtools
 brew cask install handbrake
 brew cask install iterm2-beta
@@ -76,7 +76,6 @@ brew cask install keepingyouawake
 brew cask install keeweb
 brew cask install licecap
 brew cask install macpass
-brew cask install macclean
 brew cask install marked
 brew cask install nvalt
 brew cask install openemu-experimental
@@ -85,6 +84,7 @@ brew cask install qtpass
 brew cask install slack-beta
 brew cask install skype
 brew cask install spectacle
+brew cask install spotify
 brew cask install sublime-text3
 brew cask install the-unarchiver
 brew cask install transmission
