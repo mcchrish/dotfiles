@@ -7,7 +7,6 @@ brew tap rogual/neovim-dot-app
 
 # brew
 brew install android-sdk
-brew install cmatrix
 brew install curl
 brew install diff-so-fancy
 brew install dos2unix
@@ -21,8 +20,7 @@ brew install gnupg2
 brew install gpg-agent
 brew install htop
 brew install httpie
-brew install jenv
-brew install kwm
+brew install koekeishiya/kwm/kwm
 brew install macvim --with-cscope --with-lua --with-override-system-vim --with-luajit --with-python
 brew install mosh
 brew install neovim --HEAD
@@ -73,7 +71,6 @@ brew cask install iterm2-beta
 brew cask install java
 brew cask install karabiner
 brew cask install keepingyouawake
-brew cask install keeweb
 brew cask install licecap
 brew cask install macpass
 brew cask install marked
