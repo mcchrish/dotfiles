@@ -23,6 +23,7 @@ brew install httpie
 brew install koekeishiya/kwm/kwm
 brew install macvim --with-cscope --with-lua --with-override-system-vim --with-luajit --with-python
 brew install mosh
+brew install mpv --with-bundle --with-vapoursynth
 brew install neovim --HEAD
 brew install neovim-dot-app --HEAD
 brew install node
