@@ -31,11 +31,11 @@ nvim +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall
 printf "%s\n" "Cleaning up" | tee -a "${LOG_FILE}"
 brew cleanup 2>> "${LOG_FILE}"
 
-printf "%s\n" "Removing .DS_Store" | tee -a "${LOG_FILE}"
-find "${@:-$PWD}" \( \
-  -type f -name '.DS_Store' -o \
-  -type d -name '__MACOSX' \
-\) -print0 | xargs -0 rm -rf
+# printf "%s\n" "Removing .DS_Store" | tee -a "${LOG_FILE}"
+# find "${@:-$PWD}" \( \
+#   -type f -name '.DS_Store' -o \
+#   -type d -name '__MACOSX' \
+# \) -print0 | xargs -0 rm -rf
 
 printf "%s\n" "Updating done on " "$(date)" | tee -a "${LOG_FILE}"
 printf "%80s\n" |tr " " "#" | tee -a "${LOG_FILE}"
