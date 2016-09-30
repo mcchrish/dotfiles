@@ -404,6 +404,8 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'tpope/vim-endwise'
 
+Plug 'rstacruz/vim-xtract'
+
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 
 " goyo.vim {{{
