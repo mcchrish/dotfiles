@@ -53,7 +53,7 @@ if [[ -s "$ZPLUG_HOME" ]]; then
   zplug "sindresorhus/pure"
 
   # Fuzzy filter
-  export FZF_DEFAULT_COMMAND="ag -l --hidden --path-to-agignore=\"$XDG_CONFIG_HOME/ag/fzfignore\" -g \"\""
+  export FZF_DEFAULT_COMMAND="ag -l --hidden --path-to-ignore=\"$XDG_CONFIG_HOME/ag/fzfignore\" -g \"\""
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
   zplug "junegunn/fzf", \
