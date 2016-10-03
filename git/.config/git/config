@@ -63,5 +63,10 @@
 
 [alias]
 	edit = "!nvim `git ls-files -m`"
+	# the acronym stands for "subtree add"
+	sba = "!f() { git subtree add --prefix $1 $2 master --squash; }; f"
+	# the acronym stands for "subtree update"
+	sbu = "!f() { git subtree pull --prefix $1 $2 master --squash; }; f"
+
 [commit]
 	gpgsign = true
