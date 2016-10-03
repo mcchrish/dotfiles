@@ -120,8 +120,8 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 " neomake {{{
 Plug 'neomake/neomake'
 
-let g:neomake_javascript_enabled_makers = ['standard']
-let g:neomake_jsx_enabled_makers        = ['standard']
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_jsx_enabled_makers        = ['eslint']
 let g:neomake_python_enabled_makers     = ['flake8']
 let g:neomake_less_enabled_makers       = ['stylelint']
 let g:neomake_scss_enabled_makers       = ['stylelint']
@@ -143,6 +143,9 @@ let g:neomake_warning_sign = {
       \ }
 
 autocmd! BufWritePost * Neomake
+
+" Plug 'benjie/neomake-local-eslint.vim'
+Plug 'jaawerth/neomake-local-eslint-first'
 
 " }}}
 
