@@ -409,6 +409,8 @@ Plug 'tpope/vim-endwise'
 
 Plug 'rstacruz/vim-xtract'
 
+Plug 'machakann/vim-highlightedyank'
+
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 
 " goyo.vim {{{
