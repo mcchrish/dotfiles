@@ -868,8 +868,8 @@ if has('nvim')
 endif
 
 
-" JS standard formatter
-nnoremap <leader>ej :silent !standard % --fix<cr>
+" JS eslint --fix
+nnoremap <leader>ej :silent !eval $(npm bin)/eslint % --fix<cr>
 
 " Preview Marked 2
 nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
