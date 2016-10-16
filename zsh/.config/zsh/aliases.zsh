@@ -77,9 +77,9 @@ alias gbx="git branch -d"
 alias gbX="git branch -D"
 
 # Commit
-alias gc="git commit --verbose"
+alias gc="git commit -S --verbose"
 alias gco="git checkout"
-alias gcA="git commit --amend --reuse-message HEAD"
+alias gcA="git commit -S --amend --reuse-message HEAD"
 
 # Reset
 alias gcr="git checkout --ours --"
@@ -126,6 +126,11 @@ alias gsv="git status"
 # Diff
 alias gd="git diff"
 alias gds="git diff --stat --color"
+
+# Tag
+alias gt="git tag"
+alias gta="git tag -s -a"
+alias gtd="git tag -d"
 
 # Others
 alias ge="git edit"
