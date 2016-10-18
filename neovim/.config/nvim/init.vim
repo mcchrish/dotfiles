@@ -407,6 +407,8 @@ Plug 'tpope/vim-eunuch'
 
 Plug 'tpope/vim-endwise'
 
+Plug 'tpope/vim-capslock'
+
 Plug 'rstacruz/vim-xtract'
 
 Plug 'machakann/vim-highlightedyank'
