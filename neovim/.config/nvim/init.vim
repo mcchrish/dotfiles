@@ -53,6 +53,7 @@ let g:nvimux_no_neoterm = 1
 let g:nvimux_custom_bindings = [
       \['v', ':NvimuxVerticalSplit<CR>', ['n', 'v', 'i', 't']],
       \['s', ':NvimuxHorizontalSplit<CR>', ['n', 'v', 'i', 't']],
+      \['p', ':NvimuxTermPaste<CR>', ['n', 'v', 'i', 't']],
       \['<space>', '<c-\><c-n>', ['n', 'v', 'i', 't']]
       \]
 " }}}
