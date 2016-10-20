@@ -601,11 +601,10 @@ call plug#end()
 " Load immediately so we can override keymappings later
 runtime! plugin/unimpaired.vim
 
-" NOT WORKING
-" nmap <silent> [q <Plug>QfCprevious
-" nmap <silent> ]q <Plug>QfCnext
-" nmap <silent> [l <Plug>QfLprevious
-" nmap <silent> ]l <Plug>QfLnext
+nmap <silent> [q <Plug>QfCprevious
+nmap <silent> ]q <Plug>QfCnext
+nmap <silent> [l <Plug>QfLprevious
+nmap <silent> ]l <Plug>QfLnext
 
 " vim-signature
 let g:SignatureEnabledAtStartup = 0
