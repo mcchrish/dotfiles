@@ -286,7 +286,7 @@ let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
-      \   'right': [ [ 'neomake', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'fileformat', 'fileencoding' ] ]
+      \   'right': [ [ 'neomake', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'capslock', 'fileformat', 'fileencoding' ] ]
       \ },
       \ 'component': {
       \   'lineinfo': ' %3l:%-2v'
@@ -295,7 +295,8 @@ let g:lightline = {
       \   'neomake': 'neomake#statusline#LoclistStatus'
       \ },
       \ 'component_type': {
-      \   'neomake': 'error'
+      \   'neomake': 'error',
+      \   'capslock': 'warning'
       \ },
       \ 'component_function': {
       \   'readonly': 'LightLineReadonly',
@@ -304,7 +305,8 @@ let g:lightline = {
       \   'filename': 'LightLineFilename',
       \   'fileformat': 'LightLineFileformat',
       \   'filetype': 'LightLineFiletype',
-      \   'fileencoding': 'LightLineFileencoding'
+      \   'fileencoding': 'LightLineFileencoding',
+      \   'capslock': 'LightLineCapslock',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' },
@@ -360,6 +362,13 @@ endfunction
 
 function! LightLineFileencoding()
   return winwidth(0) > 90  && &ft !~? s:except_ft ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineCapslock()
+  if winwidth(0) > 90 && &ft !~? s:except_ft && exists("*CapsLockStatusline")
+    return CapsLockStatusline()
+  endif
+  return ''
 endfunction
 
 let g:lightline.mode_map = {
