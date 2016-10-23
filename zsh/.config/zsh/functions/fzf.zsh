@@ -1,16 +1,17 @@
 # Open file
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
 fe() {
-  IFS='
-'
-  local declare files=($(fzf-tmux --query="$1" --select-1 --exit-0))
+  local files
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
-  unset IFS
 }
 
 # fd - cd to selected directory
 fd() {
   local dir
-  dir=$(find ${1:-*} -path '*/\.*' -prune \
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
@@ -19,6 +20,13 @@ fd() {
 fda() {
   local dir
   dir=$(find ${1:-.} ! -path "./.git/*" ! -path "./.meteor/*" -type d 2> /dev/null | fzf +m) && cd "$dir"
+}
+
+# cdf - cd into the directory of the selected file
+cdf() {
+  local file
+  local dir
+  file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
 }
 
 # Git
