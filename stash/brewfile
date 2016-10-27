@@ -36,6 +36,7 @@ brew install python
 brew install python3
 brew install ranger
 brew install reattach-to-user-namespace
+brew install ruby
 brew install shellcheck
 brew install stow
 brew install tig
