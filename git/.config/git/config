@@ -14,6 +14,7 @@
 	editor = nvim +startinsert
 	autocrlf = false
 	pager = less
+	ignorecase = false
 
 [pull]
 	rebase = true
