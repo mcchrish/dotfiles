@@ -77,7 +77,7 @@ let g:fzf#vim#default_layout = {'down': '~40%'}
 
 " Search all file content including hidden files and directories
 command! -nargs=* FzfAgAll call fzf#vim#ag(<q-args>,
-      \ '--hidden --path-to-agignore="'.$XDG_CONFIG_HOME.'/ag/fzfignore"',
+      \ '--hidden --path-to-ignore="'.$XDG_CONFIG_HOME.'/ag/fzfignore"',
       \ { 'options': '--ansi --delimiter : --nth 4..,.. --prompt "AgAll> " '.
       \            '--multi --bind ctrl-a:select-all,ctrl-d:deselect-all '.
       \            '--color hl:68,hl+:110', 'down': '~40%' })
@@ -117,6 +117,8 @@ imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
 
 " }}}
+
+Plug 'cloudhead/neovim-fuzzy'
 
 " neomake {{{
 Plug 'neomake/neomake'
