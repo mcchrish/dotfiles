@@ -22,6 +22,7 @@ brew install htop
 brew install httpie
 brew install keybase
 brew install koekeishiya/kwm/kwm
+brew install mas
 brew install macvim --with-cscope --with-lua --with-override-system-vim --with-luajit --with-python
 brew install mosh
 brew install mpv --with-bundle --with-vapoursynth
@@ -57,6 +58,7 @@ brew cask install colorpicker-skalacolor
 brew cask install coconutbattery
 brew cask install dash
 brew cask install disk-inventory-x
+brew cask install dropbox
 brew cask install firefox
 brew cask install flux
 brew cask install font-courier-prime
@@ -75,6 +77,8 @@ brew cask install iterm2-beta
 brew cask install java
 brew cask install karabiner
 brew cask install keepingyouawake
+brew cask install keeweb
+brew cask install keybase
 brew cask install licecap
 brew cask install macpass
 brew cask install marked
@@ -86,6 +90,7 @@ brew cask install slack-beta
 brew cask install skype
 brew cask install spectacle
 brew cask install spotify
+brew cask install spotify-notifications
 brew cask install sublime-text3
 brew cask install the-unarchiver
 brew cask install transmission
