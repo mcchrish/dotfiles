@@ -120,6 +120,12 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 
 Plug 'cloudhead/neovim-fuzzy'
 
+" vim-esearch {{{
+" Plug 'eugen0329/vim-esearch'
+if !exists('g:esearch') | let g:esearch = {} | endif
+let g:esearch.adapter = 'rg'
+" }}}
+
 " neomake {{{
 Plug 'neomake/neomake'
 
@@ -620,6 +626,11 @@ nmap <silent> ]l <Plug>QfLnext
 " vim-signature
 let g:SignatureEnabledAtStartup = 0
 
+" " vim-esearch
+" " Start esearch prompt autofilled with one of g:esearch.use initial patterns
+" call esearch#map('<leader>ef', 'esearch')
+" " Start esearch autofilled with a word under the cursor
+" call esearch#map('<leader>ew', 'esearch-word-under-cursor')
 " }}}
 
 " ##Basics {{{
