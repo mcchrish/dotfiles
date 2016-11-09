@@ -35,3 +35,6 @@ Session.vim
 
 # Node
 node_modules
+
+# Tmuxp
+.tmuxp.yaml

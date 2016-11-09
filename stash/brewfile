@@ -116,9 +116,10 @@ npm install -g tern
 npm install -g trash-cli
 
 # pip
+pip3 install flake8
 pip3 install glances
+pip3 install jedi
 pip3 install neovim
 pip3 install neovim-remote
+pip3 install tmuxp
 pip3 install virtualenv
-pip3 install jedi
-pip3 install flake8
