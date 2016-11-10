@@ -26,5 +26,13 @@
   "standard.options": {
     "parser": "babel-eslint"
   },
-  "workbench.editor.showTabs": false
+  "workbench.editor.showTabs": false,
+  // Vim
+  "vim.useCtrlKeys": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ]
 }

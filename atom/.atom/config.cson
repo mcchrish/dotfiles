@@ -8,6 +8,7 @@
       "pigments"
       "react"
     ]
+    telemetryConsent: "no"
     themes: [
       "nucleus-dark-ui"
       "gruvbox"
