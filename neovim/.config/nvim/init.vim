@@ -490,6 +490,9 @@ Plug 'elixir-lang/vim-elixir'
 " Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
 " Plug 'neovim/node-host', { 'do': 'npm install' }
 " let g:tigris#enabled = 1
+" let g:tigris#debug = 1
+" let g:tigris#on_the_fly_enabled = 1
+" let g:tigris#delay = 500
 " }}}
 
 Plug 'pangloss/vim-javascript'
@@ -679,6 +682,9 @@ set ttimeoutlen=100
 set backspace=indent,eol,start
 set showcmd
 set hlsearch incsearch
+if exists('&inccommand')
+  set inccommand=split
+endif
 set ignorecase smartcase
 set lazyredraw
 
