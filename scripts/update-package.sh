@@ -28,6 +28,9 @@ pip3 list --local --outdated | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip3 ins
 printf "%s\n" "Updating neovim..." | tee -a "${LOG_FILE}"
 nvim +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall
 
+printf "%s\n" "Updating zplug..." | tee -a "${LOG_FILE}"
+zplug update
+
 printf "%s\n" "Cleaning up" | tee -a "${LOG_FILE}"
 brew cleanup 2>> "${LOG_FILE}"
 
