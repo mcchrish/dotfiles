@@ -197,11 +197,6 @@ Plug 'Shougo/echodoc.vim'
 let g:echodoc_enable_at_startup = 1
 " }}}
 
-" neoman.vim {{{
-Plug 'nhooyr/neoman.vim', { 'on': [ 'Nman', 'Snman', 'Vnman', 'Tnman' ] }
-cabbrev man Nman
-" }}}
-
 Plug 'christoomey/vim-tmux-navigator'
 
 " vim-dirvish {{{

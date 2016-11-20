@@ -73,9 +73,6 @@ if [[ -s "$ZPLUG_HOME" ]]; then
   export _Z_DATA="$XDG_CACHE_HOME/z/data"
   zplug "rupa/z", use:z.sh
 
-  # Neoman
-  zplug "nhooyr/neoman.vim", use:"scripts/nman.zsh", nice:13
-
   # Zsh Completions
   zplug "zsh-users/zsh-completions"
 
