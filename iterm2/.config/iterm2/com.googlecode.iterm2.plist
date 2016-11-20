@@ -627,10 +627,12 @@
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>650 499 620 392 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 117 796 473 0 0 1280 777 </string>
+	<string>625 284 796 473 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1280 800 0 0 1280 777 </string>
+	<string>0 0 1920 1080 0 0 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51_selection</key>
@@ -1341,7 +1343,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>20000</integer>
 			<key>Scrollback With Status Bar</key>
 			<false/>
 			<key>Scrollback in Alternate Screen</key>
@@ -2211,7 +2213,7 @@
 			<key>Screen</key>
 			<integer>0</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>20000</integer>
 			<key>Scrollback With Status Bar</key>
 			<false/>
 			<key>Scrollback in Alternate Screen</key>
@@ -4209,7 +4211,7 @@
 	<key>RightOption</key>
 	<integer>3</integer>
 	<key>SUEnableAutomaticChecks</key>
-	<false/>
+	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
@@ -4217,7 +4219,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-11-09T04:01:11Z</date>
+	<date>2016-11-19T11:03:16Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
