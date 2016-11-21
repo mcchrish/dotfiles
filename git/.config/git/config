@@ -55,9 +55,9 @@
 
 [color "diff-highlight"]
 	oldNormal = bold red
-	oldHighlight = "167 bold 88"
+	oldHighlight = "black bold red"
 	newNormal = bold green
-	newHighlight = "142 bold 100"
+	newHighlight = "black bold green"
 
 [color "status"]
 	untracked = magenta
