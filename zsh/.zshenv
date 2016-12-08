@@ -99,6 +99,8 @@ export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
 
 # Postgres
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql/history"
+# MySQL
+export  MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql/history"
 
 # Httpie
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
