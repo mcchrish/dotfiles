@@ -63,7 +63,7 @@ endif
 if !has('gui_running')
 
 " fzf {{{
-Plug 'junegunn/fzf'
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
@@ -153,7 +153,6 @@ let g:neomake_warning_sign = {
 
 autocmd! BufWritePost * Neomake
 
-" Plug 'benjie/neomake-local-eslint.vim'
 Plug 'jaawerth/neomake-local-eslint-first'
 
 " }}}
@@ -213,7 +212,7 @@ let g:gtfo#terminals = { 'mac' : 'iterm' }
 
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
-let g:sneak#streak     = 1
+let g:sneak#label      = 1
 let g:sneak#use_ic_scs = 1
 
 "replace 'f' with 1-char Sneak
@@ -231,8 +230,8 @@ xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 
-nmap <expr> ; sneak#is_sneaking() ? '<Plug>SneakNext' : ':'
-vmap <expr> ; sneak#is_sneaking() ? '<Plug>SneakNext' : ':'
+nmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_' : ':'
+vmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_' : ':'
 " }}}
 
 Plug 'pgdouyon/vim-evanesco'
@@ -253,6 +252,8 @@ Plug 'itchyny/vim-parenmatch'
 " vim-qf {{{
 Plug 'romainl/vim-qf'
 let g:qf_mapping_ack_style = 1
+let g:qf_auto_open_quickfix = 1
+let g:qf_auto_open_loclist = 1
 " }}}
 
 Plug 'wellle/targets.vim'
@@ -286,7 +287,7 @@ nnoremap <silent> <leader>' :SignatureToggleSigns<cr>
 Plug 'itchyny/lightline.vim'
 
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'twofirewatch',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
       \   'right': [ [ 'neomake', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'capslock', 'fileformat', 'fileencoding' ] ]
@@ -553,60 +554,25 @@ let python_highlight_all = 1
 
 Plug 'hynek/vim-python-pep8-indent'
 
+Plug 'tmux-plugins/vim-tmux'
+
 Plug 'mcchrish/fountain.vim'
 
 " gruvbox {{{
 Plug 'morhetz/gruvbox'
-set background=dark
 
 let g:gruvbox_italic = 1
-
-" dark0 + gray
-let g:terminal_color_0  = "#928374"
-let g:terminal_color_8  = "#282828"
-
-" neurtral_red + bright_red
-let g:terminal_color_1  = "#fb4934"
-let g:terminal_color_9  = "#cc241d"
-
-" neutral_green + bright_green
-let g:terminal_color_2  = "#b8bb26"
-let g:terminal_color_10 = "#98971a"
-
-" neutral_yellow + bright_yellow
-let g:terminal_color_3  = "#fabd2f"
-let g:terminal_color_11 = "#d79921"
-
-" neutral_blue + bright_blue
-let g:terminal_color_4  = "#83a598"
-let g:terminal_color_12 = "#458588"
-
-" neutral_purple + bright_purple
-let g:terminal_color_5  = "#d3869b"
-let g:terminal_color_13 = "#b16286"
-
-" neutral_aqua + faded_aqua
-let g:terminal_color_6  = "#8ec07c"
-let g:terminal_color_14 = "#689d6a"
-
-" light4 + light1
-let g:terminal_color_7  = "#ebdbb2"
-let g:terminal_color_15 = "#a89984"
-" }}}
-
-" Alduin {{{
-Plug 'AlessandroYorba/Alduin'
-let g:alduin_Shout_Windhelm = 1
-"}}}
-
-" Sierra {{{
-Plug 'AlessandroYorba/Sierra'
-let g:sierra_Twilight = 1
 " }}}
 
 Plug 'pgdouyon/vim-yin-yang'
 
-Plug 'rakr/vim-two-firewatch'
+Plug 'jacoborus/tender'
+
+Plug 'AlessandroYorba/Despacio'
+
+" Plug 'rakr/vim-two-firewatch'
+Plug '~/vim-two-firewatch'
+set background=dark
 
 call plug#end()
 " }}}
@@ -634,7 +600,7 @@ let g:SignatureEnabledAtStartup = 0
 " ##Basics {{{
 
 " Colorscheme
-colorscheme gruvbox
+colorscheme two-firewatch
 
 " disable some builtin plugins
 let g:did_install_default_menus = 1
@@ -643,7 +609,7 @@ let g:loaded_getscript          = 1
 let g:loaded_getscriptplugin    = 1
 let g:loaded_gzip               = 1
 let g:loaded_logipat            = 1
-let g:loaded_man                = 1
+" let g:loaded_man                = 1
 let g:loaded_matchparen         = 1
 let g:loaded_netrw              = 1
 let g:loaded_netrwfilehandlers  = 1
@@ -951,27 +917,6 @@ endfunction
 " Remove search highlight
 nnoremap <silent> <leader><cr> :nohlsearch <bar> :call Refresh()<cr>
 " }}}
-
-" SetAsDjangoProject {{{
-function! SetAsDjangoProject()
-  augroup ft_django
-    autocmd!
-    autocmd BufNewFile,BufRead *.html setlocal filetype=htmldjango
-    autocmd FileType html,htmldjango setlocal foldmethod=indent
-    autocmd FileType html,htmldjango setlocal nofoldenable
-    autocmd BufNewFile,BufRead *.py setlocal filetype=python.django
-  augroup end
-endfunction
-" }}}
-
-" }}}
-
-" ##Local {{{
-
-" Detect Django project
-if filereadable(glob("manage.py"))
-  call SetAsDjangoProject()
-endif
 
 " }}}
 
