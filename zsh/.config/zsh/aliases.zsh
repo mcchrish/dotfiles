@@ -62,7 +62,6 @@ alias "..."="cd ../.."
 alias "...."="cd ../../.."
 
 # Misc
-alias say="say -v Daniel"
 alias mtr="meteor"
 alias rng="ranger"
 alias py="python"

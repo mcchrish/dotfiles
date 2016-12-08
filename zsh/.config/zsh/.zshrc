@@ -60,10 +60,6 @@ if [[ -s "$ZPLUG_HOME" ]]; then
     hook-build:"./install --bin", \
     use:"shell/{key-bindings,completion}.zsh"
 
-  zplug "junegunn/fzf", \
-    as:command, \
-    use:"bin/{fzf,fzf-tmux}"
-
   # Textplay - convert fountain to HTML
   zplug "olivertaylor/Textplay", \
     as:command, \
