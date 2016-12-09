@@ -41,7 +41,8 @@ let g:deoplete#omni#input_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
 let g:deoplete#omni#input_patterns.gitcommit = ':\w*'
 
 let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs', 'flow']
+let g:deoplete#sources#flow#flow_bin = 'flow' 
 
 " }}}
 
@@ -129,8 +130,8 @@ let g:esearch.adapter = 'rg'
 " neomake {{{
 Plug 'neomake/neomake'
 
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_jsx_enabled_makers        = ['eslint']
+let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
+let g:neomake_jsx_enabled_makers        = ['eslint', 'flow']
 let g:neomake_python_enabled_makers     = ['flake8']
 let g:neomake_less_enabled_makers       = ['stylelint']
 let g:neomake_scss_enabled_makers       = ['stylelint']
@@ -496,6 +497,15 @@ Plug 'pangloss/vim-javascript'
 " vim-jsx {{{
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
+" }}}
+
+" vim-flow {{{
+Plug 'flowtype/vim-flow'
+let g:flow#autoclose = 1
+"}}}
+
+" deoplete-flow {{{
+Plug 'steelsojka/deoplete-flow'
 " }}}
 
 " tern_for_vim {{{
