@@ -74,10 +74,10 @@ if [[ -s "$ZPLUG_HOME" ]]; then
 
   # Syntax Highlighting
   ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor)
-  zplug "zsh-users/zsh-syntax-highlighting", nice:11
+  zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
   # History
-  zplug "zsh-users/zsh-history-substring-search", nice:12
+  zplug "zsh-users/zsh-history-substring-search", defer:3
 
   # Install plugins if there are plugins that have not been installed
   zplug check || zplug install
