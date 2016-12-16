@@ -288,7 +288,7 @@ nnoremap <silent> <leader>' :SignatureToggleSigns<cr>
 Plug 'itchyny/lightline.vim'
 
 let g:lightline = {
-      \ 'colorscheme': 'twofirewatch',
+      \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
       \   'right': [ [ 'neomake', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'capslock', 'fileformat', 'fileencoding' ] ]
@@ -484,12 +484,12 @@ augroup end
 Plug 'elixir-lang/vim-elixir'
 
 " tigris.nvim {{{
-" Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
-" Plug 'neovim/node-host', { 'do': 'npm install' }
-" let g:tigris#enabled = 1
-" let g:tigris#debug = 1
-" let g:tigris#on_the_fly_enabled = 1
-" let g:tigris#delay = 500
+Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
+Plug 'neovim/node-host', { 'do': 'npm install' }
+let g:tigris#enabled = 1
+let g:tigris#debug = 1
+let g:tigris#on_the_fly_enabled = 1
+let g:tigris#delay = 500
 " }}}
 
 Plug 'pangloss/vim-javascript'
@@ -609,8 +609,11 @@ let g:SignatureEnabledAtStartup = 0
 
 " ##Basics {{{
 
+" True color
+set termguicolors
+
 " Colorscheme
-colorscheme two-firewatch
+colorscheme yin
 
 " disable some builtin plugins
 let g:did_install_default_menus = 1
@@ -741,9 +744,6 @@ set wildignore+=*/node_modules/*
 
 " Dictionary
 set dictionary=/usr/share/dict/words
-
-" True color
-set termguicolors
 
 " Neovim bug workaround
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
