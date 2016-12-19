@@ -483,6 +483,8 @@ augroup end
 
 Plug 'elixir-lang/vim-elixir'
 
+Plug 'slashmili/alchemist.vim'
+
 " tigris.nvim {{{
 Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
 Plug 'neovim/node-host', { 'do': 'npm install' }
@@ -580,8 +582,7 @@ Plug 'jacoborus/tender'
 
 Plug 'AlessandroYorba/Despacio'
 
-" Plug 'rakr/vim-two-firewatch'
-Plug '~/vim-two-firewatch'
+Plug 'rakr/vim-two-firewatch'
 set background=dark
 
 call plug#end()
