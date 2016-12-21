@@ -46,14 +46,14 @@ if [[ -s "$ZPLUG_HOME" ]]; then
 
   source "$ZPLUG_HOME/init.zsh"
 
-  zplug "zplug/zplug"
+  # zplug "zplug/zplug"
 
   # Prompt
   zplug "mafredri/zsh-async"
   zplug "sindresorhus/pure"
 
   # Fuzzy filter
-  export FZF_DEFAULT_COMMAND="ag -l --hidden --path-to-ignore=\"$XDG_CONFIG_HOME/ag/fzfignore\" -g \"\""
+  export FZF_DEFAULT_COMMAND="rg -l --hidden --ignore-file=\"$XDG_CONFIG_HOME/ag/fzfignore\" \"\""
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
   zplug "junegunn/fzf", \

@@ -76,16 +76,24 @@ let g:fzf_action = {
 
 let g:fzf#vim#default_layout = {'down': '~40%'}
 
-" Search all file content including hidden files and directories
-command! -nargs=* FzfAgAll call fzf#vim#ag(<q-args>,
-      \ '--hidden --path-to-ignore="'.$XDG_CONFIG_HOME.'/ag/fzfignore"',
-      \ { 'options': '--ansi --delimiter : --nth 4..,.. --prompt "AgAll> " '.
-      \            '--multi --bind ctrl-a:select-all,ctrl-d:deselect-all '.
-      \            '--color hl:68,hl+:110', 'down': '~40%' })
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* FzfRg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
+
+command! -bang -nargs=* FzfRgAll
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always --hidden --ignore-file="'.$XDG_CONFIG_HOME.'/ag/fzfignore" '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
 
 " Search current word under cursor
 function! SearchWordWithAg()
-  execute 'FzfAg' expand('<cword>')
+  execute 'FzfRg' expand('<cword>')
 endfunction
 
 " Search visual selected
@@ -98,13 +106,13 @@ function! SearchVisualSelectionWithAg() range
   let selection = getreg('"')
   call setreg('"', old_reg, old_regtype)
   let &clipboard = old_clipboard
-  execute 'FzfAg' selection
+  execute 'FzfRg' selection
 endfunction
 
-nnoremap <silent> <leader>A :FzfAgAll<cr>
+nnoremap <silent> <leader>A :FzfRgAll<cr>
 
 nnoremap <silent> <leader>f :FzfFiles<cr>
-nnoremap <silent> <leader>a :FzfAg<cr>
+nnoremap <silent> <leader>a :FzfRg<cr>
 nnoremap <silent> <leader>b :FzfBuffers<cr>
 nnoremap <silent> <leader>l :FzfBLines<cr>
 nnoremap <silent> <leader>L :FzfLines<cr>
@@ -138,6 +146,7 @@ let g:neomake_scss_enabled_makers       = ['stylelint']
 let g:neomake_sass_enabled_makers       = ['stylelint']
 let g:neomake_css_enabled_makers        = ['stylelint']
 let g:neomake_shell_enabled_makers      = ['shellcheck']
+let g:neomake_elixir_enabled_makers      = ['elixir', 'credo', 'mix']
 let g:neomake_html_enabled_makers       = []
 let g:neomake_open_list                 = 0
 let g:neomake_verbose                   = 0
@@ -482,6 +491,7 @@ augroup end
 " }}}
 
 Plug 'elixir-lang/vim-elixir'
+let g:elixir_use_markdown_for_docs = 1
 
 Plug 'slashmili/alchemist.vim'
 
