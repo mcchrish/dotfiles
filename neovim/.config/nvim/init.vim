@@ -551,7 +551,7 @@ let g:user_emmet_leader_key     = '<c-s>'
 let g:user_emmet_settings       = { 'javascript': { 'quote_char': "'" } }
 
 let g:user_emmet_install_global = 0
-autocmd FileType html,ejs,css,sass,scss,less,javascript,jsx EmmetInstall
+autocmd FileType html,ejs,css,sass,scss,less,javascript,jsx,eelixir EmmetInstall
 " }}}
 
 Plug 'digitaltoad/vim-pug'
