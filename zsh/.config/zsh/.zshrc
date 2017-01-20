@@ -51,6 +51,7 @@ if [[ -s "$ZPLUG_HOME" ]]; then
   # Prompt
   zplug "mafredri/zsh-async"
   zplug "sindresorhus/pure"
+  setopt PROMPT_SUBST
 
   # Fuzzy filter
   export FZF_DEFAULT_COMMAND="rg -l --hidden --ignore-file=\"$XDG_CONFIG_HOME/ag/fzfignore\" --files"
