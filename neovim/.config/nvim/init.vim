@@ -128,6 +128,11 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 " }}}
 
 Plug 'cloudhead/neovim-fuzzy'
+" notational-fzf-vim {{{
+Plug 'Alok/notational-fzf-vim'
+let g:nv_directories = ['~/Dropbox/Notes']
+nnoremap <leader>n :NV<cr>
+" }}}
 
 " vim-esearch {{{
 " Plug 'eugen0329/vim-esearch'
@@ -297,7 +302,7 @@ nnoremap <silent> <leader>' :SignatureToggleSigns<cr>
 Plug 'itchyny/lightline.vim'
 
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'yin',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
       \   'right': [ [ 'neomake', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'capslock', 'fileformat', 'fileencoding' ] ]
