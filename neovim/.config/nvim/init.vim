@@ -500,6 +500,8 @@ let g:elixir_use_markdown_for_docs = 1
 
 Plug 'slashmili/alchemist.vim'
 
+if has('nvim')
+
 " tigris.nvim {{{
 Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
 Plug 'neovim/node-host', { 'do': 'npm install' }
@@ -508,6 +510,8 @@ let g:tigris#debug = 1
 let g:tigris#on_the_fly_enabled = 1
 let g:tigris#delay = 500
 " }}}
+
+endif
 
 Plug 'pangloss/vim-javascript'
 
