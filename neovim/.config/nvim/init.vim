@@ -140,39 +140,21 @@ if !exists('g:esearch') | let g:esearch = {} | endif
 let g:esearch.adapter = 'rg'
 " }}}
 
-" neomake {{{
-Plug 'neomake/neomake'
-
-let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
-let g:neomake_jsx_enabled_makers        = ['eslint', 'flow']
-let g:neomake_python_enabled_makers     = ['flake8']
-let g:neomake_less_enabled_makers       = ['stylelint']
-let g:neomake_scss_enabled_makers       = ['stylelint']
-let g:neomake_sass_enabled_makers       = ['stylelint']
-let g:neomake_css_enabled_makers        = ['stylelint']
-let g:neomake_shell_enabled_makers      = ['shellcheck']
-let g:neomake_elixir_enabled_makers      = ['elixir', 'credo', 'mix']
-let g:neomake_html_enabled_makers       = []
-let g:neomake_open_list                 = 0
-let g:neomake_verbose                   = 0
-
-let g:neomake_error_sign = {
-      \ 'text': '✖',
-      \ 'texthl': 'SyntasticErrorSign',
-      \ }
-
-let g:neomake_warning_sign = {
-      \ 'text': '⚠',
-      \ 'texthl': 'SyntasticWarningSign',
-      \ }
-
-autocmd! BufWritePost * Neomake
-
-Plug 'jaawerth/neomake-local-eslint-first'
-
-" }}}
-
 endif
+
+" worp/ale {{{
+Plug 'w0rp/ale'
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 1
+let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_linters = {
+      \   'javascript': ['eslint', 'flow'],
+      \}
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
+let g:ale_statusline_format = ['✖ %d', '⚠ %d', '']
+" }}}
 
 " vim-fugitive {{{
 Plug 'tpope/vim-fugitive'
@@ -305,16 +287,16 @@ let g:lightline = {
       \ 'colorscheme': 'yin',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
-      \   'right': [ [ 'neomake', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'capslock', 'fileformat', 'fileencoding' ] ]
+      \   'right': [ [ 'ale', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'capslock', 'fileformat', 'fileencoding' ] ]
       \ },
       \ 'component': {
       \   'lineinfo': ' %3l:%-2v'
       \ },
       \ 'component_expand': {
-      \   'neomake': 'neomake#statusline#LoclistStatus'
+      \   'ale': 'LightLineAle'
       \ },
       \ 'component_type': {
-      \   'neomake': 'error',
+      \   'ale': 'error',
       \   'capslock': 'warning'
       \ },
       \ 'component_function': {
@@ -389,6 +371,17 @@ function! LightLineCapslock()
   endif
   return ''
 endfunction
+
+function! LightLineAle()
+  if winwidth(0) > 90 && &ft !~? s:except_ft && exists("*ALEGetStatusLine")
+    return ALEGetStatusLine()
+  endif
+endfunction
+
+augroup UpdateAleLightLine
+  autocmd!
+  autocmd User ALELint call lightline#update()
+augroup END
 
 let g:lightline.mode_map = {
       \ 'n':      'N',
