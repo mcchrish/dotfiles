@@ -376,6 +376,7 @@ function! LightLineAle()
   if winwidth(0) > 90 && &ft !~? s:except_ft && exists("*ALEGetStatusLine")
     return ALEGetStatusLine()
   endif
+  return ''
 endfunction
 
 augroup UpdateAleLightLine
