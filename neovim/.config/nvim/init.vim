@@ -318,7 +318,7 @@ let g:lightline = {
       \ 'tabline_subseparator': { 'left': '|', 'right': '|' },
       \ }
 
-let s:except_ft = 'help\|qf\|undotree\|fzf\|vim-plug'
+let s:except_ft = 'help\|qf\|undotree\|fzf\|vim-plug\|vaffle'
 function! LightLineReadonly()
   return &ft !~? s:except_ft && &readonly ? '' : ''
 endfunction
@@ -341,6 +341,7 @@ function! LightLineMode()
         \ &ft == 'fzf' ? 'fzf' :
         \ &ft == 'vim-plug' ? 'plugin' :
         \ &ft == 'qf' ? 'quickfix' :
+        \ &ft == 'vaffle' ? 'vaffle' :
         \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
