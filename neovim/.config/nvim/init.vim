@@ -195,11 +195,10 @@ let g:echodoc_enable_at_startup = 1
 
 Plug 'christoomey/vim-tmux-navigator'
 
-" vim-dirvish {{{
-Plug 'justinmk/vim-dirvish'
-let g:dirvish_relative_paths = 1
-
-nnoremap <silent> <leader>d :vsplit +Dirvish<cr>
+" vaffle.vim {{{
+Plug 'cocopon/vaffle.vim'
+let g:vaffle_show_hidden_files = 1
+nnoremap <silent> - :Vaffle<cr>
 " }}}
 
 " vim-gtfo {{{
