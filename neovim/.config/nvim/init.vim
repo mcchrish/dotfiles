@@ -128,10 +128,13 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 " }}}
 
 Plug 'cloudhead/neovim-fuzzy'
+
 " notational-fzf-vim {{{
-Plug 'Alok/notational-fzf-vim'
+Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
 let g:nv_directories = ['~/Dropbox/Notes']
 nnoremap <leader>n :NV<cr>
+
+let g:nv_show_filepath = 0
 " }}}
 
 " vim-esearch {{{
@@ -196,7 +199,7 @@ let g:echodoc_enable_at_startup = 1
 Plug 'christoomey/vim-tmux-navigator'
 
 " vaffle.vim {{{
-Plug 'cocopon/vaffle.vim'
+Plug 'cocopon/vaffle.vim', { 'on': 'Vaffle' }
 let g:vaffle_show_hidden_files = 1
 nnoremap <silent> - :Vaffle<cr>
 " }}}
@@ -492,7 +495,7 @@ augroup end
 Plug 'elixir-lang/vim-elixir'
 let g:elixir_use_markdown_for_docs = 1
 
-Plug 'slashmili/alchemist.vim'
+Plug 'slashmili/alchemist.vim', { 'for': [ 'elixir', 'eelixir' ] }
 
 if has('nvim')
 
