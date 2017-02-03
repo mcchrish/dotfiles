@@ -134,7 +134,7 @@ Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
 let g:nv_directories = ['~/Dropbox/Notes']
 nnoremap <leader>n :NV<cr>
 
-let g:nv_show_filepath = 0
+" let g:nv_show_filepath = 0
 " }}}
 
 " vim-esearch {{{
