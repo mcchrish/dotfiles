@@ -545,6 +545,8 @@ Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx' , 'jsx
 let g:tern_request_timeout = 1
 " }}}
 
+Plug 'leafgarland/typescript-vim'
+
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'json' ] }
 
 Plug 'othree/html5.vim'
