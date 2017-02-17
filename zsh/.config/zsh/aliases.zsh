@@ -136,6 +136,7 @@ alias gtd="git tag -d"
 
 # Others
 alias ge="git edit"
+alias gcl="git clone"
 
 # ls
 alias ls="ls -G"
