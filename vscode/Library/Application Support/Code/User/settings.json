@@ -4,7 +4,7 @@
   "editor.fontFamily": "FiraCode-Retina",
   "editor.fontSize": 12,
   "editor.fontLigatures": true,
-  "editor.wrappingColumn": 0,
+  "editor.wordWrap": "off",
   "editor.wrappingIndent": "indent",
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
@@ -34,5 +34,6 @@
       "before": ["j", "k"],
       "after": ["<Esc>"]
     }
-  ]
+  ],
+  "workbench.colorTheme": "Base16 Dark Grayscale"
 }
