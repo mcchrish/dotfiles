@@ -497,19 +497,6 @@ let g:elixir_use_markdown_for_docs = 1
 
 Plug 'slashmili/alchemist.vim', { 'for': [ 'elixir', 'eelixir' ] }
 
-if has('nvim')
-
-" tigris.nvim {{{
-Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
-Plug 'neovim/node-host', { 'do': 'npm install' }
-let g:tigris#enabled = 1
-let g:tigris#debug = 1
-let g:tigris#on_the_fly_enabled = 1
-let g:tigris#delay = 500
-" }}}
-
-endif
-
 Plug 'pangloss/vim-javascript'
 
 " vim-jsx {{{
@@ -584,23 +571,9 @@ let python_highlight_all = 1
 
 Plug 'hynek/vim-python-pep8-indent'
 
-Plug 'tmux-plugins/vim-tmux'
-
 Plug 'mcchrish/fountain.vim'
 
-" gruvbox {{{
-Plug 'morhetz/gruvbox'
-
-let g:gruvbox_italic = 1
-" }}}
-
 Plug 'pgdouyon/vim-yin-yang'
-
-Plug 'jacoborus/tender'
-
-Plug 'AlessandroYorba/Despacio'
-
-Plug 'rakr/vim-two-firewatch'
 set background=dark
 
 call plug#end()
