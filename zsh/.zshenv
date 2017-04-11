@@ -84,7 +84,6 @@ export PASSWORD_STORE_DIR="$HOME/.password-store"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export NPM_CONFIG_PROGRESS=false
-export NPM_CONFIG_LOGLEVEL=http
 
 # Babel
 export BABEL_CACHE_PATH="$XDG_CACHE_HOME/babel/babel.json"

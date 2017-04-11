@@ -60,11 +60,6 @@ if [[ -s "$ZPLUG_HOME" ]]; then
     hook-build:"./install --bin", \
     use:"shell/{key-bindings,completion}.zsh"
 
-  # Textplay - convert fountain to HTML
-  zplug "olivertaylor/Textplay", \
-    as:command, \
-    use:"textplay"
-
   # Z
   export _Z_DATA="$XDG_CACHE_HOME/z/data"
   zplug "rupa/z", use:z.sh
