@@ -3,18 +3,11 @@ brew tap caskroom/cask
 brew tap caskroom/fonts
 brew tap caskroom/versions
 brew tap neovim/neovim
-brew tap rogual/neovim-dot-app
 
 # brew
-brew install android-sdk
 brew install curl
 brew install diff-so-fancy
-brew install dos2unix
-brew install cmus --HEAD --with-ffmpeg --with-jack --with-opusfile
-brew install fasd
-brew install fpp
 brew install fzf
-brew install fzy
 brew install git
 brew install git-extras
 brew install gnupg2
@@ -22,18 +15,15 @@ brew install gpg-agent
 brew install htop
 brew install httpie
 brew install keybase
-brew install koekeishiya/kwm/kwm
 brew install mas
 brew install macvim --with-cscope --with-lua --with-override-system-vim --with-luajit --with-python
 brew install mosh
 brew install mpv --with-bundle --with-vapoursynth
-brew install neovim --HEAD
-brew install neovim-dot-app --HEAD
+brew install neovim
 brew install node
 brew install openssl
 brew install pandoc
 brew install pass --HEAD
-brew install pinentry-mac
 brew install python
 brew install python3
 brew install ranger
@@ -45,8 +35,7 @@ brew install sleepwatcher
 brew install stow
 brew install tig
 brew install the_silver_searcher
-brew install tmux --HEAD
-brew install trash
+brew install tmux
 brew install tree
 brew install wget
 brew install yarn
@@ -55,8 +44,6 @@ brew install zsh
 # cask
 brew cask install alfred
 brew cask install android-file-transfer
-brew cask install atom
-brew cask install bitbar
 brew cask install calibre
 brew cask install colorpicker-skalacolor
 brew cask install coconutbattery
@@ -69,18 +56,17 @@ brew cask install font-courier-prime
 brew cask install font-fira-mono
 brew cask install font-fira-code
 brew cask install font-fira-sans
+brew cask install font-iosevka
 brew cask install font-mononoki
 brew cask install font-source-code-pro
-brew cask install gitup
 brew cask install gog-galaxy
 brew cask install google-chrome
-brew cask install google-drive
 brew cask install gpgtools
 brew cask install handbrake
 brew cask install iina
 brew cask install iterm2-beta
 brew cask install java
-brew cask install karabiner
+brew cask install karabiner-elements
 brew cask install keepingyouawake
 brew cask install keeweb
 brew cask install keybase
@@ -107,21 +93,10 @@ brew cask install whatsapp
 brew cask install xld
 
 # npm
-npm install -g babel-eslint
-npm install -g knex
-npm install -g mocha
-npm install -g neovim-client
 npm install -g npm-check
-npm install -g pen.md
-npm install -g react-native-cli
-npm install -g snazzy
-npm install -g standard
-npm install -g stylelint
-npm install -g tern
 npm install -g trash-cli
 
 # pip
-pip3 install flake8
 pip3 install glances
 pip3 install jedi
 pip3 install neovim
