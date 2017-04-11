@@ -38,3 +38,6 @@ node_modules
 
 # Tmuxp
 .tmuxp.yaml
+
+# tern
+.tern-port
