@@ -127,8 +127,6 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 
 " }}}
 
-Plug 'cloudhead/neovim-fuzzy'
-
 " notational-fzf-vim {{{
 Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
 let g:nv_directories = ['~/Dropbox/Notes']
