@@ -1,7 +1,7 @@
 // Place your settings in this file to overwrite the default settings
 {
   // "update.channel": "none",
-  "editor.fontFamily": "FiraCode-Retina",
+  "editor.fontFamily": "Iosevka",
   "editor.fontSize": 12,
   "editor.fontLigatures": true,
   "editor.wordWrap": "off",
