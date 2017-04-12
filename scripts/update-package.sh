@@ -22,8 +22,8 @@ printf "%s\n" "Updating npm..." | tee -a "${LOG_FILE}"
 npm update -g 2>> "${LOG_FILE}"
 
 printf "%s\n" "Updating pip..." | tee -a "${LOG_FILE}"
-pip2 list --local --outdated | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip2 install -U 2>> "${LOG_FILE}"
-pip3 list --local --outdated | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip3 install -U 2>> "${LOG_FILE}"
+pip2 list --local --outdated --format=legacy | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip2 install -U 2>> "${LOG_FILE}"
+pip3 list --local --outdated --format=legacy | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip3 install -U 2>> "${LOG_FILE}"
 
 printf "%s\n" "Updating neovim..." | tee -a "${LOG_FILE}"
 nvim +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall
