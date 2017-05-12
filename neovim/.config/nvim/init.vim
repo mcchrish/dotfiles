@@ -59,6 +59,15 @@ let g:nvimux_custom_bindings = [
       \]
 " }}}
 
+Plug 'sbdchd/neoformat'
+let g:neoformat_enabled_javascript = ['prettier']
+
+let g:neoformat_javascript_prettier = {
+        \ 'exe': 'prettier',
+        \ 'args': ['--stdin', '--single-quote', '--trailing-comma all'],
+        \ 'stdin': 1,
+        \ }
+
 endif
 
 if !has('gui_running')
@@ -146,12 +155,17 @@ endif
 " worp/ale {{{
 Plug 'w0rp/ale'
 let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1
 let g:ale_warn_about_trailing_whitespace = 0
+
+" \   'javascript': ['standard', 'eslint', 'flow'],
+
 let g:ale_linters = {
-      \   'javascript': ['eslint', 'flow'],
+      \   'javascript': ['eslint'],
       \}
+let g:ale_javascript_eslint_options = '--cache'
+
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = ['✖ %d', '⚠ %d', '']
@@ -163,8 +177,6 @@ nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
-
-Plug 'rhysd/committia.vim'
 
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 
@@ -734,9 +746,6 @@ set wildignore+=*/node_modules/*
 
 " Dictionary
 set dictionary=/usr/share/dict/words
-
-" Neovim bug workaround
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " Neovim-qt set font
 command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
