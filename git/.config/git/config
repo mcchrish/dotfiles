@@ -49,9 +49,9 @@
 	status = auto
 
 [color "diff"]
-	meta = bold yellow
-	old  = bold red
-	new  = bold green
+	meta = bold 31
+	old  = 88 bold
+	new  = 29 bold
 
 [color "diff-highlight"]
 	oldNormal = bold 88
