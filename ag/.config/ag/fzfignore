@@ -3,3 +3,4 @@
 .svn
 .meteor
 .DS_Store
+yarn.lock
