@@ -88,7 +88,7 @@ let g:fzf#vim#default_layout = {'down': '~40%'}
 " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
 command! -bang -nargs=* FzfRg
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+      \   'rg --column --line-number --no-heading --color=always --ignore-file="'.$XDG_CONFIG_HOME.'/ag/fzfignore" '.shellescape(<q-args>), 1,
       \   <bang>0 ? fzf#vim#with_preview('up:60%')
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
@@ -212,6 +212,13 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'cocopon/vaffle.vim', { 'on': 'Vaffle' }
 let g:vaffle_show_hidden_files = 1
 nnoremap <silent> - :Vaffle<cr>
+" }}}
+
+" ranger.vim {{{
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+let g:ranger_map_keys = 0
+nnoremap <silent> <leader>r :Ranger<cr>
 " }}}
 
 " vim-gtfo {{{
