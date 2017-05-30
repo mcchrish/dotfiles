@@ -38,7 +38,7 @@ local source_dir="$XDG_CONFIG_HOME/zsh"
 
 # Check if zplug is installed
 if [[ ! -d "$ZPLUG_HOME" ]]; then
-  curl -sL zplug.sh/installer | zsh
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
   source "$ZPLUG_HOME/init.zsh" && zplug update
 fi
 
