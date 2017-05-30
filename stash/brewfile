@@ -42,6 +42,7 @@ brew install yarn
 brew install zsh
 
 # cask
+brew cask install 1password
 brew cask install alfred
 brew cask install android-file-transfer
 brew cask install calibre
@@ -57,25 +58,21 @@ brew cask install font-fira-mono
 brew cask install font-fira-code
 brew cask install font-fira-sans
 brew cask install font-iosevka
-brew cask install font-mononoki
 brew cask install font-source-code-pro
 brew cask install gog-galaxy
 brew cask install google-chrome
 brew cask install gpgtools
 brew cask install handbrake
 brew cask install iina
+brew cask install insomnia
 brew cask install iterm2-beta
 brew cask install java
-brew cask install karabiner-elements
 brew cask install keepingyouawake
 brew cask install keeweb
 brew cask install keybase
 brew cask install licecap
-brew cask install macpass
 brew cask install marked
 brew cask install nvalt
-brew cask install openemu-experimental
-brew cask install postman
 brew cask install qtpass
 brew cask install slack-beta
 brew cask install skype
