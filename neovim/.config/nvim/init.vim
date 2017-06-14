@@ -15,36 +15,12 @@ call plug#begin('~/.config/nvim/plugged')
 
 if has('nvim')
 
-" deoplete.nvim {{{
-Plug 'Shougo/deoplete.nvim'
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_auto_pairs = 0
-
-if !exists('g:deoplete#keyword_patterns')
-  let g:deoplete#keyword_patterns = {}
-endif
-
-let g:deoplete#keyword_patterns['default'] = '\h\w*'
-
-if !exists('g:deoplete#omni_patterns')
-  let g:deoplete#omni_patterns = {}
-endif
-
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-
-let g:deoplete#omni#input_patterns.python = '[^. \t]\.\w*\|from .* import \w*'
-" let g:deoplete#omni#input_patterns.javascript = '[^. \t]\.\w*'
-let g:deoplete#omni#input_patterns.gitcommit = ':\w*'
-
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs', 'flow']
-let g:deoplete#sources#flow#flow_bin = 'flow' 
-
-" }}}
+Plug 'roxma/nvim-completion-manager'
+" inoremap <expr> <CR> pumvisible() ? "\<c-y>\<cr>" : "\<CR>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
+Plug 'roxma/ncm-flow'
 
 " nvimux {{{
 Plug 'hkupty/nvimux'
@@ -162,7 +138,7 @@ let g:ale_warn_about_trailing_whitespace = 0
 " \   'javascript': ['standard', 'eslint', 'flow'],
 
 let g:ale_linters = {
-      \   'javascript': ['eslint'],
+      \   'javascript': ['standard', 'flow'],
       \}
 let g:ale_javascript_eslint_options = '--cache'
 
@@ -526,10 +502,6 @@ Plug 'flowtype/vim-flow'
 let g:flow#autoclose = 1
 "}}}
 
-" deoplete-flow {{{
-Plug 'steelsojka/deoplete-flow'
-" }}}
-
 " tern_for_vim {{{
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
 let g:tern_show_argument_hints = 'on_hold'
@@ -542,11 +514,6 @@ nnoremap <silent> <leader>td :TernDef<cr>
 nnoremap <silent> <leader>ts :TernDefSplit<cr>
 
 " autocmd FileType javascript,jsx setlocal omnifunc=tern#Complete
-" }}}
-
-" deoplete-ternjs {{{
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
-let g:tern_request_timeout = 1
 " }}}
 
 Plug 'leafgarland/typescript-vim'
@@ -575,11 +542,6 @@ Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 Plug 'rstacruz/vim-hyperstyle', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
 Plug 'groenewege/vim-less'
-
-" deoplete-jedi {{{
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-autocmd FileType python setlocal omnifunc=jedi#completions
-" }}}
 
 " python-syntax {{{
 Plug 'hdima/python-syntax'
