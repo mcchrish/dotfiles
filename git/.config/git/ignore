@@ -41,3 +41,6 @@ node_modules
 
 # tern
 .tern-port
+
+# Ag and Rg
+.ignore
