@@ -2,7 +2,6 @@
 brew tap caskroom/cask
 brew tap caskroom/fonts
 brew tap caskroom/versions
-brew tap neovim/neovim
 
 # brew
 brew install curl
@@ -19,7 +18,7 @@ brew install mas
 brew install macvim --with-cscope --with-lua --with-override-system-vim --with-luajit --with-python
 brew install mosh
 brew install mpv --with-bundle --with-vapoursynth
-brew install neovim
+brew install neovim/neovim/neovim
 brew install node
 brew install openssl
 brew install pandoc
@@ -31,7 +30,6 @@ brew install reattach-to-user-namespace
 brew install ripgrep
 brew install ruby
 brew install shellcheck
-brew install sleepwatcher
 brew install stow
 brew install tig
 brew install the_silver_searcher
@@ -59,7 +57,6 @@ brew cask install font-fira-code
 brew cask install font-fira-sans
 brew cask install font-iosevka
 brew cask install font-source-code-pro
-brew cask install gog-galaxy
 brew cask install google-chrome
 brew cask install gpgtools
 brew cask install handbrake
@@ -86,7 +83,6 @@ brew cask install visual-studio-code
 brew cask install vlc
 brew cask install vox
 brew cask install vox-preferences-pane
-brew cask install whatsapp
 brew cask install xld
 
 # npm
