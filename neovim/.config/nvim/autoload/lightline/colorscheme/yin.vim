@@ -5,7 +5,7 @@ if exists('g:lightline')
   let s:gray0 = '#e4e4e4'
   let s:gray1 = '#8a8a8a'
   let s:gray2 = '#525252'
-  let s:blue = '#00afd7'
+  let s:blue = '#005f87'
   let s:brown = '#875f00'
   let s:green = '#00875f'
   let s:red = '#870000'
