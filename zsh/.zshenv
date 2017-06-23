@@ -36,7 +36,6 @@ else
 fi
 
 # Zsh
-[[ ! -d "${XDG_DATA_HOME}/zsh" ]] && mkdir -p "${XDG_DATA_HOME}/zsh"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
@@ -87,9 +86,6 @@ export NPM_CONFIG_PROGRESS=false
 
 # Babel
 export BABEL_CACHE_PATH="$XDG_CACHE_HOME/babel/babel.json"
-
-# Node
-[[ ! -d "${XDG_DATA_HOME}/node" ]] && mkdir -p "${XDG_DATA_HOME}/node"
 
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node/repl_history"
 
