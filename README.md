@@ -1,5 +1,5 @@
 # dotfiles
-Managed by GNU Stow. Primarily configured for OS X system.
+Managed by GNU Stow. Primarily configured for macOS system.
 
 ## Notes
 - Homebrew

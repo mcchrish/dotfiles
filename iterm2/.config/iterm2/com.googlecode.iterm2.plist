@@ -19,7 +19,7 @@
 	<key>AutoHideTmuxClientSession</key>
 	<true/>
 	<key>BadgeFont</key>
-	<string>Fira Sans</string>
+	<string>San Francisco</string>
 	<key>CheckTestRelease</key>
 	<false/>
 	<key>ClosingHotkeySwitchesSpaces</key>
@@ -975,8 +975,13 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>435 310 796 473 0 0 1440 900 </string>
+	<string>435 414 937 464 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1440 900 0 0 1440 878 </string>
 	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51</key>
@@ -6251,6 +6256,8 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>C40C7676-0C30-4294-AE39-1FF7D519F1BC</string>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>519884384.63273501</real>
 	<key>OnlyWhenMoreTabs</key>
@@ -6323,7 +6330,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-06-23T04:21:21Z</date>
+	<date>2017-06-25T11:38:52Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
