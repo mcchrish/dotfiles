@@ -35,15 +35,6 @@ let g:nvimux_custom_bindings = [
       \]
 " }}}
 
-Plug 'sbdchd/neoformat'
-let g:neoformat_enabled_javascript = ['prettier']
-
-let g:neoformat_javascript_prettier = {
-        \ 'exe': 'prettier',
-        \ 'args': ['--stdin', '--single-quote', '--trailing-comma all'],
-        \ 'stdin': 1,
-        \ }
-
 endif
 
 if !has('gui_running')
@@ -141,6 +132,8 @@ let g:ale_linters = {
       \   'javascript': ['standard', 'flow'],
       \}
 let g:ale_javascript_eslint_options = '--cache'
+
+let g:ale_fixers = {'javascript': ['prettier_standard']}
 
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
@@ -499,7 +492,9 @@ let g:jsx_ext_required = 0
 
 " vim-flow {{{
 Plug 'flowtype/vim-flow'
+let g:flow#enable = 0
 let g:flow#autoclose = 1
+let g:flow#timeout = 4
 "}}}
 
 " tern_for_vim {{{
@@ -581,7 +576,7 @@ let g:SignatureEnabledAtStartup = 0
 " ##Basics {{{
 
 " True color
-set termguicolors
+" set termguicolors
 
 " Colorscheme
 colorscheme yin
