@@ -1,5 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
+  "workbench.colorTheme": "Base16 Dark Grayscale",
   // "update.channel": "none",
   "editor.fontFamily": "Iosevka",
   "editor.fontSize": 12,
@@ -18,11 +19,6 @@
   "javascript.validate.enable": false,
   // CSS,
   "css.lint.duplicateProperties": "warning",
-  // SASS
-  "sass.lint.duplicateProperties": "warning",
-  // Opt out
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
   "standard.options": {
     "parser": "babel-eslint"
   },
@@ -35,5 +31,54 @@
       "after": ["<Esc>"]
     }
   ],
-  "workbench.colorTheme": "Base16 Dark Grayscale"
+  "vim.otherModesKeyBindingsNonRecursive": [
+    {
+      "before": ["<c-h>"],
+      "after": [""],
+      "commands": [
+        {
+          "command": "workbench.action.navigateLeft",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["<c-l>"],
+      "after": [""],
+      "commands": [
+        {
+          "command": "workbench.action.navigateRight",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["<c-j>"],
+      "after": [""],
+      "commands": [
+        {
+          "command": "workbench.action.navigateUp",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": ["<c-k>"],
+      "after": [""],
+      "commands": [
+        {
+          "command": "workbench.action.navigateDown",
+          "args": []
+        }
+      ]
+    }
+  ],
+  "vim.disableAnnoyingNeovimMessage": true,
+  "vim.enableNeovim": true,
+  "vim.easymotion": true,
+  "vim.leader": "<space>",
+  "vim.visualstar": true,
+  // Opt out
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false
 }

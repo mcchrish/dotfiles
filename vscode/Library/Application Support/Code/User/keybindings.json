@@ -1,3 +1,22 @@
 // Place your key bindings in this file to overwrite the defaults
 [
+  {
+    "key": "ctrl+j",
+    "command": "extension.vim_navigateDown",
+    "when": "vim.active && vim.use<C-w> && !editorTextFocus"
+  },
+  {
+    "key": "ctrl+w j",
+    "command": "-extension.vim_navigateDown",
+    "when": "vim.active && vim.use<C-w> && !editorTextFocus"
+  },
+  {
+    "key": "ctrl+w j",
+    "command": "-extension.vim_navigateDown",
+    "when": "vim.active && vim.use<C-w> && !editorTextFocus"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  }
 ]
