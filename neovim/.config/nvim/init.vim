@@ -170,11 +170,6 @@ function! LoadUltiSnips()
 endfunction
 " }}}
 
-" echodoc.vim {{{
-Plug 'Shougo/echodoc.vim'
-let g:echodoc_enable_at_startup = 1
-" }}}
-
 Plug 'christoomey/vim-tmux-navigator'
 
 " vaffle.vim {{{
@@ -454,15 +449,6 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
 let g:limelight_conceal_guifg   = 'DarkGray'
 let g:limelight_conceal_ctermfg = 'DarkGray'
-" }}}
-
-" vim-emoji {{{
-Plug 'junegunn/vim-emoji', { 'for': [ 'gitcommit', 'markdown', 'text' ] }
-
-augroup git
-  autocmd!
-  autocmd FileType gitcommit setlocal omnifunc=emoji#complete
-augroup end
 " }}}
 
 " vim-pencil {{{
@@ -843,17 +829,6 @@ nnoremap <left> :vertical resize +2<cr>
 nnoremap <right> :vertical resize -2<cr>
 nnoremap <up> :resize -2<cr>
 nnoremap <down> :resize +2<cr>
-
-" Hightlight 80 characters
-nnoremap <silent> <leader>h
-      \ :if exists('w:long_line_match') <bar>
-      \   silent! call matchdelete(w:long_line_match) <bar>
-      \   unlet w:long_line_match <bar>
-      \ elseif &textwidth > 0 <bar>
-      \   let w:long_line_match = matchadd('ErrorMsg', '\%>'.&tw.'v.\+', -1) <bar>
-      \ else <bar>
-      \   let w:long_line_match = matchadd('ErrorMsg', '\%>80v.\+', -1) <bar>
-      \ endif<cr>
 
 " }}}
 

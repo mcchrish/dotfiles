@@ -111,6 +111,7 @@ path=(
   /usr/local/{bin,sbin}
   $ANDROID_HOME/{tools,platform-tools}
   $HOME/.jenv/bin
+  $HOME/.fastlane/bin
   $ZPLUG_HOME/bin
   $path
 )
