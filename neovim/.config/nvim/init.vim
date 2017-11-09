@@ -138,6 +138,8 @@ let g:ale_fixers = {'javascript': ['prettier_standard']}
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = ['✖ %d', '⚠ %d', '']
+
+nnoremap <silent> <leader>ef :ALEFix<cr>
 " }}}
 
 " vim-fugitive {{{
@@ -816,10 +818,6 @@ if has('nvim')
   autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
   autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
 endif
-
-
-" JS eslint --fix
-nnoremap <leader>ej :silent !eval $(npm bin)/eslint % --fix<cr>
 
 " Preview Marked 2
 nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
