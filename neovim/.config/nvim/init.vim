@@ -626,6 +626,9 @@ set matchtime=2
 " Shorter messages
 set shortmess=aIToO
 
+" Allow all mouse
+set mouse=a
+
 " Change window title to filename
 " set title
 
@@ -821,12 +824,6 @@ endif
 
 " Preview Marked 2
 nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
-
-" Resize window
-nnoremap <left> :vertical resize +2<cr>
-nnoremap <right> :vertical resize -2<cr>
-nnoremap <up> :resize -2<cr>
-nnoremap <down> :resize +2<cr>
 
 " }}}
 

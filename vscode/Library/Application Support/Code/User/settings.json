@@ -80,5 +80,6 @@
   "vim.visualstar": true,
   // Opt out
   "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false
+  "telemetry.enableCrashReporter": false,
+  "workbench.startupEditor": "newUntitledFile"
 }
