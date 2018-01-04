@@ -21,6 +21,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
 Plug 'roxma/ncm-flow'
+Plug 'fgrsnau/ncm-otherbuf'
 
 " nvimux {{{
 Plug 'hkupty/nvimux'
