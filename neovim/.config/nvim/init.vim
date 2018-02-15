@@ -273,124 +273,36 @@ Plug 'kshenoy/vim-signature'
 nnoremap <silent> <leader>' :SignatureToggleSigns<cr>
 " }}}
 
-" lightline.vim {{{
-Plug 'itchyny/lightline.vim'
+" vim-airline {{{
+Plug 'vim-airline/vim-airline'
 
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
-      \   'right': [ [ 'ale', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'capslock', 'fileformat', 'fileencoding' ] ]
-      \ },
-      \ 'component': {
-      \   'lineinfo': ' %3l:%-2v'
-      \ },
-      \ 'component_expand': {
-      \   'ale': 'LightLineAle'
-      \ },
-      \ 'component_type': {
-      \   'ale': 'error',
-      \   'capslock': 'warning'
-      \ },
-      \ 'component_function': {
-      \   'readonly': 'LightLineReadonly',
-      \   'fugitive': 'LightLineFugitive',
-      \   'mode': 'LightLineMode',
-      \   'filename': 'LightLineFilename',
-      \   'fileformat': 'LightLineFileformat',
-      \   'filetype': 'LightLineFiletype',
-      \   'fileencoding': 'LightLineFileencoding',
-      \   'capslock': 'LightLineCapslock',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
-      \ 'tabline': {
-      \   'left': [ [ 'tabs' ] ],
-      \   'right': [ [ '' ] ]
-      \ },
-      \ 'tabline_separator': { 'left': '', 'right': '' },
-      \ 'tabline_subseparator': { 'left': '|', 'right': '|' },
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
       \ }
 
-let s:except_ft = 'help\|qf\|undotree\|fzf\|vim-plug\|vaffle'
-function! LightLineReadonly()
-  return &ft !~? s:except_ft && &readonly ? '' : ''
-endfunction
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#whitespace#enabled = 0
 
-function! LightLineModified()
-  return &ft =~ s:except_ft ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightLineFugitive()
-  if winwidth(0) > 90 && &ft !~? s:except_ft && exists("*fugitive#head")
-    let _ = fugitive#head()
-    return strlen(_) ? ' '._ : ''
-  endif
-  return ''
-endfunction
-
-function! LightLineMode()
-  return &ft == 'help' ? 'help' :
-        \ &ft == 'undotree' ? 'undotree' :
-        \ &ft == 'fzf' ? 'fzf' :
-        \ &ft == 'vim-plug' ? 'plugin' :
-        \ &ft == 'qf' ? 'quickfix' :
-        \ &ft == 'vaffle' ? 'vaffle' :
-        \ winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! LightLineFilename()
-  let fname = expand('%:f')
-  return &ft =~ s:except_ft ? '' :
-        \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ ('' != fname ? fname : '[No Name]') .
-        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
-
-function! LightLineFileformat()
-  return winwidth(0) > 90 && &ft !~? s:except_ft ? &fileformat : ''
-endfunction
-
-function! LightLineFiletype()
-  return winwidth(0) > 90  && &ft !~? s:except_ft ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightLineFileencoding()
-  return winwidth(0) > 90  && &ft !~? s:except_ft ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! LightLineCapslock()
-  if winwidth(0) > 90 && &ft !~? s:except_ft && exists("*CapsLockStatusline")
-    return CapsLockStatusline()
-  endif
-  return ''
-endfunction
-
-function! LightLineAle()
-  if winwidth(0) > 90 && &ft !~? s:except_ft && exists("*ALEGetStatusLine")
-    return ALEGetStatusLine()
-  endif
-  return ''
-endfunction
-
-augroup UpdateAleLightLine
-  autocmd!
-  autocmd User ALELint call lightline#update()
-augroup END
-
-let g:lightline.mode_map = {
-      \ 'n':      'N',
-      \ 'i':      'I',
-      \ 'R':      'R',
-      \ 'v':      'V',
-      \ 'V':      'VL',
-      \ 'c':      'C',
-      \ "\<C-v>": 'VB',
-      \ 's':      'SELECT',
-      \ 'S':      'S-LINE',
-      \ "\<C-s>": 'S-BLOCK',
-      \ 't':      'T',
-      \ '?':      '      ' }
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#tabline#tabs_label = ''
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#show_close_button = 0
 " }}}
 
 " vim-gitgutter {{{
@@ -833,31 +745,10 @@ nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
 
 " ##Functions {{{
 
-" StripTrailingWhitespaces {{{
-function! <sid>StripTrailingWhitespaces()
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the business:
-  %s/\s\+$//e
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-  echo 'Whitespace trimmed!'
-endfunction
-
-" Automatic
-autocmd BufWritePre *.py,*.js,*.jsx,*.txt,*.md,*.fountain :call <sid>StripTrailingWhitespaces()
-
-nnoremap <silent> <F4> :call <sid>StripTrailingWhitespaces()<cr>
-" }}}
-
 " Refresh {{{
 function! Refresh()
   checktime
   redraw
-  call lightline#update()
   echo 'Refreshed!'
 endfunction
 
