@@ -23,15 +23,6 @@ Plug 'fgrsnau/ncm-otherbuf'
 Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
 Plug 'roxma/ncm-flow'
 
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-"
-" let g:LanguageClient_serverCommands = {
-"     \ 'javascript': ['flow-language-server', '--stdio'],
-"     \ }
-
 " nvimux {{{
 Plug 'hkupty/nvimux'
 let g:nvimux_prefix='<c-a>'
@@ -122,8 +113,7 @@ nnoremap <leader>n :NV<cr>
 " let g:nv_show_filepath = 0
 " }}}
 
-" vim-esearch {{{
-" Plug 'eugen0329/vim-esearch'
+" Plug 'eugen0329/vim-esearch' {{{
 if !exists('g:esearch') | let g:esearch = {} | endif
 let g:esearch.adapter = 'rg'
 " }}}
@@ -492,7 +482,6 @@ let g:loaded_getscript          = 1
 let g:loaded_getscriptplugin    = 1
 let g:loaded_gzip               = 1
 let g:loaded_logipat            = 1
-" let g:loaded_man                = 1
 let g:loaded_matchparen         = 1
 let g:loaded_netrw              = 1
 let g:loaded_netrwfilehandlers  = 1
