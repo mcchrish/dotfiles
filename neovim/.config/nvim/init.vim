@@ -19,9 +19,18 @@ Plug 'roxma/nvim-completion-manager'
 " inoremap <expr> <CR> pumvisible() ? "\<c-y>\<cr>" : "\<CR>"
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+Plug 'fgrsnau/ncm-otherbuf'
 Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
 Plug 'roxma/ncm-flow'
-Plug 'fgrsnau/ncm-otherbuf'
+
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
+"
+" let g:LanguageClient_serverCommands = {
+"     \ 'javascript': ['flow-language-server', '--stdio'],
+"     \ }
 
 " nvimux {{{
 Plug 'hkupty/nvimux'
@@ -106,7 +115,8 @@ imap <C-x><C-l> <plug>(fzf-complete-line)
 
 " notational-fzf-vim {{{
 Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
-let g:nv_directories = ['~/Dropbox/Notes']
+let g:nv_search_paths = ['~/Dropbox/Notes']
+let g:nv_use_short_pathnames = 1
 nnoremap <leader>n :NV<cr>
 
 " let g:nv_show_filepath = 0
@@ -127,14 +137,16 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1
 let g:ale_warn_about_trailing_whitespace = 0
 
-" \   'javascript': ['standard', 'eslint', 'flow'],
-
 let g:ale_linters = {
-      \   'javascript': ['standard', 'flow'],
+      \ 'javascript': ['standard', 'flow'],
       \}
 let g:ale_javascript_eslint_options = '--cache'
+let g:ale_javascript_prettier_options = '--prose-wrap always'
 
-let g:ale_fixers = {'javascript': ['prettier_standard']}
+let g:ale_fixers = {
+      \ 'javascript': ['prettier_standard'],
+      \ 'markdown': ['prettier'],
+      \}
 
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
@@ -186,11 +198,6 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 let g:ranger_map_keys = 0
 nnoremap <silent> <leader>r :Ranger<cr>
-" }}}
-
-" vim-gtfo {{{
-Plug 'justinmk/vim-gtfo'
-let g:gtfo#terminals = { 'mac' : 'iterm' }
 " }}}
 
 " vim-sneak {{{
@@ -270,7 +277,7 @@ nnoremap <silent> <leader>' :SignatureToggleSigns<cr>
 Plug 'itchyny/lightline.vim'
 
 let g:lightline = {
-      \ 'colorscheme': 'yin',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ], [ 'filename' ] ],
       \   'right': [ [ 'ale', 'percent', 'lineinfo' ], [ 'filetype' ], [ 'capslock', 'fileformat', 'fileencoding' ] ]
@@ -536,8 +543,9 @@ Plug 'hynek/vim-python-pep8-indent'
 
 Plug 'mcchrish/fountain.vim'
 
-Plug 'pgdouyon/vim-yin-yang'
-set background=dark
+" Plug 'pgdouyon/vim-yin-yang'
+
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 " }}}
@@ -555,20 +563,15 @@ nmap <silent> ]l <Plug>QfLnext
 " vim-signature
 let g:SignatureEnabledAtStartup = 0
 
-" " vim-esearch
-" " Start esearch prompt autofilled with one of g:esearch.use initial patterns
-" call esearch#map('<leader>ef', 'esearch')
-" " Start esearch autofilled with a word under the cursor
-" call esearch#map('<leader>ew', 'esearch-word-under-cursor')
 " }}}
 
 " ##Basics {{{
 
 " True color
-" set termguicolors
+set termguicolors
 
 " Colorscheme
-colorscheme yin
+colorscheme nord
 
 " disable some builtin plugins
 let g:did_install_default_menus = 1

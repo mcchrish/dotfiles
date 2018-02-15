@@ -82,6 +82,7 @@ brew cask install xld
 
 # npm
 npm install -g trash-cli
+npm install -g prettier
 
 # pip
 pip3 install jedi
