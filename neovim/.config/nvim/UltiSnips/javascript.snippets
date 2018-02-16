@@ -1,14 +1,14 @@
 # Basics
 snippet for "for loop" b
 for (var i = 0, len = ${1:list}.length; i < len; i++) {
-	var ${2:item} = $1[i];
-	${VISUAL}$0
+  var ${2:item} = $1[i];
+  ${VISUAL}$0
 }
 endsnippet
 
 snippet fun "function (fun)"
 function ${1:function_name} (${2:argument}) {
-	${VISUAL}$0
+  ${VISUAL}$0
 }
 endsnippet
 
@@ -51,7 +51,7 @@ const ${1} = require('${0}')
 endsnippet
 
 snippet mex "module exports" b
-modules.exports = ${1}
+module.exports = ${1}
 endsnippet
 
 # ES6
@@ -81,6 +81,32 @@ snippet clax
 class ${1} extends ${2} {
   ${0}
 }
+endsnippet
+
+
+# For testing
+snippet des "describe('thing', () => { ... })" b
+describe('${1:}', () => {
+  ${0:${VISUAL}}
+})
+endsnippet
+
+snippet it "it('should do', () => { ... })" b
+it('${1:}', () => {
+  ${0:${VISUAL}}
+})
+endsnippet
+
+snippet bef "before(() => { ... })" b
+before(() => {
+  ${0:${VISUAL}}
+})
+endsnippet
+
+snippet aft "after(() => { ... })" b
+after(() => {
+  ${0:${VISUAL}}
+})
 endsnippet
 
 # Snippets for Console Debug Output
