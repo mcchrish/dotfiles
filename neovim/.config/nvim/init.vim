@@ -393,6 +393,8 @@ let g:elixir_use_markdown_for_docs = 1
 Plug 'slashmili/alchemist.vim', { 'for': [ 'elixir', 'eelixir' ] }
 
 Plug 'pangloss/vim-javascript'
+let g:javascript_plugin_flow = 1
+let g:javascript_plugin_jsdoc = 1
 
 " vim-jsx {{{
 Plug 'mxw/vim-jsx'
@@ -456,9 +458,9 @@ Plug 'hynek/vim-python-pep8-indent'
 
 Plug 'mcchrish/fountain.vim'
 
-" Plug 'pgdouyon/vim-yin-yang'
-
 Plug 'arcticicestudio/nord-vim'
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
 
 call plug#end()
 " }}}
