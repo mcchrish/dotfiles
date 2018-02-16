@@ -51,7 +51,9 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 
-let g:fzf#vim#default_layout = {'down': '~40%'}
+let g:fzf_files_options =
+   \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+
 
 " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
 command! -bang -nargs=* FzfRg
@@ -97,10 +99,19 @@ nnoremap <silent> <leader>m :FzfMarks<cr>
 nnoremap <silent> <leader>K :call SearchWordWithAg()<cr>
 vnoremap <silent> <leader>K :call SearchVisualSelectionWithAg()<cr>
 
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
+
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 " }}}
 

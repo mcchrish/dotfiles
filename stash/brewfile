@@ -20,6 +20,7 @@ brew install mpv --with-bundle --with-vapoursynth
 brew install neovim
 brew install node
 brew install openssl
+brew install qtpass
 brew install pandoc
 brew install pass --HEAD
 brew install python
