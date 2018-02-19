@@ -51,10 +51,6 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 
-let g:fzf_files_options =
-   \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
-
-
 " Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
 command! -bang -nargs=* FzfRg
       \ call fzf#vim#grep(
