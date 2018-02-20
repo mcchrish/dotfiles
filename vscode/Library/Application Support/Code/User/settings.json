@@ -1,9 +1,9 @@
 // Place your settings in this file to overwrite the default settings
 {
-  "workbench.colorTheme": "Base16 Dark Grayscale",
+  "workbench.colorTheme": "Nord",
   // "update.channel": "none",
   "editor.fontFamily": "Iosevka",
-  "editor.fontSize": 12,
+  "editor.fontSize": 14,
   "editor.fontLigatures": true,
   "editor.wordWrap": "off",
   "editor.wrappingIndent": "indent",
