@@ -3,24 +3,24 @@
 # Prevent npm update from using the wrong cache directory
 export NPM_CONFIG_CACHE="${HOME}/.cache/npm"
 
-printf "%80s\n" | tr " " "#"
-printf "%s\n" "Updating" "$(date)"
+printf "%80s\\n" "" | tr " " "#"
+printf "%s\\n" "Updating" "$(date)"
 
-printf "%s\n" "Updating brew..."
+printf "%s\\n" "Updating brew..."
 brew update && brew upgrade
 
-printf "%s\n" "Updating npm..."
+printf "%s\\n" "Updating npm..."
 npm update -g
 
-printf "%s\n" "Updating pip..."
+printf "%s\\n" "Updating pip..."
 pip2 list --local --outdated --format=legacy | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip2 install -U
 pip3 list --local --outdated --format=legacy | grep -v '^\-e' | cut -d '(' -f 1 | xargs pip3 install -U
 
-printf "%s\n" "Updating neovim..."
+printf "%s\\n" "Updating neovim..."
 nvim --headless +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall
 
-printf "%s\n" "Cleaning up"
+printf "%s\\n" "Cleaning up"
 brew cleanup
 
-printf "%s\n" "Updating done on " "$(date)"
-printf "%80s\n" | tr " " "#"
+printf "%s\\n" "Updating done on " "$(date)"
+printf "%80s\\n" "" | tr " " "#"
