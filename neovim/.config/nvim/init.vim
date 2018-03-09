@@ -115,7 +115,8 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
 let g:nv_search_paths = ['~/Dropbox/Notes']
 let g:nv_use_short_pathnames = 1
-nnoremap <leader>n :NV<cr>
+let g:nv_create_note_window = 'edit'
+nnoremap <silent> <leader>n :NV<cr>
 
 " let g:nv_show_filepath = 0
 " }}}
@@ -229,11 +230,6 @@ xmap ga <Plug>(LiveEasyAlign)
 nmap ga <Plug>(LiveEasyAlign)
 " }}}
 
-" FastFold {{{
-Plug 'Konfekt/FastFold'
-let g:fastfold_force = 1
-" }}}
-
 Plug 'itchyny/vim-parenmatch'
 
 " vim-qf {{{
@@ -241,6 +237,10 @@ Plug 'romainl/vim-qf'
 let g:qf_mapping_ack_style = 1
 let g:qf_auto_open_quickfix = 1
 let g:qf_auto_open_loclist = 1
+
+nmap <F5> <Plug>qf_qf_toggle
+nmap <F6> <Plug>qf_loc_toggle
+
 " }}}
 
 Plug 'wellle/targets.vim'
@@ -300,6 +300,8 @@ let g:airline#extensions#tabline#tabs_label = ''
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_close_button = 0
+
+let g:airline_section_y = ''
 " }}}
 
 " vim-gitgutter {{{
@@ -415,7 +417,6 @@ let g:tern#arguments = ["--persistent"]
 nnoremap <silent> <leader>td :TernDef<cr>
 nnoremap <silent> <leader>ts :TernDefSplit<cr>
 
-" autocmd FileType javascript,jsx setlocal omnifunc=tern#Complete
 " }}}
 
 Plug 'leafgarland/typescript-vim'
@@ -566,9 +567,8 @@ set synmaxcol=500
 set history=1000
 set tabpagemax=50
 
-" Start with open folds
-set foldlevelstart=99
-set foldnestmax=4
+" Fold is just crazy to work with
+set nofoldenable
 
 " No bells
 set visualbell t_vb=
@@ -624,6 +624,10 @@ set noswapfile
 
 " Persistent undo and swap files directory
 set undofile
+
+" Spell
+autocmd BufRead,BufNewFile *.md setlocal spell
+set complete+=kspell
 
 " Change vim temporary directories
 if !has('nvim')
@@ -755,5 +759,3 @@ nnoremap <silent> <leader><cr> :nohlsearch <bar> :call Refresh()<cr>
 " }}}
 
 " }}}
-
-" vim:foldmethod=marker:foldlevel=0

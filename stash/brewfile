@@ -25,7 +25,6 @@ brew install qtpass
 brew install pandoc
 brew install pass --HEAD
 brew install python
-brew install python3
 brew install ranger
 brew install reattach-to-user-namespace
 brew install ripgrep
@@ -87,8 +86,8 @@ npm install -g trash-cli
 npm install -g prettier
 
 # pip
-pip3 install jedi
-pip3 install neovim
-pip3 install neovim-remote
-pip3 install tmuxp
-pip3 install virtualenv
+pip install jedi
+pip install neovim
+pip install neovim-remote
+pip install tmuxp
+pip install virtualenv
