@@ -81,5 +81,6 @@
   // Opt out
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "extensions.ignoreRecommendations": false
 }

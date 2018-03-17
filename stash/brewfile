@@ -13,25 +13,17 @@ brew install git-extras
 brew install gnupg2
 brew install gpg-agent
 brew install htop
-brew install httpie
 brew install keybase
 brew install macvim --with-cscope --with-lua --with-override-system-vim --with-luajit --with-python
 brew install mosh
-brew install mpv --with-bundle --with-vapoursynth
 brew install neovim
 brew install node
-brew install openssl
-brew install qtpass
-brew install pandoc
 brew install pass --HEAD
 brew install python
 brew install ranger
-brew install reattach-to-user-namespace
 brew install ripgrep
 brew install ruby
-brew install shellcheck
 brew install stow
-brew install tig
 brew install the_silver_searcher
 brew install tmux
 brew install tree
@@ -43,7 +35,6 @@ brew install zsh
 brew cask install alfred
 brew cask install android-file-transfer
 brew cask install calibre
-brew cask install colorpicker-skalacolor
 brew cask install coconutbattery
 brew cask install dash
 brew cask install disk-inventory-x
@@ -51,11 +42,9 @@ brew cask install dropbox
 brew cask install firefox
 brew cask install flux
 brew cask install font-courier-prime
-brew cask install font-fira-mono
 brew cask install font-fira-code
 brew cask install font-fira-sans
 brew cask install font-iosevka
-brew cask install font-source-code-pro
 brew cask install google-chrome
 brew cask install gpgtools
 brew cask install handbrake
@@ -67,9 +56,7 @@ brew cask install keepingyouawake
 brew cask install keybase
 brew cask install licecap
 brew cask install marked
-brew cask install nvalt
 brew cask install qtpass
-brew cask install slack-beta
 brew cask install skype
 brew cask install spectacle
 brew cask install spotify
