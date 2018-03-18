@@ -10,12 +10,10 @@ brew install exa
 brew install fzf
 brew install git
 brew install git-extras
-brew install gnupg2
+brew install gnupg
 brew install gpg-agent
-brew install htop
 brew install keybase
 brew install macvim --with-cscope --with-lua --with-override-system-vim --with-luajit --with-python
-brew install mosh
 brew install neovim
 brew install node
 brew install pass --HEAD
@@ -26,7 +24,6 @@ brew install ruby
 brew install stow
 brew install the_silver_searcher
 brew install tmux
-brew install tree
 brew install wget
 brew install yarn
 brew install zsh
@@ -35,7 +32,6 @@ brew install zsh
 brew cask install alfred
 brew cask install android-file-transfer
 brew cask install calibre
-brew cask install coconutbattery
 brew cask install dash
 brew cask install disk-inventory-x
 brew cask install dropbox
@@ -52,13 +48,12 @@ brew cask install iina
 brew cask install insomnia
 brew cask install iterm2-beta
 brew cask install java
+brew cask install kap
 brew cask install keepingyouawake
 brew cask install keybase
-brew cask install licecap
 brew cask install marked
 brew cask install qtpass
 brew cask install skype
-brew cask install spectacle
 brew cask install spotify
 brew cask install spotify-notifications
 brew cask install sublime-text3
@@ -70,7 +65,6 @@ brew cask install xld
 
 # npm
 npm install -g trash-cli
-npm install -g prettier
 
 # pip
 pip install jedi
