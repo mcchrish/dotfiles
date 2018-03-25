@@ -1,27 +1,13 @@
 // Place your settings in this file to overwrite the default settings
 {
   "workbench.colorTheme": "Nord",
-  // "update.channel": "none",
   "editor.fontFamily": "Iosevka",
   "editor.fontSize": 14,
   "editor.fontLigatures": true,
-  "editor.wordWrap": "off",
   "editor.wrappingIndent": "indent",
   "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "editor.renderIndentGuides": true,
-  "editor.rulers": [80],
-  "files.exclude": {
-    "**/.git": true,
-    "**/.DS_Store": true
-  },
   // Javascript
   "javascript.validate.enable": false,
-  // CSS,
-  "css.lint.duplicateProperties": "warning",
-  "standard.options": {
-    "parser": "babel-eslint"
-  },
   "workbench.editor.showTabs": false,
   // Vim
   "vim.useCtrlKeys": true,
@@ -73,7 +59,6 @@
       ]
     }
   ],
-  "vim.disableAnnoyingNeovimMessage": true,
   "vim.enableNeovim": true,
   "vim.easymotion": true,
   "vim.leader": "<space>",
@@ -82,5 +67,11 @@
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
   "workbench.startupEditor": "newUntitledFile",
-  "extensions.ignoreRecommendations": false
+  "extensions.ignoreRecommendations": false,
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "Iosevka",
+  "workbench.iconTheme": null,
+  "files.autoSave": "off",
+  "git.enableCommitSigning": true
 }
