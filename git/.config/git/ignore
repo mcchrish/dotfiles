@@ -36,6 +36,9 @@ Session.vim
 # Node
 node_modules
 
+# Yarn
+yarn-error.log
+
 # Tmuxp
 .tmuxp.yaml
 
