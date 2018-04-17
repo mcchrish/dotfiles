@@ -73,5 +73,14 @@
   "terminal.integrated.fontFamily": "Iosevka",
   "workbench.iconTheme": null,
   "files.autoSave": "off",
-  "git.enableCommitSigning": true
+  "git.enableCommitSigning": true,
+  "explorer.confirmDelete": false,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.tern-port": true
+  }
 }
