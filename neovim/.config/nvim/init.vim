@@ -23,19 +23,6 @@ Plug 'fgrsnau/ncm-otherbuf'
 Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
 Plug 'roxma/ncm-flow'
 
-" nvimux {{{
-Plug 'hkupty/nvimux'
-let g:nvimux_prefix='<c-a>'
-let g:nvimux_no_neoterm = 1
-
-let g:nvimux_custom_bindings = [
-      \['v', ':NvimuxVerticalSplit<CR>', ['n', 'v', 'i', 't']],
-      \['s', ':NvimuxHorizontalSplit<CR>', ['n', 'v', 'i', 't']],
-      \['p', ':NvimuxTermPaste<CR>', ['n', 'v', 'i', 't']],
-      \['<space>', '<c-\><c-n>', ['n', 'v', 'i', 't']]
-      \]
-" }}}
-
 endif
 
 if !has('gui_running')
@@ -194,6 +181,7 @@ nnoremap <silent> - :Vaffle<cr>
 " ranger.vim {{{
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+let g:no_plugin_maps = 1
 let g:ranger_map_keys = 0
 nnoremap <silent> <leader>r :Ranger<cr>
 " }}}
@@ -341,8 +329,6 @@ Plug 'rstacruz/vim-xtract'
 
 Plug 'machakann/vim-highlightedyank'
 
-Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
-
 " goyo.vim {{{
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
@@ -450,13 +436,6 @@ Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 Plug 'rstacruz/vim-hyperstyle', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
 Plug 'groenewege/vim-less'
-
-" python-syntax {{{
-Plug 'hdima/python-syntax'
-let python_highlight_all = 1
-" }}}
-
-Plug 'hynek/vim-python-pep8-indent'
 
 Plug 'mcchrish/fountain.vim'
 
@@ -620,9 +599,6 @@ set wildignore+=*/node_modules/*
 
 " Dictionary
 set dictionary=/usr/share/dict/words
-
-" Neovim-qt set font
-command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
 
 " No need
 set noswapfile
