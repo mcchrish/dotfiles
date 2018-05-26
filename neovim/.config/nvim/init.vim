@@ -15,13 +15,23 @@ call plug#begin('~/.config/nvim/plugged')
 
 if has('nvim')
 
-Plug 'roxma/nvim-completion-manager'
-" inoremap <expr> <CR> pumvisible() ? "\<c-y>\<cr>" : "\<CR>"
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh'
+    \ }
+
+      " \ 'javascript': ['javascript-typescript-stdio'],
+      " \ 'javascript.jsx': ['javascript-typescript-stdio']
+let g:LanguageClient_serverCommands = {
+      \ 'javascript': ['flow-language-server', '--stdio'],
+      \ 'javascript.jsx': ['flow-language-server', '--stdio']
+      \ }
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-Plug 'fgrsnau/ncm-otherbuf'
-Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
-Plug 'roxma/ncm-flow'
 
 endif
 
@@ -105,7 +115,6 @@ let g:nv_use_short_pathnames = 1
 let g:nv_create_note_window = 'edit'
 nnoremap <silent> <leader>n :NV<cr>
 
-" let g:nv_show_filepath = 0
 " }}}
 
 " Plug 'eugen0329/vim-esearch' {{{
@@ -211,12 +220,6 @@ vmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_' : ':'
 " }}}
 
 Plug 'pgdouyon/vim-evanesco'
-
-" vim-easy-align {{{
-Plug 'junegunn/vim-easy-align', { 'on': '<plug>(LiveEasyAlign)' }
-xmap ga <Plug>(LiveEasyAlign)
-nmap ga <Plug>(LiveEasyAlign)
-" }}}
 
 Plug 'itchyny/vim-parenmatch'
 
@@ -371,11 +374,6 @@ augroup end
 
 " }}}
 
-Plug 'elixir-lang/vim-elixir'
-let g:elixir_use_markdown_for_docs = 1
-
-Plug 'slashmili/alchemist.vim', { 'for': [ 'elixir', 'eelixir' ] }
-
 Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_flow = 1
 let g:javascript_plugin_jsdoc = 1
@@ -391,19 +389,6 @@ let g:flow#enable = 0
 let g:flow#autoclose = 1
 let g:flow#timeout = 4
 "}}}
-
-" tern_for_vim {{{
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm update', 'for': ['javascript', 'javascript.jsx' , 'jsx'] }
-let g:tern_show_argument_hints = 'on_hold'
-let g:tern_show_signature_in_pum = 1
-
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-
-nnoremap <silent> <leader>td :TernDef<cr>
-nnoremap <silent> <leader>ts :TernDefSplit<cr>
-
-" }}}
 
 Plug 'leafgarland/typescript-vim'
 
@@ -695,10 +680,6 @@ vnoremap & :&&<CR>
 vnoremap @ :norm@
 
 nnoremap <C-]> g<C-]>
-
-" Buffer navigation
-" nnoremap <tab>   :bnext<cr>
-" nnoremap <s-tab> :bprevious<cr>
 
 " Paste mode
 set pastetoggle=<F2>
