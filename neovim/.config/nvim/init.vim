@@ -15,6 +15,19 @@ call plug#begin('~/.config/nvim/plugged')
 
 if has('nvim')
 
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh'
@@ -26,12 +39,6 @@ let g:LanguageClient_serverCommands = {
       \ 'javascript': ['flow-language-server', '--stdio'],
       \ 'javascript.jsx': ['flow-language-server', '--stdio']
       \ }
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-let g:deoplete#enable_at_startup = 1
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 endif
 
@@ -220,8 +227,6 @@ vmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_' : ':'
 " }}}
 
 Plug 'pgdouyon/vim-evanesco'
-
-Plug 'itchyny/vim-parenmatch'
 
 " vim-qf {{{
 Plug 'romainl/vim-qf'
@@ -548,7 +553,7 @@ let &fillchars='vert: ,fold:·'
 let &listchars='tab:| ,eol:¬,trail:⣿,extends:→,precedes:←'
 
 " Better Completion
-set completeopt=menuone,longest,noselect
+set completeopt=noinsert,menuone,noselect
 set pumheight=20
 
 " Visual-block can free move

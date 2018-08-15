@@ -82,5 +82,7 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/.tern-port": true
-  }
+  },
+  "breadcrumbs.enabled": true,
+  "editor.renderWhitespace": "none"
 }

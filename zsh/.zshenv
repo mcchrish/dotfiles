@@ -47,11 +47,9 @@ export KEYTIMEOUT=1
 
 # Zplug
 export ZPLUG_HOME="$XDG_CACHE_HOME/zplug"
-export ZPLUG_LOG_LOAD_SUCCESS=false
-export ZPLUG_LOG_LOAD_FAILURE=false
 
 # Android
-export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_HOME="/Volumes/SD/Library/Android/sdk"
 
 # PAGER
 export PAGER=less
