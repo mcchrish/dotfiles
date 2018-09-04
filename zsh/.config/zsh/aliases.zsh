@@ -12,6 +12,7 @@ alias which="command -v"
 # alias sudo="sudo "
 alias htop="sudo htop"
 alias ql="qlmanage -p"
+alias cat='bat'
 
 # Vim
 alias v="vim"

@@ -4,6 +4,7 @@ brew tap caskroom/fonts
 brew tap caskroom/versions
 
 # brew
+brew install bat
 brew install curl
 brew install diff-so-fancy
 brew install exa
