@@ -395,8 +395,6 @@ let g:flow#autoclose = 1
 let g:flow#timeout = 4
 "}}}
 
-Plug 'leafgarland/typescript-vim'
-
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'json' ] }
 
 Plug 'othree/html5.vim'
