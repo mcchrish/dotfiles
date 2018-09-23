@@ -54,10 +54,10 @@ brew cask install keepingyouawake
 brew cask install keybase
 brew cask install marked
 brew cask install qtpass
+brew cask install signal
 brew cask install skype
 brew cask install spotify
 brew cask install spotify-notifications
-brew cask install sublime-text3
 brew cask install the-unarchiver
 brew cask install transmission
 brew cask install visual-studio-code

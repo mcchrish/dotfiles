@@ -17,8 +17,6 @@ alias cat='bat'
 # Vim
 alias v="vim"
 alias nv="nvim"
-alias nv2="nv +tabe +term +NvimuxVerticalSplit +term +tabnext"
-alias nv3="nv +tabe +term +NvimuxVerticalSplit +term +NvimuxHorizontalSplit +term +tabnext"
 
 # While in a nvim terminal, open file to current session
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
@@ -28,17 +26,12 @@ if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
 fi
 
 # Quick piping
+alias -g B="| bat"
 alias -g L="| less"
 alias -g F="| fpp"
 alias -g Z="| fzf"
 alias -g G="| ag"
 alias -g C="| pbcopy"
-
-# Cmus
-alias cplay="cmus-remote --play"
-alias cpause="cmus-remote --pause"
-alias cnext="cmus-remote --next"
-alias cprev="cmus-remote --prev"
 
 # Fzf
 alias ff="fzf"
@@ -63,7 +56,6 @@ alias "..."="cd ../.."
 alias "...."="cd ../../.."
 
 # Misc
-alias mtr="meteor"
 alias rng="ranger"
 alias py="python"
 alias cask="brew cask"

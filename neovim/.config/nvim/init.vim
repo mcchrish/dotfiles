@@ -9,6 +9,31 @@
 " Leader
 let mapleader = "\<space>"
 
+" disable some builtin plugins
+let g:did_install_default_menus = 1
+let g:loaded_2html_plugin       = 1
+let g:loaded_getscript          = 1
+let g:loaded_getscriptplugin    = 1
+let g:loaded_gzip               = 1
+let g:loaded_logipat            = 1
+let g:loaded_netrw              = 1
+let g:loaded_netrwfilehandlers  = 1
+let g:loaded_netrwplugin        = 1
+let g:loaded_netrwsettings      = 1
+let g:loaded_rrhelper           = 1
+let g:loaded_tar                = 1
+let g:loaded_tarplugin          = 1
+let g:loaded_tutor_mode_plugin  = 1
+let g:loaded_vimball            = 1
+let g:loaded_vimballplugin      = 1
+let g:loaded_zip                = 1
+let g:loaded_zipplugin          = 1
+
+let g:python_host_skip_check  = 1
+let g:python3_host_skip_check = 1
+let g:python_host_prog        = '/usr/local/bin/python2.7'
+let g:python3_host_prog       = '/usr/local/bin/python3'
+
 " ##Plugins {{{
 
 call plug#begin('~/.config/nvim/plugged')
@@ -35,10 +60,14 @@ Plug 'autozimu/LanguageClient-neovim', {
 
       " \ 'javascript': ['javascript-typescript-stdio'],
       " \ 'javascript.jsx': ['javascript-typescript-stdio']
+      " \ 'javascript': ['flow', 'lsp'],
+      " \ 'javascript.jsx': ['flow', 'lsp']
 let g:LanguageClient_serverCommands = {
       \ 'javascript': ['flow-language-server', '--stdio'],
       \ 'javascript.jsx': ['flow-language-server', '--stdio']
       \ }
+
+nnoremap <silent> <leader>c :call LanguageClient_contextMenu()<CR>
 
 endif
 
@@ -55,28 +84,18 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit' }
 
-" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
-command! -bang -nargs=* FzfRg
-      \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always --ignore-file="'.$XDG_CONFIG_HOME.'/ag/fzfignore" '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0)
-
 command! -bang -nargs=* FzfRgAll
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always --hidden --ignore-file="'.$XDG_CONFIG_HOME.'/ag/fzfignore" '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   'rg --column --line-number --no-heading --color=always --smart-case --hidden '.shellescape(<q-args>), 1,
       \   <bang>0)
 
 " Search current word under cursor
-function! SearchWordWithAg()
+function! SearchWordWithRg()
   execute 'FzfRg' expand('<cword>')
 endfunction
 
 " Search visual selected
-function! SearchVisualSelectionWithAg() range
+function! SearchVisualSelectionWithRg() range
   let old_reg = getreg('"')
   let old_regtype = getregtype('"')
   let old_clipboard = &clipboard
@@ -96,8 +115,8 @@ nnoremap <silent> <leader>b :FzfBuffers<cr>
 nnoremap <silent> <leader>l :FzfBLines<cr>
 nnoremap <silent> <leader>L :FzfLines<cr>
 nnoremap <silent> <leader>m :FzfMarks<cr>
-nnoremap <silent> <leader>K :call SearchWordWithAg()<cr>
-vnoremap <silent> <leader>K :call SearchVisualSelectionWithAg()<cr>
+nnoremap <silent> <leader>K :call SearchWordWithRg()<cr>
+vnoremap <silent> <leader>K :call SearchVisualSelectionWithRg()<cr>
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -160,6 +179,7 @@ nnoremap <silent> <leader>ef :ALEFix<cr>
 Plug 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
+nnoremap <silent> <leader>gm :Gdiff develop<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 " }}}
 
@@ -339,9 +359,9 @@ Plug 'machakann/vim-highlightedyank'
 
 " goyo.vim {{{
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+let g:goyo_width = 120
 
 nnoremap <silent> <leader>- :Goyo<cr>
-
 function! s:goyo_enter()
   if exists('$TMUX')
     silent !tmux set status off
@@ -361,9 +381,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " limelight.vim {{{
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
-
-let g:limelight_conceal_guifg   = 'DarkGray'
-let g:limelight_conceal_ctermfg = 'DarkGray'
 " }}}
 
 " vim-pencil {{{
@@ -374,26 +391,17 @@ augroup pencil
   autocmd!
   autocmd FileType fountain,mardown call pencil#init()
   autocmd FileType fountain         setlocal showbreak=
-  autocmd FileType markdown,text    setlocal omnifunc=emoji#complete
 augroup end
 
 " }}}
 
 Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_flow = 1
-let g:javascript_plugin_jsdoc = 1
 
 " vim-jsx {{{
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 " }}}
-
-" vim-flow {{{
-Plug 'flowtype/vim-flow'
-let g:flow#enable = 0
-let g:flow#autoclose = 1
-let g:flow#timeout = 4
-"}}}
 
 Plug 'tpope/vim-jdaddy', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'json' ] }
 
@@ -457,33 +465,6 @@ set termguicolors
 " Colorscheme
 colorscheme nord
 
-" disable some builtin plugins
-let g:did_install_default_menus = 1
-let g:loaded_2html_plugin       = 1
-let g:loaded_getscript          = 1
-let g:loaded_getscriptplugin    = 1
-let g:loaded_gzip               = 1
-let g:loaded_logipat            = 1
-let g:loaded_matchparen         = 1
-let g:loaded_netrw              = 1
-let g:loaded_netrwfilehandlers  = 1
-let g:loaded_netrwplugin        = 1
-let g:loaded_netrwsettings      = 1
-let g:loaded_rrhelper           = 1
-let g:loaded_tar                = 1
-let g:loaded_tarplugin          = 1
-let g:loaded_tutor_mode_plugin  = 1
-let g:loaded_vimball            = 1
-let g:loaded_vimballplugin      = 1
-let g:loaded_zip                = 1
-let g:loaded_zipplugin          = 1
-
-let g:python_host_skip_check  = 1
-let g:python3_host_skip_check = 1
-let g:python_host_prog        = '/usr/local/bin/python2.7'
-let g:python3_host_prog       = '/usr/local/bin/python3'
-
-
 " Resize splits when the window is resized
 autocmd VimResized * :wincmd =
 
@@ -515,9 +496,6 @@ set shortmess=aIToO
 
 " Allow all mouse
 set mouse=a
-
-" Change window title to filename
-" set title
 
 " Better splitting
 set splitbelow

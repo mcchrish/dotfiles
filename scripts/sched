@@ -1,4 +1,0 @@
-SHELL=/bin/bash
-PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-HOME=/Users/mclopez
-0 11 * * 2,5 /bin/bash /Users/mclopez/dotfiles/scripts/update-package.sh
