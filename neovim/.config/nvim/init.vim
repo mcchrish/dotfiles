@@ -165,7 +165,14 @@ let g:ale_javascript_prettier_options = '--prose-wrap always'
 
 let g:ale_fixers = {
       \ 'javascript': ['prettier_standard'],
+      \ 'typescript': ['prettier'],
+      \ 'vue': ['prettier'],
       \ 'markdown': ['prettier'],
+      \ 'css': ['prettier'],
+      \ 'scss': ['prettier'],
+      \ 'less': ['prettier'],
+      \ 'yaml': ['prettier'],
+      \ 'json': ['prettier'],
       \}
 
 let g:ale_sign_error = '✖'
@@ -207,12 +214,6 @@ endfunction
 " }}}
 
 Plug 'christoomey/vim-tmux-navigator'
-
-" vaffle.vim {{{
-Plug 'cocopon/vaffle.vim', { 'on': 'Vaffle' }
-let g:vaffle_show_hidden_files = 1
-nnoremap <silent> - :Vaffle<cr>
-" }}}
 
 " ranger.vim {{{
 Plug 'francoiscabrol/ranger.vim'
