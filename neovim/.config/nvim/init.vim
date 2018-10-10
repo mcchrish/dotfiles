@@ -143,11 +143,6 @@ nnoremap <silent> <leader>n :NV<cr>
 
 " }}}
 
-" Plug 'eugen0329/vim-esearch' {{{
-if !exists('g:esearch') | let g:esearch = {} | endif
-let g:esearch.adapter = 'rg'
-" }}}
-
 endif
 
 " worp/ale {{{
