@@ -213,7 +213,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " ranger.vim {{{
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
-let g:no_plugin_maps = 1
+let g:bclose_no_plugin_maps = 1
 let g:ranger_map_keys = 0
 nnoremap <silent> <leader>r :Ranger<cr>
 " }}}

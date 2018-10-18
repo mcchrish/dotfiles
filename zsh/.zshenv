@@ -45,9 +45,6 @@ export SAVEHIST=10000
 # Remove delay
 export KEYTIMEOUT=1
 
-# Zplug
-export ZPLUG_HOME="$XDG_CACHE_HOME/zplug"
-
 # Android
 export ANDROID_HOME="/Volumes/SD/Library/Android/sdk"
 
@@ -102,13 +99,15 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 # Mail
 export MBOX="$XDG_DATA_HOME/mail/mbox"
 
+# TmuxP
+export TMUXP_CONFIGDIR="$XDG_CONFIG_HOME/tmuxp"
+
 # PATHs
 path=(
   /usr/local/{bin,sbin}
   $ANDROID_HOME/{tools,platform-tools}
   $HOME/.jenv/bin
   $HOME/.fastlane/bin
-  $ZPLUG_HOME/bin
   $path
 )
 

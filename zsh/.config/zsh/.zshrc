@@ -32,54 +32,32 @@ local source_dir="$XDG_CONFIG_HOME/zsh"
 # Shell options
 [[ -f "$source_dir/shelloptions.zsh" ]] && source "$source_dir/shelloptions.zsh"
 
-###################
-# zplug
-###################
+### Added by Zplugin's installer
+source '/Users/mcchris/.config/zsh/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
 
-# Check if zplug is installed
-if [[ ! -d "$ZPLUG_HOME" ]]; then
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
-  source "$ZPLUG_HOME/init.zsh" && zplug update
-fi
+zplugin ice pick"async.zsh" src"pure.zsh"
+zplugin light sindresorhus/pure
 
-if [[ -s "$ZPLUG_HOME" ]]; then
+export FZF_DEFAULT_COMMAND="rg --hidden --ignore-file=\"$XDG_CONFIG_HOME/ag/fzfignore\" --files"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+zplugin ice pick"shell/*.zsh" atclone"./install --bin" atpull"%atclone"
+zplugin light junegunn/fzf
 
-  source "$ZPLUG_HOME/init.zsh"
+export _Z_DATA="$XDG_CACHE_HOME/z/data"
+zplugin ice src"z.sh"; zplugin light rupa/z
 
-  zplug "zplug/zplug"
+zplugin ice silent wait'0' atload'zpcompinit'
+zplugin light zsh-users/zsh-completions
 
-  # Prompt
-  zplug "mafredri/zsh-async"
-  zplug "sindresorhus/pure"
+export HISTORY_SUBSTRING_SEARCH_FUZZY=1
+zplugin ice silent wait'1'
+zplugin light zsh-users/zsh-history-substring-search
 
-  # Fuzzy filter
-  export FZF_DEFAULT_COMMAND="rg --hidden --ignore-file=\"$XDG_CONFIG_HOME/ag/fzfignore\" --files"
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-  zplug "junegunn/fzf", \
-    hook-build:"./install --bin", \
-    use:"shell/{key-bindings,completion}.zsh"
-
-  # Z
-  export _Z_DATA="$XDG_CACHE_HOME/z/data"
-  zplug "rupa/z", use:z.sh
-
-  # Zsh Completions
-  zplug "zsh-users/zsh-completions"
-
-  # Syntax Highlighting
-  ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets cursor)
-  zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-  # History
-  zplug "zsh-users/zsh-history-substring-search", defer:3
-
-  # Install plugins if there are plugins that have not been installed
-  zplug check || zplug install
-
-  zplug load
-
-fi
+zplugin ice silent wait'2'
+zplugin light zdharma/fast-syntax-highlighting
 
 # Completions
 [[ -f "$source_dir/completions.zsh" ]] && source "$source_dir/completions.zsh"
