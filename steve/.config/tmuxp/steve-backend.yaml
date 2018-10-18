@@ -1,0 +1,18 @@
+session_name: steve-backend
+start_directory: ~/steve/steve-backend
+windows:
+- focus: true
+  layout: 0219,181x52,0,0{90x52,0,0,17,90x52,91,0[90x26,91,0,18,90x25,91,27,19]}
+  panes:
+  - focus: true
+  - shell_command:
+    - yarn start
+  - shell_command:
+    - cd /Volumes/SD/steve/database
+    - mongod --dbpath ./db
+  window_name: shells
+- layout: dbaf,181x52,0,0,20
+  panes:
+  - focus: true
+    shell_command: nvim
+  window_name: neovim
