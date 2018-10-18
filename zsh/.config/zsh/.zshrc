@@ -22,7 +22,7 @@ zle -N self-insert url-quote-magic
 autoload -Uz edit-command-line
 zle -N edit-command-line
 
-WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 
 # Emacs keybindings
 bindkey -e
@@ -33,7 +33,7 @@ local source_dir="$XDG_CONFIG_HOME/zsh"
 [[ -f "$source_dir/shelloptions.zsh" ]] && source "$source_dir/shelloptions.zsh"
 
 ### Added by Zplugin's installer
-source '/Users/mcchris/.config/zsh/.zplugin/bin/zplugin.zsh'
+source "/Users/mcchris/.config/zsh/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
@@ -43,20 +43,20 @@ zplugin light sindresorhus/pure
 
 export FZF_DEFAULT_COMMAND="rg --hidden --ignore-file=\"$XDG_CONFIG_HOME/ag/fzfignore\" --files"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-zplugin ice pick"shell/*.zsh" atclone"./install --bin" atpull"%atclone"
+zplugin ice multisrc"shell/{key-bindings,completion}.zsh" atclone"./install --bin" atpull"%atclone"
 zplugin light junegunn/fzf
 
 export _Z_DATA="$XDG_CACHE_HOME/z/data"
 zplugin ice src"z.sh"; zplugin light rupa/z
 
-zplugin ice silent wait'0' atload'zpcompinit'
+zplugin ice silent wait"0" atload"zpcompinit"
 zplugin light zsh-users/zsh-completions
 
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
-zplugin ice silent wait'1'
+zplugin ice silent wait"1"
 zplugin light zsh-users/zsh-history-substring-search
 
-zplugin ice silent wait'2'
+zplugin ice silent wait"2"
 zplugin light zdharma/fast-syntax-highlighting
 
 # Completions
