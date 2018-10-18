@@ -985,13 +985,13 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>520 561 400 129 0 0 1440 878 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>650 516 620 392 0 0 1920 1080 </string>
+	<string>410 381 620 392 0 0 1440 900 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 126 606 469 0 0 1920 1058 </string>
+	<string>171 92 606 469 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>600 628 770 429 0 0 1920 1057 </string>
+	<string>344 365 918 512 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1920 1080 0 0 1920 1058 </string>
+	<string>0 400 570 477 0 0 1440 900 </string>
 	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51_selection</key>
@@ -3746,7 +3746,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-09-22T06:02:17Z</date>
+	<date>2018-10-18T03:12:43Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3794,7 +3794,7 @@
 	<key>UseCompactLabel</key>
 	<true/>
 	<key>UseLionStyleFullscreen</key>
-	<false/>
+	<true/>
 	<key>UseMetal</key>
 	<true/>
 	<key>WebKitDefaultFontSize</key>
@@ -3814,7 +3814,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.1beta6</string>
+	<string>3.2.4beta2</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
