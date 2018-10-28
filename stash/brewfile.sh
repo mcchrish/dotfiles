@@ -5,25 +5,21 @@ brew tap caskroom/versions
 
 # brew
 brew install bat
-brew install curl
 brew install diff-so-fancy
 brew install exa
 brew install fzf
 brew install git
 brew install git-extras
 brew install gnupg
-brew install keybase
-brew install macvim --with-cscope --with-lua --with-override-system-vim --with-luajit --with-python
 brew install neovim
 brew install node
-brew install pass --HEAD
+brew install pass
 brew install python
 brew install ranger
 brew install ripgrep
 brew install ruby
 brew install stow
 brew install tmux
-brew install wget
 brew install yarn
 brew install zsh
 
@@ -62,7 +58,7 @@ brew cask install vlc
 brew cask install xld
 
 # npm
-npm install -g trash-cli
+npm install -g trash-cli npm-check
 
 # pip
 pip install jedi
