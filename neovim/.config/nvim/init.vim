@@ -139,7 +139,7 @@ Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
 let g:nv_search_paths = ['~/Dropbox/Notes']
 let g:nv_use_short_pathnames = 1
 let g:nv_create_note_window = 'edit'
-nnoremap <silent> <leader>n :NV<cr>
+nnoremap <silent> <leader>nf :NV<cr>
 
 " }}}
 
@@ -211,11 +211,9 @@ endfunction
 Plug 'christoomey/vim-tmux-navigator'
 
 " ranger.vim {{{
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
-let g:bclose_no_plugin_maps = 1
-let g:ranger_map_keys = 0
-nnoremap <silent> <leader>r :Ranger<cr>
+Plug 'rafaqz/ranger.vim'
+nnoremap <silent> <leader>r :RangerEdit<cr>
+nnoremap <silent> <leader>nr :call RangerEdit('split', '~/Dropbox/Notes')<cr>
 " }}}
 
 " vim-sneak {{{
@@ -698,3 +696,5 @@ nnoremap <silent> <leader><cr> :nohlsearch <bar> :call Refresh()<cr>
 " }}}
 
 " }}}
+
+" vim:fdm=marker
