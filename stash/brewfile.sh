@@ -55,7 +55,6 @@ brew cask install the-unarchiver
 brew cask install transmission
 brew cask install visual-studio-code
 brew cask install vlc
-brew cask install xld
 
 # npm
 npm install -g trash-cli npm-check
