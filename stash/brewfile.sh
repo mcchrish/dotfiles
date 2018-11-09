@@ -1,14 +1,12 @@
 # tap
 brew tap caskroom/cask
 brew tap caskroom/fonts
-brew tap caskroom/versions
 
 # brew
 brew install bat
 brew install diff-so-fancy
 brew install exa
 brew install fzf
-brew install git
 brew install git-extras
 brew install gnupg
 brew install neovim
@@ -40,9 +38,8 @@ brew cask install gpgtools
 brew cask install handbrake
 brew cask install iina
 brew cask install insomnia
-brew cask install iterm2-beta
+brew cask install iterm2
 brew cask install java
-brew cask install kap
 brew cask install keepingyouawake
 brew cask install keybase
 brew cask install marked
