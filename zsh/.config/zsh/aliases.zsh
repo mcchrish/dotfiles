@@ -48,6 +48,7 @@ alias tls="tmux ls"
 alias tkill="tmux kill-session -t"
 
 # Tmuxp
+alias tp="tmuxp"
 alias tpl="tmuxp load"
 
 # Cd
