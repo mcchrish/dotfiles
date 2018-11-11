@@ -1,4 +1,3 @@
-// Place your settings in this file to overwrite the default settings
 {
   "workbench.colorTheme": "Nord",
   "editor.fontFamily": "Iosevka",
@@ -6,10 +5,11 @@
   "editor.fontLigatures": true,
   "editor.wrappingIndent": "indent",
   "editor.tabSize": 2,
-  // Javascript
+  "editor.renderWhitespace": "none",
   "javascript.validate.enable": false,
   "workbench.editor.showTabs": false,
-  // Vim
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.iconTheme": null,
   "vim.useCtrlKeys": true,
   "vim.insertModeKeyBindings": [
     {
@@ -17,7 +17,7 @@
       "after": ["<Esc>"]
     }
   ],
-  "vim.otherModesKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<c-h>"],
       "after": [""],
@@ -59,19 +59,15 @@
       ]
     }
   ],
-  "vim.enableNeovim": true,
   "vim.easymotion": true,
   "vim.leader": "<space>",
   "vim.visualstar": true,
-  // Opt out
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
-  "workbench.startupEditor": "newUntitledFile",
   "extensions.ignoreRecommendations": false,
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontFamily": "Iosevka",
-  "workbench.iconTheme": null,
   "files.autoSave": "off",
   "git.enableCommitSigning": true,
   "explorer.confirmDelete": false,
@@ -84,5 +80,14 @@
     "**/.tern-port": true
   },
   "breadcrumbs.enabled": true,
-  "editor.renderWhitespace": "none"
+  "vim.neovimPath": "/usr/local/bin/nvim",
+  "vim.enableNeovim": true,
+  "vim.sneak": true,
+  "vim.sneakUseIgnorecaseAndSmartcase": true,
+  "vim.statusBarColorControl": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f"
+  }
 }
