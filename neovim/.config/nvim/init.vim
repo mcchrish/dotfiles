@@ -136,7 +136,7 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 
 " notational-fzf-vim {{{
 Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
-let g:nv_search_paths = ['~/Dropbox/Notes']
+let g:nv_search_paths = ['~/Notes']
 let g:nv_use_short_pathnames = 1
 let g:nv_create_note_window = 'edit'
 nnoremap <silent> <leader>nf :NV<cr>
@@ -211,9 +211,10 @@ endfunction
 Plug 'christoomey/vim-tmux-navigator'
 
 " ranger.vim {{{
-Plug 'rafaqz/ranger.vim'
+" Plug 'rafaqz/ranger.vim'
+Plug '~/ranger.vim'
 nnoremap <silent> <leader>r :RangerEdit<cr>
-nnoremap <silent> <leader>nr :call RangerEdit('split', '~/Dropbox/Notes')<cr>
+nnoremap <silent> <leader>nr :call RangerEdit('split', '~/Notes', '--cmd "set sort mtime"')<cr>
 " }}}
 
 " vim-sneak {{{
@@ -432,6 +433,8 @@ Plug 'mcchrish/fountain.vim'
 Plug 'arcticicestudio/nord-vim'
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
+
+Plug 'rakr/vim-one'
 
 call plug#end()
 " }}}
