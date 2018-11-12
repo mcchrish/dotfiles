@@ -214,7 +214,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " Plug 'rafaqz/ranger.vim'
 Plug '~/ranger.vim'
 nnoremap <silent> <leader>r :RangerEdit<cr>
-nnoremap <silent> <leader>nr :call RangerEdit('split', '~/Notes', '--cmd "set sort mtime"')<cr>
+nnoremap <silent> <leader>nr :call RangerEdit('edit', '~/Notes', '--cmd "set sort mtime"')<cr>
 " }}}
 
 " vim-sneak {{{
@@ -435,6 +435,7 @@ let g:nord_italic = 1
 let g:nord_italic_comments = 1
 
 Plug 'rakr/vim-one'
+Plug 'nightsense/snow'
 
 call plug#end()
 " }}}
@@ -461,6 +462,12 @@ set termguicolors
 
 " Colorscheme
 colorscheme nord
+
+if $VIMNOTES == 1
+  set background=light
+  colorscheme snow
+  let g:airline_theme='snow_light'
+endif
 
 " Resize splits when the window is resized
 autocmd VimResized * :wincmd =
