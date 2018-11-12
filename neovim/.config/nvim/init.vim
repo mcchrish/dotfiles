@@ -461,12 +461,14 @@ let g:SignatureEnabledAtStartup = 0
 set termguicolors
 
 " Colorscheme
-colorscheme nord
+colorscheme snow
 
 if $VIMNOTES == 1
   set background=light
-  colorscheme snow
   let g:airline_theme='snow_light'
+else
+  set background=dark
+  let g:airline_theme='snow_dark'
 endif
 
 " Resize splits when the window is resized
