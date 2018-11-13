@@ -311,8 +311,10 @@ let g:airline#extensions#tabline#tabs_label = ''
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#ale#enabled = 1
 
 let g:airline_section_y = ''
+
 " }}}
 
 " vim-gitgutter {{{
@@ -516,9 +518,9 @@ set noshowmode
 " Easy buffer switching
 set hidden
 
-set scrolloff=4
+set scrolloff=8
 set sidescroll=1
-set sidescrolloff=5
+set sidescrolloff=10
 set synmaxcol=500
 set history=1000
 set tabpagemax=50
