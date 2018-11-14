@@ -1,7 +1,7 @@
 [user]
 	name = Michael Chris Lopez
 	email = hello@michaelchris.space
-	signingkey = 2F13B6AE9F19E530
+	signingkey = 9ABC0DCACC50317D
 [filter "lfs"]
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
