@@ -168,6 +168,7 @@ let g:ale_fixers = {
       \ 'less': ['prettier'],
       \ 'yaml': ['prettier'],
       \ 'json': ['prettier'],
+      \ 'html': ['prettier']
       \}
 
 let g:ale_sign_error = '✖'
