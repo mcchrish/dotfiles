@@ -89,5 +89,7 @@
     "statusBar.background": "#005f5f",
     "statusBar.noFolderBackground": "#005f5f",
     "statusBar.debuggingBackground": "#005f5f"
-  }
+  },
+  "window.nativeFullScreen": false,
+  "window.nativeTabs": true
 }
