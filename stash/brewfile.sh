@@ -17,6 +17,7 @@ brew install ranger
 brew install ripgrep
 brew install ruby
 brew install stow
+brew install tree
 brew install tmux
 brew install yarn
 brew install zsh
@@ -26,7 +27,6 @@ brew cask install alfred
 brew cask install android-file-transfer
 brew cask install calibre
 brew cask install dash
-brew cask install dropbox
 brew cask install firefox
 brew cask install flux
 brew cask install font-courier-prime
