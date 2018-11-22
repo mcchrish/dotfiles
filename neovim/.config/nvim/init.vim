@@ -31,7 +31,7 @@ let g:loaded_zipplugin          = 1
 
 let g:python_host_skip_check  = 1
 let g:python3_host_skip_check = 1
-let g:python_host_prog        = '/usr/local/bin/python2.7'
+let g:python_host_prog        = '/usr/local/bin/python2'
 let g:python3_host_prog       = '/usr/local/bin/python3'
 
 " ##Plugins {{{
