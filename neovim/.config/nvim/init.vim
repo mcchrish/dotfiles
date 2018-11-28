@@ -1,11 +1,3 @@
-"===============================================================================
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"
-" Neovim init.vim
-"
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"===============================================================================
-
 " Leader
 let mapleader = "\<space>"
 
@@ -211,12 +203,23 @@ endfunction
 
 Plug 'christoomey/vim-tmux-navigator'
 
-" ranger.vim {{{
-" Plug 'rafaqz/ranger.vim'
-Plug '~/ranger.vim'
-nnoremap <silent> <leader>r :RangerEdit<cr>
-nnoremap <silent> <leader>nr :call RangerEdit('edit', '~/Notes', '--cmd "set sort mtime"')<cr>
-" }}}
+Plug '~/nnn.vim'
+let g:nnn#set_default_mappings = 0
+" let g:nnn#layout = 'botright split'
+let g:nnn#layout = 'topleft vsplit'
+
+function! Nnn(...)
+  let l:dir = get(a:, 1, "")
+  let l:edit = get(a:, 2, "edit")
+  let l:keypress = get(a:, 3, "")
+  call NnnPicker(l:dir, { 'edit': l:edit })
+  if !empty(l:keypress)
+    call feedkeys(l:keypress)
+  endif
+endfunction
+
+nnoremap <silent> <leader>nn :call Nnn()<CR>
+nnoremap <silent> <leader>nr :call Nnn("~/Notes", 'edit', 'tg')<CR>
 
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
