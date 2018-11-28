@@ -205,8 +205,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug '~/nnn.vim'
 let g:nnn#set_default_mappings = 0
-" let g:nnn#layout = 'botright split'
-let g:nnn#layout = 'topleft vsplit'
+let g:nnn#layout = { 'left': '20%' }
 
 function! Nnn(...)
   let l:dir = get(a:, 1, "")
