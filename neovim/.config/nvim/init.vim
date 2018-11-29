@@ -74,7 +74,8 @@ let g:fzf_buffers_jump = 1
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-s': 'split',
-      \ 'ctrl-v': 'vsplit' }
+      \ 'ctrl-v': 'vsplit'
+      \ }
 
 command! -bang -nargs=* FzfRgAll
       \ call fzf#vim#grep(
@@ -204,8 +205,13 @@ endfunction
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug '~/nnn.vim'
+let $DISABLE_FILE_OPEN_ON_NAV=1
 let g:nnn#set_default_mappings = 0
 let g:nnn#layout = { 'left': '20%' }
+let g:nnn#action = {
+      \ '<c-t>': 'tab split',
+      \ '<c-s>': 'split',
+      \ '<c-v>': 'vsplit' }
 
 function! Nnn(...)
   let l:dir = get(a:, 1, "")
