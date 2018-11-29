@@ -213,18 +213,18 @@ let g:nnn#action = {
       \ '<c-s>': 'split',
       \ '<c-v>': 'vsplit' }
 
-function! Nnn(...)
+function! s:Nnn(...)
   let l:dir = get(a:, 1, "")
   let l:edit = get(a:, 2, "edit")
   let l:keypress = get(a:, 3, "")
-  call NnnPicker(l:dir, { 'edit': l:edit })
+  call nnn#pick(l:dir, { 'edit': l:edit })
   if !empty(l:keypress)
     call feedkeys(l:keypress)
   endif
 endfunction
 
-nnoremap <silent> <leader>nn :call Nnn()<CR>
-nnoremap <silent> <leader>nr :call Nnn("~/Notes", 'edit', 'tg')<CR>
+nnoremap <silent> <leader>nn :call <SID>Nnn()<CR>
+nnoremap <silent> <leader>nr :call <SID>Nnn("~/Notes", 'edit', 'tg')<CR>
 
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
