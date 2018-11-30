@@ -207,7 +207,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug '~/nnn.vim'
 let $DISABLE_FILE_OPEN_ON_NAV=1
 let g:nnn#set_default_mappings = 0
-let g:nnn#layout = { 'left': '20%' }
+let g:nnn#layout = { 'left': '30%' }
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
       \ '<c-s>': 'split',
@@ -218,7 +218,7 @@ function! s:Nnn(...)
   let l:edit = get(a:, 2, "edit")
   let l:keypress = get(a:, 3, "")
   call nnn#pick(l:dir, { 'edit': l:edit })
-  if !empty(l:keypress)
+  if strlen(l:keypress) > 0
     call feedkeys(l:keypress)
   endif
 endfunction
