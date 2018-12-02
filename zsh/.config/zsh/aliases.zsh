@@ -18,6 +18,10 @@ alias cat='bat'
 alias v="vim"
 alias nv="nvim"
 
+# Nnn
+alias nnn="LESS='-g -i -M -R -S -w -X -z-4 -j4' nnn"
+alias nn="nnn"
+
 # While in a nvim terminal, open file to current session
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
   alias nvh='nvr -o'
