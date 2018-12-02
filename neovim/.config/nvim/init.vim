@@ -205,9 +205,9 @@ endfunction
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug '~/nnn.vim'
-let $DISABLE_FILE_OPEN_ON_NAV=1
+let g:nnn#command = "DISABLE_FILE_OPEN_ON_NAV=1 nnn -l"
 let g:nnn#set_default_mappings = 0
-let g:nnn#layout = { 'left': '30%' }
+let g:nnn#layout = { 'left': '20%' }
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
       \ '<c-s>': 'split',
@@ -224,7 +224,7 @@ function! s:Nnn(...)
 endfunction
 
 nnoremap <silent> <leader>nn :call <SID>Nnn()<CR>
-nnoremap <silent> <leader>nr :call <SID>Nnn("~/Notes", 'edit', 'tg')<CR>
+nnoremap <silent> <leader>nr :call <SID>Nnn("~/Notes", "edit", "tg")<CR>
 
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
