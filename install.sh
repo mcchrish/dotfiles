@@ -9,7 +9,7 @@ echo "Install all programs..."
 source "stash/brewfile.sh"
 
 echo "Stowing config files..."
-stow --restow --no-folding ag
+stow --restow --no-folding rg
 stow --restow --no-folding cache
 stow --restow --no-folding git
 stow --restow --no-folding iterm2
