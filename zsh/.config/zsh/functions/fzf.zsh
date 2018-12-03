@@ -9,17 +9,17 @@ fe() {
 }
 
 # fd - cd to selected directory
-fd() {
+fcd() {
   local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
+  dir=$(fd . "${1:-.}" --type d | fzf +m) &&
   cd "$dir"
 }
 
 # fda - including hidden directories
-fda() {
+fcda() {
   local dir
-  dir=$(find ${1:-.} ! -path "./.git/*" ! -path "./.meteor/*" -type d 2> /dev/null | fzf +m) && cd "$dir"
+  dir=$(fd . "${1:-.}" --hidden --type d | fzf +m) &&
+  cd "$dir"
 }
 
 # cdf - cd into the directory of the selected file

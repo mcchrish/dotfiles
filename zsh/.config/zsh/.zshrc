@@ -33,7 +33,13 @@ autoload -Uz _zplugin
 zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin light sindresorhus/pure
 
-export FZF_DEFAULT_COMMAND="rg --hidden --ignore-file=\"$XDG_CONFIG_HOME/ag/fzfignore\" --files"
+export FZF_DEFAULT_OPTS="--color=16"
+export FZF_DEFAULT_COMMAND="fd --type f \
+  --hidden \
+  --exclude .git \
+  --exclude .DS_Store \
+  --exclude .localized
+"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 zplugin ice multisrc"shell/{key-bindings,completion}.zsh" atclone"./install --bin" atpull"%atclone"
 zplugin light junegunn/fzf
