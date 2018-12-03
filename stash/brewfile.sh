@@ -6,6 +6,7 @@ brew tap caskroom/fonts
 brew install bat
 brew install diff-so-fancy
 brew install exa
+brew install fd
 brew install fzf
 brew install git-extras
 brew install gnupg
