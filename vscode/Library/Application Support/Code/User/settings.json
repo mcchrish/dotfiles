@@ -91,5 +91,6 @@
     "statusBar.debuggingBackground": "#005f5f"
   },
   "window.nativeFullScreen": false,
-  "window.nativeTabs": true
+  "window.nativeTabs": true,
+  "editor.scrollBeyondLastLine": false
 }
