@@ -149,10 +149,10 @@ let g:ale_linters = {
       \ 'javascript': ['standard', 'flow'],
       \}
 let g:ale_javascript_eslint_options = '--cache'
-let g:ale_javascript_prettier_options = '--prose-wrap always'
+let g:ale_javascript_prettier_options = '--single-quote --prose-wrap always'
 
 let g:ale_fixers = {
-      \ 'javascript': ['prettier_standard'],
+      \ 'javascript': ['prettier'],
       \ 'typescript': ['prettier'],
       \ 'vue': ['prettier'],
       \ 'markdown': ['prettier'],
@@ -215,16 +215,16 @@ let g:nnn#action = {
 
 function! s:Nnn(...)
   let l:dir = get(a:, 1, "")
-  let l:edit = get(a:, 2, "edit")
+  let l:opts = get(a:, 2, { "edit": "edit" })
   let l:keypress = get(a:, 3, "")
-  call nnn#pick(l:dir, { 'edit': l:edit })
+  call nnn#pick(l:dir, l:opts)
   if strlen(l:keypress) > 0
     call feedkeys(l:keypress)
   endif
 endfunction
 
 nnoremap <silent> <leader>nn :call <SID>Nnn()<CR>
-nnoremap <silent> <leader>nr :call <SID>Nnn("~/Notes", "edit", "tg")<CR>
+nnoremap <silent> <leader>nr :call <SID>Nnn("~/Notes", { "edit": "edit", "layout": { "down": "40%" } }, "tg")<CR>
 
 " vim-sneak {{{
 Plug 'justinmk/vim-sneak'
