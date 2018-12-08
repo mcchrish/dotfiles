@@ -32,34 +32,11 @@ call plug#begin('~/.config/nvim/plugged')
 
 if has('nvim')
 
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
-
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh'
-    \ }
-
-      " \ 'javascript': ['javascript-typescript-stdio'],
-      " \ 'javascript.jsx': ['javascript-typescript-stdio']
-      " \ 'javascript': ['flow', 'lsp'],
-      " \ 'javascript.jsx': ['flow', 'lsp']
-let g:LanguageClient_serverCommands = {
-      \ 'javascript': ['flow-language-server', '--stdio'],
-      \ 'javascript.jsx': ['flow-language-server', '--stdio']
-      \ }
-
-nnoremap <silent> <leader>c :call LanguageClient_contextMenu()<CR>
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 endif
 
