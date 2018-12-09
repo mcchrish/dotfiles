@@ -1,5 +1,11 @@
 #!/bin/bash
 
+cd "$HOME" || exit
+
+git clone https://github.com/mcchrish/dotfiles
+
+cd dotfiles || exit
+
 if ! (command -v brew > /dev/null); then
   echo "Installing brew..."
   /user/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

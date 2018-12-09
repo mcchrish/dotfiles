@@ -11,14 +11,12 @@ brew install fzf
 brew install git-extras
 brew install gnupg
 brew install neovim
+brew install nnn --HEAD
 brew install node
 brew install pass
 brew install python
-brew install ranger
 brew install ripgrep
-brew install ruby
 brew install stow
-brew install tree
 brew install tmux
 brew install yarn
 brew install zsh
@@ -29,27 +27,24 @@ brew cask install android-file-transfer
 brew cask install calibre
 brew cask install dash
 brew cask install firefox
-brew cask install flux
 brew cask install font-courier-prime
 brew cask install font-fira-code
 brew cask install font-fira-sans
 brew cask install font-iosevka
 brew cask install google-chrome
 brew cask install gpgtools
-brew cask install handbrake
 brew cask install iina
-brew cask install insomnia
 brew cask install iterm2
 brew cask install java
 brew cask install keepingyouawake
 brew cask install keybase
 brew cask install marked
+brew cask install postman
 brew cask install qtpass
 brew cask install signal
 brew cask install skype
 brew cask install spotify
 brew cask install spotify-notifications
-brew cask install the-unarchiver
 brew cask install transmission
 brew cask install visual-studio-code
 brew cask install vlc
@@ -58,8 +53,8 @@ brew cask install vlc
 npm install -g trash-cli npm-check
 
 # pip
-pip install jedi
-pip install neovim
-pip install neovim-remote
-pip install tmuxp
-pip install virtualenv
+pip2 install pynvim
+pip3 install pynvim
+pip3 install neovim-remote
+pip3 install tmuxp
+pip3 install virtualenv
