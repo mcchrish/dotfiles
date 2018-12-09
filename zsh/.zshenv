@@ -97,7 +97,7 @@ export TMUXP_CONFIGDIR="$XDG_CONFIG_HOME/tmuxp"
 # PATHs
 path=(
   /usr/local/{bin,sbin}
-  $ANDROID_HOME/{emulator,tools,platform-tools}
+  $ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}
   $HOME/.jenv/bin
   $HOME/.fastlane/bin
   $path
