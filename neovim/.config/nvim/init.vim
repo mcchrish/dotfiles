@@ -21,26 +21,21 @@ let g:loaded_vimballplugin      = 1
 let g:loaded_zip                = 1
 let g:loaded_zipplugin          = 1
 
-let g:python_host_skip_check  = 1
-let g:python3_host_skip_check = 1
-let g:python_host_prog        = '/usr/local/bin/python2'
-let g:python3_host_prog       = '/usr/local/bin/python3'
+let g:python_host_skip_check    = 1
+let g:python3_host_skip_check   = 1
+let g:python_host_prog          = '/usr/local/bin/python2'
+let g:python3_host_prog         = '/usr/local/bin/python3'
 
 " ##Plugins {{{
 
 call plug#begin('~/.config/nvim/plugged')
 
 if has('nvim')
-
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-
 endif
-
-if !has('gui_running')
 
 " fzf {{{
 Plug '/usr/local/opt/fzf'
@@ -112,8 +107,6 @@ let g:nv_create_note_window = 'edit'
 nnoremap <silent> <leader>nf :NV<cr>
 
 " }}}
-
-endif
 
 " worp/ale {{{
 Plug 'w0rp/ale'
@@ -386,8 +379,6 @@ Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 " }}}
 
-Plug 'tpope/vim-jdaddy', { 'for': ['javascript', 'javascript.jsx', 'jsx', 'json' ] }
-
 Plug 'othree/html5.vim'
 
 " emmet-vim {{{
@@ -414,15 +405,8 @@ Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
 Plug 'rstacruz/vim-hyperstyle', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 
-Plug 'groenewege/vim-less'
-
 Plug 'mcchrish/fountain.vim'
 
-Plug 'arcticicestudio/nord-vim'
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-
-Plug 'rakr/vim-one'
 Plug 'nightsense/snow'
 
 call plug#end()
