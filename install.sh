@@ -35,4 +35,8 @@ fi
 echo "Setting zsh as default shell..."
 chsh -s "$(command -v zsh)"
 
+echo "Installing vim-plug"
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 echo "Done. :)"
