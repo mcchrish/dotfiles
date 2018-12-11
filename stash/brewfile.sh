@@ -19,7 +19,6 @@ brew install ripgrep
 brew install stow
 brew install tmux
 brew install yarn
-brew install zsh
 
 # cask
 brew cask install alfred
@@ -28,7 +27,6 @@ brew cask install calibre
 brew cask install dash
 brew cask install firefox
 brew cask install font-courier-prime
-brew cask install font-fira-code
 brew cask install font-fira-sans
 brew cask install font-iosevka
 brew cask install google-chrome
@@ -55,6 +53,6 @@ npm install -g trash-cli npm-check
 # pip
 pip2 install pynvim
 pip3 install pynvim
-pip3 install neovim-remote
-pip3 install tmuxp
-pip3 install virtualenv
+pip3 install --user neovim-remote
+pip3 install --user tmuxp
+pip3 install --user virtualenv
