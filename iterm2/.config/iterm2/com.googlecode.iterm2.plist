@@ -1907,15 +1907,15 @@
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>327 563 735 382 0 0 1920 1058 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>760 696 400 129 0 0 1920 1058 </string>
+	<string>760 713 400 129 0 0 1920 1080 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>650 499 620 392 0 0 1920 1058 </string>
+	<string>650 516 620 392 0 0 1920 1080 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>171 92 606 469 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>833 422 918 452 0 0 1920 1058 </string>
+	<string>422 226 928 394 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>590 0 850 877 0 0 1440 878 </string>
+	<string>590 20 850 837 0 0 1920 1058 </string>
 	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51_selection</key>
@@ -3954,13 +3954,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.75294119119644165</real>
+				<real>0.75294117647058822</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.71764707565307617</real>
+				<real>0.71764705882352942</real>
 				<key>Red Component</key>
-				<real>0.68627452850341797</real>
+				<real>0.68627450980392157</real>
 			</dict>
 			<key>Ansi 8 Color</key>
 			<dict>
@@ -4873,13 +4873,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.50980395078659058</real>
+				<real>0.50980392156862742</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.46666666865348816</real>
+				<real>0.46666666666666667</real>
 				<key>Red Component</key>
-				<real>0.42745098471641541</real>
+				<real>0.42745098039215684</real>
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
@@ -5664,7 +5664,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-11-18T13:21:02Z</date>
+	<date>2018-12-11T02:40:45Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -5732,7 +5732,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.6beta3</string>
+	<string>3.2.6beta4</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
