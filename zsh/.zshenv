@@ -38,6 +38,7 @@ export KEYTIMEOUT=1
 
 # Android
 export ANDROID_SDK_ROOT="/Volumes/SD/Library/Android/sdk"
+export ANDROID_HOME="/Volumes/SD/Library/Android/sdk"
 
 # PAGER
 export PAGER=less
@@ -85,7 +86,7 @@ export TMUXP_CONFIGDIR="$XDG_CONFIG_HOME/tmuxp"
 # PATHs
 path=(
   /usr/local/{bin,sbin}
-  $ANDROID_SDK_ROOT/{emulator,tools,tools/bin,platform-tools}
+  $ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}
   $HOME/.jenv/bin
   $HOME/.fastlane/bin
   $path
