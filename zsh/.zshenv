@@ -29,7 +29,6 @@ fi
 
 # Zsh
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
-
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export HISTSIZE=10000
 export SAVEHIST=10000
@@ -38,7 +37,7 @@ export SAVEHIST=10000
 export KEYTIMEOUT=1
 
 # Android
-export ANDROID_HOME="/Volumes/SD/Library/Android/sdk"
+export ANDROID_SDK_ROOT="/Volumes/SD/Library/Android/sdk"
 
 # PAGER
 export PAGER=less
@@ -57,47 +56,36 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-# Terminfo / ncurses
-export TERMINFO="$XDG_DATA_HOME/terminfo"
-export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
-
 # Pass
 export PASSWORD_STORE_DIR="$HOME/.password-store"
 
-# npm
+# Manually moviing some to XDG
+export TERMINFO="$XDG_DATA_HOME/terminfo"
+export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
-export NPM_CONFIG_PROGRESS=false
-
-# Babel
-export BABEL_CACHE_PATH="$XDG_CACHE_HOME/babel/babel.json"
-
+export NVM_DIR="$XDG_DATA_HOME/nvm"
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node/repl_history"
-
-# Gradle
+export BABEL_CACHE_PATH="$XDG_CACHE_HOME/babel/babel.json"
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle" BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle" BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
+export GEM_HOME="$XDG_DATA_HOME/gem"
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
-
-# Postgres
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql/history"
-# MySQL
-export  MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql/history"
-
-# Httpie
+export MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql/history"
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
-
-# Docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-
-# Mail
 export MBOX="$XDG_DATA_HOME/mail/mbox"
-
-# TmuxP
 export TMUXP_CONFIGDIR="$XDG_CONFIG_HOME/tmuxp"
+# Disable temporarily
+# export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME/android"
 
 # PATHs
 path=(
   /usr/local/{bin,sbin}
-  $ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}
+  $ANDROID_SDK_ROOT/{emulator,tools,tools/bin,platform-tools}
   $HOME/.jenv/bin
   $HOME/.fastlane/bin
   $path
