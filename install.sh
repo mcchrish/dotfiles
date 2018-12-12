@@ -44,7 +44,6 @@ stow --restow --no-folding git
 stow --restow --no-folding iterm2
 stow --restow --no-folding kitty
 stow --restow --no-folding neovim
-stow --restow --no-folding ranger
 stow --restow --no-folding tmux
 stow --restow --no-folding vim
 stow --restow --no-folding vscode
