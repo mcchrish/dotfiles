@@ -2,9 +2,10 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1
 let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_virtualtext_cursor = 1
 
 let g:ale_linters = {
-      \ 'javascript': ['standard', 'flow'],
+      \ 'javascript': ['eslint', 'flow'],
       \}
 let g:ale_javascript_eslint_options = '--cache'
 let g:ale_javascript_prettier_options = '--single-quote --prose-wrap always'
