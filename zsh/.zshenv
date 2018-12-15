@@ -36,10 +36,6 @@ export SAVEHIST=10000
 # Remove delay
 export KEYTIMEOUT=1
 
-# Android
-export ANDROID_SDK_ROOT="/Volumes/SD/Library/Android/sdk"
-export ANDROID_HOME="/Volumes/SD/Library/Android/sdk"
-
 # PAGER
 export PAGER=less
 export LESS='-F -g -i -M -R -S -w -X -z-4 -j4'
@@ -60,17 +56,24 @@ export VISUAL='nvim'
 # Pass
 export PASSWORD_STORE_DIR="$HOME/.password-store"
 
+# Android
+export ANDROID_SDK_ROOT="/Volumes/SD/Library/Android/sdk"
+export ANDROID_HOME="/Volumes/SD/Library/Android/sdk"
+
 # Manually moviing some to XDG
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
-export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export npm_config_userconfig="$XDG_CONFIG_HOME/npm/config"
+export npm_config_cache="$XDG_CACHE_HOME/npm"
+export npm_config_prefix="$XDG_DATA_HOME/npm"
+export npm_config_init_module="$XDG_DATA_HOME/npm/config/npm-init.js"
 export NVM_DIR="$XDG_DATA_HOME/nvm"
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node/repl_history"
 export BABEL_CACHE_PATH="$XDG_CACHE_HOME/babel/babel.json"
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle" BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle" BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
 export GEM_HOME="$XDG_DATA_HOME/gem"
-export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem/specs"
+export CP_HOME_DIR="$XDG_CACHE_HOME/cocoapods"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export GRADLE_USER_HOME="$XDG_CACHE_HOME/gradle"
@@ -80,6 +83,7 @@ export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME/httpie"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export MBOX="$XDG_DATA_HOME/mail/mbox"
 export TMUXP_CONFIGDIR="$XDG_CONFIG_HOME/tmuxp"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 # Disable temporarily
 # export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME/android"
 
