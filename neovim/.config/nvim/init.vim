@@ -1,3 +1,9 @@
+"      _
+"  _ _|_|_____
+" | | | |     |
+"  \_/|_|_|_|_|
+"
+
 let $VIM_CONFIG_DIR = expand("$XDG_CONFIG_HOME/nvim")
 
 source $VIM_CONFIG_DIR/general.vim
