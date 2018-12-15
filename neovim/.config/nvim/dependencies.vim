@@ -12,7 +12,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'christoomey/vim-tmux-navigator'
-Plug '~/nnn.vim'
+Plug 'mcchrish/nnn.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'pgdouyon/vim-evanesco'
 Plug 'romainl/vim-qf'
