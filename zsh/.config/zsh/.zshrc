@@ -41,7 +41,7 @@ export FZF_DEFAULT_COMMAND="fd --type f \
   --exclude .localized
 "
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-zplugin ice multisrc"shell/{key-bindings,completion}.zsh" atclone"./install --bin" atpull"%atclone"
+zplugin ice multisrc"shell/{key-bindings,completion}.zsh"
 zplugin light junegunn/fzf
 
 export _Z_DATA="$XDG_CACHE_HOME/z/data"
