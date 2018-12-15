@@ -3,22 +3,23 @@ brew tap caskroom/cask
 brew tap caskroom/fonts
 
 # brew
+brew install node
+brew install rust
+brew install python
+brew install yarn
 brew install bat
-brew install diff-so-fancy
-brew install exa
+brew install diff-so-fancy --HEAD
+brew install exa --HEAD
 brew install fd
 brew install fzf
 brew install git-extras
 brew install gnupg
-brew install neovim
+brew install neovim --HEAD
 brew install nnn --HEAD
-brew install node
 brew install pass
-brew install python
 brew install ripgrep
 brew install stow
 brew install tmux
-brew install yarn
 
 # cask
 brew cask install alfred
