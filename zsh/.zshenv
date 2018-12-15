@@ -53,9 +53,6 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
 export EDITOR='nvim'
 export VISUAL='nvim'
 
-# Pass
-export PASSWORD_STORE_DIR="$HOME/.password-store"
-
 # Android
 export ANDROID_SDK_ROOT="/Volumes/SD/Library/Android/sdk"
 export ANDROID_HOME="/Volumes/SD/Library/Android/sdk"
@@ -89,10 +86,7 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 
 # PATHs
 path=(
-  /usr/local/{bin,sbin}
   $ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}
-  $HOME/.jenv/bin
-  $HOME/.fastlane/bin
   $path
 )
 
