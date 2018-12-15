@@ -44,7 +44,7 @@ brew cask install signal
 brew cask install skype
 brew cask install spotify
 brew cask install spotify-notifications
-brew cask install transmission
+brew cask install qbittorrent
 brew cask install visual-studio-code
 brew cask install vlc
 
