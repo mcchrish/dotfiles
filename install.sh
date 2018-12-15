@@ -61,4 +61,7 @@ echo "Installing vim-plug"
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+echo "Installing tpm"
+git clone https://github.com/tmux-plugins/tpm "$TMUX_CONFIG_DIR/plugins/tpm"
+
 echo "Done. :)"
