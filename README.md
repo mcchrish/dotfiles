@@ -17,5 +17,5 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/mcchrish/dotfiles/master
 - Neovim
 - Tmux
 - Zsh
-- Personal configuration. Will most likely won't work for you. Feel free to
-  check some snippets you can steal.
+- Personal configuration. Won't likely work for you but feel free to check some
+  snippets you can steal.
