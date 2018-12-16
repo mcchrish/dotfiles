@@ -41,7 +41,6 @@ echo "Stowing config files..."
 stow --restow --no-folding rg
 stow --restow --no-folding cache
 stow --restow --no-folding git
-stow --restow --no-folding iterm2
 stow --restow --no-folding kitty
 stow --restow --no-folding neovim
 stow --restow --no-folding tmux
@@ -57,11 +56,11 @@ fi
 echo "Setting zsh as default shell..."
 chsh -s "$(command -v zsh)"
 
-echo "Installing vim-plug"
+echo "Installing vim-plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-echo "Installing tpm"
+echo "Installing tpm..."
 git clone https://github.com/tmux-plugins/tpm "$TMUX_CONFIG_DIR/plugins/tpm"
 
 echo "Done. :)"
