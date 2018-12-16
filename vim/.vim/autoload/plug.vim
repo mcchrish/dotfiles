@@ -1,1 +1,1 @@
-../../.local/share/nvim/site/autoload/plug.vim
+/Users/mcchris/.local/share/nvim/site/autoload/plug.vim
