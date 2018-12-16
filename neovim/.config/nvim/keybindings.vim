@@ -77,9 +77,6 @@ set pastetoggle=<F2>
 " Select just insert text
 nnoremap gV `[V`]
 
-" Edit vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-
 " Terminal
 if has('nvim')
   tnoremap <esc> <c-\><c-n>

@@ -18,3 +18,4 @@ endfunction
 
 nnoremap <silent> <leader>nn :call <SID>Nnn()<CR>
 nnoremap <silent> <leader>nr :call <SID>Nnn("~/Notes", { "edit": "edit", "layout": { "down": "40%" } }, "tg")<CR>
+nnoremap <silent> <leader>nd :call <SID>Nnn("~/dotfiles", { "edit": "edit", "layout": { "down": "40%" } }, "tg.")<CR>
