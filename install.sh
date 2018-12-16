@@ -25,7 +25,7 @@ fi
 
 cd "$HOME" || exit
 
-git clone https://github.com/mcchrish/dotfiles
+git clone https://github.com/mcchrish/dotfiles .dotfiles
 
 cd dotfiles || exit
 
@@ -58,8 +58,8 @@ echo "Setting zsh as default shell..."
 chsh -s "$(command -v zsh)"
 
 echo "Installing vim-plug"
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "Installing tpm"
 git clone https://github.com/tmux-plugins/tpm "$TMUX_CONFIG_DIR/plugins/tpm"
