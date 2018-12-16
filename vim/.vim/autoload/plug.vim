@@ -1,1 +1,1 @@
-../../../neovim/.config/nvim/autoload/plug.vim
+~/.local/share/nvim/site/autoload/plug.vim
