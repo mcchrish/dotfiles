@@ -6,11 +6,9 @@ let g:UltiSnipsUsePythonVersion = 3
 
 inoremap <silent> <tab> <C-r>=LoadUltiSnips()<cr>
 
-" From @saaguero, this function only runs when UltiSnips is not loaded
-function! LoadUltiSnips()
-  let l:curpos = getcurpos()
-  execute plug#load('ultisnips')
-  call cursor(l:curpos[1], l:curpos[2])
-  call UltiSnips#ExpandSnippet()
-  return ""
-endfunction
+" https://github.com/junegunn/vim-plug/wiki/tips#loading-plugins-manually
+augroup load_us_deopl
+  autocmd!
+  autocmd InsertEnter * call plug#load('ultisnips', 'deoplete.nvim')
+                     \| autocmd! load_us_deopl
+augroup END

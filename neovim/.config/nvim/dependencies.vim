@@ -1,7 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim', { 'on': [], 'do': ':UpdateRemotePlugins' }
 endif
 
 Plug '/usr/local/opt/fzf'
