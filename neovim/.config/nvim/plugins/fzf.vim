@@ -40,7 +40,7 @@ nnoremap <silent> <leader>m :FzfMarks<cr>
 nnoremap <silent> <leader>K :call SearchWordWithRg()<cr>
 vnoremap <silent> <leader>K :call SearchVisualSelectionWithRg()<cr>
 
-nnoremap <silent> <leader>ev :FzfFiles ~/dotfiles<cr>
+nnoremap <silent> <leader>ev :FzfFiles ~/.dotfiles<cr>
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)

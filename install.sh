@@ -27,7 +27,7 @@ cd "$HOME" || exit
 
 git clone https://github.com/mcchrish/dotfiles .dotfiles
 
-cd dotfiles || exit
+cd .dotfiles || exit
 
 if ! (command -v brew > /dev/null); then
   echo "Installing brew..."
