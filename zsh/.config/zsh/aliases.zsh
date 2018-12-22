@@ -43,7 +43,6 @@ alias agc="ag --nobreak --nonumbers --noheading . | fzf"
 alias agC="ag --nobreak --nonumbers --noheading --hidden --path-to-ignore="$XDG_CONFIG_HOME/ag/fzfignore" . | fzf"
 
 # Tmux
-alias tmux="tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf""
 alias t="tmux"
 alias ta="tmux attach -t"
 alias tcc="tmux -CC"
