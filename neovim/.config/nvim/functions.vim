@@ -1,11 +1,12 @@
 function! Refresh()
+  nohlsearch
   checktime
   redraw
   echo 'Refreshed!'
 endfunction
 
 " Remove search highlight
-nnoremap <silent> <leader><cr> :nohlsearch <bar> :call Refresh()<cr>
+nnoremap <silent> <leader><cr> :call Refresh()<cr>
 
 function! SaveFileToNotes()
   let l:filename = input('filename: ', getline(1))
