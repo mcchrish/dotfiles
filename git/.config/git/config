@@ -11,7 +11,7 @@
 	helper = osxkeychain
 
 [core]
-	editor = nvim +startinsert
+	editor = MINIMAL=1 nvim +startinsert
 	autocrlf = false
 	pager = less
 	ignorecase = false
