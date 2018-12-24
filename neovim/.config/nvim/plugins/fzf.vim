@@ -32,6 +32,7 @@ endfunction
 nnoremap <silent> <leader>A :FzfRgAll<cr>
 
 nnoremap <silent> <leader>f :FzfFiles<cr>
+nnoremap <silent> <leader>c :FzfFiles <c-r>=expand("%:h")<cr>/<cr>
 nnoremap <silent> <leader>a :FzfRg<cr>
 nnoremap <silent> <leader>b :FzfBuffers<cr>
 nnoremap <silent> <leader>l :FzfBLines<cr>

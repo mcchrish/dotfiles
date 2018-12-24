@@ -65,9 +65,6 @@ set splitright
 " Diff Mode
 set diffopt=filler,vertical
 
-" Mode shown by statusline
-set noshowmode
-
 " Easy buffer switching
 set hidden
 

@@ -28,3 +28,7 @@ let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#ale#enabled = 1
 
 let g:airline_section_y = ''
+
+" Mode shown by statusline
+set noshowmode
+
