@@ -22,6 +22,7 @@ brew install stow
 brew install tmux
 
 # cask
+brew cask install aerial
 brew cask install alfred
 brew cask install android-file-transfer
 brew cask install calibre
