@@ -1,6 +1,5 @@
 # tap
-brew tap caskroom/cask
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 
 # brew
 brew install node
@@ -19,6 +18,7 @@ brew install nnn --HEAD
 brew install pass
 brew install ripgrep
 brew install stow
+brew install tealdeer
 brew install tmux
 
 # cask
