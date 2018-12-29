@@ -86,6 +86,7 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 
 # PATHs
 path=(
+  $XDG_DATA_HOME/npm/bin
   $ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}
   $path
 )
