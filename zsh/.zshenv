@@ -54,10 +54,10 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 # Android
-export ANDROID_SDK_ROOT="/Volumes/SD/Library/Android/sdk"
-export ANDROID_HOME="/Volumes/SD/Library/Android/sdk"
+export ANDROID_SDK_ROOT="$HOME/Library/Android/sdk"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 
-# Manually moviing some to XDG
+# Manually moving some to XDG
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
 export npm_config_userconfig="$XDG_CONFIG_HOME/npm/config"
@@ -81,11 +81,12 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export MBOX="$XDG_DATA_HOME/mail/mbox"
 export TMUXP_CONFIGDIR="$XDG_CONFIG_HOME/tmuxp"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
-# Disable temporarily
-# export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME/android"
+export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME/android"
 
 # PATHs
 path=(
+  $HOME/Library/Python/3.7/bin
+  $XDG_DATA_HOME/gem/bin
   $XDG_DATA_HOME/npm/bin
   $ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}
   $path
