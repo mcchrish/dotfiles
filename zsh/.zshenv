@@ -41,6 +41,9 @@ export PAGER=less
 export LESS='-F -g -i -M -R -S -w -X -z-4 -j4'
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 
+# LS
+export CLICOLOR=1
+
 export LESS_TERMCAP_mb=$'\E[01;31m'      # Begins blinking.
 export LESS_TERMCAP_md=$'\E[01;31m'      # Begins bold.
 export LESS_TERMCAP_me=$'\E[0m'          # Ends mode.
