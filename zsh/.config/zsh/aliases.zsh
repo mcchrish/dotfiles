@@ -1,17 +1,10 @@
 # General
-alias mkdir="nocorrect mkdir -p"
-alias mv="nocorrect mv -i"
-alias cp="nocorrect cp -i"
-alias rm="nocorrect rm -i"
-alias trs="nocorrect trash"
-alias man="nocorrect man"
-alias ln="nocorrect ln"
-alias du="du -h"
-alias df="df -h"
+alias mkdir="mkdir -p"
+alias trs="trash"
+alias du="du -kh"
+alias df="df -kh"
 alias which="command -v"
 # alias sudo="sudo "
-alias htop="sudo htop"
-alias ql="qlmanage -p"
 alias cat='bat'
 
 # Vim
@@ -32,15 +25,12 @@ fi
 # Quick piping
 alias -g B="| bat"
 alias -g L="| less"
-alias -g F="| fpp"
 alias -g Z="| fzf"
-alias -g G="| ag"
+alias -g G="| rg"
 alias -g C="| pbcopy"
 
 # Fzf
 alias ff="fzf"
-alias agc="ag --nobreak --nonumbers --noheading . | fzf"
-alias agC="ag --nobreak --nonumbers --noheading --hidden --path-to-ignore="$XDG_CONFIG_HOME/ag/fzfignore" . | fzf"
 
 # Tmux
 alias t="tmux"
@@ -60,7 +50,6 @@ alias "..."="cd ../.."
 alias "...."="cd ../../.."
 
 # Misc
-alias rng="ranger"
 alias py="python"
 alias cask="brew cask"
 
@@ -78,7 +67,7 @@ alias gbX="git branch -D"
 # Commit
 alias gc="git commit -S --verbose"
 alias gco="git checkout"
-alias gcA="git commit -S --amend --reuse-message HEAD"
+alias gce="git commit -S --amend --reuse-message HEAD"
 
 # Reset
 alias gcr="git checkout --ours --"
