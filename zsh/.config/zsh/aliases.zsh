@@ -136,7 +136,7 @@ alias ge="git edit"
 alias gcl="git clone"
 
 # ls
-alias ls="exa"
+alias ls="exa -I .DS_Store"
 alias l="ls --oneline --all"
 alias ll="ls --long"
 alias lr="ll --recurse"
