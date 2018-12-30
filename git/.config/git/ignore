@@ -1,3 +1,4 @@
+### macOS ###
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -24,26 +25,40 @@ Temporary Items
 .apdisk
 
 ### Vim ###
-# swap
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-# session
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
 Session.vim
-# temporary
+
+# Temporary
 .netrwhist
 *~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
 
+### JavaScript ###
 # Node
-node_modules
+node_modules/
+npm-debug.log*
 
 # Yarn
-yarn-error.log
-
-# Tmuxp
-.tmuxp.yaml
+yarn-debug.log*
+yarn-error.log*
 
 # tern
 .tern-port
+
+### General ###
+
+# Tmuxp
+.tmuxp.yaml
 
 # Ag and Rg
 .ignore
