@@ -6,8 +6,10 @@ source $VIM_CONFIG_DIR/plugins/goyo.vim
 
 if !$MINIMAL
   source $VIM_CONFIG_DIR/plugins/airline.vim
-  source $VIM_CONFIG_DIR/plugins/ultisnips.vim
-  source $VIM_CONFIG_DIR/plugins/deoplete.vim
+  if has('nvim')
+    source $VIM_CONFIG_DIR/plugins/ultisnips.vim
+    source $VIM_CONFIG_DIR/plugins/deoplete.vim
+  endif
   source $VIM_CONFIG_DIR/plugins/qf.vim
   source $VIM_CONFIG_DIR/plugins/emmet.vim
   source $VIM_CONFIG_DIR/plugins/pencil.vim

@@ -24,11 +24,11 @@ endif
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'on': [], 'do': ':UpdateRemotePlugins' }
+  Plug 'SirVer/ultisnips', { 'on': [] }
 endif
 
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'romainl/vim-qf'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-peekaboo'
