@@ -40,9 +40,9 @@ alias tcca="tmux -CC attach -t"
 alias tls="tmux ls"
 alias tkill="tmux kill-session -t"
 
-# Tmuxp
-alias tp="tmuxp"
-alias tpl="tmuxp load"
+# Tmuxinator
+alias mux="tmuxinator"
+alias muxs="tmuxinator start"
 
 # Cd
 alias ".."="cd .."

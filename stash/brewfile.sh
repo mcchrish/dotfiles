@@ -54,8 +54,10 @@ export npm_config_prefix="$XDG_DATA_HOME/npm"
 export npm_config_init_module="$XDG_DATA_HOME/npm/config/npm-init.js"
 npm install -g trash-cli npm-check
 
+# gem
+gem install tmuxinator
+
 # pip
 pip3 install pynvim
 pip3 install --user neovim-remote
-pip3 install --user tmuxp
 pip3 install --user virtualenv
