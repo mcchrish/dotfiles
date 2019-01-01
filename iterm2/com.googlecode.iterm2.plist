@@ -1036,7 +1036,7 @@
 		</array>
 	</dict>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>275 541 796 486 0 0 1680 1050 </string>
+	<string>275 485 796 486 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1680 1050 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51</key>
@@ -1942,6 +1942,7 @@
 			<key>Tags</key>
 			<array>
 				<string>notes</string>
+				<string>light</string>
 			</array>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
@@ -4799,7 +4800,7 @@
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>
-	<true/>
+	<false/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.18727714052567115</real>
 	<key>SwitchPaneModifier</key>
