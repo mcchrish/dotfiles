@@ -85,6 +85,7 @@ export MBOX="$XDG_DATA_HOME/mail/mbox"
 export TMUXP_CONFIGDIR="$XDG_CONFIG_HOME/tmuxp"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME/android"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 # PATHs
 path=(
