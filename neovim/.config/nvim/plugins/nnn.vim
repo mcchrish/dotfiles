@@ -1,6 +1,6 @@
 let g:nnn#command = "DISABLE_FILE_OPEN_ON_NAV=1 nnn -l"
 let g:nnn#set_default_mappings = 0
-let g:nnn#layout = 'topleft 80vnew'
+let g:nnn#layout = { 'left': '20%' }
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
       \ '<c-s>': 'split',
