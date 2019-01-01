@@ -41,8 +41,10 @@ echo "Stowing config files..."
 stow --restow --no-folding rg
 stow --restow --no-folding cache
 stow --restow --no-folding git
+stow --restow --no-folding gnupg
 stow --restow --no-folding kitty
 stow --restow --no-folding neovim
+stow --restow --no-folding system
 stow --restow --no-folding tmux
 stow --restow --no-folding vim
 stow --restow --no-folding vscode
