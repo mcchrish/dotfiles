@@ -9,7 +9,6 @@ Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
 Plug 'mcchrish/nnn.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'pgdouyon/vim-evanesco'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'

@@ -7,8 +7,8 @@ nnoremap gj j
 nnoremap gk k
 
 " Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
 
 " Reselect indent in visual mode
 vnoremap < <gv
@@ -25,11 +25,11 @@ nnoremap g= gg=Gg``
 inoremap jk <esc>
 
 " Move in insert mode
-inoremap <C-h> <C-o>h
-inoremap <C-l> <C-o>a
-inoremap <C-j> <C-o>j
-inoremap <C-k> <C-o>k
-inoremap <C-^> <C-o><C-^>
+inoremap <c-h> <c-o>h
+inoremap <c-l> <c-o>a
+inoremap <c-j> <c-o>j
+inoremap <c-k> <c-o>k
+inoremap <c-^> <c-o><C-^>
 
 " No ex mode
 nnoremap Q <nop>
@@ -69,13 +69,22 @@ vnoremap & :&&<CR>
 " Repeat macro over all selected lines
 vnoremap @ :norm@
 
-nnoremap <C-]> g<C-]>
+nnoremap <c-]> g<c-]>
 
 " Paste mode
 set pastetoggle=<F2>
 
 " Select just insert text
 nnoremap gV `[V`]
+
+" Window navigation
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+nnoremap <tab>   <c-w>w
+nnoremap <S-tab> <c-w>W
 
 " Terminal
 if has('nvim')
