@@ -1,4 +1,4 @@
-let g:airline_extensions = ['ale', 'branch', 'capslock', 'quickfix', 'tabline', 'undotree']
+let g:airline_extensions = ['ale', 'branch', 'capslock', 'quickfix', 'tabline', 'undotree', 'term']
 let g:airline_mode_map = {
       \ '__' : '-',
       \ 'n'  : 'N',
