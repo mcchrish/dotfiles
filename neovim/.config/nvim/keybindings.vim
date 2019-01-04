@@ -87,16 +87,14 @@ nnoremap <tab>   <c-w>w
 nnoremap <S-tab> <c-w>W
 
 " Terminal
-if has('nvim')
-  tnoremap <esc> <c-\><c-n>
-  tnoremap <c-h> <c-\><c-n><c-w>h
-  tnoremap <c-j> <c-\><c-n><c-w>j
-  tnoremap <c-k> <c-\><c-n><c-w>k
-  tnoremap <c-l> <c-\><c-n><c-w>l
+tnoremap <esc> <c-\><c-n>
+tnoremap <c-h> <c-\><c-n><c-w>h
+tnoremap <c-j> <c-\><c-n><c-w>j
+tnoremap <c-k> <c-\><c-n><c-w>k
+tnoremap <c-l> <c-\><c-n><c-w>l
 
-  autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
-  autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
-endif
+autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
+autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
 
 " Preview Marked 2
 nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
