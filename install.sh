@@ -29,6 +29,9 @@ git clone https://github.com/mcchrish/dotfiles .dotfiles
 
 cd .dotfiles || exit
 
+echo "Installing xcode command line tools..."
+xcode-select --install
+
 if ! (command -v brew > /dev/null); then
   echo "Installing brew..."
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
