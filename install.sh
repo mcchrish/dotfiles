@@ -43,7 +43,6 @@ stow --restow --no-folding cache
 stow --restow --no-folding git
 stow --restow --no-folding gnupg
 stow --restow --no-folding kitty
-stow --restow --no-folding neovim
 stow --restow --no-folding system
 stow --restow --no-folding tmux
 stow --restow --no-folding vim
@@ -61,6 +60,9 @@ chsh -s "$(command -v zsh)"
 echo "Installing vim-plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# Symlink for vim
+mkdir -p ~/.vim/autoload/
+ln -s ~/.local/share/nvim/site/autoload/plug.vim ~/.vim/autoload/plug.vim
 
 echo "Installing tpm..."
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
