@@ -43,7 +43,6 @@ brew cask install qtpass
 brew cask install signal
 brew cask install skype
 brew cask install spotify
-brew cask install spotify-notifications
 brew cask install sublime-text
 brew cask install qbittorrent
 
