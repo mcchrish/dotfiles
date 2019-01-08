@@ -2,37 +2,37 @@
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
 #   - Exit if there's no match (--exit-0)
-fe() {
+function fe {
   local files
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
-# fd - cd to selected directory
-fcd() {
+# fcd - cd to selected directory
+function fcd {
   local dir
-  dir=$(fd . "${1:-.}" --type d | fzf +m) &&
+  dir=$(fd . "${1:-.}" --type=d | fzf --no-multi --layout=reverse --height=40%) &&
   cd "$dir"
 }
 
-# fda - including hidden directories
-fcda() {
+# fcda - including hidden directories
+function fcda {
   local dir
-  dir=$(fd . "${1:-.}" --hidden --type d | fzf +m) &&
+  dir=$(fd . "${1:-.}" --hidden --type=d | fzf --no-multi --layout=reverse --height=40%) &&
   cd "$dir"
 }
 
 # cdf - cd into the directory of the selected file
-cds() {
+function cds {
   local file
   local dir
-  file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+  file=$(fzf --query "$1" --no-multi --layout=reverse --height=40%) && dir=$(dirname "$file") && cd "$dir"
 }
 
 # Git
 
-# fshow - git commit browser
-fshow() {
+# fcb - git commit browser
+function fcb {
   git log --graph --color=always \
     --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
@@ -48,7 +48,7 @@ FZF-EOF"
 # enter shows you the contents of the stash
 # ctrl-d shows a diff of the stash against your current HEAD
 # ctrl-b checks the stash out as a branch, for easier merging
-fstash() {
+function fgst {
   local out q k sha
   while out=$(
     git stash list --pretty="%C(yellow)%h %>(14)%Cgreen%cr %C(blue)%gs" |
@@ -73,32 +73,32 @@ fstash() {
 }
 
 # fbr - checkout git branch (including remote branches)
-fbr() {
+function fbr {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
-  branch=$(echo "$branches" |
-  fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+    branch=$(echo "$branches" |
+    fzf --delimiter=$(( 2 + $(wc -l <<< "$branches") )) --no-multi --layout=reverse --height=40%) &&
     git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
 # fcoc - checkout git commit
-fcoc() {
+function fcoc {
   local commits commit
   commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
-  commit=$(echo "$commits" | fzf --tac +s +m -e) &&
+  commit=$(echo "$commits" | fzf --tac --no-sort --no-multi --exact) &&
   git checkout $(echo "$commit" | sed "s/ .*//")
 }
 
 # Tmux
-fs() {
+function tfa {
   local session
   session=$(tmux list-sessions -F "#{session_name}" | \
-    fzf --query="$1" --select-1 --exit-0) &&
-  tmux switch-client -t "$session"
+    fzf --layout=reverse --height=20% --query="$1" --select-1 --exit-0) &&
+  tmux -CC attach -d -t "$session"
 }
 
 # Z
-j() {
+function j {
   [ $# -gt 0 ] && _z "$*" && return
-  cd "$(_z -l 2>&1 | fzf-tmux +s --height ${FZF_TMUX_HEIGHT:-40%} --tac --query "$*" | sed 's/^[0-9,.]* *//')"
+  cd "$(_z -l 2>&1 | fzf +s --layout=reverse --height=40% --tac --query "$*" | sed 's/^[0-9,.]* *//')"
 }
