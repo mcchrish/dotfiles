@@ -90,7 +90,7 @@ function fcoc {
 }
 
 # Tmux
-function tfa {
+function fta {
   local session
   session=$(tmux list-sessions -F "#{session_name}" | \
     fzf --layout=reverse --height=20% --query="$1" --select-1 --exit-0) &&
