@@ -20,7 +20,10 @@ let g:ale_fixers = {
       \ 'less': ['prettier'],
       \ 'yaml': ['prettier'],
       \ 'json': ['prettier'],
-      \ 'html': ['prettier']
+      \ 'html': ['prettier'],
+      \ 'sh': ['shellcheck'],
+      \ 'bash': ['shellcheck'],
+      \ 'zsh': ['shellcheck']
       \}
 
 let g:ale_sign_error = '✖'
