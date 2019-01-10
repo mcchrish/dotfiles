@@ -35,6 +35,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
+Plug 'brooth/far.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'rstacruz/vim-closer'
 Plug 'tpope/vim-sleuth'
