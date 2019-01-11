@@ -35,7 +35,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
-Plug 'brooth/far.vim'
+Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim'
 Plug 'rstacruz/vim-closer'
 Plug 'tpope/vim-sleuth'
@@ -45,13 +45,8 @@ Plug 'tpope/vim-capslock'
 Plug 'rstacruz/vim-xtract'
 Plug 'machakann/vim-highlightedyank'
 Plug 'reedes/vim-pencil'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'othree/html5.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
-Plug 'rstacruz/vim-hyperstyle', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 Plug 'mcchrish/fountain.vim'
 
 call plug#end()
