@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Prevent npm update from using the wrong cache directory
 export NPM_CONFIG_CACHE="${HOME}/.cache/npm"
@@ -19,8 +19,10 @@ printf "%s\\n" "Updating neovim..."
 nvim --headless +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall
 
 printf "%s\\n" "Updating zsh..."
-zplg update --all
-zplg self-update
+source "$HOME/.config/zsh/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+zplugin update --all
+zplugin self-update
 
 printf "%s\\n" "Cleaning up"
 brew cleanup
