@@ -1035,12 +1035,14 @@
 			<string>iTermTouchBarIdentifierNextMark</string>
 		</array>
 	</dict>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>1144 204 445 77 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>275 542 770 429 0 0 1680 1027 </string>
+	<string>636 593 918 423 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>36 65 850 927 0 0 1680 1027 </string>
+	<string>0 0 1680 1050 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>4 10 1676 1017 0 0 1680 1027 </string>
+	<string>0 100 850 927 0 0 1680 1050 </string>
 	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_C421BD27-FAE7-484D-942A-48F7B2B7BB51_selection</key>
@@ -1769,7 +1771,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>Iosevka 14</string>
+			<string>Iosevka-Slab 14</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prevent Opening in a Tab</key>
@@ -2677,7 +2679,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>Iosevka 14</string>
+			<string>Iosevka-Slab 14</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -3583,7 +3585,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>Iosevka 14</string>
+			<string>Iosevka-Slab 14</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -4786,7 +4788,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-01-07T22:34:59Z</date>
+	<date>2019-01-14T06:08:40Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
