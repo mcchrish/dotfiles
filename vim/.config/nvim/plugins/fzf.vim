@@ -53,6 +53,7 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-f> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+function! s:fzf_statusline()
+  setlocal statusline=%#StatusLineTerm#\ fzf\ %#StatusLineTermNC#
+endfunction
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
