@@ -1,6 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
 Plug 'nightsense/snow'
 Plug '/usr/local/opt/fzf'
@@ -9,6 +8,7 @@ Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
 Plug 'mcchrish/nnn.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'pgdouyon/vim-evanesco'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -27,6 +27,7 @@ if has('nvim')
 endif
 
 Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'romainl/vim-qf'
 Plug 'wellle/targets.vim'
@@ -36,15 +37,12 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 Plug 'brooth/far.vim', { 'on': 'Far' }
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 Plug 'rstacruz/vim-closer'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-capslock'
-Plug 'rstacruz/vim-xtract'
+Plug 'tpope/vim-sleuth'
 Plug 'machakann/vim-highlightedyank'
-Plug 'reedes/vim-pencil'
+" Plug 'reedes/vim-pencil'
 Plug 'sheerun/vim-polyglot'
 Plug 'mattn/emmet-vim'
 Plug 'mcchrish/fountain.vim'
