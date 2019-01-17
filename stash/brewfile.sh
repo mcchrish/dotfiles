@@ -29,6 +29,7 @@ brew cask install firefox
 brew cask install font-courier-prime
 brew cask install font-fira-sans
 brew cask install font-iosevka
+brew cask install font-iosevka-slab
 brew cask install google-chrome
 brew cask install iina
 brew cask install iterm2
@@ -36,10 +37,10 @@ brew cask install java
 brew cask install keepingyouawake
 brew cask install keybase
 brew cask install marked
-brew cask install nightowl
 brew cask install pinentry-mac
 brew cask install postman
 brew cask install qtpass
+brew cask install shifty
 brew cask install signal
 brew cask install skype
 brew cask install spotify
