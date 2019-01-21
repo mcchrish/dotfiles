@@ -1,4 +1,4 @@
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.local/share/nvim/vendor')
 
 Plug 'w0rp/ale'
 Plug 'nightsense/snow'
