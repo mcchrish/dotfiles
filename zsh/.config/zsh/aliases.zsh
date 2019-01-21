@@ -5,7 +5,7 @@ alias du="du -kh"
 alias df="df -kh"
 alias which="command -v"
 # alias sudo="sudo "
-alias cat='bat'
+# alias cat='bat'
 
 # Vim
 alias v="vim"
