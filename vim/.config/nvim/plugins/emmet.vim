@@ -8,4 +8,4 @@ let g:user_emmet_settings = {
       \ }
 
 let g:user_emmet_install_global = 0
-autocmd FileType html,ejs,css,sass,scss,less,javascript,jsx,eelixir EmmetInstall
+autocmd FileType html,ejs,css,sass,scss,less,javascript,jsx,eelixir,markdown,vue EmmetInstall
