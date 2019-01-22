@@ -4,7 +4,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 let g:UltiSnipsUsePythonVersion = 3
 
-inoremap <silent> <tab> <C-r>=LoadUltiSnips()<cr>
+inoremap <silent> <tab> <c-r>=LoadUltiSnips()<cr>
 
 function! s:loadDeopleteConfigs()
   let l:default_sources = ['around', 'buffer', 'file', 'member']

@@ -12,7 +12,7 @@ if !$MINIMAL
   endif
   source $VIM_CONFIG_DIR/plugins/qf.vim
   source $VIM_CONFIG_DIR/plugins/emmet.vim
-  source $VIM_CONFIG_DIR/plugins/pencil.vim
+  " source $VIM_CONFIG_DIR/plugins/pencil.vim
 endif
 
 " notational-fzf-vim
