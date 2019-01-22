@@ -1,6 +1,4 @@
 " Colorscheme
-colorscheme snow
-
 if $VIMNOTES == 1
   set background=light
   let g:airline_theme='snow_light'
@@ -12,5 +10,7 @@ endif
 
 augroup load_hi
   autocmd!
-  autocmd VimEnter,ColorScheme * call extend_highlight#extend('Comment', 'Comment', { '+gui': ['italic'] })
+  autocmd ColorScheme * call extend_highlight#extend('Comment', 'Comment', { '+gui': ['italic'] })
 augroup END
+
+colorscheme snow

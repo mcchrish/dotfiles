@@ -35,12 +35,16 @@ let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = ['✖ %d', '⚠ %d', '']
 
+function! s:set_highlights()
+  call extend_highlight#extend('Function', 'ALEVirtualTextError', { 'gui': ['italic'] })
+  call extend_highlight#extend('TypeDef', 'ALEVirtualTextWarning', { 'gui': ['italic'] })
+  call extend_highlight#extend('ErrorMsg', 'ALEError', { '+gui': ['italic'] })
+  call extend_highlight#extend('ErrorMsg', 'ALEWarning', { '+gui': ['italic'] })
+endfunction
+
 augroup load_ale_hi
   autocmd!
-  autocmd VimEnter,ColorScheme * call extend_highlight#extend('Function', 'ALEVirtualTextError', { 'gui': ['italic'] })
-      \| call extend_highlight#extend('TypeDef', 'ALEVirtualTextWarning', { 'gui': ['italic'] })
-      \| call extend_highlight#extend('ErrorMsg', 'ALEError', { '+gui': ['italic'] })
-      \| call extend_highlight#extend('ErrorMsg', 'ALEWarning', { '+gui': ['italic'] })
+  autocmd ColorScheme * call <SID>set_highlights()
 augroup END
 
 nnoremap <silent> <leader>ef :ALEFix<cr>
