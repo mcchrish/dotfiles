@@ -1,3 +1,7 @@
+if $MINIMAL
+  finish
+endif
+
 let g:deoplete#enable_at_startup = 1
 " <c-h>, <bs>: close popup and delete backword char.
 inoremap <expr><c-h> deoplete#smart_close_popup()."\<c-h>"
@@ -12,4 +16,3 @@ function! s:conditional_enter() abort
   echo ""
   return "\<cr>"
 endfunction
-

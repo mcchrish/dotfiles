@@ -1,3 +1,7 @@
+if $MINIMAL
+  finish
+endif
+
 let g:airline_extensions = ['ale', 'branch', 'fugitiveline', 'quickfix', 'undotree', 'term']
 let g:airline_mode_map = {
       \ '__' : '-',

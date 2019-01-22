@@ -99,3 +99,5 @@ autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
 " Preview Marked 2
 nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
 
+nnoremap <silent> <leader><cr> :call my#refresh()<cr>
+nnoremap <silent> <leader>ns :call my#save_file_to_notes()<cr>

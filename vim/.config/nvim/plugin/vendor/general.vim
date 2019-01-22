@@ -1,25 +1,12 @@
-source $VIM_CONFIG_DIR/plugins/ale.vim
-source $VIM_CONFIG_DIR/plugins/fzf.vim
-source $VIM_CONFIG_DIR/plugins/nnn.vim
-source $VIM_CONFIG_DIR/plugins/sneak.vim
-source $VIM_CONFIG_DIR/plugins/goyo.vim
-
-if !$MINIMAL
-  source $VIM_CONFIG_DIR/plugins/airline.vim
-  if has('nvim')
-    source $VIM_CONFIG_DIR/plugins/ultisnips.vim
-    source $VIM_CONFIG_DIR/plugins/deoplete.vim
-  endif
-  source $VIM_CONFIG_DIR/plugins/qf.vim
-  source $VIM_CONFIG_DIR/plugins/emmet.vim
-  " source $VIM_CONFIG_DIR/plugins/pencil.vim
-endif
-
 " notational-fzf-vim
 let g:nv_search_paths = ['~/Notes']
 let g:nv_use_short_pathnames = 1
 let g:nv_create_note_window = 'edit'
 nnoremap <silent> <leader>nf :NV<cr>
+
+if $MINIMAL
+  finish
+endif
 
 " vim-fugitive
 nnoremap <silent> <leader>gs :Gstatus<cr>

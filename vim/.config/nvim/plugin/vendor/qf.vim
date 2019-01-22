@@ -1,3 +1,7 @@
+if $MINIMAL
+  finish
+endif
+
 " vim-qf
 let g:qf_mapping_ack_style = 1
 let g:qf_auto_open_quickfix = 1
