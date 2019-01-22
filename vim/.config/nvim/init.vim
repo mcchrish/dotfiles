@@ -37,7 +37,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
 Plug 'mcchrish/nnn.vim'
-Plug 'mcchrish/extended-highlight.vim'
+Plug 'mcchrish/extend-highlight.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'pgdouyon/vim-evanesco'
 Plug 'tpope/vim-eunuch'
