@@ -6,6 +6,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
 Plug 'mcchrish/nnn.vim'
+Plug 'mcchrish/extended-highlight.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'pgdouyon/vim-evanesco'
 Plug 'tpope/vim-eunuch'
@@ -39,6 +40,7 @@ Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim'
 Plug 'rstacruz/vim-closer'
+Plug 'ap/vim-css-color'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
 Plug 'machakann/vim-highlightedyank'
