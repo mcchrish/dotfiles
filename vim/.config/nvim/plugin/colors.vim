@@ -15,7 +15,8 @@ let g:extend_highlight#extend_list = [
       \ ['Function', 'ALEVirtualTextError', { 'gui': ['italic'] }],
       \ ['TypeDef', 'ALEVirtualTextWarning', { 'gui': ['italic'] }],
       \ ['ErrorMsg', 'ALEError', { '+gui': ['italic'] }],
-      \ ['ErrorMsg', 'ALEWarning', { '+gui': ['italic'] }]
+      \ ['ErrorMsg', 'ALEWarning', { '+gui': ['italic'] }],
+      \ ['Comment', 'Comment', { '+gui': ['italic'] }]
       \ ]
 
 colorscheme snow
