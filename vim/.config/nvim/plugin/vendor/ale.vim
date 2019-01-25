@@ -25,7 +25,7 @@ let g:ale_fixers = {
       \ 'yaml': ['prettier'],
       \ 'json': ['prettier'],
       \ 'html': ['prettier'],
-      \ 'php': ['php-cs-fixer'],
+      \ 'php': ['php_cs_fixer'],
       \ 'sh': ['shellcheck'],
       \ 'bash': ['shellcheck'],
       \ 'zsh': ['shellcheck']
