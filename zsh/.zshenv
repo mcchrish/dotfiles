@@ -93,11 +93,11 @@ export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
 
 # PATHs
 path=(
-  $HOME/Library/Python/3.7/bin
-  $XDG_DATA_HOME/gem/bin
-  $XDG_DATA_HOME/npm/bin
-  $ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}
-  $path
+  "$HOME"/Library/Python/3.7/bin
+  "$XDG_DATA_HOME"/gem/bin
+  "$XDG_DATA_HOME"/npm/bin
+  "$ANDROID_HOME"/{emulator,tools,tools/bin,platform-tools}
+  "$path"
 )
 
 # Ensure unique path
