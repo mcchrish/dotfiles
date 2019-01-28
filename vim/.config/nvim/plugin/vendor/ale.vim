@@ -9,6 +9,8 @@ let g:ale_lint_delay = 100
 
 let g:ale_linters = {
       \ 'javascript': ['eslint', 'flow'],
+      \ 'sh': ['shellcheck'],
+      \ 'bash': ['shellcheck']
       \}
 let g:ale_javascript_eslint_options = '--cache'
 let g:ale_javascript_prettier_options = '--single-quote --prose-wrap always'
@@ -25,10 +27,7 @@ let g:ale_fixers = {
       \ 'yaml': ['prettier'],
       \ 'json': ['prettier'],
       \ 'html': ['prettier'],
-      \ 'php': ['php_cs_fixer'],
-      \ 'sh': ['shellcheck'],
-      \ 'bash': ['shellcheck'],
-      \ 'zsh': ['shellcheck']
+      \ 'php': ['php_cs_fixer']
       \}
 
 let g:ale_sign_error = '✖'

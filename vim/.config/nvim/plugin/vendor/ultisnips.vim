@@ -24,7 +24,7 @@ endfunction
 " https://github.com/junegunn/vim-plug/wiki/tips#loading-plugins-manually
 augroup load_us_deopl
   autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips', 'deoplete.nvim')
+  autocmd InsertEnter * call plug#load('ultisnips', 'deoplete.nvim', 'LanguageClient-neovim')
         \| call <SID>loadDeopleteConfigs()
         \| autocmd! load_us_deopl
 augroup END

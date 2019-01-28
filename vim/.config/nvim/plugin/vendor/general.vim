@@ -47,5 +47,7 @@ let g:javascript_plugin_flow = 1
 " vim-jsx
 let g:jsx_ext_required = 0
 
-" vim-polyglot
-let g:polyglot_disabled = ['markdown', 'md']
+" LanguageClient-neovim
+let g:LanguageClient_serverCommands = {
+      \ 'vue': ['vls']
+      \ }

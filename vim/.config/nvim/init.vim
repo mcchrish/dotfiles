@@ -54,6 +54,11 @@ if $MINIMAL
 endif
 
 if has('nvim')
+  Plug 'autozimu/LanguageClient-neovim', {
+        \ 'on': [],
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
   Plug 'Shougo/deoplete.nvim', { 'on': [], 'do': ':UpdateRemotePlugins' }
   Plug 'SirVer/ultisnips', { 'on': [] }
 endif
@@ -71,12 +76,14 @@ Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim'
 Plug 'rstacruz/vim-closer'
-Plug 'ap/vim-css-color'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
 Plug 'machakann/vim-highlightedyank'
-" Plug 'reedes/vim-pencil'
-Plug 'sheerun/vim-polyglot'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 Plug 'mattn/emmet-vim'
 Plug 'mcchrish/fountain.vim'
 
