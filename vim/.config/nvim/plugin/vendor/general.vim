@@ -38,6 +38,15 @@ let g:gitgutter_eager        = 1
 let g:gitgutter_grep_command = 'ag --nocolor'
 
 " vim-gitgutter
+let g:gitgutter_sign_added = '┃'
+let g:gitgutter_sign_modified = '┃'
+let g:gitgutter_sign_removed = '━'
+let g:gitgutter_sign_modified_removed = '┳'
+
+highlight link GitGutterAdd Statement
+highlight link GitGutterChange Ignore
+highlight link GitGutterDelete Function
+
 nnoremap <silent> <leader>gg :GitGutterToggle<cr>
 nnoremap <silent> <leader>gh :GitGutterLineHighlightsToggle<cr>
 
