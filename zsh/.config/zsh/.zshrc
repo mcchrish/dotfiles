@@ -32,8 +32,9 @@ autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
 
+export PURE_PROMPT_SYMBOL="❫"
 zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light sindresorhus/pure
+zplugin light mcchrish/pure
 
 export FZF_DEFAULT_OPTS="--color=16"
 export FZF_DEFAULT_COMMAND="fd --type f \
