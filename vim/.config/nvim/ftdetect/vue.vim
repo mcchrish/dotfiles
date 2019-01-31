@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.vue,*.wpy setfiletype html
+" autocmd BufNewFile,BufRead *.vue,*.wpy setfiletype html
