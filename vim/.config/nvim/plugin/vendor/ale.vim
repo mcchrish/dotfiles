@@ -4,6 +4,7 @@ let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_enter = 1
 let g:ale_warn_about_trailing_whitespace = 0
 let g:ale_virtualtext_cursor = 1
+let g:ale_virtualtext_prefix = '» '
 let g:ale_set_signs = 0
 let g:ale_lint_delay = 100
 
