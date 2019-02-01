@@ -60,3 +60,4 @@ let g:jsx_ext_required = 0
 let g:LanguageClient_serverCommands = {
       \ 'vue': ['vls']
       \ }
+let g:LanguageClient_diagnosticsEnable = 0
