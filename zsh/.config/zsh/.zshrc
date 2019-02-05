@@ -47,8 +47,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 zplugin ice multisrc"shell/{key-bindings,completion}.zsh"
 zplugin light junegunn/fzf
 
-export _Z_DATA="$XDG_CACHE_HOME/z/data"
-zplugin ice src"z.sh"; zplugin light rupa/z
+# export _Z_DATA="$XDG_DATA_HOME/z/data"
+# zplugin ice src"z.sh"; zplugin light rupa/z
+
+export _ZL_DATA="$XDG_DATA_HOME/zl/data"
+zplugin ice src"z.lua.plugin.zsh"; zplugin light skywind3000/z.lua
 
 zplugin ice silent wait"0" atload"zpcompinit"
 zplugin light zsh-users/zsh-completions
