@@ -1,10 +1,21 @@
 let g:nnn#command = "DISABLE_FILE_OPEN_ON_NAV=1 nnn -l"
 let g:nnn#set_default_mappings = 0
 let g:nnn#layout = { 'left': '20%' }
+
+function! s:put_to_register(lines)
+  let joined_lines = join(a:lines, "\n")
+  if len(a:lines) > 1
+    let joined_lines .= "\n"
+  endif
+  echom joined_lines
+  let @+ = joined_lines
+endfunction
+
 let g:nnn#action = {
       \ '<c-t>': 'tab split',
       \ '<c-s>': 'split',
-      \ '<c-v>': 'vsplit' }
+      \ '<c-v>': 'vsplit',
+      \ '<c-o>': function('s:put_to_register') }
 
 function! s:Nnn(...)
   let l:dir = get(a:, 1, "")
@@ -18,5 +29,6 @@ endfunction
 
 nnoremap <silent> <leader>nn :call <SID>Nnn()<CR>
 nnoremap <silent> <leader>nc :call <SID>Nnn(expand('%:h'))<CR>
+nnoremap <silent> <leader>nt :call <SID>Nnn("", { 'edit': function('<SID>put_to_register') })<CR>
 nnoremap <silent> <leader>nr :call <SID>Nnn("~/Notes", { "edit": "edit", "layout": { "down": "40%" } }, "tg")<CR>
 nnoremap <silent> <leader>nd :call <SID>Nnn("~/.dotfiles", { "edit": "edit", "layout": { "down": "40%" } }, "tg.")<CR>
