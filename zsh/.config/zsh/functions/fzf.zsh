@@ -96,9 +96,3 @@ function fta {
     fzf --layout=reverse --height=20% --query="$1" --select-1 --exit-0) &&
   tmux -CC attach -d -t "$session"
 }
-
-# Z
-function j {
-  [ $# -gt 0 ] && _z "$*" && return
-  cd "$(_z -l 2>&1 | fzf +s --layout=reverse --height=40% --tac --query "$*" | sed 's/^[0-9,.]* *//')"
-}
