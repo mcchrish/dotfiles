@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Prevent npm update from using the wrong cache directory
-export NPM_CONFIG_CACHE="${HOME}/.cache/npm"
+export npm_config_prefix="$HOME"/.cache/npm
 
 printf "%80s\\n" "" | tr " " "#"
 printf "%s\\n" "Updating" "$(date)"
@@ -10,7 +10,7 @@ printf "%s\\n" "Updating brew..."
 brew update && brew upgrade
 
 printf "%s\\n" "Updating npm..."
-npm-check --update-all --global
+npm-check --update-all --global --ignore "npm"
 
 printf "%s\\n" "Updating pip..."
 pip3 freeze — local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
