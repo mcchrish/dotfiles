@@ -59,7 +59,7 @@ if has('nvim')
         \ 'branch': 'next',
         \ 'do': 'bash install.sh',
         \ }
-  Plug 'Shougo/deoplete.nvim', { 'on': [], 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/deoplete.nvim', { 'on': [] }
   Plug 'SirVer/ultisnips', { 'on': [] }
 endif
 
