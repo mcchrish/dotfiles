@@ -32,8 +32,8 @@ let g:ale_fixers = {
       \ 'php': ['php_cs_fixer']
       \}
 
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '»'
+let g:ale_sign_warning = '›'
 let g:ale_statusline_format = ['✖ %d', '⚠ %d', '']
 
 nnoremap <silent> <leader>ef :ALEFix<cr>
