@@ -1,4 +1,4 @@
-let g:nnn#command = "DISABLE_FILE_OPEN_ON_NAV=1 nnn -l"
+let g:nnn#command = "NNN_RESTRICT_NAV_OPEN=1 nnn -l"
 let g:nnn#set_default_mappings = 0
 let g:nnn#layout = { 'left': '20%' }
 
