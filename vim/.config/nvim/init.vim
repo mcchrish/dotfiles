@@ -75,7 +75,8 @@ Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim'
-Plug 'rstacruz/vim-closer'
+" Plug 'rstacruz/vim-closer'
+Plug '~/vimming/vim-closer'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
 Plug 'machakann/vim-highlightedyank'
