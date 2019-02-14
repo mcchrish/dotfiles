@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # tap
 brew tap homebrew/cask-fonts
 
@@ -22,7 +24,6 @@ brew install tmux
 
 # cask
 brew cask install aerial
-brew cask install android-file-transfer
 brew cask install calibre
 brew cask install dash
 brew cask install firefox
@@ -34,7 +35,6 @@ brew cask install google-chrome
 brew cask install iina
 brew cask install iterm2
 brew cask install java
-brew cask install keepingyouawake
 brew cask install keybase
 brew cask install marked
 brew cask install pinentry-mac
