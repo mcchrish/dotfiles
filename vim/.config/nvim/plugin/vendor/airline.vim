@@ -5,16 +5,22 @@ endif
 let g:airline_extensions = ['ale', 'branch', 'fugitiveline', 'quickfix', 'undotree', 'term']
 let g:airline_mode_map = {
       \ '__' : '-',
-      \ 'n'  : 'N',
-      \ 'i'  : 'I',
-      \ 'R'  : 'R',
       \ 'c'  : 'C',
-      \ 'v'  : 'V',
-      \ 'V'  : 'V',
-      \ '' : 'V',
+      \ 'i'  : 'I',
+      \ 'ic' : 'I',
+      \ 'ix' : 'I',
+      \ 'n'  : 'N',
+      \ 'ni' : 'N',
+      \ 'no' : 'N',
+      \ 'R'  : 'R',
+      \ 'Rv' : 'R',
       \ 's'  : 'S',
       \ 'S'  : 'S',
       \ '' : 'S',
+      \ 't'  : 'T',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
       \ }
 
 let g:airline#extensions#tabline#show_buffers = 0
