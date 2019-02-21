@@ -70,6 +70,7 @@ Plug 'romainl/vim-qf'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
