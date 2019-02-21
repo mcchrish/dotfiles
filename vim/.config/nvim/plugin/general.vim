@@ -110,3 +110,6 @@ if !has('nvim')
 
   set viminfo+=n~/.vim/viminfo
 endif
+
+" PHP
+let g:PHP_noArrowMatching = 1
