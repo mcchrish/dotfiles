@@ -56,6 +56,9 @@ let g:javascript_plugin_flow = 1
 " vim-jsx
 let g:jsx_ext_required = 0
 
+" vim-vue
+let g:vue_disable_pre_processors = 1
+
 " LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
       \ 'vue': ['vls']

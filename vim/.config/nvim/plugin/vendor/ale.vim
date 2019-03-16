@@ -10,6 +10,7 @@ let g:ale_lint_delay = 100
 
 let g:ale_linters = {
       \ 'javascript': ['eslint', 'flow'],
+      \ 'typescript': ['eslint'],
       \ 'vue': ['eslint'],
       \ 'sh': ['shellcheck'],
       \ 'bash': ['shellcheck']
