@@ -54,12 +54,7 @@ if $MINIMAL
 endif
 
 if has('nvim')
-  Plug 'autozimu/LanguageClient-neovim', {
-        \ 'on': [],
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ }
-  Plug 'Shougo/deoplete.nvim', { 'on': [] }
+  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
   Plug 'SirVer/ultisnips', { 'on': [] }
 endif
 

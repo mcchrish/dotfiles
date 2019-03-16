@@ -1,0 +1,3 @@
+if $MINIMAL
+  finish
+endif
