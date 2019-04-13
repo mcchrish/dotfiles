@@ -31,6 +31,10 @@ nnoremap <silent> <leader>u :UndotreeToggle<cr>
 let g:SignatureEnabledAtStartup = 0
 nnoremap <silent> <leader>' :SignatureToggleSigns<cr>
 
+" vim-sandwich
+nmap s <Nop>
+xmap s <Nop>
+
 set updatetime=500
 let g:gitgutter_max_signs    = 200
 let g:gitgutter_realtime     = 1

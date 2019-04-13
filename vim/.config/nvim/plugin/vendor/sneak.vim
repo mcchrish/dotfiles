@@ -1,6 +1,9 @@
 let g:sneak#label      = 1
 let g:sneak#use_ic_scs = 1
 
+nmap ss <Plug>Sneak_s
+xmap ss <Plug>Sneak_s
+
 "replace 'f' with 1-char Sneak
 nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
