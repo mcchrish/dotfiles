@@ -7,7 +7,7 @@ printf "%80s\\n" "" | tr " " "#"
 printf "%s\\n" "Updating" "$(date)"
 
 printf "%s\\n" "Updating brew..."
-brew update && brew upgrade
+brew upgrade
 
 printf "%s\\n" "Updating npm..."
 npm-check --update-all --global --ignore "npm"
