@@ -16,7 +16,7 @@ printf "%s\\n" "Updating pip..."
 pip3 freeze — local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
 
 printf "%s\\n" "Updating neovim..."
-nvim --headless +PlugUpdate +PlugUpgrade +qall
+# nvim --headless +PlugUpdate +PlugUpgrade +qall
 
 printf "%s\\n" "Updating zsh..."
 source "$HOME/.config/zsh/.zplugin/bin/zplugin.zsh"
