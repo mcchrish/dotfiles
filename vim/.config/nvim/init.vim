@@ -80,6 +80,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'othree/html5.vim'
 Plug 'posva/vim-vue'
+Plug 'tfnico/vim-gradle'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 Plug 'mattn/emmet-vim'
