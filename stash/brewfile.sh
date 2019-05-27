@@ -7,7 +7,6 @@ brew tap homebrew/cask-fonts
 brew install node
 brew install rust
 brew install python
-brew install yarn
 brew install bat
 brew install diff-so-fancy
 brew install fd
@@ -28,11 +27,9 @@ brew cask install calibre
 brew cask install dash
 brew cask install firefox
 brew cask install font-courier-prime
-brew cask install font-fira-sans
 brew cask install font-iosevka
 brew cask install font-iosevka-slab
 brew cask install google-chrome
-brew cask install iina
 brew cask install iterm2
 brew cask install java
 brew cask install keybase
@@ -46,6 +43,7 @@ brew cask install skype
 brew cask install spotify
 brew cask install sublime-text
 brew cask install qbittorrent
+brew cask install vlc
 
 # npm
 export npm_config_userconfig="$XDG_CONFIG_HOME/npm/config"
