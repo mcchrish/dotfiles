@@ -15,6 +15,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/mcchrish/dotfiles/master
 - Git
 - XDG Base Directories
 - Neovim
+- iTerm2
 - Tmux
 - Zsh
 - Personal configuration. Won't likely work for you but feel free to check some
