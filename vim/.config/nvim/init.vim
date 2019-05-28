@@ -1,9 +1,3 @@
-"      _
-"  _ _|_|_____
-" | | | |     |
-"  \_/|_|_|_|_|
-"
-
 let mapleader = "\<space>"
 
 " disable some builtin plugins

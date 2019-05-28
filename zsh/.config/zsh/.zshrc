@@ -1,9 +1,3 @@
-#          _   
-#  ___ ___| |_ 
-# |- _|_ -|   |
-# |___|___|_|_|
-#              
-
 # General
 autoload -Uz colors; colors
 autoload history-search-end
