@@ -63,8 +63,6 @@ let g:jsx_ext_required = 0
 " vim-vue
 let g:vue_disable_pre_processors = 1
 
-" LanguageClient-neovim
-let g:LanguageClient_serverCommands = {
-      \ 'vue': ['vls']
-      \ }
-let g:LanguageClient_diagnosticsEnable = 0
+" vim-matchup
+let g:matchup_matchparen_deferred = 1
+let g:matchup_matchparen_status_offscreen = 0

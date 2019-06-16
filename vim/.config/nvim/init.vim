@@ -1,6 +1,7 @@
 let mapleader = "\<space>"
 
 " disable some builtin plugins
+let g:loaded_matchit            = 1
 let g:did_install_default_menus = 1
 let g:loaded_2html_plugin       = 1
 let g:loaded_getscript          = 1
@@ -32,6 +33,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
 Plug 'mcchrish/nnn.vim'
 Plug 'mcchrish/extend-highlight.vim'
+Plug 'andymass/vim-matchup'
 Plug 'justinmk/vim-sneak'
 Plug 'pgdouyon/vim-evanesco'
 Plug 'tpope/vim-eunuch'
