@@ -113,3 +113,8 @@ endif
 
 " PHP
 let g:PHP_noArrowMatching = 1
+
+" Automatic preview when opening/writing a markdown file
+if $VIMNOTES == 1
+  autocmd BufEnter,BufWritePost *.md call my#preview_markdown("%:p", v:false)
+endif

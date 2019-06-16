@@ -40,7 +40,7 @@ cabbrev W w
 cabbrev Q q
 
 " Faster save
-nnoremap <leader>w :update<cr>
+nnoremap <silent> <leader>w :silent update<cr>
 
 " Delete without overwriting default register
 nnoremap vd "_d
@@ -96,8 +96,6 @@ tnoremap <c-l> <c-\><c-n><c-w>l
 autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
 autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
 
-" Preview Marked 2
-nnoremap <F10> :silent !open -a Marked\ 2.app '%:p'<cr>
-
 nnoremap <silent> <leader><cr> :call my#refresh()<cr>
 nnoremap <silent> <leader>ns :call my#save_file_to_notes()<cr>
+nnoremap <silent> <leader>np :call my#preview_markdown("%:p", v:true)<cr>
