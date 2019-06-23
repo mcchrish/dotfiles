@@ -28,7 +28,7 @@ autoload -Uz _zplugin
 
 export PURE_PROMPT_SYMBOL="❫"
 zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light mcchrish/pure
+zplugin light sindresorhus/pure
 
 export FZF_DEFAULT_OPTS="--color=16"
 export FZF_DEFAULT_COMMAND="fd --type f \
