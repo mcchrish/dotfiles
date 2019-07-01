@@ -15,10 +15,7 @@ endfunction
 function! my#preview_markdown(file, open_marked)
   let l:preview_file = '~/.local/share/marked-preview.md'
   call system('cp -f ' . shellescape(expand(a:file)) . ' ' . l:preview_file)
-  " call system('cat ' . shellescape(expand(a:file)) . ' >! ' . l:preview_file)
-  " call system('ln -sf ' . shellescape(expand(a:file)) . ' ' . l:preview_file)
   if a:open_marked == v:true
     call system('open -a Marked\ 2.app ' . l:preview_file)
   endif
 endfunction
-

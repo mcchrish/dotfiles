@@ -30,5 +30,5 @@ endfunction
 nnoremap <silent> <leader>nn :call <SID>Nnn()<CR>
 nnoremap <silent> <leader>nc :call <SID>Nnn(expand('%:h'))<CR>
 nnoremap <silent> <leader>nt :call <SID>Nnn("", { 'edit': function('<SID>put_to_register') })<CR>
-nnoremap <silent> <leader>nr :call <SID>Nnn("~/Notes", { "edit": "edit", "layout": { "down": "40%" } }, "tg")<CR>
+nnoremap <silent> <leader>nr :call <SID>Nnn($NOTES_DIR, { "edit": "edit", "layout": { "down": "40%" } }, "tg")<CR>
 nnoremap <silent> <leader>nd :call <SID>Nnn("~/.dotfiles", { "edit": "edit", "layout": { "down": "40%" } }, "tg.")<CR>

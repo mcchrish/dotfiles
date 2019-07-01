@@ -117,4 +117,10 @@ let g:PHP_noArrowMatching = 1
 " Automatic preview when opening/writing a markdown file
 if $VIMNOTES == 1
   autocmd BufEnter,BufWritePost *.md call my#preview_markdown("%:p", v:false)
+
+  function! s:open_latest_file()
+    let l:latest_file = trim(system('ls -pt '.$NOTES_DIR.'/ | grep -v / | head -1'))
+    execute 'silent' 'edit' fnameescape(expand($NOTES_DIR.'/'.l:latest_file))
+  endfunction
+  autocmd VimEnter * call s:open_latest_file()
 endif

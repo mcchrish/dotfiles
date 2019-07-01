@@ -91,6 +91,8 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
 export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
 
+export NOTES_DIR="$HOME/Notes"
+
 # PATHs
 path=(
   "$HOME"/Library/Python/3.7/bin
