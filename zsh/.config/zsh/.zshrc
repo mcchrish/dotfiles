@@ -56,6 +56,9 @@ zplugin light zsh-users/zsh-history-substring-search
 zplugin ice silent wait"1"
 zplugin light zdharma/fast-syntax-highlighting
 
+zplugin ice silent wait"1" src"completion/tmuxinator.zsh"
+zplugin light tmuxinator/tmuxinator
+
 # Completions
 [[ -f "$source_dir/completions.zsh" ]] && source "$source_dir/completions.zsh"
 

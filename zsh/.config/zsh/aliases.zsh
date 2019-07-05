@@ -41,7 +41,6 @@ alias tls="tmux ls"
 alias tkill="tmux kill-session -t"
 
 # Tmuxinator
-alias mux="tmuxinator"
 alias muxs="tmuxinator start"
 
 # Cd
