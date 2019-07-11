@@ -42,21 +42,21 @@ zplugin ice multisrc"shell/{key-bindings,completion}.zsh"
 zplugin light junegunn/fzf
 
 export _ZL_DATA="$XDG_DATA_HOME/zl"
-zplugin ice silent wait"1"
+zplugin ice silent wait"1a"
 zplugin light skywind3000/z.lua
 alias j="z -I"
 
-zplugin ice silent wait"0" atload"zpcompinit"
+zplugin ice silent wait"0a" atload"zpcompinit"
 zplugin light zsh-users/zsh-completions
 
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
-zplugin ice silent wait"1"
+zplugin ice silent wait"0b"
 zplugin light zsh-users/zsh-history-substring-search
 
-zplugin ice silent wait"1"
+zplugin ice silent wait"1b"
 zplugin light zdharma/fast-syntax-highlighting
 
-zplugin ice silent wait"1" src"completion/tmuxinator.zsh"
+zplugin ice silent wait"1c" src"completion/tmuxinator.zsh"
 zplugin light tmuxinator/tmuxinator
 
 # Completions
