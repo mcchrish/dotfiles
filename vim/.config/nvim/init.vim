@@ -50,7 +50,7 @@ if $MINIMAL
 endif
 
 if has('nvim')
-  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+  Plug 'neoclide/coc.nvim', { 'tag': '*', 'branch': 'release' }
   Plug 'SirVer/ultisnips', { 'on': [] }
 endif
 
