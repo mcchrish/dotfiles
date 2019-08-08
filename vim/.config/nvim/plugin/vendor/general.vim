@@ -61,7 +61,7 @@ let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
 " vim-vue
-let g:vue_disable_pre_processors = 1
+let g:vue_pre_processors = []
 
 " vim-matchup
 let g:matchup_matchparen_deferred = 1
