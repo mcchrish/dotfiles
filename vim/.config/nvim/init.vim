@@ -26,7 +26,7 @@ let g:python3_host_prog         = '/usr/local/bin/python3'
 
 call plug#begin('~/.local/share/nvim/vendor')
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'nightsense/snow'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
