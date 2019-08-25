@@ -45,7 +45,6 @@ tags
 
 ### JavaScript ###
 # Node
-node_modules/
 npm-debug.log*
 
 # Yarn
