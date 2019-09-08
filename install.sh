@@ -57,17 +57,11 @@ if ! (command -v zplugin > /dev/null); then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 fi
 
-echo "Setting zsh as default shell..."
-chsh -s "$(command -v zsh)"
-
 echo "Installing vim-plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # Symlink for vim
 mkdir -p ~/.vim/autoload/
 ln -s ~/.local/share/nvim/site/autoload/plug.vim ~/.vim/autoload/plug.vim
-
-echo "Installing tpm..."
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 echo "Done. :)"
