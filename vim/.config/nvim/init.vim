@@ -50,7 +50,7 @@ if $MINIMAL
 endif
 
 if has('nvim')
-  Plug 'neoclide/coc.nvim', { 'tag': '*', 'branch': 'release' }
+  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   Plug 'SirVer/ultisnips', { 'on': [] }
 endif
 
@@ -82,5 +82,6 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 Plug 'mattn/emmet-vim'
 Plug 'mcchrish/fountain.vim'
+Plug 'jxnblk/vim-mdx-js'
 
 call plug#end()
