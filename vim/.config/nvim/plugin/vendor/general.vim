@@ -9,9 +9,9 @@ if $MINIMAL
 endif
 
 " vim-fugitive
-nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gs :G<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
-nnoremap <silent> <leader>gm :Gdiff develop<cr>
+nnoremap <silent> <leader>gm :Gdiffsplit develop<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 
 " splitjoin.vim
