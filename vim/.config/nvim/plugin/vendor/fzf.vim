@@ -1,3 +1,4 @@
+let $FZF_DEFAULT_OPTS='--color=16 --layout=reverse'
 let g:fzf_command_prefix = 'Fzf'
 let g:fzf_buffers_jump = 1
 let g:fzf_action = {
@@ -5,6 +6,26 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit'
       \ }
+
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = &lines - (float2nr(&lines / 3))
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let col = float2nr((&columns - width) / 2)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': 2,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
 
 command! -bang -nargs=* FzfRgAll
       \ call fzf#vim#grep(
