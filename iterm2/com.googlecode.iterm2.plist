@@ -23,7 +23,7 @@
 	<key>BadgeFont</key>
 	<string>San Francisco</string>
 	<key>CheckTestRelease</key>
-	<true/>
+	<false/>
 	<key>ClosingHotkeySwitchesSpaces</key>
 	<true/>
 	<key>ClosingTmuxWindowKillsTmuxWindows</key>
@@ -1055,7 +1055,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>657 562 1130 783 0 0 2560 1417 </string>
+	<string>492 497 1130 783 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>85 178 1090 877 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -4222,16 +4222,17 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.3beta1</string>
-		<string>3.3.1beta1</string>
-		<string>3.3.0beta16</string>
-		<string>3.3.0beta11</string>
-		<string>3.3.0beta13</string>
-		<string>3.3.2beta2</string>
-		<string>3.3.2beta1</string>
 		<string>3.3.0beta10</string>
+		<string>3.3.0beta11</string>
+		<string>3.3.2beta1</string>
+		<string>3.3.3</string>
+		<string>3.3.0beta13</string>
+		<string>3.3.1beta1</string>
 		<string>3.3.0beta15</string>
 		<string>3.3.3beta2</string>
-		<string>3.3.3</string>
+		<string>3.3.0beta16</string>
+		<string>3.3.4beta1</string>
+		<string>3.3.2beta2</string>
 	</array>
 	<key>NoSyncAutoBurialReveal</key>
 	<true/>
@@ -4272,7 +4273,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>72048827-4360-4BC6-9823-A5C463A7092F</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>204</integer>
+	<integer>221</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -5131,11 +5132,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing_new.xml?shard=94</string>
+	<string>https://iterm2.com/appcasts/final_new.xml?shard=94</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-09-08T04:45:46Z</date>
+	<date>2019-09-09T04:45:46Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
