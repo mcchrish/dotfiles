@@ -26,7 +26,7 @@ let g:python3_host_prog         = '/usr/local/bin/python3'
 
 call plug#begin('~/.local/share/nvim/vendor')
 
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'nightsense/snow'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -35,7 +35,7 @@ Plug 'mcchrish/nnn.vim'
 Plug 'mcchrish/extend-highlight.vim'
 Plug 'andymass/vim-matchup'
 Plug 'justinmk/vim-sneak'
-Plug 'pgdouyon/vim-evanesco'
+Plug 'junegunn/vim-slash'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
@@ -51,6 +51,12 @@ endif
 
 if has('nvim')
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
   Plug 'SirVer/ultisnips', { 'on': [] }
 endif
 
@@ -61,27 +67,27 @@ Plug 'romainl/vim-qf'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'junegunn/vim-easy-align'
+" Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
 Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim'
-Plug 'mcchrish/vim-closer'
+" Plug 'mcchrish/vim-closer'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
 Plug 'machakann/vim-highlightedyank'
-Plug 'chemzqm/vim-jsx-improve'
+Plug 'neoclide/vim-jsx-improve'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'othree/html5.vim'
 Plug 'posva/vim-vue'
-Plug 'tfnico/vim-gradle'
-Plug 'milch/vim-fastlane'
+" Plug 'tfnico/vim-gradle'
+" Plug 'milch/vim-fastlane'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
+" Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 Plug 'mattn/emmet-vim'
 Plug 'mcchrish/fountain.vim'
-Plug 'jxnblk/vim-mdx-js'
+" Plug 'jxnblk/vim-mdx-js'
 
 call plug#end()

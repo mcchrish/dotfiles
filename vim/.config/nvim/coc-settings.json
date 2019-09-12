@@ -1,0 +1,27 @@
+{
+  "diagnostic.errorSign": "▬",
+  "diagnostic.warningSign": "▪",
+  "diagnostic.infoSign": "▪",
+  "diagnostic.hintSign": "⋅",
+  "eslint.run": "onSave",
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "prettier.requireConfig": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "json",
+    "css",
+    "markdown",
+    "Markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "suggest.maxPreviewWidth": 80,
+  "suggest.enablePreview": true
+}
