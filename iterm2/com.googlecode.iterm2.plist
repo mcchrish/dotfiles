@@ -1055,7 +1055,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 364 730 722 0 0 2560 1417 </string>
+	<string>150 292 1130 783 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>85 178 1090 877 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -3647,7 +3647,7 @@
 			<key>Guid</key>
 			<string>6E5A8036-B6B8-4A9D-A4D9-F9DB69C720AE</string>
 			<key>Has Hotkey</key>
-			<true/>
+			<false/>
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
@@ -5567,7 +5567,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>72048827-4360-4BC6-9823-A5C463A7092F</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>227</integer>
+	<integer>239</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -6430,7 +6430,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-09-10T04:45:47Z</date>
+	<date>2019-09-13T19:54:35Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>

@@ -1,5 +1,11 @@
 let mapleader = "\<space>"
 
+if has('gui_vimr')
+  cd $NOTES_DIR
+  let $MINIMAL = 1
+  let $VIMNOTES = 1
+endif
+
 " disable some builtin plugins
 let g:loaded_matchit            = 1
 let g:did_install_default_menus = 1

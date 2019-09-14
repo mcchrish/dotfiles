@@ -39,7 +39,7 @@ set updatetime=500
 let g:gitgutter_max_signs    = 200
 let g:gitgutter_realtime     = 1
 let g:gitgutter_eager        = 1
-let g:gitgutter_grep_command = 'ag --nocolor'
+let g:gitgutter_grep_command = 'rg --color=never'
 
 " vim-gitgutter
 let g:gitgutter_sign_added = '┃'
