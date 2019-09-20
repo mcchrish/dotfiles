@@ -12,10 +12,10 @@ else
 endif
 
 
-let g:extend_highlight#extend_list = [
-      \ ['Function', 'ALEVirtualTextError', { 'gui': ['italic'] }],
-      \ ['TypeDef', 'ALEVirtualTextWarning', { 'gui': ['italic'] }],
-      \ ['Comment', 'Comment', { '+gui': ['italic'] }]
-      \ ]
+if !exists('$TMUX')
+  let g:extend_highlight#extend_list = [
+        \ ['Comment', 'Comment', { '+gui': ['italic'] }]
+        \ ]
+endif
 
 colorscheme snow
