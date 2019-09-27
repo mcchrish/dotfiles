@@ -1055,7 +1055,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>150 292 1130 783 0 0 2560 1417 </string>
+	<string>206 147 1130 783 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>85 178 1090 877 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1361,7 +1361,7 @@
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
-			<true/>
+			<integer>1</integer>
 			<key>Columns</key>
 			<integer>160</integer>
 			<key>Command</key>
@@ -3056,7 +3056,7 @@
 			<key>Name</key>
 			<string>Snow Light</string>
 			<key>Non Ascii Font</key>
-			<string>SourceCodePro-Regular 10</string>
+			<string>Menlo-Regular 11</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<false/>
 			<key>Normal Font</key>
@@ -5515,18 +5515,7 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.3beta1</string>
-		<string>3.3.0beta10</string>
-		<string>3.3.0beta11</string>
-		<string>3.3.2beta1</string>
-		<string>3.3.3</string>
-		<string>3.3.0beta13</string>
-		<string>3.3.1beta1</string>
-		<string>3.3.0beta15</string>
-		<string>3.3.3beta2</string>
-		<string>3.3.0beta16</string>
-		<string>3.3.4beta1</string>
-		<string>3.3.2beta2</string>
+		<string>3.3.4</string>
 	</array>
 	<key>NoSyncAutoBurialReveal</key>
 	<true/>
@@ -5539,10 +5528,8 @@
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
-		<string>Iosevka Aile</string>
-		<string>Iosevka Term Slab</string>
-		<string>Iosevka Term</string>
 		<string>SF Mono</string>
+		<string>Iosevka Term Slab</string>
 	</array>
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
@@ -5556,7 +5543,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{700, 775}</string>
+		<string>{1121, 907}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -5567,7 +5554,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>72048827-4360-4BC6-9823-A5C463A7092F</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>239</integer>
+	<integer>278</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -6430,7 +6417,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-09-13T19:54:35Z</date>
+	<date>2019-09-19T09:56:49Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -6520,7 +6507,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.3</string>
+	<string>3.3.4</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
