@@ -2,7 +2,6 @@
 set termguicolors
 
 if $VIMNOTES == 1
-  set signcolumn=yes
   set background=light
   let g:airline_theme='snow_light'
   set statusline=%#StatusLineNC#\ %t%m%=%w%q\ %p%%\ %l/%L\ ㏑\ :\ %v\ 

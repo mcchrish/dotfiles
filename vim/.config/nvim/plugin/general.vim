@@ -20,6 +20,8 @@ set lazyredraw
 " Always show statusline
 set laststatus=2
 
+set signcolumn=yes
+
 " Flash matching parenthesis
 set showmatch
 set matchtime=2
@@ -47,9 +49,6 @@ set synmaxcol=500
 set history=1000
 set tabpagemax=50
 
-" Fold is just crazy to work with
-set nofoldenable
-
 " No bells
 set visualbell t_vb=
 set nojoinspaces
@@ -74,7 +73,6 @@ set softtabstop=2
 set expandtab
 set breakindent
 set autoindent
-" let &showbreak="+>"
 let &showbreak="↳ "
 
 " Wrapping
@@ -115,7 +113,6 @@ endif
 let g:PHP_noArrowMatching = 1
 
 " Automatic preview when opening/writing a markdown file
-echo $VIMNOTES
 if $VIMNOTES == 1
   autocmd BufEnter,BufWritePost *.md call my#preview_markdown("%:p", v:false)
 

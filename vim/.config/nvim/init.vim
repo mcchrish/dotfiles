@@ -32,7 +32,6 @@ let g:python3_host_prog         = '/usr/local/bin/python3'
 
 call plug#begin('~/.local/share/nvim/vendor')
 
-" Plug 'dense-analysis/ale'
 Plug 'nightsense/snow'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -58,7 +57,7 @@ endif
 if has('nvim')
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
+  " Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
@@ -66,6 +65,7 @@ if has('nvim')
   Plug 'SirVer/ultisnips', { 'on': [] }
 endif
 
+" Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
@@ -75,8 +75,8 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'kshenoy/vim-signature'
-Plug 'airblade/vim-gitgutter', { 'on': 'GitGutterToggle' }
+" Plug 'kshenoy/vim-signature'
+Plug 'airblade/vim-gitgutter'
 Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim'
 " Plug 'mcchrish/vim-closer'

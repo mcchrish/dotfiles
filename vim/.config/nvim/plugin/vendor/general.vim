@@ -35,11 +35,8 @@ nnoremap <silent> <leader>' :SignatureToggleSigns<cr>
 nmap s <Nop>
 xmap s <Nop>
 
-set updatetime=500
-let g:gitgutter_max_signs    = 200
-let g:gitgutter_realtime     = 1
-let g:gitgutter_eager        = 1
-let g:gitgutter_grep_command = 'rg --color=never'
+set updatetime=200
+let g:gitgutter_grep = 'rg --color=never'
 
 " vim-gitgutter
 let g:gitgutter_sign_added = '┃'
