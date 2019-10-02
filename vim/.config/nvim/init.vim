@@ -62,6 +62,7 @@ if has('nvim')
   Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
   Plug 'SirVer/ultisnips', { 'on': [] }
 endif
 
