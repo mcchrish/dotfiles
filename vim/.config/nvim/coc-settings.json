@@ -22,7 +22,8 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "vue"
   ],
   "suggest.maxPreviewWidth": 80,
   "suggest.enablePreview": true
