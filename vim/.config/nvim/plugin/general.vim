@@ -27,7 +27,7 @@ set showmatch
 set matchtime=2
 
 " Shorter messages
-set shortmess=aIToO
+set shortmess=aIToOc
 
 " Allow all mouse
 set mouse=a
@@ -100,9 +100,11 @@ set noswapfile
 " Persistent undo and swap files directory
 set undofile
 
+set nobackup
+set nowritebackup
+
 " Change vim temporary directories
 if !has('nvim')
-
   set undodir=~/.vim/tmp/undo//
   set backupdir=~/.vim/tmp/backup//
 

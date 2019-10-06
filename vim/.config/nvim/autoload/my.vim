@@ -3,7 +3,7 @@ function! my#refresh()
   nohlsearch
   checktime
   redraw
-  CocCommand tsserver.restart
+  silent CocRestart
   echo 'Refreshed!'
 endfunction
 

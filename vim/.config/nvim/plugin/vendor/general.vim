@@ -63,3 +63,13 @@ let g:vue_pre_processors = []
 " vim-matchup
 let g:matchup_matchparen_deferred = 1
 let g:matchup_matchparen_status_offscreen = 0
+
+" coc.nvim
+nnoremap <silent> K :call <SID>show_documentation()<cr>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
