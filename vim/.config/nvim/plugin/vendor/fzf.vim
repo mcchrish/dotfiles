@@ -12,7 +12,7 @@ function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
 
   let height = &lines - (float2nr(&lines / 3))
-  let width = float2nr(&columns - (&columns * 2 / 10))
+  let width = float2nr(&columns - (&columns * 1 / 3))
 
   let opts = {
         \ 'relative': 'editor',

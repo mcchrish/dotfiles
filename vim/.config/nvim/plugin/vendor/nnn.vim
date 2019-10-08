@@ -1,11 +1,11 @@
-let g:nnn#command = 'NNN_RESTRICT_NAV_OPEN=1 nnn'
+let g:nnn#command = 'nnn -o'
 let g:nnn#set_default_mappings = 0
 
 function! s:layout()
   let buf = nvim_create_buf(v:false, v:true)
 
   let height = &lines - (float2nr(&lines / 3))
-  let width = float2nr(&columns - (&columns * 2 / 3))
+  let width = float2nr(&columns - (&columns * 1 / 3))
 
   let opts = {
         \ 'relative': 'editor',
