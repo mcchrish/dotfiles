@@ -73,7 +73,9 @@ set softtabstop=2
 set expandtab
 set breakindent
 set autoindent
-let &showbreak="↳ "
+let &showbreak="↪ "
+
+set selection=exclusive
 
 " Wrapping
 set wrap
