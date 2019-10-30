@@ -1,9 +1,3 @@
-" notational-fzf-vim
-let g:nv_search_paths = [$NOTES_DIR]
-let g:nv_use_short_pathnames = 1
-let g:nv_create_note_window = 'edit'
-nnoremap <silent> <leader>nf :NV<cr>
-
 if $MINIMAL
   finish
 endif

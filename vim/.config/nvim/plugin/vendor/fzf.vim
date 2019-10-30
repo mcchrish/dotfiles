@@ -76,3 +76,6 @@ function! s:fzf_statusline()
   setlocal statusline=%#StatusLineTerm#\ fzf\ %#StatusLineTermNC#
 endfunction
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+" Close fzf when esc
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>

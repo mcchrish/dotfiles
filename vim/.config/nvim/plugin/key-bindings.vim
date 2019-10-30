@@ -97,5 +97,3 @@ autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
 autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
 
 nnoremap <silent> <leader><cr> :call my#refresh()<cr>
-nnoremap <silent> <leader>ns :call my#save_file_to_notes()<cr>
-nnoremap <silent> <leader>np :call my#preview_markdown("%:p", v:true)<cr>

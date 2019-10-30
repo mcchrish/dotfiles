@@ -35,7 +35,10 @@ call plug#begin('~/.local/share/nvim/vendor')
 Plug 'nightsense/snow'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
+if $VIMNOTES == 1
+  Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
+  Plug 'scrooloose/nerdtree'
+endif
 Plug 'mcchrish/nnn.vim'
 Plug 'mcchrish/extend-highlight.vim'
 Plug 'andymass/vim-matchup'
