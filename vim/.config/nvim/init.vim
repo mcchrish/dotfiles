@@ -1,11 +1,5 @@
 let mapleader = "\<space>"
 
-if has('gui_vimr')
-  cd $NOTES_DIR
-  let $MINIMAL = 1
-  let $VIMNOTES = 1
-endif
-
 " disable some builtin plugins
 let g:loaded_matchit            = 1
 let g:did_install_default_menus = 1
@@ -35,10 +29,6 @@ call plug#begin('~/.local/share/nvim/vendor')
 Plug 'nightsense/snow'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-if $VIMNOTES == 1
-  Plug 'Alok/notational-fzf-vim', { 'on': 'NV' }
-  Plug 'scrooloose/nerdtree'
-endif
 Plug 'mcchrish/nnn.vim'
 Plug 'mcchrish/extend-highlight.vim'
 Plug 'andymass/vim-matchup'
