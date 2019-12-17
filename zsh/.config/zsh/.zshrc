@@ -71,5 +71,7 @@ for func ($source_dir/functions/*.zsh) source $func
 # Aliases
 [[ -f "$source_dir/aliases.zsh" ]] && source "$source_dir/aliases.zsh"
 
+eval "$(rbenv init -)"
+
 # Ensure unique path
 typeset -gU cdpath fpath mailpath path
