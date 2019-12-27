@@ -5,7 +5,6 @@ alias du="du -kh"
 alias df="df -kh"
 alias which="command -v"
 # alias sudo="sudo "
-# alias cat='bat'
 
 # Vim
 alias v="vim"
@@ -23,7 +22,6 @@ if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
 fi
 
 # Quick piping
-alias -g B="| bat"
 alias -g L="| less"
 alias -g Z="| fzf"
 alias -g G="| rg"

@@ -41,16 +41,14 @@ echo "Install all programs..."
 source "stash/brewfile.sh"
 
 echo "Stowing config files..."
-stow --restow --no-folding rg
-stow --restow --no-folding cache
-stow --restow --no-folding git
-stow --restow --no-folding gnupg
-stow --restow --no-folding kitty
-stow --restow --no-folding system
-stow --restow --no-folding tmux
-stow --restow --no-folding vim
-stow --restow --no-folding vscode
-stow --restow --no-folding zsh
+/usr/local/bin/stow --restow --no-folding git
+/usr/local/bin/stow --restow --no-folding gnupg
+# /usr/local/bin/stow --restow --no-folding kitty
+/usr/local/bin/stow --restow --no-folding system
+/usr/local/bin/stow --restow --no-folding tmux
+/usr/local/bin/stow --restow --no-folding vim
+# /usr/local/bin/stow --restow --no-folding vscode
+/usr/local/bin/stow --restow --no-folding zsh
 
 if ! (command -v zplugin > /dev/null); then
   echo "Installing Zplugin..."

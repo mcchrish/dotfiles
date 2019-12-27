@@ -59,7 +59,6 @@ if has('nvim')
   Plug 'SirVer/ultisnips', { 'on': [] }
 endif
 
-" Plug 'dense-analysis/ale'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }

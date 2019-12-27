@@ -74,6 +74,7 @@ export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export GEM_HOME="$XDG_DATA_HOME"/gem
+# export RBENV_ROOT="$XDG_DATA_HOME"/rbenv
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem/specs
 export CP_HOME_DIR="$XDG_CACHE_HOME"/cocoapods
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
@@ -90,8 +91,6 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
 export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
-
-export NOTES_DIR="$HOME/Notes"
 
 # PATHs
 path=(

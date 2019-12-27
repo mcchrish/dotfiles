@@ -7,24 +7,22 @@ brew tap homebrew/cask-fonts
 brew install node
 brew install rust
 brew install python
-brew install bat
+brew install cocoapods
 brew install diff-so-fancy
 brew install fd
 brew install fzf
-brew install git-extras
 brew install gnupg
 brew install neovim
 brew install nnn
 brew install pass
+brew install rbenv
 brew install ripgrep
 brew install stow
-brew install tealdeer
 brew install tmux
+brew install tmuxinator
 
 # cask
-brew cask install aerial
 brew cask install calibre
-brew cask install dash
 brew cask install firefox
 brew cask install font-courier-prime
 brew cask install font-iosevka
@@ -38,10 +36,8 @@ brew cask install marked
 brew cask install pinentry-mac
 brew cask install qtpass
 brew cask install shifty
-brew cask install signal
 brew cask install skype
 brew cask install spotify
-brew cask install sublime-text
 brew cask install qbittorrent
 brew cask install vlc
 
@@ -52,10 +48,6 @@ export npm_config_prefix="$XDG_DATA_HOME/npm"
 export npm_config_init_module="$XDG_DATA_HOME/npm/config/npm-init.js"
 npm install -g trash-cli npm-check
 
-# gem
-gem install tmuxinator
-
 # pip
 pip3 install pynvim
 pip3 install --user neovim-remote
-pip3 install --user virtualenv
