@@ -2,7 +2,7 @@ if $MINIMAL
   finish
 endif
 
-let g:airline_extensions = ['ale', 'coc', 'branch', 'fugitiveline', 'quickfix', 'undotree', 'term']
+let g:airline_extensions = ['coc', 'branch', 'fugitiveline', 'quickfix', 'undotree', 'term']
 let g:airline_mode_map = {
       \ '__' : '-',
       \ 'c'  : 'C',
