@@ -24,6 +24,7 @@ brew install tmuxinator
 # cask
 brew cask install calibre
 brew cask install firefox
+brew cask install fsnotes
 brew cask install font-courier-prime
 brew cask install font-iosevka
 brew cask install font-iosevka-slab
@@ -33,10 +34,9 @@ brew cask install iterm2
 brew cask install java
 brew cask install keybase
 brew cask install marked
+brew cask install mullvadvpn
 brew cask install pinentry-mac
 brew cask install qtpass
-brew cask install shifty
-brew cask install skype
 brew cask install spotify
 brew cask install qbittorrent
 brew cask install vlc
