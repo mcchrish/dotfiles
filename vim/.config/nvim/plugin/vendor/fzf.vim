@@ -7,7 +7,7 @@ let g:fzf_action = {
       \ 'ctrl-v': 'vsplit'
       \ }
 
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
 
