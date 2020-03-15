@@ -8,7 +8,6 @@ brew install node
 brew install rust
 brew install python
 brew install cocoapods
-brew install diff-so-fancy
 brew install fd
 brew install fzf
 brew install gnupg

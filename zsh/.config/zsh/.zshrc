@@ -27,16 +27,19 @@ autoload -Uz _zplugin
 ### End of Zplugin's installer chunk
 
 export PURE_PROMPT_SYMBOL="❫"
+zstyle :prompt:pure:path color red
+zstyle :prompt:pure:git:branch color green
+zstyle :prompt:pure:git:branch:cached color green
+zstyle :prompt:pure:git:dirty color 89
 zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin light sindresorhus/pure
 
-export FZF_DEFAULT_OPTS="--color=16"
+export FZF_DEFAULT_OPTS="--color=16 --color='fg+:#eeeeee,bg+:#4e4e4e,hl:#00875f,hl+:#00875f,marker:#eeeeee'"
 export FZF_DEFAULT_COMMAND="fd --type f \
   --hidden \
   --exclude .git \
   --exclude .DS_Store \
-  --exclude .localized
-"
+  --exclude .localized"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 zplugin ice multisrc"shell/{key-bindings,completion}.zsh"
 zplugin light junegunn/fzf

@@ -43,6 +43,7 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 
 # LS
 export CLICOLOR=1
+export LSCOLORS=fxexcxdxbxegedabagacad
 
 export LESS_TERMCAP_mb=$'\E[01;31m'      # Begins blinking.
 export LESS_TERMCAP_md=$'\E[01;31m'      # Begins bold.
@@ -63,6 +64,7 @@ export ANDROID_HOME="$HOME"/Library/Android/sdk
 # Manually moving some to XDG
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/rg/config
 export npm_config_userconfig="$XDG_CONFIG_HOME"/npm/config
 export npm_config_cache="$XDG_CACHE_HOME"/npm
 export npm_config_prefix="$XDG_DATA_HOME"/npm
@@ -85,7 +87,7 @@ export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql/history
 export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export MBOX="$XDG_DATA_HOME"/mail/mbox
-export TMUXINATOR_CONFIG="$XDG_CONFIG_HOME"/tmuxinator
+# export TMUXINATOR_CONFIG="$XDG_CONFIG_HOME"/tmuxinator
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 # export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME"/android
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg

@@ -27,6 +27,8 @@ let g:python3_host_prog         = '/usr/local/bin/python3'
 call plug#begin('~/.local/share/nvim/vendor')
 
 Plug 'nightsense/snow'
+Plug 'pgdouyon/vim-yin-yang'
+Plug 'hardselius/warlock'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mcchrish/nnn.vim'
@@ -59,7 +61,7 @@ if has('nvim')
   Plug 'SirVer/ultisnips', { 'on': [] }
 endif
 
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'romainl/vim-qf'

@@ -2,8 +2,6 @@
 set termguicolors
 
 set background=dark
-let g:airline_theme='snow_dark'
-
 
 if !exists('$TMUX')
   let g:extend_highlight#extend_list = [
@@ -11,4 +9,4 @@ if !exists('$TMUX')
         \ ]
 endif
 
-colorscheme snow
+colorscheme yin
