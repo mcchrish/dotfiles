@@ -1,23 +1,7 @@
 let g:nnn#command = 'nnn -o'
 let g:nnn#set_default_mappings = 0
 
-function! s:layout()
-  let buf = nvim_create_buf(v:false, v:true)
-
-  let height = &lines - (float2nr(&lines / 3))
-  let width = float2nr(&columns - (&columns * 1 / 3))
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': 2,
-        \ 'col': 8,
-        \ 'width': width,
-        \ 'height': height
-        \ }
-
-  call nvim_open_win(buf, v:true, opts)
-endfunction
-let g:nnn#layout = 'call ' . string(function('<SID>layout')) . '()'
+let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 
 function! s:put_to_register(lines)
   let joined_lines = join(a:lines, '\n')

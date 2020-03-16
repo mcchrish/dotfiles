@@ -48,8 +48,6 @@ set synmaxcol=500
 set history=1000
 set tabpagemax=50
 
-autocmd TermOpen * silent setlocal sidescrolloff=0
-
 " No bells
 set visualbell t_vb=
 set nojoinspaces
