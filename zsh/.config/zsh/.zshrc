@@ -34,7 +34,7 @@ zstyle :prompt:pure:git:dirty color 89
 zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin light sindresorhus/pure
 
-export FZF_DEFAULT_OPTS="--color=16 --color='fg+:#eeeeee,bg+:#4e4e4e,hl:#00875f,hl+:#00875f,marker:#eeeeee'"
+export FZF_DEFAULT_OPTS="--color=16 --color='fg+:#eeeeee,bg+:#4e4e4e,hl:#00875f,hl+:#00875f,marker:#eeeeee,prompt:#767676'"
 export FZF_DEFAULT_COMMAND="fd --type f \
   --hidden \
   --exclude .git \

@@ -8,10 +8,8 @@ let g:fzf_action = {
       \ }
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 
-command! -bang -nargs=* FzfRgAll
-      \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always --smart-case --hidden '.shellescape(<q-args>), 1,
-      \   <bang>0)
+command! -bang -nargs=* FzfRgAll call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --hidden ".shellescape(<q-args>), 1, { 'options': ['--color', 'hl:#00875f,hl+:#00875f'] }, <bang>0)
+command! -bang -nargs=* FzfRg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, { 'options': ['--color', 'hl:#00875f,hl+:#00875f'] }, <bang>0)
 
 " Search current word under cursor
 function! SearchWordWithRg()
