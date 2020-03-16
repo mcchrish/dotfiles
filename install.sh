@@ -1,4 +1,4 @@
-#!/bin/bash
+q#!/bin/bash
 
 # XDG
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
@@ -43,6 +43,7 @@ source "stash/brewfile.sh"
 echo "Stowing config files..."
 /usr/local/bin/stow --restow --no-folding git
 /usr/local/bin/stow --restow --no-folding gnupg
+/usr/local/bin/stow --restow --no-folding rg
 # /usr/local/bin/stow --restow --no-folding kitty
 /usr/local/bin/stow --restow --no-folding system
 /usr/local/bin/stow --restow --no-folding tmux
@@ -50,9 +51,9 @@ echo "Stowing config files..."
 # /usr/local/bin/stow --restow --no-folding vscode
 /usr/local/bin/stow --restow --no-folding zsh
 
-if ! (command -v zplugin > /dev/null); then
-  echo "Installing Zplugin..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+if ! (command -v zinit > /dev/null); then
+  echo "Installing zinit..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 fi
 
 echo "Installing vim-plug..."

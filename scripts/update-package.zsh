@@ -19,10 +19,10 @@ printf "%s\\n" "Updating neovim..."
 # nvim --headless +PlugUpdate +PlugUpgrade +qall
 
 printf "%s\\n" "Updating zsh..."
-source "$HOME/.config/zsh/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-zplugin update --all
-zplugin self-update
+source "$HOME/.config/zsh/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+zinit update --all
+zinit self-update
 
 printf "%s\\n" "Cleaning up"
 brew cleanup

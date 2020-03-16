@@ -20,19 +20,19 @@ local source_dir="$XDG_CONFIG_HOME/zsh"
 # Shell options
 [[ -f "$source_dir/shelloptions.zsh" ]] && source "$source_dir/shelloptions.zsh"
 
-### Added by Zplugin's installer
-source "/Users/mcchris/.config/zsh/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
+### Added by zinit's installer
+source "/Users/mcchris/.config/zsh/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of zinit's installer chunk
 
 export PURE_PROMPT_SYMBOL="❫"
 zstyle :prompt:pure:path color red
 zstyle :prompt:pure:git:branch color green
 zstyle :prompt:pure:git:branch:cached color green
 zstyle :prompt:pure:git:dirty color 89
-zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light sindresorhus/pure
+zinit ice compile"(pure|async).zsh" pick"async.zsh" src"pure.zsh"
+zinit light sindresorhus/pure
 
 export FZF_DEFAULT_OPTS="--color=16 --color='fg+:#eeeeee,bg+:#4e4e4e,hl:#00875f,hl+:#00875f,marker:#eeeeee,prompt:#767676'"
 export FZF_DEFAULT_COMMAND="fd --type f \
@@ -41,23 +41,20 @@ export FZF_DEFAULT_COMMAND="fd --type f \
   --exclude .DS_Store \
   --exclude .localized"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-zplugin ice multisrc"shell/{key-bindings,completion}.zsh"
-zplugin light junegunn/fzf
+zinit ice multisrc"shell/{key-bindings,completion}.zsh"
+zinit light junegunn/fzf
 
 export _ZL_DATA="$XDG_DATA_HOME/zl"
-zplugin ice silent wait"1a"
-zplugin light skywind3000/z.lua
+zinit ice silent wait"1a"
+zinit light skywind3000/z.lua
 alias j="z -I"
 
-zplugin ice silent wait"0a" atload"zpcompinit"
-zplugin light zsh-users/zsh-completions
+zinit ice silent wait"0a" atload"zpcompinit"
+zinit light zsh-users/zsh-completions
 
 export HISTORY_SUBSTRING_SEARCH_FUZZY=1
-zplugin ice silent wait"0b"
-zplugin light zsh-users/zsh-history-substring-search
-
-zplugin ice silent wait"1b"
-zplugin light zdharma/fast-syntax-highlighting
+zinit ice silent wait"0b"
+zinit light zsh-users/zsh-history-substring-search
 
 # Completions
 [[ -f "$source_dir/completions.zsh" ]] && source "$source_dir/completions.zsh"
