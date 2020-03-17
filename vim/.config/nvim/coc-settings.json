@@ -26,5 +26,9 @@
     "vue"
   ],
   "suggest.maxPreviewWidth": 80,
-  "suggest.enablePreview": true
+  "suggest.enablePreview": true,
+  "list.insertMappings": {
+    "<c-n>": "normal:j",
+    "<c-p>": "normal:k"
+  }
 }

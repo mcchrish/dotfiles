@@ -50,6 +50,7 @@ if $MINIMAL
 endif
 
 if has('nvim')
+  Plug 'liuchengxu/vista.vim'
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
   " Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}

@@ -38,9 +38,9 @@ let g:gitgutter_sign_modified = '┃'
 let g:gitgutter_sign_removed = '━'
 let g:gitgutter_sign_modified_removed = '┳'
 
-highlight link GitGutterAdd Statement
-highlight link GitGutterChange Ignore
-highlight link GitGutterDelete Function
+highlight GitGutterAdd guifg=#00875f guibg=#262626
+highlight GitGutterChange guifg=#005f87 guibg=#262626
+highlight GitGutterDelete guifg=#870000 guibg=#262626
 
 nnoremap <silent> <leader>gg :GitGutterToggle<cr>
 nnoremap <silent> <leader>gh :GitGutterLineHighlightsToggle<cr>
@@ -58,12 +58,6 @@ let g:vue_pre_processors = []
 let g:matchup_matchparen_deferred = 1
 let g:matchup_matchparen_status_offscreen = 0
 
-" coc.nvim
-nnoremap <silent> K :call <SID>show_documentation()<cr>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" vista.vim
+let g:vista#renderer#enable_icon = 0
+nnoremap <silent> <leader>v :Vista!!<cr>
