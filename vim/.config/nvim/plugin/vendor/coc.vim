@@ -27,6 +27,20 @@ endfunction
 
 nnoremap <silent> <leader>o  :<c-u>CocList outline<cr>
 
+" Snippet tab completion
+inoremap <silent><expr> <tab>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<c-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<cr>" :
+      \ <SID>check_back_space() ? "\<tab>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 

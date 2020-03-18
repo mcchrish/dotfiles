@@ -25,6 +25,7 @@
     "typescriptreact",
     "vue"
   ],
+  "coc.preferences.formatOnType": true,
   "suggest.maxPreviewWidth": 80,
   "suggest.enablePreview": true,
   "list.insertMappings": {

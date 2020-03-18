@@ -53,16 +53,18 @@ if has('nvim')
   Plug 'liuchengxu/vista.vim'
   Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-  " Plug 'neoclide/coc-tabnine', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
   Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'SirVer/ultisnips', { 'on': [] }
+  Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 endif
 
-" Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'romainl/vim-qf'
@@ -88,7 +90,6 @@ Plug 'posva/vim-vue'
 " Plug 'milch/vim-fastlane'
 Plug 'hail2u/vim-css3-syntax'
 " Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
-Plug 'mattn/emmet-vim'
 Plug 'mcchrish/fountain.vim'
 " Plug 'jxnblk/vim-mdx-js'
 
