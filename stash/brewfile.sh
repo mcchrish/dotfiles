@@ -46,7 +46,3 @@ export npm_config_cache="$XDG_CACHE_HOME/npm"
 export npm_config_prefix="$XDG_DATA_HOME/npm"
 export npm_config_init_module="$XDG_DATA_HOME/npm/config/npm-init.js"
 npm install -g trash-cli npm-check
-
-# pip
-pip3 install pynvim
-pip3 install --user neovim-remote
