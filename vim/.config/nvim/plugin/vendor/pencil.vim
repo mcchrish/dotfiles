@@ -1,7 +1,3 @@
-if $MINIMAL
-  finish
-endif
-
 let g:pencil#wrapModeDefault = 'soft'
 
 augroup pencil

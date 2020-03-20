@@ -26,9 +26,7 @@ let g:python3_host_prog         = '/usr/local/bin/python3'
 
 call plug#begin('~/.local/share/nvim/vendor')
 
-Plug 'nightsense/snow'
 Plug 'pgdouyon/vim-yin-yang'
-Plug 'hardselius/warlock'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug '~/vimming/nnn.vim'
@@ -44,26 +42,19 @@ Plug 'tpope/vim-rsi'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
-if $MINIMAL
-  call plug#end()
-  finish
-endif
-
-if has('nvim')
-  Plug 'liuchengxu/vista.vim'
-  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-endif
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'liuchengxu/vista.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
@@ -86,11 +77,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'othree/html5.vim'
 Plug 'posva/vim-vue'
-" Plug 'tfnico/vim-gradle'
-" Plug 'milch/vim-fastlane'
 Plug 'hail2u/vim-css3-syntax'
-" Plug 'ap/vim-css-color', { 'for': [ 'sass', 'scss', 'css', 'less' ] }
 Plug 'mcchrish/fountain.vim'
-" Plug 'jxnblk/vim-mdx-js'
 
 call plug#end()

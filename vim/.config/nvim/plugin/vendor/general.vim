@@ -1,7 +1,3 @@
-if $MINIMAL
-  finish
-endif
-
 " vim-fugitive
 nnoremap <silent> <leader>gs :G<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>

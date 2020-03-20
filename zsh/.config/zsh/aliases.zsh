@@ -40,6 +40,7 @@ alias tkill="tmux kill-session -t"
 
 # Tmuxinator
 alias muxs="tmuxinator start"
+alias mxt="tmuxinator"
 
 # Cd
 alias ".."="cd .."

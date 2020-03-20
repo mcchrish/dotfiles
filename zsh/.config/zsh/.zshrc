@@ -15,10 +15,10 @@ WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 # Emacs keybindings
 bindkey -e
 
-local source_dir="$XDG_CONFIG_HOME/zsh"
+local srcdir="$XDG_CONFIG_HOME/zsh"
 
 # Shell options
-[[ -f "$source_dir/shelloptions.zsh" ]] && source "$source_dir/shelloptions.zsh"
+[[ -f "$srcdir/shelloptions.zsh" ]] && source "$srcdir/shelloptions.zsh"
 
 ### Added by zinit's installer
 source "/Users/mcchris/.config/zsh/.zinit/bin/zinit.zsh"
@@ -57,16 +57,16 @@ zinit ice silent wait"0b"
 zinit light zsh-users/zsh-history-substring-search
 
 # Completions
-[[ -f "$source_dir/completions.zsh" ]] && source "$source_dir/completions.zsh"
+[[ -f "$srcdir/completions.zsh" ]] && source "$srcdir/completions.zsh"
 
 # Keybindings
-[[ -f "$source_dir/keybindings.zsh" ]] && source "$source_dir/keybindings.zsh"
+[[ -f "$srcdir/keybindings.zsh" ]] && source "$srcdir/keybindings.zsh"
 
 # Functions
-for func ($source_dir/functions/*.zsh) source $func
+for func ($srcdir/functions/*.zsh) source $func
 
 # Aliases
-[[ -f "$source_dir/aliases.zsh" ]] && source "$source_dir/aliases.zsh"
+[[ -f "$srcdir/aliases.zsh" ]] && source "$srcdir/aliases.zsh"
 
 eval "$(rbenv init -)"
 
