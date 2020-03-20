@@ -56,4 +56,12 @@ let g:matchup_matchparen_status_offscreen = 0
 
 " vista.vim
 let g:vista#renderer#enable_icon = 0
-nnoremap <silent> <leader>v :Vista!!<cr>
+nnoremap <silent> <leader>ss :Vista!!<cr>
+nnoremap <silent> <leader>sf :Vista finder fzf<cr>
+
+" vim-which-key
+nnoremap <silent> <leader> :<c-u>WhichKey '<space>'<cr>
+highlight link WhichKeyFloating LineNr
+let g:which_key_use_floating_win = 1
+highlight default link WhichKey GitGutterAdd
+highlight default link WhichKeySeperator FoldColumn

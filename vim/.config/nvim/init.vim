@@ -30,7 +30,6 @@ Plug 'pgdouyon/vim-yin-yang'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug '~/vimming/nnn.vim'
-Plug 'mcchrish/extend-highlight.vim'
 Plug 'andymass/vim-matchup'
 Plug 'justinmk/vim-sneak'
 Plug 'junegunn/vim-slash'
@@ -56,6 +55,8 @@ Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'liuchengxu/vista.vim'
 
+Plug 'wellle/context.vim'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'romainl/vim-qf'

@@ -7,7 +7,7 @@ set fileformats=unix,mac,dos
 set fileformat=unix
 set encoding=utf-8
 set ttimeout
-set ttimeoutlen=100
+set ttimeoutlen=500
 set backspace=indent,eol,start
 set showcmd
 set hlsearch incsearch
