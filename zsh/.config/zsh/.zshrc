@@ -31,6 +31,7 @@ zstyle :prompt:pure:path color red
 zstyle :prompt:pure:git:branch color green
 zstyle :prompt:pure:git:branch:cached color green
 zstyle :prompt:pure:git:dirty color 89
+zstyle :prompt:pure:prompt:error color 94
 zinit ice compile"(pure|async).zsh" pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 

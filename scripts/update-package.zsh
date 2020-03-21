@@ -6,7 +6,6 @@ export npm_config_prefix="$HOME"/.cache/npm
 printf "%80s\\n" "" | tr " " "#"
 printf "%s\\n" "Updating" "$(date)"
 
-printf "%s\\n" "Updating brew..."
 brew upgrade
 
 printf "%s\\n" "Updating npm..."

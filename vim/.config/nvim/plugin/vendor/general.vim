@@ -65,3 +65,6 @@ highlight link WhichKeyFloating LineNr
 let g:which_key_use_floating_win = 1
 highlight default link WhichKey GitGutterAdd
 highlight default link WhichKeySeperator FoldColumn
+
+" context.vim
+let g:context_highlight_border = 'SpecialComment'
