@@ -61,6 +61,8 @@ export VISUAL='nvim'
 export ANDROID_SDK_ROOT="$HOME"/Library/Android/sdk
 export ANDROID_HOME="$HOME"/Library/Android/sdk
 
+RBENV_VERSION=2.6.5
+
 # Manually moving some to XDG
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
@@ -71,10 +73,10 @@ export npm_config_prefix="$XDG_DATA_HOME"/npm
 export npm_config_init_module="$XDG_DATA_HOME"/npm/config/npm-init.js
 export NVM_DIR="$XDG_DATA_HOME"/nvm
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node/repl_history
-export BABEL_CACHE_PATH="$XDG_CACHE_HOME"/babel/babel.json
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
+export PUB_CACHE="$XDG_CACHE_HOME"/pub-cache
 export GEM_HOME="$XDG_DATA_HOME"/gem
 # export RBENV_ROOT="$XDG_DATA_HOME"/rbenv
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem/specs
@@ -84,10 +86,8 @@ export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export GRADLE_USER_HOME="$XDG_CACHE_HOME"/gradle
 export PSQL_HISTORY="$XDG_DATA_HOME"/psql/history
 export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql/history
-export HTTPIE_CONFIG_DIR="$XDG_CONFIG_HOME"/httpie
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export MBOX="$XDG_DATA_HOME"/mail/mbox
-# export TMUXINATOR_CONFIG="$XDG_CONFIG_HOME"/tmuxinator
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 # export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME"/android
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
