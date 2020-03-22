@@ -10,8 +10,8 @@ let g:undotree_WindowLayout       = 2
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_SplitWidth         = 40
 
-" vim-signature
-let g:SignatureEnabledAtStartup = 0
+" vim-peekaboo
+let g:peekaboo_window = 'vert bo 40new'
 
 " vim-gitgutter
 set updatetime=200
@@ -28,9 +28,6 @@ highlight GitGutterDelete guifg=#870000 guibg=#262626
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
-
-" vim-jsx
-let g:jsx_ext_required = 0
 
 " vim-vue
 let g:vue_pre_processors = []
@@ -52,22 +49,3 @@ highlight default link WhichKeySeperator FoldColumn
 " context.vim
 let g:context_enabled = 0
 let g:context_highlight_border = 'SpecialComment'
-
-" emmet-vim
-let g:user_emmet_mode='i'
-let g:user_emmet_leader_key='<c-s>'
-
-let g:user_emmet_settings = {
-      \   'javascript.jsx': {
-      \     'extends': 'jsx'
-      \   },
-      \   'typescript': {
-      \     'extends': 'jsx'
-      \   },
-      \   'typescript.tsx': {
-      \     'extends': 'jsx'
-      \   }
-      \ }
-
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,sass,scss,javascript,jsx,vue,typescript.tsx,markdown EmmetInstall

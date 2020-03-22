@@ -54,7 +54,7 @@ Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'liuchengxu/vista.vim'
 
-Plug 'wellle/context.vim'
+Plug 'wellle/context.vim', { 'on': 'ContextToggle' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
@@ -64,17 +64,16 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-" Plug 'kshenoy/vim-signature'
 Plug 'airblade/vim-gitgutter'
 Plug 'brooth/far.vim', { 'on': 'Far' }
-Plug 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim', { 'on': 'TComment' }
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
 Plug 'machakann/vim-highlightedyank'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
 Plug 'othree/html5.vim'
 Plug 'posva/vim-vue'
 Plug 'hail2u/vim-css3-syntax'
