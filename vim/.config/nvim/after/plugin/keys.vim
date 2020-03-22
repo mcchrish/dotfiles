@@ -107,8 +107,8 @@ let g:which_key_map['<CR>'] = 'Refresh'
 nnoremap <silent> <leader><cr> :call my#refresh()<cr>
 
 " tcomment_vim
-nnoremap gcc :TComment<cr>
-vnoremap gcc :TComment<cr>
+nnoremap <silent> gcc :TComment<cr>
+vnoremap <silent> gc :TComment<cr>
 
 " vim-fugitive
 let g:which_key_map.g = { 'name': '+Git' }
