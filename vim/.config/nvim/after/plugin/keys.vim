@@ -2,6 +2,7 @@
 let g:which_key_map = {}
 call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader> :<c-u>WhichKey '<space>'<cr>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<space>'<cr>
 
 " Move vertically by visual line
 nnoremap j gj
@@ -289,3 +290,7 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+" context.vim
+let g:which_key_map.t = 'context'
+nnoremap <leader>t :ContextToggle<cr>

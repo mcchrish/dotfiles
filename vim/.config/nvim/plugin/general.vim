@@ -2,13 +2,10 @@
 autocmd VimResized * :wincmd =
 
 set modelines=1
-set autoread
 set fileformats=unix,mac,dos
 set fileformat=unix
 set encoding=utf-8
-set ttimeout
-set ttimeoutlen=300
-set backspace=indent,eol,start
+set timeoutlen=200
 set showcmd
 set hlsearch incsearch
 if exists('&inccommand')
@@ -77,7 +74,6 @@ let &showbreak="↪ "
 set selection=exclusive
 
 " Wrapping
-set wrap
 set linebreak
 set textwidth=80
 set formatoptions=cqj1 " format using textwidth, including comments and gq
