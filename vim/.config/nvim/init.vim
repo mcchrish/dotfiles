@@ -48,7 +48,6 @@ Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
@@ -69,13 +68,13 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim'
-" Plug 'mcchrish/vim-closer'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
 Plug 'machakann/vim-highlightedyank'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'posva/vim-vue'
 Plug 'hail2u/vim-css3-syntax'
