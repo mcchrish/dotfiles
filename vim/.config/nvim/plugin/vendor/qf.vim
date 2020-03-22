@@ -11,4 +11,3 @@ nmap <silent> [q <Plug>QfCprevious
 nmap <silent> ]q <Plug>QfCnext
 nmap <silent> [l <Plug>QfLprevious
 nmap <silent> ]l <Plug>QfLnext
-

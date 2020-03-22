@@ -71,6 +71,7 @@ export npm_config_userconfig="$XDG_CONFIG_HOME"/npm/config
 export npm_config_cache="$XDG_CACHE_HOME"/npm
 export npm_config_prefix="$XDG_DATA_HOME"/npm
 export npm_config_init_module="$XDG_DATA_HOME"/npm/config/npm-init.js
+export NO_UPDATE_NOTIFIER=1
 export NVM_DIR="$XDG_DATA_HOME"/nvm
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node/repl_history
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle

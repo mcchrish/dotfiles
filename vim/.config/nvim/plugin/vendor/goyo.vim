@@ -1,5 +1,5 @@
 let g:goyo_width = 120
-nnoremap <silent> <leader>- :Goyo<cr>
+
 function! s:goyo_enter()
   if exists('$TMUX')
     silent !tmux set status off

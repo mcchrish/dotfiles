@@ -61,7 +61,7 @@ zinit light zsh-users/zsh-history-substring-search
 [[ -f "$srcdir/completions.zsh" ]] && source "$srcdir/completions.zsh"
 
 # Keybindings
-[[ -f "$srcdir/keybindings.zsh" ]] && source "$srcdir/keybindings.zsh"
+[[ -f "$srcdir/keys.zsh" ]] && source "$srcdir/keys.zsh"
 
 # Functions
 for func ($srcdir/functions/*.zsh) source $func

@@ -4,6 +4,7 @@
   "diagnostic.infoSign": "▪",
   "diagnostic.hintSign": "⋅",
   "tsserver.enableJavascript": false,
+  "codeLens.enable": false,
   "eslint.run": "onSave",
   "eslint.filetypes": [
     "javascript",

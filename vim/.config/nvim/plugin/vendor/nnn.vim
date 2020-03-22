@@ -18,20 +18,4 @@ let g:nnn#action = {
       \ '<c-v>': 'vsplit',
       \ '<c-o>': function('<SID>put_to_register') }
 
-function! s:Nnn(...)
-  let l:dir = get(a:, 1, '')
-  let l:opts = get(a:, 2, { 'edit': 'edit' })
-  let l:keypress = get(a:, 3, '')
-  call nnn#pick(l:dir, l:opts)
-  if strlen(l:keypress) > 0
-    call feedkeys(l:keypress)
-  endif
-endfunction
-
-
-nnoremap <silent> <leader>nn :call <SID>Nnn()<CR>
-nnoremap <silent> <leader>nc :call <SID>Nnn(expand('%:h'))<CR>
-nnoremap <silent> <leader>nt :call <SID>Nnn('', { 'edit': function('<SID>put_to_register') })<CR>
-nnoremap <silent> <leader>nd :call <SID>Nnn('~/.dotfiles', { 'edit': 'edit', 'layout': { 'down': '40%' } }, 'tg.')<CR>
-
 autocmd! FileType nnn tnoremap <buffer> <esc> q
