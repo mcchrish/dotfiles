@@ -5,7 +5,7 @@ set modelines=1
 set fileformats=unix,mac,dos
 set fileformat=unix
 set encoding=utf-8
-set timeoutlen=200
+set timeoutlen=300
 set showcmd
 set hlsearch incsearch
 if exists('&inccommand')
