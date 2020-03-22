@@ -106,6 +106,10 @@ autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
 let g:which_key_map['<CR>'] = 'Refresh'
 nnoremap <silent> <leader><cr> :call my#refresh()<cr>
 
+" tcomment_vim
+nnoremap gcc :TComment<cr>
+vnoremap gcc :TComment<cr>
+
 " vim-fugitive
 let g:which_key_map.g = { 'name': '+Git' }
 let g:which_key_map.g.s = 'status'

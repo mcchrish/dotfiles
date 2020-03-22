@@ -1,3 +1,6 @@
+" tcomment_vim
+let g:tcomment_maps = 0
+
 " splitjoin.vim
 let g:splitjoin_split_mapping = ''
 let g:splitjoin_join_mapping = ''
