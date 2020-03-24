@@ -58,6 +58,7 @@ Plug 'wellle/context.vim', { 'on': 'ContextToggle' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
+Plug 'rhysd/git-messenger.vim'
 Plug 'romainl/vim-qf'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-peekaboo'

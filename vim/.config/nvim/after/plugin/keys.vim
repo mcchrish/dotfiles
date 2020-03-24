@@ -114,11 +114,11 @@ vnoremap <silent> gc :TComment<cr>
 let g:which_key_map.g = { 'name': '+Git' }
 let g:which_key_map.g.s = 'status'
 let g:which_key_map.g.d = 'diff'
-let g:which_key_map.g.m = 'diff master'
+let g:which_key_map.g.m = 'messenger'
 let g:which_key_map.g.b = 'blame'
 nnoremap <silent> <leader>gs :G<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
-nnoremap <silent> <leader>gm :Gdiffsplit develop<cr>
+" nnoremap <silent> <leader>gm :Gdiffsplit develop<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 
 " splitjoin.vim
