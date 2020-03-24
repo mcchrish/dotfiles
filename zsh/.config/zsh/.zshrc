@@ -21,7 +21,7 @@ local srcdir="$XDG_CONFIG_HOME/zsh"
 [[ -f "$srcdir/shelloptions.zsh" ]] && source "$srcdir/shelloptions.zsh"
 
 ### Added by zinit's installer
-source "/Users/mcchris/.config/zsh/.zinit/bin/zinit.zsh"
+source "$srcdir/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of zinit's installer chunk

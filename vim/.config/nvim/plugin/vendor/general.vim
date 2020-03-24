@@ -38,6 +38,7 @@ let g:matchup_matchparen_status_offscreen = 0
 
 " vista.vim
 let g:vista#renderer#enable_icon = 0
+let g:vista_default_executive = 'coc'
 
 " vim-which-key
 let g:which_key_use_floating_win = 1
