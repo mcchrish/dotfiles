@@ -281,20 +281,24 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Snippet tab completion
-inoremap <silent><expr> <tab>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<c-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<cr>" :
-      \ <SID>check_back_space() ? "\<tab>" :
-      \ coc#refresh()
+" Use <c-l> for trigger snippet expand.
+imap <c-l> <plug>(coc-snippets-expand)
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+" Use <c-j> for select text for visual placeholder of snippet.
+vmap <c-j> <plug>(coc-snippets-select)
 
-let g:coc_snippet_next = '<tab>'
+" Use <c-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <c-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <c-j> for both expand and jump (make expand higher priority.)
+imap <c-j> <plug>(coc-snippets-expand-jump)
 
 " context.vim
 let g:which_key_map.t = 'context'
 nnoremap <leader>t :ContextToggle<cr>
+
+" info-window.nvim
+nnoremap <silent> <c-g> :InfoWindowToggle<cr>

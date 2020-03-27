@@ -30,6 +30,7 @@ Plug 'pgdouyon/vim-yin-yang'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug '~/vimming/nnn.vim'
+Plug '~/vimming/info-window.nvim', { 'on': 'InfoWindowToggle' }
 Plug 'andymass/vim-matchup'
 Plug 'justinmk/vim-sneak'
 Plug 'junegunn/vim-slash'
