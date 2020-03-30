@@ -51,3 +51,6 @@ highlight default link WhichKeySeperator FoldColumn
 " context.vim
 let g:context_enabled = 0
 let g:context_highlight_border = 'SpecialComment'
+
+" info-window.nvim
+let g:infowindow_timeout = 5000
