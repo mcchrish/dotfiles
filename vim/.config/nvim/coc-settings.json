@@ -32,5 +32,8 @@
   "list.insertMappings": {
     "<c-n>": "normal:j",
     "<c-p>": "normal:k"
+  },
+  "snippets.extends": {
+    "typescriptreact": ["typescript"]
   }
 }
