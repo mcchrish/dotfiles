@@ -42,17 +42,7 @@ Plug 'tpope/vim-rsi'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'liuchengxu/vista.vim'
 
 Plug 'wellle/context.vim', { 'on': 'ContextToggle' }
@@ -80,5 +70,18 @@ Plug 'othree/html5.vim'
 Plug 'posva/vim-vue'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mcchrish/fountain.vim'
+
+let g:coc_global_extensions = [
+      \ 'coc-tsserver',
+      \ 'coc-json',
+      \ 'coc-vetur',
+      \ 'coc-eslint',
+      \ 'coc-prettier',
+      \ 'coc-highlight',
+      \ 'coc-snippets',
+      \ 'coc-phpls',
+      \ 'coc-html',
+      \ 'coc-css'
+      \ ]
 
 call plug#end()
