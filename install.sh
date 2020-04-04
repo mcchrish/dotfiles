@@ -1,4 +1,4 @@
-q#!/bin/bash
+#!/bin/bash
 
 # XDG
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
