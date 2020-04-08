@@ -37,10 +37,12 @@ Plug 'junegunn/vim-slash'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
-Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-rsi'
+Plug 'machakann/vim-sandwich'
+Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'liuchengxu/vista.vim'
@@ -50,18 +52,14 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'rhysd/git-messenger.vim'
-Plug 'romainl/vim-qf'
 Plug 'wellle/targets.vim'
-Plug 'junegunn/vim-peekaboo'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'junegunn/vim-peekaboo'
 " Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim', { 'on': 'TComment' }
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-sleuth'
-Plug 'machakann/vim-highlightedyank'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
