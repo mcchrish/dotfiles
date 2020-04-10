@@ -44,11 +44,9 @@ echo "Stowing config files..."
 /usr/local/bin/stow --restow --no-folding git
 /usr/local/bin/stow --restow --no-folding gnupg
 /usr/local/bin/stow --restow --no-folding rg
-# /usr/local/bin/stow --restow --no-folding kitty
 /usr/local/bin/stow --restow --no-folding system
 /usr/local/bin/stow --restow --no-folding tmux
 /usr/local/bin/stow --restow --no-folding vim
-# /usr/local/bin/stow --restow --no-folding vscode
 /usr/local/bin/stow --restow --no-folding zsh
 
 if ! (command -v zinit > /dev/null); then
