@@ -24,7 +24,7 @@ let g:loaded_zipPlugin          = 1
 let g:python_host_prog          = '/usr/bin/python'
 let g:python3_host_prog         = '/usr/local/bin/python3'
 
-call plug#begin('~/.local/share/nvim/vendor')
+call plug#begin(stdpath('data') . '/vendor')
 
 Plug 'pgdouyon/vim-yin-yang'
 Plug '/usr/local/opt/fzf'
@@ -50,7 +50,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'wellle/context.vim', { 'on': 'ContextToggle' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim', { 'on': 'GV' }
+Plug 'rbong/vim-flog', { 'on': ['Flog', 'FlogSplit'] }
 Plug 'rhysd/git-messenger.vim'
 Plug 'wellle/targets.vim'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -70,16 +70,16 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'mcchrish/fountain.vim'
 
 let g:coc_global_extensions = [
-      \ 'coc-tsserver',
-      \ 'coc-json',
-      \ 'coc-vetur',
-      \ 'coc-eslint',
-      \ 'coc-prettier',
-      \ 'coc-highlight',
-      \ 'coc-snippets',
-      \ 'coc-phpls',
-      \ 'coc-html',
-      \ 'coc-css'
-      \ ]
+                  \ 'coc-tsserver',
+                  \ 'coc-json',
+                  \ 'coc-vetur',
+                  \ 'coc-eslint',
+                  \ 'coc-prettier',
+                  \ 'coc-highlight',
+                  \ 'coc-snippets',
+                  \ 'coc-phpls',
+                  \ 'coc-html',
+                  \ 'coc-css'
+                  \ ]
 
 call plug#end()

@@ -116,10 +116,11 @@ let g:which_key_map.g.s = 'status'
 let g:which_key_map.g.d = 'diff'
 let g:which_key_map.g.m = 'messenger'
 let g:which_key_map.g.b = 'blame'
+let g:which_key_map.g.l = 'log'
 nnoremap <silent> <leader>gs :G<cr>
 nnoremap <silent> <leader>gd :Gdiff<cr>
-" nnoremap <silent> <leader>gm :Gdiffsplit develop<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
+nnoremap <silent> <leader>gl :Flog<cr>
 
 " splitjoin.vim
 nnoremap gss :SplitjoinSplit<cr>
