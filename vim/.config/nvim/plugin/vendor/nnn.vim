@@ -1,6 +1,7 @@
 let g:nnn#command = 'nnn -o'
 let g:nnn#set_default_mappings = 0
-
+let g:nnn#statusline = 0
+let g:nnn#replace_netrw = 1
 let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 
 function! s:put_to_register(lines)
@@ -16,6 +17,7 @@ let g:nnn#action = {
       \ '<c-t>': 'tab split',
       \ '<c-s>': 'split',
       \ '<c-v>': 'vsplit',
-      \ '<c-o>': function('<SID>put_to_register') }
+      \ '<c-o>': function('<SID>put_to_register')
+      \ }
 
 autocmd! FileType nnn tnoremap <buffer> <esc> q
