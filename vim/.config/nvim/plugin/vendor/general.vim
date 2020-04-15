@@ -56,4 +56,10 @@ let g:context_highlight_border = 'SpecialComment'
 let g:infowindow_timeout = 5000
 let g:infowindow_create_default_commands = 0
 command! InfoWindowToggle call infowindow#toggle({},
-                  \ { default_lines -> extend(default_lines, [['branch', fugitive#head()]]) })
+                  \   { default_lines ->
+                  \     extend(default_lines, [
+                  \       ['branch', fugitive#head()], 
+                  \       ['cursor', nvim_win_get_cursor(winnr() - 1)[0] . ', ' . (nvim_win_get_cursor(winnr() - 1)[1]  + 1)]
+                  \     ])
+                  \   }
+                  \ )
