@@ -68,6 +68,7 @@ Plug 'othree/html5.vim'
 Plug 'posva/vim-vue'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mcchrish/fountain.vim'
+Plug 'rust-lang/rust.vim'
 
 let g:coc_global_extensions = [
                   \ 'coc-tsserver',
@@ -79,7 +80,8 @@ let g:coc_global_extensions = [
                   \ 'coc-snippets',
                   \ 'coc-phpls',
                   \ 'coc-html',
-                  \ 'coc-css'
+                  \ 'coc-css',
+                  \ 'coc-rust-analyzer'
                   \ ]
 
 call plug#end()

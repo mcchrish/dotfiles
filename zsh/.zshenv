@@ -100,6 +100,7 @@ path=(
   "$HOME"/Library/Python/3.7/bin
   "$XDG_DATA_HOME"/gem/bin
   "$XDG_DATA_HOME"/npm/bin
+  "$XDG_DATA_HOME"/cargo/bin
   "$ANDROID_HOME"/{emulator,tools,tools/bin,platform-tools}
   "$path"
 )

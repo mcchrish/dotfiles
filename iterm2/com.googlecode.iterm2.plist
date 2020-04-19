@@ -1057,7 +1057,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>337 269 1130 762 0 0 2560 1417 </string>
+	<string>159 481 1130 762 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>85 178 1090 877 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -3536,7 +3536,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>72048827-4360-4BC6-9823-A5C463A7092F</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>748</integer>
+	<integer>854</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -4415,7 +4415,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-03-30T00:58:34Z</date>
+	<date>2020-04-18T01:24:01Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -4441,7 +4441,7 @@
 	<key>StatusBarPosition</key>
 	<integer>1</integer>
 	<key>StretchTabsToFillBar</key>
-	<true/>
+	<false/>
 	<key>SwitchPaneModifier</key>
 	<integer>9</integer>
 	<key>SwitchTabModifier</key>
