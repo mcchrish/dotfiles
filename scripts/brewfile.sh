@@ -5,7 +5,6 @@ brew tap homebrew/cask-fonts
 
 # brew
 brew install node
-brew install rust
 brew install python
 brew install cocoapods
 brew install fd
@@ -46,3 +45,6 @@ export npm_config_cache="$XDG_CACHE_HOME/npm"
 export npm_config_prefix="$XDG_DATA_HOME/npm"
 export npm_config_init_module="$XDG_DATA_HOME/npm/config/npm-init.js"
 npm install -g trash-cli npm-check
+
+# rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
