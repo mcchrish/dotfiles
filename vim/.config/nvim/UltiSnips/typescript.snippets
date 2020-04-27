@@ -1,13 +1,13 @@
 priority 1
 extends javascript
 
-snippet fun "function (fun)"
+snippet fn "function (fn)"
 function ${1:function_name} (${2:argument}): ${3:void} {
   ${VISUAL}$0
 }
 endsnippet
 
-snippet fcomp "functional component (fcomp)"
+snippet fnc "functional component (fnc)"
 interface Props {
   ${2:prop}: ${3:string}
 }
@@ -16,7 +16,7 @@ function ${1:functionName} (props: Props): ${4:ReactElement} {
 }
 endsnippet
 
-snippet ccomp "class component (ccomp)"
+snippet clc "class component (ccomp)"
 interface Props {
   ${3:prop}: ${4:string}
 }
