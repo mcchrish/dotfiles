@@ -64,9 +64,7 @@ Plug 'neoclide/vim-jsx-improve'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
-Plug 'othree/html5.vim'
 Plug 'posva/vim-vue'
-Plug 'hail2u/vim-css3-syntax'
 Plug 'mcchrish/fountain.vim'
 Plug 'rust-lang/rust.vim'
 
