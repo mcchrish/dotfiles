@@ -61,7 +61,9 @@ export VISUAL='nvim'
 export ANDROID_SDK_ROOT="$HOME"/Library/Android/sdk
 export ANDROID_HOME="$HOME"/Library/Android/sdk
 
-RBENV_VERSION=2.6.5
+export RBENV_VERSION=2.6.5
+
+export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 
 # Manually moving some to XDG
 export TERMINFO="$XDG_DATA_HOME"/terminfo
