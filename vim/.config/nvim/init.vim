@@ -21,8 +21,8 @@ let g:loaded_vimballPlugin      = 1
 let g:loaded_zip                = 1
 let g:loaded_zipPlugin          = 1
 
-let g:python_host_prog          = '/usr/bin/python'
-let g:python3_host_prog         = '/usr/local/bin/python3'
+let g:python_host_prog          = '/usr/bin/python2'
+let g:python3_host_prog         = '/usr/bin/python3'
 
 call plug#begin('~/.local/share/nvim/vendor')
 
