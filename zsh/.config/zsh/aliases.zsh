@@ -7,7 +7,7 @@ alias which="command -v"
 # alias sudo="sudo "
 
 # Vim
-alias v="vim"
+alias v="nvim"
 alias nv="nvim"
 
 # Nnn
@@ -48,7 +48,6 @@ alias "..."="cd ../.."
 alias "...."="cd ../../.."
 
 # Misc
-alias py="python"
 alias cask="brew cask"
 
 #

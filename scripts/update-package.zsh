@@ -2,6 +2,8 @@
 
 # Prevent npm update from using the wrong cache directory
 export npm_config_prefix="$HOME"/.cache/npm
+# Prevent homebrew from building from source
+export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 
 printf "%80s\\n" "" | tr " " "#"
 printf "%s\\n" "Updating" "$(date)"
@@ -9,10 +11,10 @@ printf "%s\\n" "Updating" "$(date)"
 brew upgrade
 
 printf "%s\\n" "Updating npm..."
-npm-check --update-all --global --ignore "npm"
+# npm-check --update-all --global --ignore "npm"
 
 printf "%s\\n" "Updating pip..."
-pip3 freeze — local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
+# pip3 freeze — local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
 
 printf "%s\\n" "Updating neovim..."
 # nvim --headless +PlugUpdate +PlugUpgrade +qall

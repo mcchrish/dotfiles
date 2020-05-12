@@ -53,7 +53,6 @@ alias j="z -I"
 zinit ice silent wait"0a" atload"zpcompinit"
 zinit light zsh-users/zsh-completions
 
-export HISTORY_SUBSTRING_SEARCH_FUZZY=1
 zinit ice silent wait"0b"
 zinit light zsh-users/zsh-history-substring-search
 
@@ -64,7 +63,7 @@ zinit light zsh-users/zsh-history-substring-search
 [[ -f "$srcdir/keys.zsh" ]] && source "$srcdir/keys.zsh"
 
 # Functions
-for func ($srcdir/functions/*.zsh) source $func
+for fn ($srcdir/functions/*.zsh) source $fn
 
 # Aliases
 [[ -f "$srcdir/aliases.zsh" ]] && source "$srcdir/aliases.zsh"
