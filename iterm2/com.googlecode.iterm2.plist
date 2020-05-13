@@ -1057,7 +1057,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1403 117 1130 762 0 0 2560 1417 </string>
+	<string>1302 428 1130 762 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>85 178 1090 877 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1770,7 +1770,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>Iosevka-Term-Slab 14</string>
+			<string>Iosevka-Fixed-Curly-Slab 14</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prevent Opening in a Tab</key>
@@ -3038,7 +3038,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>Iosevka-Term-Slab 14</string>
+			<string>Iosevka-Fixed-Curly-Slab 14</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prevent Opening in a Tab</key>
@@ -3501,17 +3501,14 @@
 	<true/>
 	<key>NoSyncBFPFavorites</key>
 	<array>
-		<string>Iosevka Term Slab</string>
-		<string>Iosevka Term</string>
 		<string>SF Mono</string>
-		<string>Iosevka Aile</string>
+		<string>Iosevka Fixed Curly Slab</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
+		<string>Iosevka Fixed Curly Slab</string>
 		<string>SF Mono</string>
-		<string>Cascadia Code</string>
 		<string>Iosevka Term Slab</string>
-		<string>Victor Mono</string>
 	</array>
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
@@ -3525,7 +3522,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{1254, 1044}</string>
+		<string>{395, 1101}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -3536,7 +3533,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>72048827-4360-4BC6-9823-A5C463A7092F</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>895</integer>
+	<integer>948</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -4415,7 +4412,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-04-25T22:34:33Z</date>
+	<date>2020-05-11T21:25:33Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
