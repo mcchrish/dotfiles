@@ -59,7 +59,7 @@ command! InfoWindowToggle call infowindow#toggle({},
                   \   { default_lines ->
                   \     extend(default_lines, [
                   \       ['branch', fugitive#head()], 
-                  \       ['cursor', nvim_win_get_cursor(winnr() - 1)[0] . ', ' . (nvim_win_get_cursor(winnr() - 1)[1]  + 1)]
+                  \       ['cursor', getcurpos()[1] . ', ' . getcurpos()[2]], 
                   \     ])
                   \   }
                   \ )
