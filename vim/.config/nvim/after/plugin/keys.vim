@@ -28,7 +28,8 @@ nnoremap <c-e> 4<c-e>
 nnoremap g= gg=Gg``
 
 " Remap esc
-inoremap jk <esc>
+" inoremap jk <esc>
+imap jk <Plug>(PearTreeFinishExpansion)
 
 " Move in insert mode
 inoremap <c-h> <c-o>h
