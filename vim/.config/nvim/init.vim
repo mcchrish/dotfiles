@@ -75,7 +75,6 @@ let g:coc_global_extensions = [
                   \ 'coc-vetur',
                   \ 'coc-eslint',
                   \ 'coc-prettier',
-                  \ 'coc-highlight',
                   \ 'coc-snippets',
                   \ 'coc-phpls',
                   \ 'coc-html',
