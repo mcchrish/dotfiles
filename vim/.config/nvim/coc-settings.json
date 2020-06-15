@@ -25,7 +25,8 @@
     "typescript",
     "typescriptreact",
     "vue",
-    "rust"
+    "rust",
+    "php"
   ],
   "coc.preferences.formatOnType": false,
   "suggest.maxPreviewWidth": 80,
