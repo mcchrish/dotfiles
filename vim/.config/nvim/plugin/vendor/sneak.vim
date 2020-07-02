@@ -19,5 +19,5 @@ xmap T <Plug>Sneak_T
 omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 
-nmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_' : ':'
-vmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_' : ':'
+nmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_;' : ':'
+vmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_;' : ':'
