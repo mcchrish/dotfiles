@@ -50,7 +50,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'wellle/context.vim', { 'on': 'ContextToggle' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'tpope/vim-fugitive'
-Plug 'rbong/vim-flog', { 'on': ['Flog', 'FlogSplit'] }
+Plug 'rbong/vim-flog', { 'on': ['Flog', 'Flogsplit'] }
 Plug 'rhysd/git-messenger.vim'
 Plug 'wellle/targets.vim'
 Plug 'AndrewRadev/splitjoin.vim'
