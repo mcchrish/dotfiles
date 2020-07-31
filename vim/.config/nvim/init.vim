@@ -55,11 +55,10 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'wellle/targets.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'junegunn/vim-peekaboo'
-" Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'brooth/far.vim', { 'on': 'Far' }
-Plug 'tmsvg/pear-tree'
 Plug 'tomtom/tcomment_vim', { 'on': 'TComment' }
 Plug 'neoclide/vim-jsx-improve'
 Plug 'leafgarland/typescript-vim'

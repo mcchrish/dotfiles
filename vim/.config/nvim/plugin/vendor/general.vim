@@ -63,6 +63,3 @@ command! InfoWindowToggle call infowindow#toggle({},
                   \     ])
                   \   }
                   \ )
-
-" pear-tree
-let g:pear_tree_smart_openers = 1
