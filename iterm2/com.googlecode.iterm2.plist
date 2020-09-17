@@ -1057,7 +1057,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 833 592 584 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1302 428 1130 762 0 0 2560 1417 </string>
+	<string>78 189 1438 1122 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>85 178 1090 877 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -3478,37 +3478,36 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.3beta1</string>
-		<string>3.3.0beta10</string>
-		<string>3.3.5</string>
-		<string>3.3.0beta11</string>
-		<string>3.3.2beta1</string>
 		<string>3.3.3</string>
-		<string>3.3.0beta13</string>
 		<string>3.3.8</string>
+		<string>3.3.12</string>
+		<string>3.3.7</string>
+		<string>3.3.3beta1</string>
+		<string>3.3.2beta1</string>
 		<string>3.3.1beta1</string>
-		<string>3.3.0beta15</string>
 		<string>3.3.3beta2</string>
-		<string>3.3.0beta16</string>
-		<string>3.3.4</string>
-		<string>3.3.6</string>
 		<string>3.3.4beta1</string>
 		<string>3.3.2beta2</string>
+		<string>3.3.6</string>
+		<string>3.3.0beta16</string>
+		<string>3.3.0beta15</string>
+		<string>3.3.0beta13</string>
+		<string>3.3.0beta11</string>
+		<string>3.3.0beta10</string>
+		<string>3.3.5</string>
+		<string>3.3.11</string>
+		<string>3.3.4</string>
 		<string>3.3.9</string>
-		<string>3.3.7</string>
 	</array>
 	<key>NoSyncAutoBurialReveal</key>
 	<true/>
 	<key>NoSyncBFPFavorites</key>
-	<array>
-		<string>SF Mono</string>
-		<string>Iosevka Fixed Curly Slab</string>
-	</array>
+	<array/>
 	<key>NoSyncBFPRecents</key>
 	<array>
+		<string>Iosevka Fixed Slab</string>
 		<string>Iosevka Fixed Curly Slab</string>
 		<string>SF Mono</string>
-		<string>Iosevka Term Slab</string>
 	</array>
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
@@ -3520,9 +3519,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {2560, 1440}}</string>
+		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{395, 1101}</string>
+		<string>{269, 605}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -3533,7 +3532,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>72048827-4360-4BC6-9823-A5C463A7092F</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>948</integer>
+	<integer>1263</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -4412,7 +4411,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-05-11T21:25:33Z</date>
+	<date>2020-08-15T01:34:58Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -4424,7 +4423,7 @@
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowMetalFPSmeter</key>
 	<false/>
 	<key>ShowPaneTitles</key>
@@ -4504,7 +4503,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.9</string>
+	<string>3.3.12</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
