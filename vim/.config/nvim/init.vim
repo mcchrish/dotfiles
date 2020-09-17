@@ -33,7 +33,7 @@ Plug '~/vimming/nnn.vim'
 Plug '~/vimming/info-window.nvim'
 Plug 'andymass/vim-matchup'
 Plug 'justinmk/vim-sneak'
-Plug 'junegunn/vim-slash'
+Plug 'pgdouyon/vim-evanesco'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
@@ -54,7 +54,6 @@ Plug 'rbong/vim-flog', { 'on': ['Flog', 'Flogsplit'] }
 Plug 'rhysd/git-messenger.vim'
 Plug 'wellle/targets.vim'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'airblade/vim-gitgutter'
@@ -67,6 +66,7 @@ Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
 Plug 'posva/vim-vue'
 Plug 'mcchrish/fountain.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'milch/vim-fastlane' 
 
 let g:coc_global_extensions = [
                   \ 'coc-tsserver',
