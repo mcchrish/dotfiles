@@ -11,7 +11,6 @@ alias v="nvim"
 alias nv="nvim"
 
 # Nnn
-alias nnn="LESS='-g -i -M -R -S -w -X -z-4 -j4' nnn"
 alias nn="nnn"
 
 # While in a nvim terminal, open file to current session

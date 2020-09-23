@@ -1,4 +1,4 @@
-let g:nnn#command = 'nnn -o'
+let g:nnn#command = 'nnn -o -C'
 let g:nnn#set_default_mappings = 0
 let g:nnn#statusline = 0
 let g:nnn#replace_netrw = 1
