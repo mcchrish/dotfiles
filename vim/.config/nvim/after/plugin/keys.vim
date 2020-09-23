@@ -20,10 +20,6 @@ vnoremap K :m '<-2<cr>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 
-" More scroll
-nnoremap <c-y> 4<c-y>
-nnoremap <c-e> 4<c-e>
-
 " Easy reindenting
 nnoremap g= gg=Gg``
 
