@@ -34,7 +34,7 @@ xcode-select --install
 
 if ! (command -v brew > /dev/null); then
   echo "Installing brew..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 echo "Install all programs..."
