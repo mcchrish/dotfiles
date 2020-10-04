@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # tap
 brew tap homebrew/cask-fonts
@@ -18,20 +18,23 @@ brew install tmux
 
 # cask
 brew cask install calibre
+brew cask install dash
 brew cask install firefox
-brew cask install font-courier-prime
-brew cask install font-iosevka
-brew cask install font-iosevka-slab
+brew cask install font-iosevka-curly-slab
+brew cask install font-iosevka-etoile
+brew cask install font-iosevka-sparkle
 brew cask install google-chrome
 brew cask install insomnia
 brew cask install iterm2
 brew cask install java
-brew cask install keybase
 brew cask install marked
+brew cask install monitorcontrol
+brew cask install monity-helper
 brew cask install mullvadvpn
 brew cask install pinentry-mac
 brew cask install qtpass
 brew cask install spotify
+brew cask install tableplus
 brew cask install qbittorrent
 brew cask install vlc
 
