@@ -230,7 +230,7 @@ let g:which_key_map.n.n = { 'name': 'open' }
 let g:which_key_map.n.c = { 'name': 'open on current file directory' }
 let g:which_key_map.n.t = { 'name': 'write to register on select' }
 nnoremap <silent> <leader>nn :call <SID>nnn()<CR>
-nnoremap <silent> <leader>nc :call <SID>nnn(expand('%:h'))<CR>
+nnoremap <silent> <leader>nc :call <SID>nnn(expand('%:p:h'))<CR>
 nnoremap <silent> <leader>nt :call <SID>nnn('', { 'edit': function('<SID>put_to_register') })<CR>
 
 autocmd! FileType nnn tnoremap <buffer> <esc> q
