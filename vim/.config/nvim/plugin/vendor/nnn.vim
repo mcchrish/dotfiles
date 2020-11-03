@@ -19,5 +19,3 @@ let g:nnn#action = {
       \ '<c-v>': 'vsplit',
       \ '<c-o>': function('<SID>put_to_register')
       \ }
-
-autocmd! FileType nnn tnoremap <buffer> <esc> q

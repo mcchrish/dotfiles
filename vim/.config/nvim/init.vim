@@ -53,6 +53,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog', { 'on': ['Flog', 'Flogsplit'] }
 Plug 'rhysd/git-messenger.vim'
 Plug 'wellle/targets.vim'
+Plug 'rstacruz/vim-closer'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
