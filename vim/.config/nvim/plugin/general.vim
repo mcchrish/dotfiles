@@ -15,7 +15,11 @@ set ignorecase smartcase
 set lazyredraw
 
 " Always show statusline
-set laststatus=2
+if exists('g:started_by_firenvim')
+  set laststatus=0
+else
+  set laststatus=2
+endif
 
 set signcolumn=yes
 

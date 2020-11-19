@@ -69,6 +69,8 @@ Plug 'mcchrish/fountain.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'milch/vim-fastlane' 
 
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
 let g:coc_global_extensions = [
                   \ 'coc-tsserver',
                   \ 'coc-json',
