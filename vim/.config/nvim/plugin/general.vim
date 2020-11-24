@@ -15,11 +15,7 @@ set ignorecase smartcase
 set lazyredraw
 
 " Always show statusline
-if exists('g:started_by_firenvim')
-  set laststatus=0
-else
-  set laststatus=2
-endif
+set laststatus=2
 
 set signcolumn=yes
 
@@ -114,3 +110,9 @@ endif
 
 " PHP
 let g:PHP_noArrowMatching = 1
+
+if exists('g:started_by_firenvim')
+  set textwidth=0
+  set laststatus=0
+  set guifont=monospace:h10
+endif
