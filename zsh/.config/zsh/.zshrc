@@ -54,9 +54,6 @@ zinit ice silent wait"1a"
 zinit light skywind3000/z.lua
 alias j="z -I"
 
-zinit ice silent wait"0a" atload"zpcompinit"
-zinit light zsh-users/zsh-completions
-
 zinit ice silent wait"0b"
 zinit light zsh-users/zsh-history-substring-search
 
