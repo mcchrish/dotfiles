@@ -50,12 +50,15 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
  zinit light junegunn/fzf
 
 export _ZL_DATA="$XDG_DATA_HOME/zl"
-zinit ice silent wait"1a"
+zinit ice silent wait"1"
 zinit light skywind3000/z.lua
 alias j="z -I"
 
 zinit ice silent wait"0b"
 zinit light zsh-users/zsh-history-substring-search
+
+zinit ice silent wait"0a" atload"zicompinit; zicdreplay"
+zinit light zsh-users/zsh-completions
 
 # Completions
 source "$srcdir/completions.zsh"
