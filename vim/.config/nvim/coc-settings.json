@@ -18,6 +18,8 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "json",
     "css",
+    "scss",
+    "sass",
     "markdown",
     "Markdown",
     "javascript",
