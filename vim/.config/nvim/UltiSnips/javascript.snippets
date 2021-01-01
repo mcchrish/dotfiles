@@ -13,7 +13,7 @@ function ${1:function_name} (${2:argument}) {
 endsnippet
 
 snippet fna "arrow function (fn)"
-${1:argument} => {
+(${1:argument}) => {
   ${VISUAL}$0
 }
 endsnippet
@@ -24,7 +24,7 @@ if (${1:true}) {
 }
 endsnippet
 
-snippet ife "if"
+snippet ife "if else"
 if (${1:true}) {
   ${VISUAL}$0
 } else $3 {
@@ -49,14 +49,6 @@ try {
 } catch(error) {
   ${VISUAL}$1
 }
-endsnippet
-
-# JSDoc snippets
-
-snippet /* "A JSDoc comment" b
-/**
- * ${1:${VISUAL}}$0
- */
 endsnippet
 
 # Modules
