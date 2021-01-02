@@ -22,9 +22,9 @@ if [[ -z "$XDG_DATA_DIRS" ]]; then
 fi
 
 if [[ -z "$XDG_CONFIG_DIRS" ]]; then
-  export XDG_CONFIG_DIRS=/etc/xdg
+  export XDG_CONFIG_DIRS=/Library/Preferences
 else
-  export XDG_CONFIG_DIRS=/etc/xdg:"$XDG_CONFIG_DIRS"
+  export XDG_CONFIG_DIRS=/Library/Preferences:"$XDG_CONFIG_DIRS"
 fi
 
 # Zsh

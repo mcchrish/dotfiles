@@ -29,12 +29,9 @@ git clone https://github.com/mcchrish/dotfiles .dotfiles
 
 cd .dotfiles || exit
 
-echo "Installing xcode command line tools..."
-xcode-select --install
-
 if ! (command -v brew > /dev/null); then
   echo "Installing brew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 echo "Install all programs..."
@@ -55,8 +52,8 @@ if ! (command -v zinit > /dev/null); then
 fi
 
 echo "Installing vim-plug..."
-curl -fLo ~/Library/Application\ Support/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 # Symlink for vim
 mkdir -p ~/.vim/autoload/
 ln -s ~/Library/Application\ Support/nvim/site/autoload/plug.vim ~/.vim/autoload/plug.vim
