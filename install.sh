@@ -2,15 +2,15 @@
 
 # XDG
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
-  export XDG_CONFIG_HOME="$HOME/.config"
+  export XDG_CONFIG_HOME="$HOME/Library/Preferences"
 fi
 
 if [[ -z "$XDG_CACHE_HOME" ]]; then
-  export XDG_CACHE_HOME="$HOME/.cache"
+  export XDG_CACHE_HOME="$HOME/Library/Caches"
 fi
 
 if [[ -z "$XDG_DATA_HOME" ]]; then
-  export XDG_DATA_HOME="$HOME/.local/share"
+  export XDG_DATA_HOME="$HOME/Library/Application\ Support"
 fi
 
 if [[ -z "$XDG_DATA_DIRS" ]]; then
@@ -18,9 +18,9 @@ if [[ -z "$XDG_DATA_DIRS" ]]; then
 fi
 
 if [[ -z "$XDG_CONFIG_DIRS" ]]; then
-  export XDG_CONFIG_DIRS="/etc/xdg"
+  export XDG_CONFIG_DIRS="/Library/Preferences"
 else
-  export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
+  export XDG_CONFIG_DIRS="/Library/Preferences:$XDG_CONFIG_DIRS"
 fi
 
 cd "$HOME" || exit
@@ -55,10 +55,10 @@ if ! (command -v zinit > /dev/null); then
 fi
 
 echo "Installing vim-plug..."
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+curl -fLo ~/Library/Application\ Support/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # Symlink for vim
 mkdir -p ~/.vim/autoload/
-ln -s ~/.local/share/nvim/site/autoload/plug.vim ~/.vim/autoload/plug.vim
+ln -s ~/Library/Application\ Support/nvim/site/autoload/plug.vim ~/.vim/autoload/plug.vim
 
 echo "Done. :)"

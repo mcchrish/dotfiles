@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Prevent npm update from using the wrong cache directory
-export npm_config_prefix="$HOME"/.cache/npm
+export npm_config_prefix="$HOME"/Library/Caches/npm
 # Prevent homebrew from building from source
 export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 
@@ -20,7 +20,7 @@ printf "%s\\n" "Updating neovim..."
 # nvim --headless +PlugUpdate +PlugUpgrade +qall
 
 printf "%s\\n" "Updating zsh..."
-source "$HOME/.config/zsh/.zinit/bin/zinit.zsh"
+source "$HOME/Library/Preferences/zsh/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 zinit update --all
 zinit self-update

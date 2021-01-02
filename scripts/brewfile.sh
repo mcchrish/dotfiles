@@ -8,7 +8,7 @@ brew install node
 brew install fd
 brew install fzf
 brew install gnupg
-brew install neovim
+brew install nvim
 brew install nnn
 brew install pass
 brew install rbenv

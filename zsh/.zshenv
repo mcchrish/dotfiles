@@ -6,15 +6,15 @@ export LC_ALL=en_US.UTF-8
 
 # XDG
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
-  export XDG_CONFIG_HOME="$HOME"/.config
+  export XDG_CONFIG_HOME="$HOME"/Library/Preferences
 fi
 
 if [[ -z "$XDG_CACHE_HOME" ]]; then
-  export XDG_CACHE_HOME="$HOME"/.cache
+  export XDG_CACHE_HOME="$HOME"/Library/Caches
 fi
 
 if [[ -z "$XDG_DATA_HOME" ]]; then
-  export XDG_DATA_HOME="$HOME"/.local/share
+  export XDG_DATA_HOME="$HOME"/Library/Application\ Support
 fi
 
 if [[ -z "$XDG_DATA_DIRS" ]]; then
@@ -93,7 +93,7 @@ export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
 
 # PATHs
 path=(
-  "$HOME"/Library/Python/3.7/bin
+  "$HOME"/Library/Python/3.8/bin
   "$XDG_DATA_HOME"/gem/bin
   "$XDG_DATA_HOME"/npm/bin
   "$XDG_DATA_HOME"/cargo/bin

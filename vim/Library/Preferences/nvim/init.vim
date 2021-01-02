@@ -24,7 +24,7 @@ let g:loaded_zipPlugin          = 1
 let g:python_host_prog          = '/usr/bin/python2'
 let g:python3_host_prog         = '/usr/bin/python3'
 
-call plug#begin('~/.local/share/nvim/vendor')
+call plug#begin('$XDG_DATA_HOME/nvim/vendor')
 
 Plug 'pgdouyon/vim-yin-yang'
 Plug '/usr/local/opt/fzf'

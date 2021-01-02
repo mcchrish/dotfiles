@@ -11,8 +11,8 @@
       <string>sh</string>
       <string>-c</string>
       <string>
-        launchctl setenv GNUPGHOME /Users/mcchris/.local/share/gnupg
-        launchctl setenv GRADLE_USER_HOME /Users/mcchris/.cache/gradle
+        launchctl setenv GNUPGHOME /Users/mcchris/Library/ApplicationSupport/gnupg
+        launchctl setenv GRADLE_USER_HOME /Users/mcchris/Library/Caches/gradle
       </string>
     </array>
     <key>RunAtLoad</key>
