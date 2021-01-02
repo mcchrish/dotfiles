@@ -1,1 +1,1 @@
-Library/Application\ Support/nvim
+Library/Application Support/nvim
