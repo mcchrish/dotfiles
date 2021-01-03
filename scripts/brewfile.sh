@@ -8,8 +8,9 @@ brew install node
 brew install fd
 brew install fzf
 brew install gnupg
-brew install nvim
+brew install neovim
 brew install nnn
+brew install openjdk
 brew install pass
 brew install rbenv
 brew install ripgrep
@@ -26,7 +27,6 @@ brew cask install font-iosevka-sparkle
 brew cask install google-chrome
 brew cask install insomnia
 brew cask install iterm2
-brew cask install java
 brew cask install marked
 brew cask install monitorcontrol
 brew cask install monity-helper
