@@ -69,7 +69,9 @@ Plug 'mcchrish/fountain.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'milch/vim-fastlane' 
 
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+if has('nvim')
+  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+endif
 
 let g:coc_global_extensions = [
                   \ 'coc-tsserver',
