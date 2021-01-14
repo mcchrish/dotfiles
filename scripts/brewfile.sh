@@ -48,9 +48,9 @@ npm install -g npm-check
 
 # gem
 rbenv init
-rbenv install 2.7.1
-rbenv global 2.7.1
-rbenv shell 2.7.1
+rbenv install 2.7.2
+rbenv global 2.7.2
+rbenv shell 2.7.2
 
 gem install tmuxinator
 gem install cocoapods
