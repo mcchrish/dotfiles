@@ -46,9 +46,6 @@ alias ".."="cd .."
 alias "..."="cd ../.."
 alias "...."="cd ../../.."
 
-# Misc
-alias cask="brew cask"
-
 #
 # Git
 #
