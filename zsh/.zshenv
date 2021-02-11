@@ -98,6 +98,7 @@ path=(
   "$XDG_DATA_HOME"/npm/bin
   "$XDG_DATA_HOME"/cargo/bin
   "$ANDROID_HOME"/{emulator,tools,tools/bin,platform-tools}
+  /usr/local/sbin
   "$path"
 )
 

@@ -18,25 +18,24 @@ brew install stow
 brew install tmux
 
 # cask
-brew cask install calibre
-brew cask install dash
-brew cask install firefox
-brew cask install font-iosevka-curly-slab
-brew cask install font-iosevka-etoile
-brew cask install font-iosevka-sparkle
-brew cask install google-chrome
-brew cask install insomnia
-brew cask install iterm2
-brew cask install marked
-brew cask install monitorcontrol
-brew cask install monity-helper
-brew cask install mullvadvpn
-brew cask install pinentry-mac
-brew cask install qtpass
-brew cask install spotify
-brew cask install tableplus
-brew cask install qbittorrent
-brew cask install vlc
+brew install calibre
+brew install dash
+brew install firefox
+brew install font-iosevka-curly-slab
+brew install font-iosevka-etoile
+brew install font-iosevka-sparkle
+brew install google-chrome
+brew install insomnia
+brew install iterm2
+brew install marked
+brew install monitorcontrol
+brew install mullvadvpn
+brew install pinentry-mac
+brew install qtpass
+brew install spotify
+brew install tableplus
+brew install qbittorrent
+brew install vlc
 
 # npm
 export npm_config_userconfig="$XDG_CONFIG_HOME/npm/config"
