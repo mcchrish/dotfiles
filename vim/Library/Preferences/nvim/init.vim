@@ -68,6 +68,7 @@ Plug 'posva/vim-vue'
 Plug 'mcchrish/fountain.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'milch/vim-fastlane' 
+Plug 'jparise/vim-graphql'
 
 if has('nvim')
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
