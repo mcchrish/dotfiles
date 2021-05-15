@@ -21,14 +21,14 @@
     "scss",
     "sass",
     "markdown",
-    "Markdown",
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact",
     "vue",
     "rust",
-    "php"
+    "php",
+    "html"
   ],
   "coc.preferences.formatOnType": false,
   "suggest.maxPreviewWidth": 80,
@@ -39,5 +39,6 @@
   },
   "snippets.extends": {
     "typescriptreact": ["typescript"]
-  }
+  },
+  "css.validate": false
 }
