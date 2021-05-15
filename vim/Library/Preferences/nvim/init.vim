@@ -53,7 +53,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog', { 'on': ['Flog', 'Flogsplit'] }
 Plug 'rhysd/git-messenger.vim'
 Plug 'wellle/targets.vim'
-Plug 'rstacruz/vim-closer'
+" Plug 'rstacruz/vim-closer'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -84,6 +84,7 @@ let g:coc_global_extensions = [
                   \ 'coc-phpls',
                   \ 'coc-html',
                   \ 'coc-css',
+                  \ 'https://github.com/rodrigore/coc-tailwind-intellisense',
                   \ 'coc-rust-analyzer'
                   \ ]
 
