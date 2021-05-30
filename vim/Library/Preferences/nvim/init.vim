@@ -74,6 +74,8 @@ if has('nvim')
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 endif
 
+call plug#end()
+
 let g:coc_global_extensions = [
                   \ 'coc-tsserver',
                   \ 'coc-json',
@@ -87,5 +89,3 @@ let g:coc_global_extensions = [
                   \ 'https://github.com/rodrigore/coc-tailwind-intellisense',
                   \ 'coc-rust-analyzer'
                   \ ]
-
-call plug#end()
