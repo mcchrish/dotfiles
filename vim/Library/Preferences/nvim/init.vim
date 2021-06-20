@@ -37,9 +37,9 @@ Plug 'pgdouyon/vim-evanesco'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-rsi'
+" Plug 'tpope/vim-rhubarb'
 Plug 'machakann/vim-sandwich'
 Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -52,12 +52,11 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog', { 'on': ['Flog', 'Flogsplit'] }
 Plug 'rhysd/git-messenger.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'wellle/targets.vim'
-" Plug 'rstacruz/vim-closer'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'airblade/vim-gitgutter'
 Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim', { 'on': 'TComment' }
 Plug 'neoclide/vim-jsx-improve'
@@ -65,9 +64,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
 Plug 'posva/vim-vue'
-Plug 'mcchrish/fountain.vim'
+" Plug 'mcchrish/fountain.vim'
 Plug 'rust-lang/rust.vim'
-Plug 'milch/vim-fastlane' 
+" Plug 'milch/vim-fastlane' 
 Plug 'jparise/vim-graphql'
 
 if has('nvim')

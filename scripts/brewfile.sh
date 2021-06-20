@@ -24,24 +24,14 @@ brew install firefox
 brew install font-iosevka-curly-slab
 brew install font-iosevka-etoile
 brew install google-chrome
-brew install insomnia
 brew install iterm2
 brew install marked
-brew install monitorcontrol
-brew install mullvadvpn
 brew install pinentry-mac
 brew install qtpass
 brew install spotify
 brew install tableplus
-brew install qbittorrent
+brew install transmission --cask
 brew install vlc
-
-# npm
-export npm_config_userconfig="$XDG_CONFIG_HOME/npm/config"
-export npm_config_cache="$XDG_CACHE_HOME/npm"
-export npm_config_prefix="$XDG_DATA_HOME/npm"
-export npm_config_init_module="$XDG_DATA_HOME/npm/config/npm-init.js"
-npm install -g trash-cli
 
 # gem
 rbenv init
