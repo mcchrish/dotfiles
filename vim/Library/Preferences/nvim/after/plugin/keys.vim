@@ -20,9 +20,6 @@ vnoremap K :m '<-2<cr>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 
-" Easy reindenting
-nnoremap g= gg=Gg``
-
 " Remap esc
 inoremap jk <esc>
 
@@ -35,11 +32,6 @@ inoremap <c-^> <c-o><C-^>
 
 " No ex mode
 nnoremap Q <nop>
-
-" Fix mistypes when quiting
-cabbrev Wq wq
-cabbrev W w
-cabbrev Q q
 
 " Faster save
 let g:which_key_map.w = 'Save file'
@@ -55,16 +47,6 @@ nnoremap vD "_D
 " Actual Y
 nnoremap Y y$
 
-" Clipboard
-" vnoremap <leader>d "+d
-" vnoremap <leader>y "+y
-" vnoremap <leader>p "+p
-" vnoremap <leader>P "+P
-" nnoremap <leader>d "+d
-" nnoremap <leader>y "+y
-" nnoremap <leader>p "+p
-" nnoremap <leader>P "+P
-
 " Repeat substitution with flag
 nnoremap & :&&<CR>
 vnoremap & :&&<CR>
@@ -73,9 +55,6 @@ vnoremap & :&&<CR>
 vnoremap @ :norm@
 
 nnoremap <c-]> g<c-]>
-
-" Paste mode
-set pastetoggle=<F2>
 
 " Select just insert text
 nnoremap gV `[V`]
@@ -251,9 +230,6 @@ nmap <silent> gr <Plug>(coc-references)
 " Symbol renaming.
 let g:which_key_map.c.r = 'rename'
 nmap <leader>cr <Plug>(coc-rename)
-
-let g:which_key_map.c.o = 'outline'
-nnoremap <silent> <leader>co  :<c-u>CocList outline<cr>
 
 let g:which_key_map.c.o = 'outline'
 nnoremap <silent> <leader>co  :<c-u>CocList outline<cr>

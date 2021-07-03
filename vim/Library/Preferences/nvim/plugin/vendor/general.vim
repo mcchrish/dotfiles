@@ -26,9 +26,6 @@ highlight GitGutterAdd guifg=#00875f guibg=#262626
 highlight GitGutterChange guifg=#005f87 guibg=#262626
 highlight GitGutterDelete guifg=#870000 guibg=#262626
 
-" vim-javascript
-let g:javascript_plugin_flow = 1
-
 " vim-vue
 let g:vue_pre_processors = []
 

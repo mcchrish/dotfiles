@@ -20,10 +20,5 @@ command! -bang -nargs=* FzfRg call fzf#vim#grep(
       \ fzf#vim#with_preview({ 'options': ['--color', 'hl:#00875f,hl+:#00875f'] }),
       \ <bang>0)
 
-function! s:fzf_statusline()
-  setlocal statusline=%#StatusLineTerm#\ fzf\ %#StatusLineTermNC#
-endfunction
-autocmd! User FzfStatusLine call <SID>fzf_statusline()
-
 " Close fzf when esc
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>

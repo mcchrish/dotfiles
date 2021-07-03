@@ -30,7 +30,7 @@ Plug 'pgdouyon/vim-yin-yang'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug '~/vimming/nnn.vim'
-Plug '~/vimming/info-window.nvim'
+" Plug '~/vimming/info-window.nvim'
 Plug 'andymass/vim-matchup'
 Plug 'justinmk/vim-sneak'
 Plug 'pgdouyon/vim-evanesco'
@@ -42,7 +42,7 @@ Plug 'tpope/vim-rsi'
 " Plug 'tpope/vim-rhubarb'
 Plug 'machakann/vim-sandwich'
 Plug 'machakann/vim-highlightedyank'
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+" Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'liuchengxu/vista.vim'
@@ -56,7 +56,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'wellle/targets.vim'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'junegunn/vim-easy-align'
+" Plug 'junegunn/vim-easy-align'
 Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim', { 'on': 'TComment' }
 Plug 'neoclide/vim-jsx-improve'
@@ -65,13 +65,9 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
 Plug 'posva/vim-vue'
 " Plug 'mcchrish/fountain.vim'
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 " Plug 'milch/vim-fastlane' 
 Plug 'jparise/vim-graphql'
-
-if has('nvim')
-  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-endif
 
 call plug#end()
 
@@ -86,5 +82,5 @@ let g:coc_global_extensions = [
                   \ 'coc-html',
                   \ 'coc-css',
                   \ 'https://github.com/rodrigore/coc-tailwind-intellisense',
-                  \ 'coc-rust-analyzer'
                   \ ]
+" \ 'coc-rust-analyzer'
