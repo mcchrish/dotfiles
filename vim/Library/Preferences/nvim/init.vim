@@ -41,8 +41,6 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-rsi'
 " Plug 'tpope/vim-rhubarb'
 Plug 'machakann/vim-sandwich'
-Plug 'machakann/vim-highlightedyank'
-" Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'liuchengxu/vista.vim'

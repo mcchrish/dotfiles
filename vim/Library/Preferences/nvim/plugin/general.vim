@@ -1,12 +1,14 @@
 " Resize splits when the window is resized
 autocmd VimResized * :wincmd =
 
+" :h lua-highlight
+ au TextYankPost * silent! lua vim.highlight.on_yank()
+
 set modelines=1
 set fileformats=unix,mac,dos
 set fileformat=unix
 set encoding=utf-8
 set timeoutlen=700
-set showcmd
 set hlsearch incsearch
 if exists('&inccommand')
   set inccommand=split
@@ -108,11 +110,4 @@ if !has('nvim')
   set viminfo+=n~/.vim/viminfo
 endif
 
-" PHP
 let g:PHP_noArrowMatching = 1
-
-if exists('g:started_by_firenvim')
-  set textwidth=0
-  set laststatus=0
-  set guifont=monospace:h10
-endif
