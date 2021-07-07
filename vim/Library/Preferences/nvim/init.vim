@@ -33,6 +33,7 @@ Plug '~/vimming/nnn.vim'
 " Plug '~/vimming/info-window.nvim'
 Plug 'andymass/vim-matchup'
 Plug 'justinmk/vim-sneak'
+" Plug 'ggandor/lightspeed.nvim'
 Plug 'pgdouyon/vim-evanesco'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
@@ -57,14 +58,11 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'junegunn/vim-easy-align'
 Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim', { 'on': 'TComment' }
-Plug 'neoclide/vim-jsx-improve'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
 Plug 'posva/vim-vue'
 " Plug 'mcchrish/fountain.vim'
 " Plug 'rust-lang/rust.vim'
-" Plug 'milch/vim-fastlane' 
 Plug 'jparise/vim-graphql'
 
 call plug#end()
