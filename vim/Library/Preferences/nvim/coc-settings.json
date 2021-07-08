@@ -3,16 +3,8 @@
   "diagnostic.warningSign": "▪",
   "diagnostic.infoSign": "▪",
   "diagnostic.hintSign": "⋅",
-  "tsserver.enableJavascript": false,
   "codeLens.enable": false,
   "eslint.run": "onSave",
-  "eslint.filetypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue"
-  ],
   "prettier.requireConfig": true,
   "prettier.disableLanguages": [],
   "coc.preferences.formatOnSaveFiletypes": [
@@ -30,7 +22,6 @@
     "php",
     "html"
   ],
-  "coc.preferences.formatOnType": false,
   "suggest.maxPreviewWidth": 80,
   "suggest.enablePreview": true,
   "list.insertMappings": {
