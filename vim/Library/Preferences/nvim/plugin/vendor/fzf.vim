@@ -14,11 +14,3 @@ command! -bang -nargs=* FzfRgAll call fzf#vim#grep(
       \ 1,
       \ fzf#vim#with_preview({ 'options': ['--color', 'hl:#00875f,hl+:#00875f'] }),
       \ <bang>0)
-command! -bang -nargs=* FzfRg call fzf#vim#grep(
-      \ "rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>),
-      \ 1,
-      \ fzf#vim#with_preview({ 'options': ['--color', 'hl:#00875f,hl+:#00875f'] }),
-      \ <bang>0)
-
-" Close fzf when esc
-autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
