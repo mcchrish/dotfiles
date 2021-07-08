@@ -98,10 +98,6 @@ nnoremap gsj :SplitjoinJoin<cr>
 let g:which_key_map.u = 'Undotree'
 nnoremap <silent> <leader>u :UndotreeToggle<cr>
 
-" vim-signature
-let g:which_key_map["'"] = 'Signature signs'
-nnoremap <silent> <leader>' :SignatureToggleSigns<cr>
-
 " vim-sandwich
 nmap s <Nop>
 xmap s <Nop>
@@ -173,10 +169,6 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-" Goyo
-let g:which_key_map['-'] = 'Goyo'
-nnoremap <silent> <leader>- :Goyo<cr>
-
 " nnn.vim
 function! s:put_to_register(lines)
   let joined_lines = join(a:lines, '\n')
@@ -204,8 +196,6 @@ let g:which_key_map.n.t = { 'name': 'write to register on select' }
 nnoremap <silent> <leader>nn :call <SID>nnn()<CR>
 nnoremap <silent> <leader>nc :call <SID>nnn(expand('%:p:h'))<CR>
 nnoremap <silent> <leader>nt :call <SID>nnn('', { 'edit': function('<SID>put_to_register') })<CR>
-
-autocmd! FileType nnn tnoremap <buffer> <esc> q
 
 " COC
 let g:which_key_map.c = { 'name': '+COC' }
@@ -265,6 +255,3 @@ imap <c-j> <plug>(coc-snippets-expand-jump)
 " context.vim
 let g:which_key_map.t = 'context'
 nnoremap <leader>t :ContextToggle<cr>
-
-" info-window.nvim
-nnoremap <silent> <c-g> :InfoWindowToggle<cr>
