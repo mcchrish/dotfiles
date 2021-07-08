@@ -66,14 +66,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 nnoremap <tab>   <c-w>w
-nnoremap <S-tab> <c-w>W
-
-" Terminal
-tnoremap <esc> <c-\><c-n>
-tnoremap <c-h> <c-\><c-n><c-w>h
-tnoremap <c-j> <c-\><c-n><c-w>j
-tnoremap <c-k> <c-\><c-n><c-w>k
-tnoremap <c-l> <c-\><c-n><c-w>l
+nnoremap <s-tab> <c-w>W
 
 autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
 autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
