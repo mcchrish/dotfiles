@@ -10,9 +10,6 @@ let g:undotree_WindowLayout       = 2
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_SplitWidth         = 40
 
-" vim-peekaboo
-let g:peekaboo_window = 'vert bo 40new'
-
 " vim-gitgutter
 set updatetime=200
 let g:gitgutter_grep = 'rg --color=never'
@@ -48,15 +45,3 @@ highlight default link WhichKeySeperator FoldColumn
 " context.vim
 let g:context_enabled = 0
 let g:context_highlight_border = 'SpecialComment'
-
-" info-window.nvim
-let g:infowindow_timeout = 5000
-let g:infowindow_create_default_commands = 0
-command! InfoWindowToggle call infowindow#toggle({},
-                  \   { default_lines ->
-                  \     extend(default_lines, [
-                  \       ['branch', fugitive#head()], 
-                  \       ['cursor', getcurpos()[1] . ', ' . getcurpos()[2]], 
-                  \     ])
-                  \   }
-                  \ )
