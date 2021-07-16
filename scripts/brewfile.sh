@@ -16,9 +16,9 @@ brew install ripgrep
 brew install stow
 brew install tmux
 brew install volta
+brew install zoxide
 
 # cask
-brew install calibre
 brew install dash
 brew install firefox
 brew install font-iosevka-curly-slab
@@ -28,7 +28,6 @@ brew install iterm2
 brew install marked
 brew install pinentry-mac
 brew install qtpass
-brew install spotify
 brew install tableplus
 brew install transmission --cask
 brew install vlc
