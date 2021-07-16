@@ -62,7 +62,7 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
 Plug 'posva/vim-vue'
 " Plug 'mcchrish/fountain.vim'
-" Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 Plug 'jparise/vim-graphql'
 
 call plug#end()
@@ -78,5 +78,5 @@ let g:coc_global_extensions = [
                   \ 'coc-html',
                   \ 'coc-css',
                   \ 'https://github.com/rodrigore/coc-tailwind-intellisense',
+                  \ 'coc-rust-analyzer'
                   \ ]
-" \ 'coc-rust-analyzer'
