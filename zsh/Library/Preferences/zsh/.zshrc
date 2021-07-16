@@ -49,11 +49,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
  zinit ice multisrc"shell/{key-bindings,completion}.zsh"
  zinit light junegunn/fzf
 
-export _ZL_DATA="$XDG_DATA_HOME/zl"
-zinit ice silent wait"1"
-zinit light skywind3000/z.lua
-alias j="z -I"
-
 zinit ice silent wait"0b"
 zinit light zsh-users/zsh-history-substring-search
 
@@ -71,6 +66,8 @@ for fn ($srcdir/functions/*.zsh) source $fn
 
 # Aliases
 source "$srcdir/aliases.zsh"
+
+eval "$(zoxide init zsh --cmd j)"
 
 eval "$(rbenv init -)"
 
