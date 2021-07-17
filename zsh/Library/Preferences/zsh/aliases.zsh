@@ -29,14 +29,6 @@ alias -g C="| pbcopy"
 # Fzf
 alias ff="fzf"
 
-# Tmux
-alias t="tmux"
-alias ta="tmux attach -t"
-alias tcc="tmux -CC"
-alias tcca="tmux -CC attach -t"
-alias tls="tmux ls"
-alias tkill="tmux kill-session -t"
-
 # Tmuxinator
 alias muxs="tmuxinator start"
 alias mxt="tmuxinator"
@@ -61,10 +53,6 @@ alias gbX="git branch -D"
 alias gc="git commit -S --verbose"
 alias gco="git checkout"
 alias gce="git commit -S --amend --reuse-message HEAD"
-
-# Reset
-alias gcr="git checkout --ours --"
-alias gcR="git reset --soft HEAD\^"
 
 # Files
 alias gls="git ls-files"

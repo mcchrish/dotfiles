@@ -6,7 +6,6 @@ brew tap homebrew/cask-fonts
 # brew
 brew install fd
 brew install fzf
-brew install gnupg
 brew install neovim
 brew install nnn
 brew install openjdk
