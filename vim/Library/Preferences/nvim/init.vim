@@ -30,17 +30,14 @@ Plug 'pgdouyon/vim-yin-yang'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug '~/vimming/nnn.vim'
-" Plug '~/vimming/info-window.nvim'
 Plug 'andymass/vim-matchup'
 Plug 'justinmk/vim-sneak'
-" Plug 'ggandor/lightspeed.nvim'
 Plug 'pgdouyon/vim-evanesco'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-rsi'
-" Plug 'tpope/vim-rhubarb'
 Plug 'machakann/vim-sandwich'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -50,19 +47,18 @@ Plug 'wellle/context.vim', { 'on': 'ContextToggle' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog', { 'on': ['Flog', 'Flogsplit'] }
-Plug 'rhysd/git-messenger.vim'
+Plug 'rhysd/git-messenger.vim', { 'on': 'GitMessenger' }
 Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
-Plug 'wellle/targets.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'junegunn/vim-easy-align'
 Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim', { 'on': 'TComment' }
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
-Plug 'posva/vim-vue'
+Plug 'posva/vim-vue', { 'for': 'vue' }
 " Plug 'mcchrish/fountain.vim'
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'jparise/vim-graphql'
 
 call plug#end()

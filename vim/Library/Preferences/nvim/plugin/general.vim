@@ -2,12 +2,11 @@
 autocmd VimResized * :wincmd =
 
 " :h lua-highlight
- au TextYankPost * silent! lua vim.highlight.on_yank()
+autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 
 set modelines=1
 set fileformats=unix,mac,dos
 set fileformat=unix
-set encoding=utf-8
 set timeoutlen=700
 set hlsearch incsearch
 if exists('&inccommand')
