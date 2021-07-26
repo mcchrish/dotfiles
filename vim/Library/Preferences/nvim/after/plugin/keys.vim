@@ -169,33 +169,11 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-" nnn.vim
-function! s:put_to_register(lines)
-  let joined_lines = join(a:lines, '\n')
-  if len(a:lines) > 1
-    let joined_lines .= '\n'
-  endif
-  echom joined_lines
-  let @+ = joined_lines
-endfunction
-
-function! s:nnn(...)
-  let l:dir = get(a:, 1, '')
-  let l:opts = get(a:, 2, { 'edit': 'edit' })
-  let l:keypress = get(a:, 3, '')
-  call nnn#pick(l:dir, l:opts)
-  if strlen(l:keypress) > 0
-    call feedkeys(l:keypress)
-  endif
-endfunction
-
 let g:which_key_map.n = { 'name': '+nnn' }
 let g:which_key_map.n.n = { 'name': 'open' }
 let g:which_key_map.n.c = { 'name': 'open on current file directory' }
-let g:which_key_map.n.t = { 'name': 'write to register on select' }
-nnoremap <silent> <leader>nn :call <SID>nnn()<CR>
-nnoremap <silent> <leader>nc :call <SID>nnn(expand('%:p:h'))<CR>
-nnoremap <silent> <leader>nt :call <SID>nnn('', { 'edit': function('<SID>put_to_register') })<CR>
+nnoremap <silent> <leader>nn :NnnPicker<CR>
+nnoremap <silent> <leader>nc :NnnPicker %:p:h<CR>
 
 " COC
 let g:which_key_map.c = { 'name': '+COC' }
