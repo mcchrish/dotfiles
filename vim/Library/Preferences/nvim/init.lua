@@ -75,5 +75,4 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'mattn/emmet-vim', cmd = 'EmmetInstall' }
   -- use 'mcchrish/fountain.vim'
-  use 'jparise/vim-graphql'
 end)
