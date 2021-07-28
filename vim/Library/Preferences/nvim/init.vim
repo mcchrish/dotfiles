@@ -56,7 +56,6 @@ Plug 'brooth/far.vim', { 'on': 'Far' }
 Plug 'tomtom/tcomment_vim', { 'on': 'TComment' }
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
-Plug 'posva/vim-vue', { 'for': 'vue' }
 " Plug 'mcchrish/fountain.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'jparise/vim-graphql'
