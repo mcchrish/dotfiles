@@ -1,8 +1,10 @@
 " vim-which-key
 let g:which_key_map = {}
-call which_key#register('<Space>', "g:which_key_map")
-nnoremap <silent> <leader> :<c-u>WhichKey '<space>'<cr>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<space>'<cr>
+if exists('g:loaded_vim_which_key') && g:loaded_vim_which_key == 1
+  call which_key#register('<Space>', "g:which_key_map")
+  nnoremap <silent> <leader> :<c-u>WhichKey '<space>'<cr>
+  vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<space>'<cr>
+endif
 
 " Move vertically by visual line
 nnoremap j gj
