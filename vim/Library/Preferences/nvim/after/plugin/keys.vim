@@ -104,15 +104,11 @@ nnoremap <silent> <leader>u :UndotreeToggle<cr>
 nmap s <Nop>
 xmap s <Nop>
 
-" vim-gitgutter
-let g:which_key_map.g.g = 'gutter'
-let g:which_key_map.g.h = 'gutter highlights'
-let g:which_key_map.h = { 'name': '+Git hunk' }
-let g:which_key_map.h.p = 'preview'
-let g:which_key_map.h.s = 'stage'
-let g:which_key_map.h.u = 'undo'
-nnoremap <silent> <leader>gg :GitGutterToggle<cr>
-nnoremap <silent> <leader>gh :GitGutterLineHighlightsToggle<cr>
+" gitsigns
+let g:which_key_map.g.g = 'Gitsigns'
+let g:which_key_map.g.h = 'Gitsigns highlights'
+nnoremap <silent> <leader>gg <cmd>Gitsigns toggle_signs<cr>
+nnoremap <silent> <leader>gh <cmd>Gitsigns toggle_linehl<cr>
 
 " vista.vim
 let g:which_key_map.s = { 'name': '+Vista' }

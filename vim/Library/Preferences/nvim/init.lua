@@ -67,7 +67,7 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use { 'rbong/vim-flog', cmd = { 'Flog', 'Flogsplit' } }
   use { 'rhysd/git-messenger.vim', cmd = 'GitMessenger' }
-  use 'airblade/vim-gitgutter'
+  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'mbbill/undotree', cmd = 'UndotreeToggle' }
   use 'AndrewRadev/splitjoin.vim'
   use { 'brooth/far.vim', cmd = 'Far' }

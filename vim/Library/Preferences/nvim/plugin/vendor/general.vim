@@ -10,18 +10,9 @@ let g:undotree_WindowLayout       = 2
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_SplitWidth         = 40
 
-" vim-gitgutter
-set updatetime=200
-let g:gitgutter_grep = 'rg --color=never'
-
-let g:gitgutter_sign_added = '┃'
-let g:gitgutter_sign_modified = '┃'
-let g:gitgutter_sign_removed = '━'
-let g:gitgutter_sign_modified_removed = '┳'
-
-highlight GitGutterAdd guifg=#00875f guibg=#262626
-highlight GitGutterChange guifg=#005f87 guibg=#262626
-highlight GitGutterDelete guifg=#870000 guibg=#262626
+highlight GitSignsAdd guifg=#00875f guibg=#262626
+highlight GitSignsChange guifg=#005f87 guibg=#262626
+highlight GitSignsDelete guifg=#870000 guibg=#262626
 
 " vim-vue
 let g:vue_pre_processors = []

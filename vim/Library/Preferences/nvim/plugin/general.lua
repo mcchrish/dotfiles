@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   matchup = {
     enable = true,
   },
@@ -8,4 +8,14 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true
   },
+}
+
+require 'gitsigns'.setup {
+  signs = {
+    add          = { text = '┃' },
+    change       = { text = '┃' },
+    delete       = { text = '━' },
+    topdelete    = { text = '━' },
+    changedelete = { text = '┳' },
+  }
 }
