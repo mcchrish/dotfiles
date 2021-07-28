@@ -51,11 +51,8 @@ if ! (command -v zinit > /dev/null); then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 fi
 
-echo "Installing vim-plug..."
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-# Symlink for vim
-mkdir -p ~/.vim/autoload/
-ln -s ~/Library/Application\ Support/nvim/site/autoload/plug.vim ~/.vim/autoload/plug.vim
+echo "Installing packer..."
+git clone https://github.com/wbthomason/packer.nvim\
+  "$XDG_DATA_HOME"/nvim/site/pack/packer/start/packer.nvim
 
 echo "Done. :)"

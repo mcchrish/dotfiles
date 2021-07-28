@@ -7,7 +7,6 @@ function! s:put_to_register(lines)
   if len(a:lines) > 1
     let joined_lines .= '\n'
   endif
-  echom joined_lines
   let @+ = joined_lines
 endfunction
 

@@ -1,1 +1,10 @@
-init.vim
+let mapleader = "\<space>"
+
+call plug#begin('$XDG_DATA_HOME/nvim/vendor')
+
+Plug 'pgdouyon/vim-yin-yang'
+Plug '~/vimming/nnn.vim'
+Plug 'justinmk/vim-sneak'
+Plug 'liuchengxu/vim-which-key'
+
+call plug#end()
