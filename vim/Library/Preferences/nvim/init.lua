@@ -76,6 +76,11 @@ return require'packer'.startup(function(use)
     event = 'BufEnter',
   }
   use { 'mbbill/undotree', cmd = 'UndotreeToggle' }
+  use {
+    'terrortylor/nvim-comment',
+    requires = { 'JoosepAlviste/nvim-ts-context-commentstring' },
+    config = [[require('config.comment')]],
+  }
   use { 'brooth/far.vim', cmd = 'Far' }
   use {
     'nvim-treesitter/nvim-treesitter',
