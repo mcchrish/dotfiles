@@ -43,7 +43,7 @@ g.coc_global_extensions = {
   'https://github.com/rodrigore/coc-tailwind-intellisense',
 }
 
-return require 'packer'.startup(function(use)
+return require'packer'.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'pgdouyon/vim-yin-yang'
   use '/usr/local/opt/fzf'

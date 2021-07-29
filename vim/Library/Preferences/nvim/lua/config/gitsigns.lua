@@ -1,4 +1,4 @@
-require 'gitsigns'.setup {
+require'gitsigns'.setup {
   signs = {
     add          = { text = '┃' },
     change       = { text = '┃' },
