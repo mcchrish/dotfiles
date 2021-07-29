@@ -1,6 +1,6 @@
 " vim-which-key
 let g:which_key_map = {}
-if exists('g:loaded_vim_which_key') && g:loaded_vim_which_key == 1
+if has('nvim')
   call which_key#register('<Space>', "g:which_key_map")
   nnoremap <silent> <leader> :<c-u>WhichKey '<space>'<cr>
   vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<space>'<cr>
