@@ -48,7 +48,11 @@ return require'packer'.startup(function(use)
   use 'pgdouyon/vim-yin-yang'
   use '/usr/local/opt/fzf'
   use 'junegunn/fzf.vim'
-  use '~/vimming/nnn.vim'
+  use {
+    '~/vimming/nnn.vim',
+    config = [[require('config.nnn')]],
+    cmd = 'NnnPicker'
+  }
   use 'andymass/vim-matchup'
   use 'justinmk/vim-sneak'
   use 'pgdouyon/vim-evanesco'
