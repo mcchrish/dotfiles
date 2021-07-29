@@ -25,13 +25,6 @@ vnoremap > >gv
 " Remap esc
 inoremap jk <esc>
 
-" Move in insert mode
-inoremap <c-h> <c-o>h
-inoremap <c-l> <c-o>a
-inoremap <c-j> <c-o>j
-inoremap <c-k> <c-o>k
-inoremap <c-^> <c-o><C-^>
-
 " No ex mode
 nnoremap Q <nop>
 
