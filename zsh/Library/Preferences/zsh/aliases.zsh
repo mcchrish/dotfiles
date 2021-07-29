@@ -8,7 +8,6 @@ alias which="command -v"
 
 # Vim
 alias v="nvim"
-alias nv="nvim"
 
 # Nnn
 alias nn="nnn"
