@@ -84,10 +84,6 @@ nnoremap <silent> <leader>gd :Gdiff<cr>
 nnoremap <silent> <leader>gb :Gblame<cr>
 nnoremap <silent> <leader>gl :Flog<cr>
 
-" splitjoin.vim
-nnoremap gss :SplitjoinSplit<cr>
-nnoremap gsj :SplitjoinJoin<cr>
-
 " undotree
 let g:which_key_map.u = 'Undotree'
 nnoremap <silent> <leader>u :UndotreeToggle<cr>

@@ -72,7 +72,6 @@ return require'packer'.startup(function(use)
     event = 'BufEnter',
   }
   use { 'mbbill/undotree', cmd = 'UndotreeToggle' }
-  use 'AndrewRadev/splitjoin.vim'
   use { 'brooth/far.vim', cmd = 'Far' }
   use {
     'nvim-treesitter/nvim-treesitter',

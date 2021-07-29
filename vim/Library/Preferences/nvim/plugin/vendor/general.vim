@@ -1,7 +1,3 @@
-" splitjoin.vim
-let g:splitjoin_split_mapping = ''
-let g:splitjoin_join_mapping = ''
-
 " undotree
 let g:undotree_WindowLayout       = 2
 let g:undotree_SetFocusWhenToggle = 1
@@ -10,9 +6,6 @@ let g:undotree_SplitWidth         = 40
 highlight GitSignsAdd guifg=#00875f guibg=#262626
 highlight GitSignsChange guifg=#005f87 guibg=#262626
 highlight GitSignsDelete guifg=#870000 guibg=#262626
-
-" vim-vue
-let g:vue_pre_processors = []
 
 " vim-matchup
 let g:matchup_matchparen_deferred = 1
