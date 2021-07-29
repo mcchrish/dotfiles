@@ -43,7 +43,7 @@ g.coc_global_extensions = {
   'https://github.com/rodrigore/coc-tailwind-intellisense',
 }
 
-return require('packer').startup(function(use)
+return require 'packer'.startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'pgdouyon/vim-yin-yang'
   use '/usr/local/opt/fzf'
@@ -60,13 +60,11 @@ return require('packer').startup(function(use)
   use 'machakann/vim-sandwich'
 
   use { 'neoclide/coc.nvim', branch = 'release' }
-  use 'liuchengxu/vista.vim'
 
   use { 'wellle/context.vim',  cmd = 'ContextToggle' }
   use 'liuchengxu/vim-which-key'
   use 'tpope/vim-fugitive'
   use { 'rbong/vim-flog', cmd = { 'Flog', 'Flogsplit' } }
-  use { 'rhysd/git-messenger.vim', cmd = 'GitMessenger' }
   use {
     'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
@@ -76,7 +74,6 @@ return require('packer').startup(function(use)
   use { 'mbbill/undotree', cmd = 'UndotreeToggle' }
   use 'AndrewRadev/splitjoin.vim'
   use { 'brooth/far.vim', cmd = 'Far' }
-  use { 'tomtom/tcomment_vim', cmd = 'TComment' }
   use {
     'nvim-treesitter/nvim-treesitter',
     config = [[require('config.treesitter')]],

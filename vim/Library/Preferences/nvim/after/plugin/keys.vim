@@ -67,24 +67,16 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-nnoremap <tab>   <c-w>w
-nnoremap <s-tab> <c-w>W
-
 autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
 autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
 
 let g:which_key_map['<CR>'] = 'Refresh'
 nnoremap <silent> <leader><cr> :call my#refresh()<cr>
 
-" tcomment_vim
-nnoremap <silent> gcc :TComment<cr>
-vnoremap <silent> gc :TComment<cr>
-
 " vim-fugitive
 let g:which_key_map.g = { 'name': '+Git' }
 let g:which_key_map.g.s = 'status'
 let g:which_key_map.g.d = 'diff'
-let g:which_key_map.g.m = 'messenger'
 let g:which_key_map.g.b = 'blame'
 let g:which_key_map.g.l = 'log'
 nnoremap <silent> <leader>gs :G<cr>
@@ -109,13 +101,6 @@ let g:which_key_map.g.g = 'Gitsigns'
 let g:which_key_map.g.h = 'Gitsigns highlights'
 nnoremap <silent> <leader>gg <cmd>Gitsigns toggle_signs<cr>
 nnoremap <silent> <leader>gh <cmd>Gitsigns toggle_linehl<cr>
-
-" vista.vim
-let g:which_key_map.s = { 'name': '+Vista' }
-let g:which_key_map.s.s = 'vista'
-let g:which_key_map.s.f = 'finder'
-nnoremap <silent> <leader>ss :Vista!!<cr>
-nnoremap <silent> <leader>sf :Vista finder fzf<cr>
 
 " Fzf
 " Search current word under cursor

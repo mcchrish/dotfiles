@@ -1,6 +1,3 @@
-" tcomment_vim
-let g:tcomment_maps = 0
-
 " splitjoin.vim
 let g:splitjoin_split_mapping = ''
 let g:splitjoin_join_mapping = ''
@@ -20,11 +17,6 @@ let g:vue_pre_processors = []
 " vim-matchup
 let g:matchup_matchparen_deferred = 1
 let g:matchup_matchparen_status_offscreen = 0
-
-" vista.vim
-let g:vista#renderer#enable_icon = 0
-let g:vista_default_executive = 'coc'
-let g:vista_sidebar_width = 40
 
 " vim-which-key
 let g:which_key_use_floating_win = 1
