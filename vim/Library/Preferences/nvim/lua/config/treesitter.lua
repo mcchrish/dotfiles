@@ -1,4 +1,4 @@
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter.configs").setup {
 	ensure_installed = {
 		"css",
 		"graphql",
@@ -18,4 +18,4 @@ require("nvim-treesitter.configs").setup({
 	indent = {
 		enable = true,
 	},
-})
+}

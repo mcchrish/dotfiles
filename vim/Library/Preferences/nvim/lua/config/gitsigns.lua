@@ -1,4 +1,4 @@
-require("gitsigns").setup({
+require("gitsigns").setup {
 	signs = {
 		add = { text = "┃" },
 		change = { text = "┃" },
@@ -6,4 +6,4 @@ require("gitsigns").setup({
 		topdelete = { text = "━" },
 		changedelete = { text = "┳" },
 	},
-})
+}

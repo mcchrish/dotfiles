@@ -44,49 +44,47 @@ g.coc_global_extensions = {
 }
 
 return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
-	use("pgdouyon/vim-yin-yang")
-	use("/usr/local/opt/fzf")
-	use("junegunn/fzf.vim")
-	use({
+	use "wbthomason/packer.nvim"
+	use "pgdouyon/vim-yin-yang"
+	use "/usr/local/opt/fzf"
+	use "junegunn/fzf.vim"
+	use {
 		"~/vimming/nnn.vim",
 		config = [[require("config.nnn")]],
 		cmd = "NnnPicker",
-	})
-	use("andymass/vim-matchup")
-	use("justinmk/vim-sneak")
-	use("pgdouyon/vim-evanesco")
-	use("tpope/vim-eunuch")
-	use("tpope/vim-unimpaired")
-	use("tpope/vim-repeat")
-	use("tpope/vim-sleuth")
-	use("tpope/vim-rsi")
-	use("machakann/vim-sandwich")
-
-	use({ "neoclide/coc.nvim", branch = "release" })
-
-	use({ "wellle/context.vim", cmd = "ContextToggle" })
-	use("liuchengxu/vim-which-key")
-	use("tpope/vim-fugitive")
-	use({ "rbong/vim-flog", cmd = { "Flog", "Flogsplit" } })
-	use({
-		"lewis6991/gitsigns.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
+	}
+	use "andymass/vim-matchup"
+	use "justinmk/vim-sneak"
+	use "pgdouyon/vim-evanesco"
+	use "tpope/vim-eunuch"
+	use "tpope/vim-unimpaired"
+	use "tpope/vim-repeat"
+	use "tpope/vim-sleuth"
+	use "tpope/vim-rsi"
+	use "machakann/vim-sandwich"
+	use { "neoclide/coc.nvim", branch = "release" }
+	use { "wellle/context.vim", cmd = "ContextToggle" }
+	use "liuchengxu/vim-which-key"
+	use "tpope/vim-fugitive"
+	use { "rbong/vim-flog", cmd = { "Flog", "Flogsplit" } }
+	use {
+	    "lewis6991/gitsigns.nvim",
+	    requires = { "nvim-lua/plenary.nvim" },
 		config = [[require("config.gitsigns")]],
 		event = "BufEnter",
-	})
-	use({ "mbbill/undotree", cmd = "UndotreeToggle" })
-	use({
-		"terrortylor/nvim-comment",
-		requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
-		config = [[require("config.comment")]],
-	})
-	use({ "brooth/far.vim", cmd = "Far" })
-	use({
+	}  
+	use { "mbbill/undotree", cmd = "UndotreeToggle" }
+	use {
+	    "terrortylor/nvim-comment",
+	    requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
+	    config = [[require("config.comment")]],
+	}
+	use { "brooth/far.vim", cmd = "Far" }
+	use {
 		"nvim-treesitter/nvim-treesitter",
 		config = [[require("config.treesitter")]],
 		run = ":TSUpdate",
-	})
-	use({ "mattn/emmet-vim", cmd = "EmmetInstall" })
+	}
+	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
 	-- use 'mcchrish/fountain.vim'
 end)
