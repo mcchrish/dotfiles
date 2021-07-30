@@ -59,11 +59,11 @@ set pumheight=20
 " Visual-block can free move
 set virtualedit=block
 
-" 2 spaces indentation, no tabs
-set shiftwidth=2
+" 4 spaces indentation, no tabs
+set shiftwidth=4
 set shiftround
-set tabstop=2
-set softtabstop=2
+set tabstop=4
+set softtabstop=4
 set expandtab
 set breakindent
 let &showbreak="↪ "
