@@ -14,7 +14,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/mcchrish/dotfiles/master
 - [Homebrew](scripts/brewfile.sh)
 - [GNU Stow](install.sh)
 - [Git](git/Library/Preferences/git)
-- [Neovim](git/Library/Preferences/nvim)
+- [Neovim](vim/Library/Preferences/nvim)
 - [iTerm2](iterm2/com.googlecode.iterm2.plist)
 - [Tmux](tmux/Library/Preferences/tmux)
 - [Zsh](zsh)
