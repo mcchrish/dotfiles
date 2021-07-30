@@ -1,6 +1,6 @@
 function copy_to_clipboard(lines)
 	local joined_lines = table.concat(lines, "\n")
-	vim.api.nvim_command("let @+ = '" .. joined_lines .. "'")
+	vim.fn.setreg("+", joined_lines)
 end
 
 require("nnn").setup({
