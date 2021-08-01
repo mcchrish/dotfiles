@@ -79,7 +79,6 @@ return require("packer").startup(function(use)
 	    requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
 	    config = [[require("config.comment")]],
 	}
-	use { "brooth/far.vim", cmd = "Far" }
 	use {
 		"nvim-treesitter/nvim-treesitter",
 		config = [[require("config.treesitter")]],
