@@ -1,3 +1,6 @@
+" Easy buffer switching
+set hidden
+
 " Resize splits when the window is resized
 autocmd VimResized * :wincmd =
 
@@ -8,15 +11,11 @@ set modelines=1
 set fileformats=unix,mac,dos
 set fileformat=unix
 set timeoutlen=700
-set hlsearch incsearch
 if exists('&inccommand')
   set inccommand=split
 endif
 set ignorecase smartcase
 set lazyredraw
-
-" Always show statusline
-set laststatus=2
 
 set number
 set signcolumn=number
@@ -38,9 +37,6 @@ set splitright
 " Diff Mode
 set diffopt=filler,vertical
 
-" Easy buffer switching
-set hidden
-
 set scrolloff=8
 set sidescrolloff=10
 set synmaxcol=500
@@ -53,7 +49,7 @@ set nojoinspaces
 let &fillchars='vert: ,fold:·'
 let &listchars='tab:| ,eol:¬,trail:⣿,extends:→,precedes:←'
 
-" Better Completion
+" Better completion
 set pumheight=20
 
 " Visual-block can free move
@@ -79,7 +75,6 @@ set formatoptions=cqj1 " format using textwidth, including comments and gq
 set nostartofline
 
 " Menu complete
-set wildmenu
 set wildignorecase
 set wildmode=longest:full,full
 set wildignore+=.hg,.git,.svn,*.pyc,*.spl,*.o,*.out,*.DS_Store
