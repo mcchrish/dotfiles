@@ -9,11 +9,6 @@ highlight GitSignsDelete guifg=#870000 guibg=#262626
 
 " vim-matchup
 let g:matchup_matchparen_deferred = 1
-let g:matchup_matchparen_status_offscreen = 0
-
-highlight link WhichKeyFloating LineNr
-highlight default link WhichKey GitGutterAdd
-highlight default link WhichKeySeperator FoldColumn
 
 " context.vim
 let g:context_enabled = 0

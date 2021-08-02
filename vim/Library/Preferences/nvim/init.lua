@@ -64,7 +64,6 @@ return require("packer").startup(function(use)
 	use "machakann/vim-sandwich"
 	use { "neoclide/coc.nvim", branch = "release" }
 	use { "wellle/context.vim", cmd = "ContextToggle" }
-	use "liuchengxu/vim-which-key"
 	use "tpope/vim-fugitive"
 	use { "rbong/vim-flog", cmd = { "Flog", "Flogsplit" } }
 	use {
