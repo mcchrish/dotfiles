@@ -97,7 +97,7 @@ nnoremap <silent> <leader>gh <cmd>Gitsigns toggle_linehl<cr>
 " Fzf
 " Search current word under cursor
 function! SearchWordWithRg()
-  execute 'FzfRg' expand('<cword>')
+  execute 'Rg' expand('<cword>')
 endfunction
 
 " Search visual selected
@@ -110,17 +110,17 @@ function! SearchVisualSelectionWithRg() range
   let selection = getreg('"')
   call setreg('"', old_reg, old_regtype)
   let &clipboard = old_clipboard
-  execute 'FzfRg' selection
+  execute 'Rg' selection
 endfunction
 
-nnoremap <silent> <leader>A <cmd>FzfRgAll<cr>
-nnoremap <silent> <leader>a <cmd>FzfRg<cr>
-nnoremap <silent> <leader>f <cmd>FzfFiles<cr>
-nnoremap <silent> <leader>d <cmd>FzfFiles %:h<cr>
-nnoremap <silent> <leader>b <cmd>FzfBuffers<cr>
-nnoremap <silent> <leader>l <cmd>FzfBLines<cr>
-nnoremap <silent> <leader>L <cmd>FzfLines<cr>
-nnoremap <silent> <leader>m <cmd>FzfMarks<cr>
+nnoremap <silent> <leader>A <cmd>RgAll<cr>
+nnoremap <silent> <leader>a <cmd>Rg<cr>
+nnoremap <silent> <leader>f <cmd>Files<cr>
+nnoremap <silent> <leader>d <cmd>Files %:h<cr>
+nnoremap <silent> <leader>b <cmd>Buffers<cr>
+nnoremap <silent> <leader>l <cmd>BLines<cr>
+nnoremap <silent> <leader>L <cmd>Lines<cr>
+nnoremap <silent> <leader>m <cmd>Marks<cr>
 nnoremap <silent> <leader>K <cmd>call SearchWordWithRg()<cr>
 vnoremap <silent> <leader>K <cmd>call SearchVisualSelectionWithRg()<cr>
 
