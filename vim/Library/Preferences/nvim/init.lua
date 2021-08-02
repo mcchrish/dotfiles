@@ -55,7 +55,6 @@ return require("packer").startup(function(use)
 	}
 	use "andymass/vim-matchup"
 	use "justinmk/vim-sneak"
-	use "pgdouyon/vim-evanesco"
 	use "tpope/vim-eunuch"
 	use "tpope/vim-unimpaired"
 	use "tpope/vim-repeat"
