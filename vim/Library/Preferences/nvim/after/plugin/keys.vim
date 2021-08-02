@@ -1,3 +1,5 @@
+nnoremap <leader>k <cmd>tabe $XDG_CONFIG_HOME/nvim/after/plugin/keys.vim<cr>
+
 " Move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -21,7 +23,7 @@ inoremap jk <esc>
 nnoremap Q <nop>
 
 " Faster save
-nnoremap <silent> <leader>w :silent update<cr>
+nnoremap <silent> <leader>w <cmd>silent update<cr>
 
 " Delete without overwriting default register
 nnoremap vd "_d
@@ -34,8 +36,8 @@ nnoremap vD "_D
 nnoremap Y y$
 
 " Repeat substitution with flag
-nnoremap & :&&<CR>
-vnoremap & :&&<CR>
+nnoremap & <cmd>&&<CR>
+vnoremap & <cmd>&&<CR>
 
 " Repeat macro over all selected lines
 vnoremap @ :norm@
@@ -51,23 +53,42 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
-autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
-
-nnoremap <silent> <leader><cr> :call my#refresh()<cr>
+nnoremap <silent> <leader><cr> <cmd>call my#refresh()<cr>
 
 " vim-fugitive
-nnoremap <silent> <leader>gs :G<cr>
-nnoremap <silent> <leader>gd :Gdiff<cr>
-nnoremap <silent> <leader>gb :Gblame<cr>
-nnoremap <silent> <leader>gl :Flog<cr>
+nnoremap <silent> <leader>gs <cmd>G<cr>
+nnoremap <silent> <leader>gd <cmd>Gdiff<cr>
+nnoremap <silent> <leader>gb <cmd>Gblame<cr>
+nnoremap <silent> <leader>gl <cmd>Flog<cr>
 
 " undotree
-nnoremap <silent> <leader>u :UndotreeToggle<cr>
+nnoremap <silent> <leader>u <cmd>UndotreeToggle<cr>
 
 " vim-sandwich
 nmap s <Nop>
 xmap s <Nop>
+
+" sneak
+nmap ss <Plug>Sneak_s
+xmap ss <Plug>Sneak_s
+
+"replace 'f' with 1-char Sneak
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+"replace 't' with 1-char Sneak
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
+
+nmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_;' : ':'
+vmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_;' : ':'
 
 " gitsigns
 nnoremap <silent> <leader>gg <cmd>Gitsigns toggle_signs<cr>
@@ -92,16 +113,16 @@ function! SearchVisualSelectionWithRg() range
   execute 'FzfRg' selection
 endfunction
 
-nnoremap <silent> <leader>A :FzfRgAll<cr>
-nnoremap <silent> <leader>a :FzfRg<cr>
-nnoremap <silent> <leader>f :FzfFiles<cr>
-nnoremap <silent> <leader>d :FzfFiles <c-r>=expand("%:h")<cr>/<cr>
-nnoremap <silent> <leader>b :FzfBuffers<cr>
-nnoremap <silent> <leader>l :FzfBLines<cr>
-nnoremap <silent> <leader>L :FzfLines<cr>
-nnoremap <silent> <leader>m :FzfMarks<cr>
-nnoremap <silent> <leader>K :call SearchWordWithRg()<cr>
-vnoremap <silent> <leader>K :call SearchVisualSelectionWithRg()<cr>
+nnoremap <silent> <leader>A <cmd>FzfRgAll<cr>
+nnoremap <silent> <leader>a <cmd>FzfRg<cr>
+nnoremap <silent> <leader>f <cmd>FzfFiles<cr>
+nnoremap <silent> <leader>d <cmd>FzfFiles %:h<cr>
+nnoremap <silent> <leader>b <cmd>FzfBuffers<cr>
+nnoremap <silent> <leader>l <cmd>FzfBLines<cr>
+nnoremap <silent> <leader>L <cmd>FzfLines<cr>
+nnoremap <silent> <leader>m <cmd>FzfMarks<cr>
+nnoremap <silent> <leader>K <cmd>call SearchWordWithRg()<cr>
+vnoremap <silent> <leader>K <cmd>call SearchVisualSelectionWithRg()<cr>
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -113,8 +134,8 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-nnoremap <silent> <leader>nn :NnnPicker<CR>
-nnoremap <silent> <leader>nc :NnnPicker %:p:h<CR>
+nnoremap <silent> <leader>nn <cmd>NnnPicker<cr>
+nnoremap <silent> <leader>nc <cmd>NnnPicker %:h<cr>
 
 " COC
 
@@ -136,11 +157,11 @@ nnoremap <silent> <leader>co  :<c-u>CocList outline<cr>
 xmap <leader>ca <plug>(coc-codeaction-selected)
 nmap <leader>ca <plug>(coc-codeaction-selected)
 
-nnoremap <leader>cc :CocCommand<cr>
-nnoremap <leader>cd :CocList diagnostics<cr>
-nnoremap <leader>cs :CocList snippets<cr>
+nnoremap <leader>cc <cmd>CocCommand<cr>
+nnoremap <leader>cd <cmd>CocList diagnostics<cr>
+nnoremap <leader>cs <cmd>CocList snippets<cr>
 
-nnoremap <silent> K :call <SID>show_documentation()<cr>
+nnoremap <silent> K <cmd>call <SID>show_documentation()<cr>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -165,4 +186,4 @@ let g:coc_snippet_prev = '<c-k>'
 imap <c-j> <plug>(coc-snippets-expand-jump)
 
 " context.vim
-nnoremap <leader>t :ContextToggle<cr>
+nnoremap <leader>t <cmd>ContextToggle<cr>

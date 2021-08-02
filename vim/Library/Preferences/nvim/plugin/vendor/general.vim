@@ -13,3 +13,7 @@ let g:matchup_matchparen_deferred = 1
 " context.vim
 let g:context_enabled = 0
 let g:context_highlight_border = 'SpecialComment'
+
+" sneak
+let g:sneak#label = 1
+let g:sneak#use_ic_scs = 1
