@@ -50,11 +50,12 @@ return require("packer").startup(function(use)
 	use "junegunn/fzf.vim"
 	use {
 		"~/vimming/nnn.vim",
-		config = require "plugins.nnn",
+		config = require "vendor.nnn",
 		cmd = "NnnPicker",
 	}
 	use "andymass/vim-matchup"
 	use "justinmk/vim-sneak"
+	use "pgdouyon/vim-evanesco"
 	use "tpope/vim-eunuch"
 	use "tpope/vim-unimpaired"
 	use "tpope/vim-repeat"
@@ -68,18 +69,18 @@ return require("packer").startup(function(use)
 	use {
 		"lewis6991/gitsigns.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
-		config = require "plugins.gitsigns",
+		config = require "vendor.gitsigns",
 		event = "BufEnter",
 	}
 	use { "mbbill/undotree", cmd = "UndotreeToggle" }
 	use {
 		"terrortylor/nvim-comment",
 		requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
-		config = require "plugins.comment",
+		config = require "vendor.comment",
 	}
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		config = require "plugins.treesitter",
+		config = require "vendor.treesitter",
 		run = ":TSUpdate",
 	}
 	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
