@@ -1,3 +1,6 @@
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
 let mapleader = "\<space>"
 
 call plug#begin('$XDG_DATA_HOME/nvim/vendor')
