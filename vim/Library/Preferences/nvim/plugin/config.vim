@@ -1,12 +1,6 @@
 " Easy buffer switching
 set hidden
 
-" Resize splits when the window is resized
-autocmd VimResized * :wincmd =
-
-" :h lua-highlight
-autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-
 set modelines=1
 set fileformats=unix,mac,dos
 set fileformat=unix
