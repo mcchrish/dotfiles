@@ -11,5 +11,5 @@ let g:fzf_action = {
 command! -bang -nargs=* FzfRgAll call fzf#vim#grep(
       \ "rg --column --line-number --no-heading --color=always --smart-case --hidden ".shellescape(<q-args>),
       \ 1,
-      \ fzf#vim#with_preview({ 'options': ['--color', 'hl:#00875f,hl+:#00875f'] }),
+      \ fzf#vim#with_preview(),
       \ <bang>0)
