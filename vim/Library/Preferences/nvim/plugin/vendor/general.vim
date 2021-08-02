@@ -11,9 +11,6 @@ highlight GitSignsDelete guifg=#870000 guibg=#262626
 let g:matchup_matchparen_deferred = 1
 let g:matchup_matchparen_status_offscreen = 0
 
-" vim-which-key
-let g:which_key_use_floating_win = 1
-
 highlight link WhichKeyFloating LineNr
 highlight default link WhichKey GitGutterAdd
 highlight default link WhichKeySeperator FoldColumn
