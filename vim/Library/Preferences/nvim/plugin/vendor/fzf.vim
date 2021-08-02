@@ -1,4 +1,4 @@
-let $FZF_DEFAULT_OPTS="--color=16 --color='fg+:#eeeeee,bg+:#4e4e4e,hl:#00875f,hl+:#00875f,marker:#eeeeee,prompt:#767676,preview-fg:#808080,border:#666666' --layout=reverse"
+let $FZF_DEFAULT_OPTS="--color=16 --color='fg+:#eeeeee,bg+:#4e4e4e,hl:#00875f,hl+:#00875f,marker:#eeeeee,prompt:#767676,preview-fg:#808080,border:#666666' --layout=reverse --bind=down:half-page-down,up:half-page-up"
 let $FZF_PREVIEW_COMMAND="cat {}"
 let g:fzf_buffers_jump = 1
 let g:fzf_action = {
