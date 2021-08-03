@@ -9,6 +9,7 @@ highlight GitSignsDelete guifg=#870000 guibg=#262626
 
 " vim-matchup
 let g:matchup_matchparen_deferred = 1
+let g:matchup_matchparen_offscreen = {}
 
 " context.vim
 let g:context_enabled = 0
