@@ -7,6 +7,7 @@ return function()
 			"lua",
 			"javascript",
 			"php",
+			"tsx",
 			"typescript",
 			"vue",
 		},
