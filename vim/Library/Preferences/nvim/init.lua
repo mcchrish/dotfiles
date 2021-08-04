@@ -64,9 +64,17 @@ return require("packer").startup(function(use)
 	use { "rbong/vim-flog", cmd = { "Flog", "Flogsplit" } }
 	use {
 		"lewis6991/gitsigns.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
+		requires = "nvim-lua/plenary.nvim",
 		config = require "vendor.gitsigns",
 		event = "BufEnter",
+	}
+	use {
+		'ruifm/gitlinker.nvim',
+		requires = 'nvim-lua/plenary.nvim',
+		config = function() 
+			require"gitlinker".setup()
+		end,
+		keys = "<leader>gy"
 	}
 	use { "mbbill/undotree", cmd = "UndotreeToggle" }
 	use {
