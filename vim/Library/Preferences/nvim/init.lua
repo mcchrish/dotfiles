@@ -40,6 +40,7 @@ g.coc_global_extensions = {
 	"coc-phpls",
 	"coc-html",
 	"coc-css",
+	"coc-lua",
 	"https://github.com/rodrigore/coc-tailwind-intellisense",
 }
 
