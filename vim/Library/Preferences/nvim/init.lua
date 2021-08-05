@@ -4,7 +4,6 @@ g.mapleader = [[ ]]
 g.python_host_prog = "/usr/bin/python2"
 g.python3_host_prog = "/usr/bin/python3"
 g.did_install_default_menus = 1
-
 local disabled_built_ins = {
 	"matchit",
 	"2html_plugin",
@@ -70,12 +69,17 @@ return require("packer").startup(function(use)
 		event = "BufEnter",
 	}
 	use {
-		'ruifm/gitlinker.nvim',
-		requires = 'nvim-lua/plenary.nvim',
-		config = function() 
-			require"gitlinker".setup()
+		"lukas-reineke/indent-blankline.nvim",
+		config = require "vendor.indent_blankline",
+		cmd = "IndentBlanklineToggle"
+	}
+	use {
+		"ruifm/gitlinker.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("gitlinker").setup()
 		end,
-		keys = "<leader>gy"
+		keys = "<leader>gy",
 	}
 	use { "mbbill/undotree", cmd = "UndotreeToggle" }
 	use {
