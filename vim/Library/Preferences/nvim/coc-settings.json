@@ -24,10 +24,7 @@
   ],
   "suggest.maxPreviewWidth": 80,
   "suggest.enablePreview": true,
-  "list.insertMappings": {
-    "<c-n>": "normal:j",
-    "<c-p>": "normal:k"
-  },
+  "list.height": 20,
   "snippets.extends": {
     "typescriptreact": ["typescript"]
   },
