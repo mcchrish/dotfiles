@@ -19,9 +19,6 @@ vnoremap > >gv
 " Remap esc
 inoremap jk <esc>
 
-" No ex mode
-nnoremap Q <nop>
-
 " Faster save
 nnoremap <silent> <leader>w <cmd>silent update<cr>
 
@@ -115,14 +112,15 @@ endfunction
 
 nnoremap <silent> <leader>A <cmd>RgAll<cr>
 nnoremap <silent> <leader>a <cmd>Rg<cr>
+nnoremap <silent> <leader>K <cmd>call SearchWordWithRg()<cr>
+vnoremap <silent> <leader>K <cmd>call SearchVisualSelectionWithRg()<cr>
 nnoremap <silent> <leader>f <cmd>Files<cr>
 nnoremap <silent> <leader>d <cmd>Files %:h<cr>
 nnoremap <silent> <leader>b <cmd>Buffers<cr>
 nnoremap <silent> <leader>l <cmd>BLines<cr>
 nnoremap <silent> <leader>L <cmd>Lines<cr>
 nnoremap <silent> <leader>m <cmd>Marks<cr>
-nnoremap <silent> <leader>K <cmd>call SearchWordWithRg()<cr>
-vnoremap <silent> <leader>K <cmd>call SearchVisualSelectionWithRg()<cr>
+nnoremap <silent> Q <cmd>History:<cr>
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -152,7 +150,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 " Symbol renaming.
 nmap <leader>cr <Plug>(coc-rename)
 
-nnoremap <silent> <leader>co  :<c-u>CocList outline<cr>
+nnoremap <silent> <leader>co  <cmd>CocList outline<cr>
 
 xmap <leader>ca <plug>(coc-codeaction-selected)
 nmap <leader>ca <plug>(coc-codeaction-selected)
@@ -175,12 +173,6 @@ imap <c-l> <plug>(coc-snippets-expand)
 
 " Use <c-j> for select text for visual placeholder of snippet.
 vmap <c-j> <plug>(coc-snippets-select)
-
-" Use <c-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <c-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
 
 " Use <c-j> for both expand and jump (make expand higher priority.)
 imap <c-j> <plug>(coc-snippets-expand-jump)
