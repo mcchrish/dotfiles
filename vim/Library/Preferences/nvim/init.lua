@@ -4,6 +4,7 @@ g.mapleader = [[ ]]
 g.python_host_prog = "/usr/bin/python2"
 g.python3_host_prog = "/usr/bin/python3"
 g.did_install_default_menus = 1
+
 local disabled_built_ins = {
 	"matchit",
 	"2html_plugin",
@@ -24,7 +25,6 @@ local disabled_built_ins = {
 	"zip",
 	"zipPlugin",
 }
-
 for i = 1, #disabled_built_ins do
 	g["loaded_" .. disabled_built_ins[i]] = 1
 end

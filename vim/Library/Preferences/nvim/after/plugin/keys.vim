@@ -54,8 +54,8 @@ nnoremap <silent> <leader><cr> <cmd>call my#refresh()<cr>
 
 " vim-fugitive
 nnoremap <silent> <leader>gs <cmd>G<cr>
-nnoremap <silent> <leader>gd <cmd>Gdiff<cr>
-nnoremap <silent> <leader>gb <cmd>Gblame<cr>
+nnoremap <silent> <leader>gd <cmd>Gdiffsplit<cr>
+nnoremap <silent> <leader>gb <cmd>G blame<cr>
 nnoremap <silent> <leader>gl <cmd>Flog<cr>
 
 " undotree
