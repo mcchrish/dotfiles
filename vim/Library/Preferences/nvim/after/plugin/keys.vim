@@ -1,4 +1,4 @@
-nnoremap <leader>k <cmd>tabe $XDG_CONFIG_HOME/nvim/after/plugin/keys.vim<cr>
+nnoremap <f2> <cmd>tabe $XDG_CONFIG_HOME/nvim/after/plugin/keys.vim<cr>
 
 " Move vertically by visual line
 nnoremap j gj
