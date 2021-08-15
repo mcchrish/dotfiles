@@ -1220,13 +1220,13 @@
 			<key>Normal Font</key>
 			<string>Iosevka-Term-Curly-Slab 14</string>
 			<key>Option Key Sends</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>Prevent Opening in a Tab</key>
 			<false/>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Rows</key>
 			<integer>40</integer>
 			<key>Screen</key>
@@ -2446,13 +2446,13 @@
 			<key>Normal Font</key>
 			<string>Iosevka-Term-Curly-Slab 14</string>
 			<key>Option Key Sends</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>Prevent Opening in a Tab</key>
 			<false/>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Rows</key>
 			<integer>40</integer>
 			<key>Screen</key>
@@ -3290,7 +3290,7 @@
 			<key>Close Sessions On End</key>
 			<integer>1</integer>
 			<key>Columns</key>
-			<integer>242</integer>
+			<integer>256</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
@@ -3364,7 +3364,7 @@
 				<real>0.73725490196078436</real>
 			</dict>
 			<key>Guid</key>
-			<string>350ACA5D-16A5-48FC-A9DB-E9ED6231FB86</string>
+			<string>FF4D360A-B331-4D0E-89E4-1A0501C56FAC</string>
 			<key>Has Hotkey</key>
 			<false/>
 			<key>Hide After Opening</key>
@@ -3697,19 +3697,19 @@
 			<key>Normal Font</key>
 			<string>Iosevka-Term-Curly-Slab 14</string>
 			<key>Option Key Sends</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>Prevent Opening in a Tab</key>
 			<false/>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Rows</key>
 			<integer>64</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>10000</integer>
+			<integer>1000</integer>
 			<key>Scrollback With Status Bar</key>
 			<false/>
 			<key>Scrollback in Alternate Screen</key>
