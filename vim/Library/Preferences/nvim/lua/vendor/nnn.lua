@@ -1,6 +1,6 @@
 return function()
 	require("nnn").setup {
-		command = "nnn -o -C",
+		command = "nnn -oCQ",
 		set_default_mappings = 0,
 		replace_netrw = 1,
 		action = {
