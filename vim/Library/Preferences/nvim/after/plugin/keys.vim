@@ -135,47 +135,14 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 nnoremap <silent> <leader>nn <cmd>NnnPicker<cr>
 nnoremap <silent> <leader>nc <cmd>NnnPicker %:h<cr>
 
-" COC
+" " Use <c-l> for trigger snippet expand.
+" imap <c-l> <plug>(coc-snippets-expand)
 
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" " Use <c-j> for select text for visual placeholder of snippet.
+" vmap <c-j> <plug>(coc-snippets-select)
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
-
-" Symbol renaming.
-nmap <leader>cr <Plug>(coc-rename)
-
-nnoremap <silent> <leader>co  <cmd>CocList outline<cr>
-
-xmap <leader>ca <plug>(coc-codeaction-selected)
-nmap <leader>ca <plug>(coc-codeaction-selected)
-
-nnoremap <leader>cc <cmd>CocCommand<cr>
-nnoremap <leader>cd <cmd>CocList diagnostics<cr>
-nnoremap <leader>cs <cmd>CocList snippets<cr>
-
-nnoremap <silent> K <cmd>call <SID>show_documentation()<cr>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Use <c-l> for trigger snippet expand.
-imap <c-l> <plug>(coc-snippets-expand)
-
-" Use <c-j> for select text for visual placeholder of snippet.
-vmap <c-j> <plug>(coc-snippets-select)
-
-" Use <c-j> for both expand and jump (make expand higher priority.)
-imap <c-j> <plug>(coc-snippets-expand-jump)
+" " Use <c-j> for both expand and jump (make expand higher priority.)
+" imap <c-j> <plug>(coc-snippets-expand-jump)
 
 " context.vim
 nnoremap <leader>t <cmd>ContextToggle<cr>

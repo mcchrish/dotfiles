@@ -29,20 +29,6 @@ for i = 1, #disabled_built_ins do
 	g["loaded_" .. disabled_built_ins[i]] = 1
 end
 
-g.coc_global_extensions = {
-	"coc-tsserver",
-	"coc-json",
-	"coc-vetur",
-	"coc-eslint",
-	"coc-prettier",
-	"coc-snippets",
-	"coc-phpls",
-	"coc-html",
-	"coc-css",
-	"coc-lua",
-	"https://github.com/rodrigore/coc-tailwind-intellisense",
-}
-
 return require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "pgdouyon/vim-yin-yang"
@@ -58,7 +44,12 @@ return require("packer").startup(function(use)
 	use "tpope/vim-sleuth"
 	use "tpope/vim-rsi"
 	use "machakann/vim-sandwich"
-	use { "neoclide/coc.nvim", branch = "release" }
+	use {
+		"neovim/nvim-lspconfig",
+		requires = "jose-elias-alvarez/null-ls.nvim",
+		config = require "vendor.lsp",
+	}
+	use { "ms-jpq/coq_nvim", branch = "coq" }
 	use { "wellle/context.vim", cmd = "ContextToggle" }
 	use "tpope/vim-fugitive"
 	use { "rbong/vim-flog", cmd = { "Flog", "Flogsplit" } }
@@ -71,7 +62,7 @@ return require("packer").startup(function(use)
 	use {
 		"lukas-reineke/indent-blankline.nvim",
 		config = require "vendor.indent_blankline",
-		cmd = "IndentBlanklineToggle"
+		cmd = "IndentBlanklineToggle",
 	}
 	use {
 		"ruifm/gitlinker.nvim",

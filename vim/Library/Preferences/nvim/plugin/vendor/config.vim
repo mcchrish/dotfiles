@@ -18,3 +18,7 @@ let g:context_highlight_border = 'SpecialComment'
 " sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
+
+" coq
+" conflicts with window nav keys. Disable for now
+let g:coq_settings = { 'keymap.jump_to_mark': '' }
