@@ -8,8 +8,10 @@ return function()
 	}
 
 	local nvim_lsp = require "lspconfig"
+	local default_config = { format_on_save = false }
+	local function on_attach(client, bufnr, custom_opts)
+		local opts = vim.tbl_extend("force", default_config, custom_opts or {})
 
-	local on_attach = function(client, bufnr)
 		local function buf_set_keymap(...)
 			vim.api.nvim_buf_set_keymap(bufnr, ...)
 		end
@@ -20,32 +22,38 @@ return function()
 		--Enable completion triggered by <c-x><c-o>
 		buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-		local opts = { noremap = true, silent = true }
+		local map_opts = { noremap = true, silent = true }
 
-		buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-		buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-		buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-		buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-		buf_set_keymap("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-		buf_set_keymap("n", "<leader>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", opts)
-		buf_set_keymap("n", "<leader>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", opts)
-		buf_set_keymap("n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", opts)
-		buf_set_keymap("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
-		buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-		buf_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-		buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-		buf_set_keymap("n", "<leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", opts)
-		buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", opts)
-		buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", opts)
-		buf_set_keymap("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", opts)
-		buf_set_keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
+		-- stylua: ignore start
+		buf_set_keymap("n", "gD",			"<cmd>lua vim.lsp.buf.declaration()<cr>", map_opts)
+		buf_set_keymap("n", "gd",			"<cmd>lua vim.lsp.buf.definition()<cr>", map_opts)
+		buf_set_keymap("n", "K",			"<cmd>lua vim.lsp.buf.hover()<cr>", map_opts)
+		buf_set_keymap("n", "gi",			"<cmd>lua vim.lsp.buf.implementation()<cr>", map_opts)
+		buf_set_keymap("n", "<c-k>",		"<cmd>lua vim.lsp.buf.signature_help()<cr>", map_opts)
+		buf_set_keymap("n", "<leader>wa",	"<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", map_opts)
+		buf_set_keymap("n", "<leader>wr",	"<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", map_opts)
+		buf_set_keymap("n", "<leader>wl",	"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", map_opts)
+		buf_set_keymap("n", "<leader>D",	"<cmd>lua vim.lsp.buf.type_definition()<cr>", map_opts)
+		buf_set_keymap("n", "<leader>rn",	"<cmd>lua vim.lsp.buf.rename()<cr>", map_opts)
+		buf_set_keymap("n", "<leader>ca",	"<cmd>lua vim.lsp.buf.code_action()<cr>", map_opts)
+		buf_set_keymap("n", "gr",			"<cmd>lua vim.lsp.buf.references()<cr>", map_opts)
+		buf_set_keymap("n", "<leader>e",	"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", map_opts)
+		buf_set_keymap("n", "[d",			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", map_opts)
+		buf_set_keymap("n", "]d",			"<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", map_opts)
+		buf_set_keymap("n", "<leader>q",	"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", map_opts)
+		buf_set_keymap("n", "<leader>p",	"<cmd>lua vim.lsp.buf.formatting()<cr>", map_opts)
+		-- stylua: ignore end
+
+		if client.resolved_capabilities.document_formatting and opts.format_on_save then
+			vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 600)]]
+		end
 	end
 
 	local servers = {
 		["tsserver"] = {
 			on_attach = function(...)
-				client.resolved_capabilities.document_formatting = false
 				on_attach(...)
+				client.resolved_capabilities.document_formatting = false
 			end,
 		},
 		"vuels",
@@ -61,6 +69,8 @@ return function()
 	}
 
 	for config, lsp in ipairs(servers) do
-		nvim_lsp[lsp].setup(type(config) == "table" and vim.tbl_extend("force", default_config, config) or default_config)
+		nvim_lsp[lsp].setup(
+			type(config) == "table" and vim.tbl_extend("force", default_config, config) or default_config
+		)
 	end
 end
