@@ -45,15 +45,15 @@ return function()
 		-- stylua: ignore end
 
 		if client.resolved_capabilities.document_formatting and opts.format_on_save then
-			vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 600)]]
+			vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()]]
 		end
 	end
 
 	local servers = {
-		["tsserver"] = {
-			on_attach = function(...)
-				on_attach(...)
+		tsserver = {
+			on_attach = function(client, bufnr)
 				client.resolved_capabilities.document_formatting = false
+				on_attach(client, bufnr)
 			end,
 		},
 		"vuels",
@@ -68,9 +68,15 @@ return function()
 		},
 	}
 
-	for config, lsp in ipairs(servers) do
-		nvim_lsp[lsp].setup(
-			type(config) == "table" and vim.tbl_extend("force", default_config, config) or default_config
-		)
+	for k, v in pairs(servers) do
+		local key = type(k) == "number" and v or k
+		nvim_lsp[key].setup(type(v) == "table" and vim.tbl_extend("force", default_config, v) or default_config)
+	end
+
+	local signs = { Error = "▬", Warning = "▪", Hint = "▪", Information = "⋅" }
+
+	for type, icon in pairs(signs) do
+		local hl = "LspDiagnosticsSign" .. type
+		vim.fn.sign_define(hl, { text = icon, texthl = hl })
 	end
 end
