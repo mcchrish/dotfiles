@@ -84,5 +84,6 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 	}
 	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
+	use { "leafOfTree/vim-vue-plugin" }
 	-- use 'mcchrish/fountain.vim'
 end)

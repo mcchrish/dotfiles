@@ -21,4 +21,18 @@ let g:sneak#use_ic_scs = 1
 
 " coq
 " conflicts with window nav keys. Disable for now
-let g:coq_settings = { 'keymap.jump_to_mark': '' }
+let g:coq_settings = { 'auto_start': v:true, 'keymap.jump_to_mark': '' }
+
+let g:vim_vue_plugin_config = {
+                  \ 'syntax': {
+                  \   'template': ['html'],
+                  \   'script': ['javascript'],
+                  \   'style': ['css'],
+                  \ },
+                  \ 'full_syntax': [],
+                  \ 'initial_indent': [],
+                  \ 'attribute': 0,
+                  \ 'keyword': 0,
+                  \ 'foldexpr': 0,
+                  \ 'debug': 0,
+                  \ }
