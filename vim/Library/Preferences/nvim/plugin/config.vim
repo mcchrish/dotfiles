@@ -31,6 +31,8 @@ set splitright
 " Diff Mode
 set diffopt=filler,vertical
 
+set cursorline
+
 set scrolloff=8
 set sidescrolloff=10
 set synmaxcol=500
