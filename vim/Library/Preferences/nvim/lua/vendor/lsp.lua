@@ -1,5 +1,8 @@
 return function()
+	local nvim_lsp = require "lspconfig"
 	local null_ls = require "null-ls"
+	local coq = require "coq"
+
 	null_ls.config {
 		sources = {
 			null_ls.builtins.formatting.stylua,
@@ -7,7 +10,6 @@ return function()
 		},
 	}
 
-	local nvim_lsp = require "lspconfig"
 	local default_config = { format_on_save = false }
 	local function on_attach(client, bufnr, custom_opts)
 		local opts = vim.tbl_extend("force", default_config, custom_opts or {})
@@ -57,6 +59,7 @@ return function()
 			end,
 		},
 		"vuels",
+		"tailwindcss",
 		"intelephense",
 		"null-ls",
 	}
@@ -70,7 +73,11 @@ return function()
 
 	for k, v in pairs(servers) do
 		local key = type(k) == "number" and v or k
-		nvim_lsp[key].setup(type(v) == "table" and vim.tbl_extend("force", default_config, v) or default_config)
+		nvim_lsp[key].setup(
+			coq.lsp_ensure_capabilities(
+				type(v) == "table" and vim.tbl_extend("force", default_config, v) or default_config
+			)
+		)
 	end
 
 	local signs = { Error = "▬", Warning = "▪", Hint = "▪", Information = "⋅" }

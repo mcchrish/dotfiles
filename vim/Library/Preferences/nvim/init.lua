@@ -32,6 +32,7 @@ end
 return require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "pgdouyon/vim-yin-yang"
+	use "rktjmp/lush.nvim"
 	use "/usr/local/opt/fzf"
 	use "junegunn/fzf.vim"
 	use { "~/vimming/nnn.vim", config = require "vendor.nnn" }
@@ -49,7 +50,12 @@ return require("packer").startup(function(use)
 		requires = "jose-elias-alvarez/null-ls.nvim",
 		config = require "vendor.lsp",
 	}
-	use { "ms-jpq/coq_nvim", branch = "coq" }
+	use {
+		"ms-jpq/coq_nvim",
+		requires = { { "ms-jpq/coq.artifacts", branch = "artifacts" } },
+		branch = "coq",
+	}
+	use { "neoclide/coc.nvim", branch = "release", opt = true }
 	use { "wellle/context.vim", cmd = "ContextToggle" }
 	use "tpope/vim-fugitive"
 	use { "rbong/vim-flog", cmd = { "Flog", "Flogsplit" } }
