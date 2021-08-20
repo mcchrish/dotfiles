@@ -35,6 +35,10 @@ return require("packer").startup(function(use)
 	use "rktjmp/lush.nvim"
 	use "/usr/local/opt/fzf"
 	use "junegunn/fzf.vim"
+	use {
+		"nvim-telescope/telescope.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	}
 	use { "~/vimming/nnn.vim", config = require "vendor.nnn" }
 	use "andymass/vim-matchup"
 	use "justinmk/vim-sneak"

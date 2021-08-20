@@ -3,6 +3,10 @@ source $VIMRUNTIME/defaults.vim
 
 let mapleader = "\<space>"
 
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set viminfo+=n~/.vim/viminfo
+
 call plug#begin('$XDG_DATA_HOME/nvim/vendor')
 
 Plug 'pgdouyon/vim-yin-yang'

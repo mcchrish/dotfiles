@@ -23,3 +23,8 @@ highlight LspDiagnosticsDefaultInformation guifg=#87005f
 highlight LspDiagnosticsFloatingInformation guifg=#87005f guibg=#262626
 highlight LspDiagnosticsUnderlineInformation cterm=underline gui=underline guifg=#87005f
 highlight link LspDiagnosticsSignInformation LspDiagnosticsFloatingInformation
+
+highlight GitSignsAdd guifg=#00875f guibg=#262626
+highlight GitSignsChange guifg=#005f87 guibg=#262626
+highlight GitSignsDelete guifg=#870000 guibg=#262626
+
