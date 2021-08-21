@@ -25,11 +25,20 @@ local disabled_built_ins = {
 	"zip",
 	"zipPlugin",
 }
+
 for i = 1, #disabled_built_ins do
 	g["loaded_" .. disabled_built_ins[i]] = 1
 end
 
-return require("packer").startup(function(use)
+local packer = require "packer"
+local util = require "packer.util"
+
+packer.init {
+	-- We want packer_compiled to load last
+	compile_path = util.join_paths(vim.fn.stdpath "config", "plugin", "__packer_compiled.lua"),
+}
+
+return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "pgdouyon/vim-yin-yang"
 	use "rktjmp/lush.nvim"
@@ -56,7 +65,7 @@ return require("packer").startup(function(use)
 	}
 	use {
 		"ms-jpq/coq_nvim",
-		requires = { { "ms-jpq/coq.artifacts", branch = "artifacts" } },
+		-- requires = { { "ms-jpq/coq.artifacts", branch = "artifacts" } },
 		branch = "coq",
 	}
 	use { "neoclide/coc.nvim", branch = "release", opt = true }

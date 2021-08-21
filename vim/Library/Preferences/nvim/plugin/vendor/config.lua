@@ -1,15 +1,5 @@
 local g = vim.g
 
--- coq
--- conflicts with window nav keys. Disable for now
-g.coq_settings = {
-	auto_start = true,
-	keymap = {
-		jump_to_mark = "",
-		bigger_preview = "",
-	},
-}
-
 -- vim-matchup
 g.matchup_matchparen_deferred = 1
 g.matchup_matchparen_offscreen = {}
@@ -38,4 +28,14 @@ g.vim_vue_plugin_config = {
 	keyword = 0,
 	foldexpr = 0,
 	debug = 0,
+}
+
+-- coq
+-- conflicts with window nav keys. Disable for now
+g.coq_settings = {
+	auto_start = true,
+	keymap = {
+		jump_to_mark = "",
+		bigger_preview = "",
+	},
 }
