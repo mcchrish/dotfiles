@@ -146,3 +146,9 @@ nnoremap <silent> <leader>nc <cmd>NnnPicker %:h<cr>
 
 " context.vim
 nnoremap <leader>t <cmd>ContextToggle<cr>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)

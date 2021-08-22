@@ -44,6 +44,7 @@ return packer.startup(function(use)
 	use "rktjmp/lush.nvim"
 	use "/usr/local/opt/fzf"
 	use "junegunn/fzf.vim"
+	use "junegunn/vim-easy-align"
 	use {
 		"nvim-telescope/telescope.nvim",
 		requires = "nvim-lua/plenary.nvim",
