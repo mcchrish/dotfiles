@@ -34,8 +34,11 @@ export PURE_PROMPT_SYMBOL="❫"
 zstyle :prompt:pure:path color black
 zstyle :prompt:pure:git:branch color green
 zstyle :prompt:pure:git:branch:cached color green
-zstyle :prompt:pure:git:dirty color red
+zstyle :prompt:pure:git:dirty color black
+zstyle :prompt:pure:git:arrow color black
+zstyle :prompt:pure:git:stash color black
 zstyle :prompt:pure:prompt:error color red
+zstyle :prompt:pure:git:stash show yes
 zinit ice compile"(pure|async).zsh" pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
