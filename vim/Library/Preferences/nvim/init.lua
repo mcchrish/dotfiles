@@ -41,6 +41,7 @@ packer.init {
 return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "pgdouyon/vim-yin-yang"
+	use "~/vimming/zenbones.nvim"
 	use "rktjmp/lush.nvim"
 	use "/usr/local/opt/fzf"
 	use "junegunn/fzf.vim"

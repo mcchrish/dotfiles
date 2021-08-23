@@ -88,4 +88,14 @@ opt.undofile = true
 opt.backup = false
 opt.writebackup = false
 
+opt.guicursor = {
+	"n-v-c:block",
+	"i-ci-ve:ver25",
+	"r-cr:hor20",
+	"o:hor50",
+	"a:Cursor/lCursor",
+	"i:blinkwait700-blinkoff400-blinkon250",
+	"sm:block-blinkwait175-blinkoff150-blinkon175",
+}
+
 g.PHP_noArrowMatching = 1
