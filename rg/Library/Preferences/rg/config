@@ -1,2 +1,6 @@
 --colors
-match:fg:0,135,95
+match:fg:magenta
+--colors
+line:fg:green
+--colors
+path:fg:yellow

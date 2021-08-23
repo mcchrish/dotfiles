@@ -31,21 +31,22 @@ autoload -Uz _zinit
 ### End of zinit's installer chunk
 
 export PURE_PROMPT_SYMBOL="❫"
-zstyle :prompt:pure:path color red
+zstyle :prompt:pure:path color black
 zstyle :prompt:pure:git:branch color green
 zstyle :prompt:pure:git:branch:cached color green
-zstyle :prompt:pure:git:dirty color 89
-zstyle :prompt:pure:prompt:error color 94
+zstyle :prompt:pure:git:dirty color red
+zstyle :prompt:pure:prompt:error color red
 zinit ice compile"(pure|async).zsh" pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
-export FZF_DEFAULT_OPTS="--color=16 --color='fg+:#eeeeee,bg+:#4e4e4e,hl:#00875f,hl+:#00875f,marker:#eeeeee,prompt:#767676'"
+export FZF_DEFAULT_OPTS="--color=16 --color='fg:bright-black,fg+:black:bold,bg+:bright-white,hl:magenta:bold,marker:white:bold,prompt:red' --bind=down:half-page-down,up:half-page-up"
 export FZF_DEFAULT_COMMAND="fd --type f \
   --hidden \
   --exclude .git \
   --exclude .DS_Store \
   --exclude .localized"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_PREVIEW_COMMAND="cat {}"
 zinit ice multisrc"shell/{key-bindings,completion}.zsh"
 zinit light junegunn/fzf
 
