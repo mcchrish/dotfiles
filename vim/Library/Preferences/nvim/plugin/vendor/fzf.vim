@@ -4,6 +4,7 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit'
       \ }
+let g:fzf_colors = { 'border':  ['fg', 'FloatBorder'] }
 
 let rg_flags = "--column --line-number --no-heading --color=always --smart-case --colors=path:fg:black"
 

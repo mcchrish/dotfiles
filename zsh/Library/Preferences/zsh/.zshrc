@@ -39,7 +39,7 @@ zstyle :prompt:pure:prompt:error color red
 zinit ice compile"(pure|async).zsh" pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
-export FZF_DEFAULT_OPTS="--color=16 --color='fg:bright-black,fg+:black:bold,bg+:bright-white,hl:magenta:bold,marker:white:bold,prompt:red' --bind=down:half-page-down,up:half-page-up"
+export FZF_DEFAULT_OPTS="--color=16 --color='fg:bright-black,fg+:black:bold,bg+:bright-white,hl:magenta:bold,marker:white:bold,prompt:red,info:blue' --bind=down:half-page-down,up:half-page-up"
 export FZF_DEFAULT_COMMAND="fd --type f \
   --hidden \
   --exclude .git \
