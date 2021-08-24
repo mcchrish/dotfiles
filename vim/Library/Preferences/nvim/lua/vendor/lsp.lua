@@ -7,6 +7,7 @@ return function()
 		sources = {
 			null_ls.builtins.formatting.stylua,
 			null_ls.builtins.formatting.prettier,
+			null_ls.builtins.diagnostics.eslint_d,
 		},
 	}
 
@@ -52,9 +53,20 @@ return function()
 	end
 
 	local servers = {
+		"null-ls",
 		tsserver = {
 			on_attach = function(client, bufnr)
 				client.resolved_capabilities.document_formatting = false
+				client.resolved_capabilities.document_range_formatting = false
+
+				local ts_utils = require "nvim-lsp-ts-utils"
+				ts_utils.setup {
+					eslint_bin = "eslint_d",
+					eslint_enable_diagnostics = true,
+					eslint_show_rule_id = true,
+				}
+				ts_utils.setup_client(client)
+
 				on_attach(client, bufnr)
 			end,
 		},
@@ -63,7 +75,6 @@ return function()
 			root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts"),
 		},
 		"intelephense",
-		"null-ls",
 	}
 
 	local default_config = {
@@ -75,7 +86,7 @@ return function()
 
 	for k, v in pairs(servers) do
 		local key = type(k) == "number" and v or k
-		nvim_lsp[key].setup(
+		lspconfig[key].setup(
 			coq.lsp_ensure_capabilities(
 				type(v) == "table" and vim.tbl_extend("force", default_config, v) or default_config
 			)
