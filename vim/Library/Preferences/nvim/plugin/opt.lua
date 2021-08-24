@@ -12,7 +12,7 @@ opt.lazyredraw = true
 opt.inccommand = "split"
 
 opt.number = true
-opt.signcolumn = "number"
+opt.signcolumn = "yes"
 
 -- Flash matching parenthesis
 opt.showmatch = true
@@ -42,7 +42,7 @@ opt.tabpagemax = 50
 opt.joinspaces = false
 
 -- Nicer vertical splits
-opt.fillchars = { vert = " ", fold = "·" }
+opt.fillchars = { fold = "·" }
 opt.listchars = { tab = "| ", eol = "¬", trail = "⣿", extends = "→", precedes = "←" }
 
 -- Better completion

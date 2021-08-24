@@ -33,7 +33,7 @@ g.vim_vue_plugin_config = {
 -- coq
 -- conflicts with window nav keys. Disable for now
 g.coq_settings = {
-	auto_start = true,
+	auto_start = false,
 	keymap = {
 		jump_to_mark = "",
 		bigger_preview = "",
