@@ -1,5 +1,5 @@
 return function()
-	local nvim_lsp = require "lspconfig"
+	local lspconfig = require "lspconfig"
 	local null_ls = require "null-ls"
 	local coq = require "coq"
 
@@ -59,7 +59,9 @@ return function()
 			end,
 		},
 		"vuels",
-		"tailwindcss",
+		tailwindcss = {
+			root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts"),
+		},
 		"intelephense",
 		"null-ls",
 	}
