@@ -4,14 +4,12 @@ set termguicolors
 
 let mapleader = "\<space>"
 
-set undodir=~/.vim/tmp/undo//
-set backupdir=~/.vim/tmp/backup//
+set noswapfile
 set viminfo+=n~/.vim/viminfo
 
 call plug#begin('$HOME/.vim/vendor')
 
-Plug 'mcchrish/zenbones.nvim'
+Plug '~/vimming/zenbones.nvim'
 Plug '~/vimming/nnn.vim'
-Plug 'justinmk/vim-sneak'
 
 call plug#end()
