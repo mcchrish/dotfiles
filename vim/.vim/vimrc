@@ -1,5 +1,6 @@
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
+set termguicolors
 
 let mapleader = "\<space>"
 
@@ -7,9 +8,9 @@ set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
 set viminfo+=n~/.vim/viminfo
 
-call plug#begin('$XDG_DATA_HOME/nvim/vendor')
+call plug#begin('$HOME/.vim/vendor')
 
-Plug 'pgdouyon/vim-yin-yang'
+Plug 'mcchrish/zenbones.nvim'
 Plug '~/vimming/nnn.vim'
 Plug 'justinmk/vim-sneak'
 
