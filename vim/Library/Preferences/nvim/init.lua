@@ -38,14 +38,15 @@ packer.init {
 	compile_path = util.join_paths(vim.fn.stdpath "config", "plugin", "__packer_compiled.lua"),
 }
 
-return packer.startup(function(use)
+packer.startup(function(use)
 	use "wbthomason/packer.nvim"
-	use "pgdouyon/vim-yin-yang"
 	use "~/vimming/zenbones.nvim"
+	use { "folke/tokyonight.nvim", opt = true }
+	use { "hoob3rt/lualine.nvim", opt = true }
 	use "rktjmp/lush.nvim"
 	use "/usr/local/opt/fzf"
 	use "junegunn/fzf.vim"
-	use "junegunn/vim-easy-align"
+	use { "junegunn/vim-easy-align", opt = true }
 	use {
 		"nvim-telescope/telescope.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -74,14 +75,13 @@ return packer.startup(function(use)
 		branch = "coq",
 	}
 	use { "neoclide/coc.nvim", branch = "release", opt = true }
-	use { "wellle/context.vim", cmd = "ContextToggle" }
+	use { "wellle/context.vim", opt = true }
 	use "tpope/vim-fugitive"
-	use { "rbong/vim-flog", cmd = { "Flog", "Flogsplit" } }
+	use { "rbong/vim-flog", opt = true }
 	use {
 		"lewis6991/gitsigns.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		config = require "vendor.gitsigns",
-		event = "BufEnter",
 	}
 	use {
 		"lukas-reineke/indent-blankline.nvim",
@@ -94,7 +94,7 @@ return packer.startup(function(use)
 		config = function()
 			require("gitlinker").setup()
 		end,
-		keys = "<leader>gy",
+		opt = true,
 	}
 	use { "mbbill/undotree", cmd = "UndotreeToggle" }
 	use {
@@ -107,6 +107,7 @@ return packer.startup(function(use)
 		config = require "vendor.treesitter",
 		run = ":TSUpdate",
 	}
+	use { "nvim-treesitter/playground", opt = true }
 	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
 	use { "leafOfTree/vim-vue-plugin" }
 	-- use 'mcchrish/fountain.vim'

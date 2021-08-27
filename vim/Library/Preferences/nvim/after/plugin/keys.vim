@@ -56,7 +56,6 @@ nnoremap <silent> <leader><cr> <cmd>call my#refresh()<cr>
 nnoremap <silent> <leader>gs <cmd>G<cr>
 nnoremap <silent> <leader>gd <cmd>Gdiffsplit<cr>
 nnoremap <silent> <leader>gb <cmd>G blame<cr>
-nnoremap <silent> <leader>gl <cmd>Flog<cr>
 
 " undotree
 nnoremap <silent> <leader>u <cmd>UndotreeToggle<cr>
@@ -143,9 +142,6 @@ nnoremap <silent> <leader>nc <cmd>NnnPicker %:h<cr>
 
 " " Use <c-j> for both expand and jump (make expand higher priority.)
 " imap <c-j> <plug>(coc-snippets-expand-jump)
-
-" context.vim
-nnoremap <leader>t <cmd>ContextToggle<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
