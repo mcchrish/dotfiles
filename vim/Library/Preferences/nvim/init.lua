@@ -38,6 +38,10 @@ packer.init {
 	compile_path = util.join_paths(vim.fn.stdpath "config", "plugin", "__packer_compiled.lua"),
 }
 
+g.coc_global_extensions = {
+	"coc-tsserver",
+}
+
 packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "~/vimming/zenbones.nvim"
@@ -71,8 +75,25 @@ packer.startup(function(use)
 	}
 	use {
 		"ms-jpq/coq_nvim",
-		-- requires = { { "ms-jpq/coq.artifacts", branch = "artifacts" } },
+		requires = { { "ms-jpq/coq.artifacts", branch = "artifacts" } },
 		branch = "coq",
+	}
+	use {
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+		config = function()
+			require("cmp").setup {
+				sources = {
+					{ name = "buffer" },
+					{ name = "nvim_lsp" },
+				},
+			}
+		end,
+		opt = true,
 	}
 	use { "neoclide/coc.nvim", branch = "release", opt = true }
 	use { "wellle/context.vim", opt = true }
@@ -86,7 +107,6 @@ packer.startup(function(use)
 	use {
 		"lukas-reineke/indent-blankline.nvim",
 		config = require "vendor.indent_blankline",
-		cmd = "IndentBlanklineToggle",
 	}
 	use {
 		"ruifm/gitlinker.nvim",

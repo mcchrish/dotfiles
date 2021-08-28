@@ -6,7 +6,7 @@ let g:fzf_action = {
       \ }
 let g:fzf_colors = { 'border':  ['fg', 'FloatBorder'] }
 
-let s:rg_flags = "--column --line-number --no-heading --color=always --smart-case --colors=path:fg:black"
+let s:rg_flags = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:black'"
 
 command! -bang -nargs=* Rg call fzf#vim#grep(
       \ "rg ".s:rg_flags." -- ".shellescape(<q-args>),

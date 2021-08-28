@@ -1,5 +1,8 @@
 return function()
 	require("nvim-treesitter.configs").setup {
+		playground = {
+			enable = false
+		},
 		ensure_installed = {
 			"css",
 			"graphql",

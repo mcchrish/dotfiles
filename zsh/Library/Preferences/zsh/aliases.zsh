@@ -83,9 +83,6 @@ alias grc="git rebase --continue"
 
 # Stash
 alias gst="git stash"
-alias gsa="git stash apply"
-alias gsx="git stash drop"
-alias gsp="git stash pop"
 
 # Status
 alias gs="git status --short"

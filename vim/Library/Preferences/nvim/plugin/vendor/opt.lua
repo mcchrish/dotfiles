@@ -39,3 +39,9 @@ g.coq_settings = {
 		bigger_preview = "",
 	},
 }
+
+-- require("lualine").setup {
+-- 	options = {
+-- 		theme = "zenbones",
+-- 	},
+-- }
