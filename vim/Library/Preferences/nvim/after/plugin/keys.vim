@@ -20,7 +20,7 @@ vnoremap > >gv
 inoremap jk <esc>
 
 " Faster save
-nnoremap <silent> <leader>w <cmd>silent update<cr>
+nnoremap <leader>w <cmd>silent update<cr>
 
 " Delete without overwriting default register
 nnoremap vd "_d
@@ -50,15 +50,15 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-nnoremap <silent> <leader><cr> <cmd>call my#refresh()<cr>
+nnoremap <leader><cr> <cmd>call my#refresh()<cr>
 
 " vim-fugitive
-nnoremap <silent> <leader>gs <cmd>G<cr>
-nnoremap <silent> <leader>gd <cmd>Gdiffsplit<cr>
-nnoremap <silent> <leader>gb <cmd>G blame<cr>
+nnoremap <leader>gs <cmd>G<cr>
+nnoremap <leader>gd <cmd>Gdiffsplit<cr>
+nnoremap <leader>gb <cmd>G blame<cr>
 
 " undotree
-nnoremap <silent> <leader>u <cmd>UndotreeToggle<cr>
+nnoremap <leader>u <cmd>UndotreeToggle<cr>
 
 " vim-sandwich
 nmap s <Nop>
@@ -87,39 +87,20 @@ nmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_;' : ':'
 vmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_;' : ':'
 
 " gitsigns
-nnoremap <silent> <leader>gg <cmd>Gitsigns toggle_signs<cr>
-nnoremap <silent> <leader>gh <cmd>Gitsigns toggle_linehl<cr>
+nnoremap <leader>gg <cmd>Gitsigns toggle_signs<cr>
+nnoremap <leader>gh <cmd>Gitsigns toggle_linehl<cr>
 
 " Fzf
-" Search current word under cursor
-function! SearchWordWithRg()
-  execute 'Rg' expand('<cword>')
-endfunction
-
-" Search visual selected
-function! SearchVisualSelectionWithRg() range
-  let old_reg = getreg('"')
-  let old_regtype = getregtype('"')
-  let old_clipboard = &clipboard
-  set clipboard&
-  normal! ""gvy
-  let selection = getreg('"')
-  call setreg('"', old_reg, old_regtype)
-  let &clipboard = old_clipboard
-  execute 'Rg' selection
-endfunction
-
-nnoremap <silent> <leader>A <cmd>RgAll<cr>
-nnoremap <silent> <leader>a <cmd>Rg<cr>
-nnoremap <silent> <leader>K <cmd>call SearchWordWithRg()<cr>
-vnoremap <silent> <leader>K <cmd>call SearchVisualSelectionWithRg()<cr>
-nnoremap <silent> <leader>f <cmd>Files<cr>
-nnoremap <silent> <leader>d <cmd>Files %:h<cr>
-nnoremap <silent> <leader>b <cmd>Buffers<cr>
-nnoremap <silent> <leader>l <cmd>BLines<cr>
-nnoremap <silent> <leader>L <cmd>Lines<cr>
-nnoremap <silent> <leader>m <cmd>Marks<cr>
-nnoremap <silent> Q <cmd>History:<cr>
+nnoremap <leader>A <cmd>RgAll<cr>
+nnoremap <leader>a <cmd>Rg<cr>
+nnoremap <silent> <leader>K :Rg <c-r><c-w><cr>
+nnoremap <leader>f <cmd>Files<cr>
+nnoremap <leader>d <cmd>Files %:h<cr>
+nnoremap <leader>b <cmd>Buffers<cr>
+nnoremap <leader>l <cmd>BLines<cr>
+nnoremap <leader>L <cmd>Lines<cr>
+nnoremap <leader>m <cmd>Marks<cr>
+nnoremap Q <cmd>History:<cr>
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -131,8 +112,8 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-nnoremap <silent> <leader>nn <cmd>NnnPicker<cr>
-nnoremap <silent> <leader>nc <cmd>NnnPicker %:h<cr>
+nnoremap <leader>nn <cmd>NnnPicker<cr>
+nnoremap <leader>nc <cmd>NnnPicker %:h<cr>
 
 " " Use <c-l> for trigger snippet expand.
 " imap <c-l> <plug>(coc-snippets-expand)
