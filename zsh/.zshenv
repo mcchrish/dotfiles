@@ -37,15 +37,8 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 
 # LS
 export CLICOLOR=1
-export LSCOLORS=fxexcxdxbxegedabagacad
-
-export LESS_TERMCAP_mb=$'\E[01;31m'      # Begins blinking.
-export LESS_TERMCAP_md=$'\E[01;31m'      # Begins bold.
-export LESS_TERMCAP_me=$'\E[0m'          # Ends mode.
-export LESS_TERMCAP_se=$'\E[0m'          # Ends standout-mode.
-export LESS_TERMCAP_so=$'\E[00;47;30m'   # Begins standout-mode.
-export LESS_TERMCAP_ue=$'\E[0m'          # Ends underline.
-export LESS_TERMCAP_us=$'\E[01;32m'      # Begins underline.
+export LSCOLORS=Axfxcxdxbxagafhbaeacad
+export LS_COLORS='di=1;30:ln=35:so=32:pi=33:ex=31:bd=30;46:cd=30;45:su=37;41:sg=30;44:tw=30;42:ow=30;43'
 
 # Default Editor
 export EDITOR='nvim'
