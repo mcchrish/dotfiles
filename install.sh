@@ -52,7 +52,7 @@ if ! (command -v zinit > /dev/null); then
 fi
 
 echo "Installing packer..."
-git clone https://github.com/wbthomason/packer.nvim\
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
   "$XDG_DATA_HOME"/nvim/site/pack/packer/start/packer.nvim
 
 echo "Done. :)"
