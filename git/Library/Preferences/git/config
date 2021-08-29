@@ -49,18 +49,12 @@
 	status = auto
 
 [color "diff"]
-	meta = bold yellow
+	meta = yellow
 	frag = magenta bold
 	commit = blue bold
-	old  = brightred bold
-	new  = green bold
+	old  = red
+	new  = green
 	whitespace = brightred reverse
-
-[color "diff-highlight"]
-	oldNormal = bold brightred
-	oldHighlight = "black bold brightred"
-	newNormal = bold green
-	newHighlight = "black bold green"
 
 [color "status"]
 	untracked = magenta
