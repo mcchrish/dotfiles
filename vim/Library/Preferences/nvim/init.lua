@@ -46,7 +46,7 @@ packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "~/vimming/zenbones.nvim"
 	use { "folke/tokyonight.nvim", opt = true }
-	use { "hoob3rt/lualine.nvim", opt = true }
+	use "folke/trouble.nvim"
 	use "rktjmp/lush.nvim"
 	use "/usr/local/opt/fzf"
 	use "junegunn/fzf.vim"
@@ -55,7 +55,7 @@ packer.startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		requires = "nvim-lua/plenary.nvim",
 	}
-	use { "~/vimming/nnn.vim", config = require "vendor.nnn" }
+	use "~/vimming/nnn.vim"
 	use "andymass/vim-matchup"
 	use "justinmk/vim-sneak"
 	use "pgdouyon/vim-evanesco"
@@ -71,7 +71,6 @@ packer.startup(function(use)
 			"jose-elias-alvarez/null-ls.nvim",
 			"jose-elias-alvarez/nvim-lsp-ts-utils",
 		},
-		config = require "vendor.lsp",
 	}
 	use {
 		"ms-jpq/coq_nvim",
@@ -81,14 +80,25 @@ packer.startup(function(use)
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
+			"hrsh7th/vim-vsnip",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()
-			require("cmp").setup {
+			local cmp = require "cmp"
+			cmp.setup {
+				snippet = {
+					expand = function(args)
+						vim.fn["vsnip#anonymous"](args.body)
+					end,
+				},
+				mapping = {
+					["<C-y>"] = cmp.mapping.confirm { select = true },
+				},
 				sources = {
 					{ name = "buffer" },
+					{ name = "path" },
 					{ name = "nvim_lsp" },
 				},
 			}
@@ -102,11 +112,9 @@ packer.startup(function(use)
 	use {
 		"lewis6991/gitsigns.nvim",
 		requires = "nvim-lua/plenary.nvim",
-		config = require "vendor.gitsigns",
 	}
 	use {
 		"lukas-reineke/indent-blankline.nvim",
-		config = require "vendor.indent_blankline",
 	}
 	use {
 		"ruifm/gitlinker.nvim",
@@ -120,11 +128,9 @@ packer.startup(function(use)
 	use {
 		"terrortylor/nvim-comment",
 		requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
-		config = require "vendor.comment",
 	}
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		config = require "vendor.treesitter",
 		run = ":TSUpdate",
 	}
 	use { "nvim-treesitter/playground", opt = true }

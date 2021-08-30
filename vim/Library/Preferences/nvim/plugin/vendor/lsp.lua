@@ -25,7 +25,7 @@ return function()
 		--Enable completion triggered by <c-x><c-o>
 		buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-		local map_opts = { noremap = true, silent = true }
+		local map_opts = { noremap = true }
 
 		-- stylua: ignore start
 		buf_set_keymap("n", "gD",			"<cmd>lua vim.lsp.buf.declaration()<cr>", map_opts)
