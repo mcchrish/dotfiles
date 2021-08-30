@@ -51,9 +51,8 @@
 [color "diff"]
 	meta = yellow
 	frag = magenta bold
+    func = black bold
 	commit = blue bold
-	old  = red
-	new  = green
 	whitespace = brightred reverse
 
 [color "status"]
