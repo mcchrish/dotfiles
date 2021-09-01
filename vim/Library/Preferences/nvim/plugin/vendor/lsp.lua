@@ -2,6 +2,8 @@ local lspconfig = require "lspconfig"
 local null_ls = require "null-ls"
 local coq = require "coq"
 
+table.insert(null_ls.builtins.formatting.prettier.filetypes, "php")
+
 null_ls.config {
 	sources = {
 		null_ls.builtins.formatting.stylua,
@@ -75,7 +77,13 @@ local servers = {
 	tailwindcss = {
 		root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts"),
 	},
-	"intelephense",
+	intelephense = {
+		on_attach = function(client, bufnr)
+			client.resolved_capabilities.document_formatting = false
+			client.resolved_capabilities.document_range_formatting = false
+			on_attach(client, bufnr)
+		end,
+	},
 }
 
 local default_config = {
