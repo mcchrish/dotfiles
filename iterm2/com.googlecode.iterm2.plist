@@ -483,7 +483,7 @@
 	<key>HideScrollbar</key>
 	<true/>
 	<key>HideTab</key>
-	<true/>
+	<false/>
 	<key>HideTabCloseButton</key>
 	<true/>
 	<key>HideTabNumber</key>
@@ -1196,6 +1196,8 @@
 					<string>[1;5F</string>
 				</dict>
 			</dict>
+			<key>Left Option Key Changeable</key>
+			<false/>
 			<key>Link Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -1224,13 +1226,15 @@
 			<key>Normal Font</key>
 			<string>Iosevka-Fixed-Curly-Slab 14</string>
 			<key>Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Prevent Opening in a Tab</key>
 			<false/>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
+			<key>Right Option Key Changeable</key>
+			<true/>
 			<key>Right Option Key Sends</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>Rows</key>
 			<integer>40</integer>
 			<key>Screen</key>
@@ -1830,13 +1834,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.33333333333333331</real>
+				<real>0.29803921568627451</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.23529411764705882</real>
+				<real>0.20000000000000001</real>
 				<key>Red Component</key>
-				<real>0.76078431372549016</real>
+				<real>0.6588235294117647</real>
 			</dict>
 			<key>Ansi 10 Color</key>
 			<dict>
@@ -1860,9 +1864,9 @@
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.25882352941176473</real>
+				<real>0.25490196078431371</real>
 				<key>Red Component</key>
-				<real>0.52156862745098043</real>
+				<real>0.52941176470588236</real>
 			</dict>
 			<key>Ansi 12 Color</key>
 			<dict>
@@ -1938,9 +1942,9 @@
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.29411764705882354</real>
+				<real>0.28627450980392155</real>
 				<key>Red Component</key>
-				<real>0.56862745098039214</real>
+				<real>0.58039215686274515</real>
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
@@ -2012,13 +2016,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.28627450980392155</real>
+				<real>0.25882352941176473</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.1803921568627451</real>
+				<real>0.15686274509803921</real>
 				<key>Red Component</key>
-				<real>0.69803921568627447</real>
+				<real>0.61176470588235299</real>
 			</dict>
 			<key>Automatically Log</key>
 			<false/>
@@ -2160,7 +2164,7 @@
 				<real>0.17254901960784313</real>
 			</dict>
 			<key>Guid</key>
-			<string>34951533-C364-4A18-B0AA-7165D450A51E</string>
+			<string>F9658851-D99F-43AC-964D-E85A4DFB5473</string>
 			<key>Has Hotkey</key>
 			<false/>
 			<key>Hide After Opening</key>
@@ -2465,6 +2469,8 @@
 					<string>[1;5F</string>
 				</dict>
 			</dict>
+			<key>Left Option Key Changeable</key>
+			<false/>
 			<key>Link Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -2491,15 +2497,17 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<false/>
 			<key>Normal Font</key>
-			<string>Iosevka-Term-Curly-Slab 14</string>
+			<string>Iosevka-Fixed-Curly-Slab 14</string>
 			<key>Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Prevent Opening in a Tab</key>
 			<false/>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
+			<key>Right Option Key Changeable</key>
+			<true/>
 			<key>Right Option Key Sends</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>Rows</key>
 			<integer>64</integer>
 			<key>Screen</key>
