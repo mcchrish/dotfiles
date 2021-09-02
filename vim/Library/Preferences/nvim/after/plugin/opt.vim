@@ -6,3 +6,6 @@ autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 
 autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
 autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
+
+cnoreabbrev fz FzfLua
+cnoreabbrev pa FzfLua packadd

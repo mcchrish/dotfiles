@@ -13,6 +13,7 @@ opt.inccommand = "split"
 
 opt.number = true
 opt.signcolumn = "yes"
+opt.updatetime = 250
 
 -- Flash matching parenthesis
 opt.showmatch = true

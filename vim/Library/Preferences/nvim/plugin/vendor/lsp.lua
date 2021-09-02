@@ -28,25 +28,25 @@ local function on_attach(client, bufnr, custom_opts)
 
 	local map_opts = { noremap = true }
 
-		-- stylua: ignore start
-		buf_set_keymap("n", "gD",			"<cmd>lua vim.lsp.buf.declaration()<cr>", map_opts)
-		buf_set_keymap("n", "gd",			"<cmd>lua vim.lsp.buf.definition()<cr>", map_opts)
-		buf_set_keymap("n", "K",			"<cmd>lua vim.lsp.buf.hover()<cr>", map_opts)
-		buf_set_keymap("n", "gi",			"<cmd>lua vim.lsp.buf.implementation()<cr>", map_opts)
-		-- @todo must think another key as it conflicts with window nav
-		-- buf_set_keymap("n", "<c-k>",		"<cmd>lua vim.lsp.buf.signature_help()<cr>", map_opts)
-		buf_set_keymap("n", "<leader>wa",	"<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", map_opts)
-		buf_set_keymap("n", "<leader>wr",	"<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", map_opts)
-		buf_set_keymap("n", "<leader>wl",	"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", map_opts)
-		buf_set_keymap("n", "<leader>D",	"<cmd>lua vim.lsp.buf.type_definition()<cr>", map_opts)
-		buf_set_keymap("n", "<leader>rn",	"<cmd>lua vim.lsp.buf.rename()<cr>", map_opts)
-		buf_set_keymap("n", "<leader>ca",	"<cmd>lua vim.lsp.buf.code_action()<cr>", map_opts)
-		buf_set_keymap("n", "gr",			"<cmd>lua vim.lsp.buf.references()<cr>", map_opts)
-		buf_set_keymap("n", "<leader>e",	"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", map_opts)
-		buf_set_keymap("n", "[d",			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", map_opts)
-		buf_set_keymap("n", "]d",			"<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", map_opts)
-		buf_set_keymap("n", "<leader>q",	"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", map_opts)
-		buf_set_keymap("n", "<leader>p",	"<cmd>lua vim.lsp.buf.formatting()<cr>", map_opts)
+	-- stylua: ignore start
+	buf_set_keymap("n", "gD",			"<cmd>lua vim.lsp.buf.declaration()<cr>", map_opts)
+	buf_set_keymap("n", "gd",			"<cmd>lua vim.lsp.buf.definition()<cr>", map_opts)
+	buf_set_keymap("n", "K",			"<cmd>lua vim.lsp.buf.hover()<cr>", map_opts)
+	buf_set_keymap("n", "gi",			"<cmd>lua vim.lsp.buf.implementation()<cr>", map_opts)
+	-- @todo must think another key as it conflicts with window nav
+	-- buf_set_keymap("n", "<c-k>",		"<cmd>lua vim.lsp.buf.signature_help()<cr>", map_opts)
+	buf_set_keymap("n", "<leader>wa",	"<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", map_opts)
+	buf_set_keymap("n", "<leader>wr",	"<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", map_opts)
+	buf_set_keymap("n", "<leader>wl",	"<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>", map_opts)
+	buf_set_keymap("n", "<leader>D",	"<cmd>lua vim.lsp.buf.type_definition()<cr>", map_opts)
+	buf_set_keymap("n", "<leader>rn",	"<cmd>lua vim.lsp.buf.rename()<cr>", map_opts)
+	buf_set_keymap("n", "<leader>ca",	"<cmd>lua vim.lsp.buf.code_action()<cr>", map_opts)
+	buf_set_keymap("n", "gr",			"<cmd>lua vim.lsp.buf.references()<cr>", map_opts)
+	buf_set_keymap("n", "<leader>e",	"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", map_opts)
+	buf_set_keymap("n", "[d",			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", map_opts)
+	buf_set_keymap("n", "]d",			"<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", map_opts)
+	buf_set_keymap("n", "<leader>q",	"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", map_opts)
+	buf_set_keymap("n", "<leader>p",	"<cmd>lua vim.lsp.buf.formatting()<cr>", map_opts)
 	-- stylua: ignore end
 
 	if client.resolved_capabilities.document_formatting and opts.format_on_save then

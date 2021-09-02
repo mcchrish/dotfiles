@@ -91,41 +91,32 @@ nnoremap <leader>gg <cmd>Gitsigns toggle_signs<cr>
 nnoremap <leader>gh <cmd>Gitsigns toggle_linehl<cr>
 
 " Fzf
-nnoremap <leader>A <cmd>RgAll<cr>
-nnoremap <leader>a <cmd>Rg<cr>
-nnoremap <silent> <leader>K :Rg <c-r><c-w><cr>
-nnoremap <leader>f <cmd>Files<cr>
-nnoremap <leader>d <cmd>Files %:h<cr>
-nnoremap <leader>b <cmd>Buffers<cr>
-nnoremap <leader>l <cmd>BLines<cr>
-nnoremap <leader>L <cmd>Lines<cr>
-nnoremap <leader>m <cmd>Marks<cr>
-nnoremap Q <cmd>History:<cr>
+nnoremap <leader>A <cmd>lua require "fzf-lua".live_grep({ rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:black' --hidden" })<cr>
+nnoremap <leader>a <cmd>lua require "fzf-lua".live_grep()<cr>
+nnoremap <leader>K <cmd>lua require "fzf-lua".grep_cword()<cr>
+vnoremap <leader>K <cmd>lua require "fzf-lua".grep_visual()<cr>
+nnoremap <leader>f <cmd>lua require "fzf-lua".files()<cr>
+nnoremap <leader>d <cmd>lua require "fzf-lua".files({ cwd = vim.fn.expand('%:h') })<cr>
+nnoremap <leader>b <cmd>lua require "fzf-lua".buffers()<cr>
+nnoremap <leader>l <cmd>lua require "fzf-lua".grep_curbuf({ previewer = false })<cr>
+nnoremap <leader>L <cmd>lua require "fzf-lua".blines()<cr>
+nnoremap <leader>m <cmd>lua require "fzf-lua".marks()<cr>
+nnoremap Q <cmd>lua require "fzf-lua".command_history()<cr>
 
-" Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
-
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
+" imap <c-x><c-k> <plug>(fzf-complete-word)
+" imap <c-x><c-f> <plug>(fzf-complete-path)
+" imap <c-x><c-l> <plug>(fzf-complete-line)
 
 nnoremap <leader>nn <cmd>NnnPicker<cr>
 nnoremap <leader>nc <cmd>NnnPicker %:h<cr>
-
-" " Use <c-l> for trigger snippet expand.
-" imap <c-l> <plug>(coc-snippets-expand)
-
-" " Use <c-j> for select text for visual placeholder of snippet.
-" vmap <c-j> <plug>(coc-snippets-select)
-
-" " Use <c-j> for both expand and jump (make expand higher priority.)
-" imap <c-j> <plug>(coc-snippets-expand-jump)
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+inoremap <silent><expr> <esc> pumvisible() ? '<c-e><esc>' : '<esc>'
+inoremap <silent><expr> <bs>  pumvisible() ? '<c-e><bs>'  : '<bs>'
+inoremap <silent><expr> <c-w> pumvisible() ? '<c-e><c-w>' : '<c-w>'
+inoremap <silent><expr> <c-u> pumvisible() ? '<c-e><c-u>' : '<c-u>'

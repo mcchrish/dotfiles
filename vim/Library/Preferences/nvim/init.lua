@@ -1,3 +1,6 @@
+vim.fn.setenv("MACOSX_DEPLOYMENT_TARGET", "10.15")
+require "impatient"
+
 local g = vim.g
 
 g.mapleader = [[ ]]
@@ -38,22 +41,43 @@ packer.init {
 	compile_path = util.join_paths(vim.fn.stdpath "config", "plugin", "__packer_compiled.lua"),
 }
 
-g.coc_global_extensions = {
-	"coc-tsserver",
-}
-
 packer.startup(function(use)
+	use { "lewis6991/impatient.nvim", rocks = "mpack" }
 	use "wbthomason/packer.nvim"
-	use "~/vimming/zenbones.nvim"
+	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
 	use { "folke/tokyonight.nvim", opt = true }
+	use { "dstein64/vim-startuptime", opt = true }
 	use "folke/trouble.nvim"
-	use "rktjmp/lush.nvim"
-	use "/usr/local/opt/fzf"
-	use "junegunn/fzf.vim"
+	use "nvim-lua/plenary.nvim"
+	use {
+		"junegunn/fzf.vim",
+		requires = "/usr/local/opt/fzf",
+		opt = true,
+	}
+	use {
+		"ibhagwan/fzf-lua",
+		requires = "vijaymarupudi/nvim-fzf",
+	}
 	use { "junegunn/vim-easy-align", opt = true }
 	use {
 		"nvim-telescope/telescope.nvim",
 		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("telescope").setup {
+				defaults = {
+					vimgrep_arguments = {
+						"rg",
+						"--color=never",
+						"--no-heading",
+						"--with-filename",
+						"--line-number",
+						"--column",
+						"--smart-case",
+					},
+				},
+			}
+		end,
+		opt = true,
 	}
 	use "~/vimming/nnn.vim"
 	use "andymass/vim-matchup"
@@ -70,6 +94,7 @@ packer.startup(function(use)
 		requires = {
 			"jose-elias-alvarez/null-ls.nvim",
 			"jose-elias-alvarez/nvim-lsp-ts-utils",
+			"nvim-lua/plenary.nvim",
 		},
 	}
 	use {
@@ -105,17 +130,13 @@ packer.startup(function(use)
 		end,
 		opt = true,
 	}
-	use { "neoclide/coc.nvim", branch = "release", opt = true }
-	use { "wellle/context.vim", opt = true }
 	use "tpope/vim-fugitive"
 	use { "rbong/vim-flog", opt = true }
 	use {
 		"lewis6991/gitsigns.nvim",
 		requires = "nvim-lua/plenary.nvim",
 	}
-	use {
-		"lukas-reineke/indent-blankline.nvim",
-	}
+	use "lukas-reineke/indent-blankline.nvim"
 	use {
 		"ruifm/gitlinker.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -135,6 +156,6 @@ packer.startup(function(use)
 	}
 	use { "nvim-treesitter/playground", opt = true }
 	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
-	use { "leafOfTree/vim-vue-plugin" }
+	use "leafOfTree/vim-vue-plugin"
 	-- use 'mcchrish/fountain.vim'
 end)

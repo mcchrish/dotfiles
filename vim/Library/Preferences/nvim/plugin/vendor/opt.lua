@@ -4,9 +4,6 @@ local g = vim.g
 g.matchup_matchparen_deferred = 1
 g.matchup_matchparen_offscreen = {}
 
--- context.vim
-g.context_highlight_border = "SpecialComment"
-
 -- undotree
 g.undotree_WindowLayout = 2
 g.undotree_SetFocusWhenToggle = 1
@@ -36,6 +33,7 @@ g.coq_settings = {
 	keymap = {
 		jump_to_mark = "",
 		bigger_preview = "",
+		recommended = false,
 	},
 	clients = {
 		tree_sitter = {
@@ -43,6 +41,11 @@ g.coq_settings = {
 		},
 		tags = {
 			enabled = false,
+		},
+	},
+	display = {
+		icons = {
+			mode = "none",
 		},
 	},
 }
@@ -82,18 +85,56 @@ require("nvim_comment").setup {
 	end,
 }
 
-require("indent_blankline").setup {
-	filetype = {
-		"lua",
-		"vue",
-		"javascript",
-		"typescript",
-		"javascriptreact",
-		"typescriptreact",
-		"yaml",
-		"toml",
-		"python",
+g.indent_blankline_filetype = { "yaml", "toml", "python" }
+g.indent_blankline_show_first_indent_level = false
+g.indent_blankline_use_treesitter = true
+
+require("fzf-lua").setup {
+	winopts = {
+		win_width = 0.9,
+		win_height = 0.6,
+		win_row = 0.50,
+		win_col = 0.50,
 	},
-	show_first_indent_level = false,
-	use_treesitter = true,
+	fzf_layout = "default",
+	fzf_info = "--info=default",
+	fzf_binds = {
+		"alt-a:select-all",
+		"alt-d:deselect-all",
+		"down:half-page-down",
+		"up:half-page-up",
+		"shift-down:preview-page-down",
+		"shift-up:preview-page-up",
+	},
+	preview_horizontal = "right:50%",
+	previewers = {
+		builtin = {
+			syntax = false,
+		},
+	},
+	files = {
+		file_icons = false,
+		git_icons = false,
+	},
+	git = {
+		files = {
+			file_icons = false,
+		},
+		status = {
+			file_icons = false,
+		},
+	},
+	grep = {
+		file_icons = false,
+		git_icons = false,
+		rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:black'",
+	},
+	buffers = {
+		file_icons = false,
+		git_icons = false,
+	},
+	lsp = {
+		file_icons = false,
+		git_icons = false,
+	},
 }
