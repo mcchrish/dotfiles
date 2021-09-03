@@ -4,7 +4,6 @@ require "impatient"
 local g = vim.g
 
 g.mapleader = [[ ]]
-g.python_host_prog = "/usr/bin/python2"
 g.python3_host_prog = "/usr/bin/python3"
 g.did_install_default_menus = 1
 
@@ -19,7 +18,10 @@ local disabled_built_ins = {
 	"netrwFileHandlers",
 	"netrwPlugin",
 	"netrwSettings",
+	"perl_provider",
+	"python_provider",
 	"rrhelper",
+	"ruby_provider",
 	"tar",
 	"tarPlugin",
 	"tutor_mode_plugin",
@@ -62,21 +64,6 @@ packer.startup(function(use)
 	use {
 		"nvim-telescope/telescope.nvim",
 		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("telescope").setup {
-				defaults = {
-					vimgrep_arguments = {
-						"rg",
-						"--color=never",
-						"--no-heading",
-						"--with-filename",
-						"--line-number",
-						"--column",
-						"--smart-case",
-					},
-				},
-			}
-		end,
 		opt = true,
 	}
 	use "~/vimming/nnn.vim"
@@ -119,7 +106,7 @@ packer.startup(function(use)
 					end,
 				},
 				mapping = {
-					["<C-y>"] = cmp.mapping.confirm { select = true },
+					["<c-y>"] = cmp.mapping.confirm { select = true },
 				},
 				sources = {
 					{ name = "buffer" },
@@ -132,10 +119,7 @@ packer.startup(function(use)
 	}
 	use "tpope/vim-fugitive"
 	use { "rbong/vim-flog", opt = true }
-	use {
-		"lewis6991/gitsigns.nvim",
-		requires = "nvim-lua/plenary.nvim",
-	}
+	use { "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" }
 	use "lukas-reineke/indent-blankline.nvim"
 	use {
 		"ruifm/gitlinker.nvim",
@@ -148,12 +132,9 @@ packer.startup(function(use)
 	use { "mbbill/undotree", cmd = "UndotreeToggle" }
 	use {
 		"terrortylor/nvim-comment",
-		requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
+		requires = "JoosepAlviste/nvim-ts-context-commentstring",
 	}
-	use {
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	}
+	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 	use { "nvim-treesitter/playground", opt = true }
 	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
 	use "leafOfTree/vim-vue-plugin"

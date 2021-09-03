@@ -17,11 +17,11 @@ g.vim_vue_plugin_config = {
 	syntax = {
 		template = { "html" },
 		script = { "javascript" },
-		style = { "css" },
+		style = { "css", "scss" },
 	},
-	full_syntax = "",
-	initial_indent = "",
-	attribute = 0,
+	full_syntax = {},
+	initial_indent = {},
+	attribute = 1,
 	keyword = 0,
 	foldexpr = 0,
 	debug = 0,
@@ -44,6 +44,9 @@ g.coq_settings = {
 		},
 	},
 	display = {
+		pum = {
+			fast_close = false
+		},
 		icons = {
 			mode = "none",
 		},

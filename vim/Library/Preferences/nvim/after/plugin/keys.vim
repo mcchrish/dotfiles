@@ -116,6 +116,7 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+inoremap <silent><expr> <cr>  pumvisible() ? (complete_info().selected == -1 ? '<c-e><cr>' : '<c-y>') : '<cr>'
 inoremap <silent><expr> <esc> pumvisible() ? '<c-e><esc>' : '<esc>'
 inoremap <silent><expr> <bs>  pumvisible() ? '<c-e><bs>'  : '<bs>'
 inoremap <silent><expr> <c-w> pumvisible() ? '<c-e><c-w>' : '<c-w>'

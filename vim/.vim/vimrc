@@ -1,11 +1,15 @@
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
+
 set termguicolors
+colorscheme zenbones
 
 let mapleader = "\<space>"
 
 set noswapfile
 set viminfo+=n~/.vim/viminfo
+
+let g:nnn#layout = #{ window: #{ width: 0.9, height: 0.6, border: 'sharp' } }
 
 call plug#begin('$HOME/.vim/vendor')
 
