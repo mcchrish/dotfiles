@@ -17,6 +17,10 @@ if [[ -z "$XDG_DATA_HOME" ]]; then
   export XDG_DATA_HOME="$HOME"/Library/Application\ Support
 fi
 
+if [[ -z "$XDG_STATE_HOME" ]]; then
+  export XDG_STATE_HOME="$HOME"/Library/Application\ Support
+fi
+
 if [[ -z "$XDG_DATA_DIRS" ]]; then
   export XDG_DATA_DIRS=/usr/local/share:/usr/share
 fi
