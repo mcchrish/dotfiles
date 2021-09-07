@@ -1,0 +1,29 @@
+snippet if
+    if (${1:true}) {
+        ${VISUAL}$0
+    }
+
+snippet if-else
+alias ife
+    if (${1:true}) {
+        ${VISUAL}$0
+    } else $3 {
+        ${VISUAL}$2
+    }
+
+snippet switch
+    switch (${1:condition}) {
+        case $0:
+        ${VISUAL}$2
+        break
+
+        default:
+        ${VISUAL}$3
+    }
+
+snippet try
+    try {
+        ${VISUAL}$0
+    } catch(\\Exception $e) {
+        ${VISUAL}$1
+    }

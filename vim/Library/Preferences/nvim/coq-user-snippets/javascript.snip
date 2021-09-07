@@ -1,0 +1,133 @@
+# Basics
+snippet for
+  for (let i = 0, len = ${1:list}.length; i < len; i++) {
+    let ${2:item} = $1[i]
+    ${VISUAL}$0
+  }
+
+snippet fn
+  function ${1:function_name} (${2:argument}) {
+    ${VISUAL}$0
+  }
+
+snippet fna
+  (${1:argument}) => {
+    ${VISUAL}$0
+  }
+
+snippet if
+  if (${1:true}) {
+    ${VISUAL}$0
+  }
+
+snippet ife
+  if (${1:true}) {
+    ${VISUAL}$0
+  } else $3 {
+    ${VISUAL}$2
+  }
+
+snippet switch "switch"
+  switch (${1:condition}) {
+    case $0:
+      ${VISUAL}$2
+      break
+    
+    default:
+      ${VISUAL}$3
+  }
+
+snippet try
+  try {
+    ${VISUAL}$0
+  } catch(error) {
+    ${VISUAL}$1
+  }
+
+# Modules
+snippet req
+  const ${1} = require('${0}')
+
+snippet mex
+  module.exports = ${1}
+
+# ES6
+snippet const
+  const ${1} = ${0}
+
+snippet let
+  let ${1} = ${0}
+
+snippet im
+  import ${1} from '${0}'
+
+snippet ex
+  export ${1:default} ${2}
+
+snippet cla
+  class ${1} {
+    ${0}
+  }
+
+snippet clax
+  class ${1} extends ${2} {
+    ${0}
+  }
+
+# For testing
+snippet describe-test
+alias des
+  snippet describe('${1:}', () => {
+    ${0:${VISUAL}}
+  })
+
+snippet it-test
+alias it
+  it('${1:}', () => {
+    ${0:${VISUAL}}
+  })
+
+snippet before-test
+alias bef
+  before(() => {
+    ${0:${VISUAL}}
+  })
+
+snippet after-test
+alias aft
+  after(() => {
+    ${0:${VISUAL}}
+  })
+
+# Snippets for Console Debug Output
+snippet console-error
+alias ce
+  console.error(${1:"${2:value}"})
+
+snippet console-info
+alias ci
+  console.info(${1:"${2:value}"})
+
+snippet console-log
+alias cl
+  console.log(${1:'${2:value}'})
+
+snippet console-debug
+alias cd
+  console.debug(${1:'${2:value}'})
+
+snippet console-table
+alias ctable
+  console.table(${1:'${2:value}'})
+
+snippet console-timeStamp
+alias ctimestamp
+  console.timeStamp('${1:label}')
+
+snippet console-trace
+alias ctrace
+  console.trace()
+
+snippet console-warn
+alias cw
+  console.warn(${1:'${2:value}'})
