@@ -45,7 +45,7 @@ g.coq_settings = {
 	},
 	display = {
 		pum = {
-			fast_close = false
+			fast_close = false,
 		},
 		icons = {
 			mode = "none",
@@ -141,3 +141,5 @@ require("fzf-lua").setup {
 		git_icons = false,
 	},
 }
+
+require("which-key").setup {}

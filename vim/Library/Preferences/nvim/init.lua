@@ -1,4 +1,3 @@
-vim.fn.setenv("MACOSX_DEPLOYMENT_TARGET", "10.15")
 require "impatient"
 
 local g = vim.g
@@ -44,10 +43,11 @@ packer.init {
 }
 
 packer.startup(function(use)
-	use { "lewis6991/impatient.nvim", rocks = "mpack" }
+	use "lewis6991/impatient.nvim"
 	use "wbthomason/packer.nvim"
 	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
 	use { "folke/tokyonight.nvim", opt = true }
+	use "folke/which-key.nvim"
 	use { "dstein64/vim-startuptime", opt = true }
 	use "folke/trouble.nvim"
 	use "nvim-lua/plenary.nvim"
@@ -84,11 +84,7 @@ packer.startup(function(use)
 			"nvim-lua/plenary.nvim",
 		},
 	}
-	use {
-		"ms-jpq/coq_nvim",
-		requires = { { "ms-jpq/coq.artifacts", branch = "artifacts" } },
-		branch = "coq",
-	}
+	use "ms-jpq/coq_nvim"
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
