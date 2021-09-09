@@ -46,6 +46,7 @@ packer.startup(function(use)
 	use "lewis6991/impatient.nvim"
 	use "wbthomason/packer.nvim"
 	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
+	use "famiu/feline.nvim"
 	use { "folke/tokyonight.nvim", opt = true }
 	use "folke/which-key.nvim"
 	use { "dstein64/vim-startuptime", opt = true }
