@@ -28,7 +28,6 @@ g.vim_vue_plugin_config = {
 }
 
 g.coq_settings = {
-	auto_start = false,
 	-- conflicts with window nav keys. Disable for now
 	keymap = {
 		jump_to_mark = "",
@@ -36,14 +35,14 @@ g.coq_settings = {
 		recommended = false,
 	},
 	clients = {
-		tree_sitter = {
-			enabled = false,
-		},
 		tags = {
 			enabled = false,
 		},
 	},
 	display = {
+		ghost_text = {
+			enabled = false,
+		},
 		pum = {
 			fast_close = false,
 		},
