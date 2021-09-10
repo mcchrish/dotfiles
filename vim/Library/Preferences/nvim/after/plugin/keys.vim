@@ -91,8 +91,8 @@ nnoremap <leader>gg <cmd>Gitsigns toggle_signs<cr>
 nnoremap <leader>gh <cmd>Gitsigns toggle_linehl<cr>
 
 " Fzf
-nnoremap <leader>A <cmd>lua require "fzf-lua".grep({ rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:black' --hidden" })<cr>
-nnoremap <leader>a <cmd>lua require "fzf-lua".grep()<cr>
+nnoremap <leader>A <cmd>lua require "fzf-lua".grep({ search = "", rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:black' --hidden" })<cr>
+nnoremap <leader>a <cmd>lua require "fzf-lua".grep({ search = "" })<cr>
 nnoremap <leader>K <cmd>lua require "fzf-lua".grep_cword()<cr>
 vnoremap <leader>K <cmd>lua require "fzf-lua".grep_visual()<cr>
 nnoremap <leader>f <cmd>lua require "fzf-lua".files()<cr>
