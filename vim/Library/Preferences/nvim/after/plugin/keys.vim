@@ -121,3 +121,10 @@ inoremap <silent><expr> <esc> pumvisible() ? '<c-e><esc>' : '<esc>'
 inoremap <silent><expr> <bs>  pumvisible() ? '<c-e><bs>'  : '<bs>'
 inoremap <silent><expr> <c-w> pumvisible() ? '<c-e><c-w>' : '<c-w>'
 inoremap <silent><expr> <c-u> pumvisible() ? '<c-e><c-u>' : '<c-u>'
+
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle lsp_workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle lsp_document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>

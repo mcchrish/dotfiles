@@ -51,7 +51,6 @@ packer.startup(function(use)
 	use "folke/which-key.nvim"
 	use { "dstein64/vim-startuptime", opt = true }
 	use "folke/trouble.nvim"
-	use "nvim-lua/plenary.nvim"
 	use {
 		"junegunn/fzf.vim",
 		requires = "/usr/local/opt/fzf",
@@ -62,11 +61,6 @@ packer.startup(function(use)
 		requires = "vijaymarupudi/nvim-fzf",
 	}
 	use { "junegunn/vim-easy-align", opt = true }
-	use {
-		"nvim-telescope/telescope.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		opt = true,
-	}
 	use "~/vimming/nnn.vim"
 	use "andymass/vim-matchup"
 	use "justinmk/vim-sneak"
@@ -133,6 +127,11 @@ packer.startup(function(use)
 	}
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 	use { "nvim-treesitter/playground", opt = true }
+	use {
+		"nvim-telescope/telescope.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		opt = true,
+	}
 	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
 	use "leafOfTree/vim-vue-plugin"
 	-- use 'mcchrish/fountain.vim'

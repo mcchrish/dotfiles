@@ -8,7 +8,7 @@ null_ls.config {
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettier,
-		null_ls.builtins.diagnostics.eslint_d,
+		null_ls.builtins.diagnostics.eslint,
 	},
 }
 
@@ -22,9 +22,6 @@ local function on_attach(client, bufnr, custom_opts)
 	local function buf_set_option(...)
 		vim.api.nvim_buf_set_option(bufnr, ...)
 	end
-
-	--Enable completion triggered by <c-x><c-o>
-	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	local map_opts = { noremap = true }
 
@@ -42,7 +39,7 @@ local function on_attach(client, bufnr, custom_opts)
 	buf_set_keymap("n", "<leader>rn",	"<cmd>lua vim.lsp.buf.rename()<cr>", map_opts)
 	buf_set_keymap("n", "<leader>ca",	"<cmd>lua vim.lsp.buf.code_action()<cr>", map_opts)
 	buf_set_keymap("n", "gr",			"<cmd>lua vim.lsp.buf.references()<cr>", map_opts)
-	buf_set_keymap("n", "<leader>e",	"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", map_opts)
+	buf_set_keymap("n", "<leader>e",	"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })<cr>", map_opts)
 	buf_set_keymap("n", "[d",			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", map_opts)
 	buf_set_keymap("n", "]d",			"<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", map_opts)
 	buf_set_keymap("n", "<leader>q",	"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", map_opts)
@@ -52,6 +49,8 @@ local function on_attach(client, bufnr, custom_opts)
 	if client.resolved_capabilities.document_formatting and opts.format_on_save then
 		vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()]]
 	end
+
+	-- vim.api.nvim_command [[autocmd CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })]]
 end
 
 local servers = {
@@ -64,7 +63,7 @@ local servers = {
 
 			local ts_utils = require "nvim-lsp-ts-utils"
 			ts_utils.setup {
-				eslint_bin = "eslint_d",
+				eslint_bin = "eslint",
 				eslint_enable_diagnostics = true,
 				eslint_show_rule_id = true,
 			}
@@ -106,3 +105,22 @@ for type, icon in pairs(signs) do
 	local hl = "LspDiagnosticsSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl })
 end
+
+require("trouble").setup {
+	icons = false,
+	fold_open = "▶",
+	fold_closed = "▼",
+	action_keys = {
+		close = "gq",
+		open_split = { "<c-s>" },
+	},
+	use_lsp_diagnostic_signs = true,
+}
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	virtual_text = false,
+	update_in_insert = false,
+})
