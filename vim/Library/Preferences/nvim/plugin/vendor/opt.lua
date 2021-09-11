@@ -133,6 +133,10 @@ require("fzf-lua").setup {
 		file_icons = false,
 		git_icons = false,
 	},
+	quickfix = {
+		file_icons = false,
+		git_icons = false,
+	},
 	lsp = {
 		file_icons = false,
 		git_icons = false,
