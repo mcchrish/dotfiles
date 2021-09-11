@@ -74,6 +74,13 @@ require("nnn").setup {
 			local joined_lines = table.concat(lines, "\n")
 			vim.fn.setreg("+", joined_lines)
 		end,
+		c = function(lines)
+			local dir = lines[#lines]
+			if vim.fn.filereadable(dir) then
+				dir = vim.fn.fnamemodify(dir, ":h")
+			end
+			vim.api.nvim_command("cd " .. dir)
+		end,
 	},
 }
 
