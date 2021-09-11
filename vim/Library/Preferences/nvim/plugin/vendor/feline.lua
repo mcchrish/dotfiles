@@ -3,8 +3,8 @@ local colors = require "zenbones.colors"
 
 -- stylua: ignore start
 local c = {
-	default_bg                = theme.StatusLine.bg.hex,
-	default_fg                = theme.StatusLine.fg.hex,
+	bg                        = theme.StatusLine.bg.hex,
+	fg                        = theme.StatusLine.fg.hex,
 	common_bg                 = theme.PmenuSbar.bg.hex,
 	common_fg                 = theme.Folded.fg.hex,
 	visual_bg                 = colors.water.hex,
@@ -57,7 +57,8 @@ components.active[1] = {
 			return lsp.diagnostics_exist "Error"
 		end,
 		hl = { fg = c.diagnostic_error_fg },
-		icon = " ▬",
+		left_sep = " ",
+		icon = "▬",
 	},
 	{
 		provider = "diagnostic_warnings",
@@ -65,7 +66,8 @@ components.active[1] = {
 			return lsp.diagnostics_exist "Warning"
 		end,
 		hl = { fg = c.diagnostic_warning_fg },
-		icon = " ▪",
+		left_sep = " ",
+		icon = "▪",
 	},
 	{
 		provider = "diagnostic_hints",
@@ -73,7 +75,8 @@ components.active[1] = {
 			return lsp.diagnostics_exist "Hint"
 		end,
 		hl = { fg = c.diagnostic_hint_fg },
-		icon = " ▪",
+		left_sep = " ",
+		icon = "▪",
 	},
 	{
 		provider = "diagnostic_info",
@@ -81,7 +84,8 @@ components.active[1] = {
 			return lsp.diagnostics_exist "Information"
 		end,
 		hl = { fg = c.diagnostic_information_fg },
-		icon = " ⋅",
+		left_sep = " ",
+		icon = "⋅",
 	},
 }
 
@@ -89,7 +93,7 @@ components.active[1] = {
 components.active[2] = {
 	{
 		provider = function()
-			return vim.bo.filetype
+			return vim.bo.filetype:lower()
 		end,
 		hl = {
 			fg = c.common_fg,
@@ -132,7 +136,7 @@ components.active[2] = {
 	},
 }
 
-local inactive_hl = 'StatusLineNC'
+local inactive_hl = "StatusLineNC"
 
 components.inactive[1] = {
 	{
@@ -143,7 +147,7 @@ components.inactive[1] = {
 	{
 		provider = "file_info",
 		type = "relative",
-		file_modified_icon = "● ",
+		file_modified_icon = "●",
 		file_readonly_icon = " ",
 		hl = inactive_hl,
 		icon = "",
@@ -201,4 +205,8 @@ require("feline").setup {
 	components = components,
 	properties = properties,
 	vi_mode_colors = vi_mode_colors,
+	colors = {
+		fg = c.fg,
+		bg = c.bg,
+	},
 }
