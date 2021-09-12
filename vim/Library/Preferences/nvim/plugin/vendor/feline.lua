@@ -1,32 +1,24 @@
-local theme = require "zenbones"
-local colors = require "zenbones.colors"
+local t = require "zenbones"
+local p = require "zenbones.palette"
 
 -- stylua: ignore start
 local c = {
-	bg                        = theme.StatusLine.bg.hex,
-	fg                        = theme.StatusLine.fg.hex,
-	common_bg                 = theme.PmenuSbar.bg.hex,
-	common_fg                 = theme.Folded.fg.hex,
-	visual_bg                 = colors.water.hex,
-	replace_bg                = colors.rose.hex,
-	insert_bg                 = colors.leaf.hex,
-	diagnostic_error_fg       = theme.LspDiagnosticsDefaultError.fg.hex,
-	diagnostic_warning_fg     = theme.LspDiagnosticsDefaultWarning.fg.hex,
-	diagnostic_hint_fg        = theme.LspDiagnosticsDefaultHint.fg.hex,
-	diagnostic_information_fg = theme.LspDiagnosticsDefaultInformation.fg.hex,
+	bg                        = t.StatusLine.bg.hex,
+	fg                        = t.StatusLine.fg.hex,
+	common_bg                 = t.PmenuSbar.bg.hex,
+	common_fg                 = t.Folded.fg.hex,
+	visual_bg                 = p.water.hex,
+	replace_bg                = p.rose.hex,
+	insert_bg                 = p.leaf.hex,
+	diagnostic_error_fg       = t.LspDiagnosticsDefaultError.fg.hex,
+	diagnostic_warning_fg     = t.LspDiagnosticsDefaultWarning.fg.hex,
+	diagnostic_hint_fg        = t.LspDiagnosticsDefaultHint.fg.hex,
+	diagnostic_information_fg = t.LspDiagnosticsDefaultInformation.fg.hex,
 }
 -- stylua: ignore end
 
 local lsp = require "feline.providers.lsp"
 local vi_mode_utils = require "feline.providers.vi_mode"
-
-local properties = {
-	force_inactive = {
-		filetypes = {},
-		buftypes = {},
-		bufnames = {},
-	},
-}
 
 local components = {
 	active = {},
@@ -203,10 +195,18 @@ require("feline").setup {
 	default_bg = c.default_bg,
 	default_fg = c.default_fg,
 	components = components,
-	properties = properties,
 	vi_mode_colors = vi_mode_colors,
 	colors = {
 		fg = c.fg,
 		bg = c.bg,
+	},
+	force_inactive = {
+		filetypes = {
+			"packer",
+		},
+		buftypes = {
+			"terminal",
+		},
+		bufnames = {},
 	},
 }
