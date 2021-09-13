@@ -140,6 +140,9 @@ require("fzf-lua").setup {
 		file_icons = false,
 		git_icons = false,
 	},
+	blines = {
+		previewer = false
+	},
 	quickfix = {
 		file_icons = false,
 		git_icons = false,

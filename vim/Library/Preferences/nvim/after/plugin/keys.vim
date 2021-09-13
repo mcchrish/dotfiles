@@ -98,7 +98,7 @@ vnoremap <leader>K <cmd>lua require "fzf-lua".grep_visual()<cr>
 nnoremap <leader>f <cmd>lua require "fzf-lua".files()<cr>
 nnoremap <leader>d <cmd>lua require "fzf-lua".files({ cwd = vim.fn.expand('%:h') })<cr>
 nnoremap <leader>b <cmd>lua require "fzf-lua".buffers()<cr>
-nnoremap <leader>l <cmd>lua require "fzf-lua".blines({ previewer = false })<cr>
+nnoremap <leader>l <cmd>lua require "fzf-lua".blines()<cr>
 nnoremap <leader>L <cmd>lua require "fzf-lua".lines()<cr>
 nnoremap <leader>m <cmd>lua require "fzf-lua".marks()<cr>
 nnoremap Q <cmd>lua require "fzf-lua".command_history()<cr>
