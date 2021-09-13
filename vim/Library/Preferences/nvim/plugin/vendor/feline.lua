@@ -1,5 +1,13 @@
-local t = require "zenbones"
-local p = require "zenbones.palette"
+local t, p
+
+local colors_name = string.sub(vim.g.colors_name, 1, 8)
+if colors_name == "zenbones" then
+	t = require "zenbones"
+	p = require "zenbones.palette"
+else
+	t = require "zenflesh"
+	p = require "zenflesh.palette"
+end
 
 -- stylua: ignore start
 local c = {
