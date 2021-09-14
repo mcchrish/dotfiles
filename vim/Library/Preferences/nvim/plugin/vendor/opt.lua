@@ -74,7 +74,7 @@ require("nnn").setup {
 			local joined_lines = table.concat(lines, "\n")
 			vim.fn.setreg("+", joined_lines)
 		end,
-		c = function(lines)
+		["<c-w>"] = function(lines)
 			local dir = lines[#lines]
 			if vim.fn.filereadable(dir) then
 				dir = vim.fn.fnamemodify(dir, ":h")
@@ -141,7 +141,7 @@ require("fzf-lua").setup {
 		git_icons = false,
 	},
 	blines = {
-		previewer = false
+		previewer = false,
 	},
 	quickfix = {
 		file_icons = false,
@@ -154,3 +154,5 @@ require("fzf-lua").setup {
 }
 
 require("which-key").setup {}
+
+require("mcchrish.feline").setup()
