@@ -41,8 +41,8 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 
 # LS
 export CLICOLOR=1
-export LSCOLORS=Axfxcxdxbxagafhbaeacad
-export LS_COLORS='di=1;30:ln=35:so=32:pi=33:ex=31:bd=30;46:cd=30;45:su=37;41:sg=30;44:tw=30;42:ow=30;43'
+export LSCOLORS=Hxfxcxdxbxhgahhbhehchd
+export LS_COLORS='di=1;37:ln=35:so=32:pi=33:ex=31:bd=37;46:cd=30;47:su=37;41:sg=37;44:tw=37;42:ow=37;43'
 
 # Default Editor
 export EDITOR='nvim'

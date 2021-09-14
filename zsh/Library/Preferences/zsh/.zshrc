@@ -31,18 +31,19 @@ autoload -Uz _zinit
 ### End of zinit's installer chunk
 
 export PURE_PROMPT_SYMBOL="❫"
-zstyle :prompt:pure:path color black
+
+zstyle :prompt:pure:path color white
 zstyle :prompt:pure:git:branch color green
 zstyle :prompt:pure:git:branch:cached color green
-zstyle :prompt:pure:git:dirty color black
-zstyle :prompt:pure:git:arrow color black
-zstyle :prompt:pure:git:stash color black
+zstyle :prompt:pure:git:dirty color white
+zstyle :prompt:pure:git:arrow color white
+zstyle :prompt:pure:git:stash color white
 zstyle :prompt:pure:prompt:error color red
 zstyle :prompt:pure:git:stash show yes
 zinit ice compile"(pure|async).zsh" pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
-export FZF_DEFAULT_OPTS="--color=16 --color='fg:bright-black,fg+:black:bold,bg+:bright-white,hl:magenta:bold,marker:white:bold,prompt:blue,info:yellow' --bind=down:half-page-down,up:half-page-up"
+export FZF_DEFAULT_OPTS="--color=16 --color='fg:bright-white,fg+:white:bold,bg+:bright-black,hl:magenta:bold,marker:black:bold,prompt:blue,info:yellow' --bind=down:half-page-down,up:half-page-up"
 export FZF_DEFAULT_COMMAND="fd --type f \
   --hidden \
   --exclude .git \

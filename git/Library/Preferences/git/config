@@ -51,7 +51,7 @@
 [color "diff"]
 	meta = yellow
 	frag = magenta bold
-    func = black bold
+    func = white bold
 	commit = blue bold
 	whitespace = brightred reverse
 

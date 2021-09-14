@@ -134,7 +134,7 @@ require("fzf-lua").setup {
 	grep = {
 		file_icons = false,
 		git_icons = false,
-		rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:black'",
+		rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white'",
 	},
 	buffers = {
 		file_icons = false,
