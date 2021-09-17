@@ -45,7 +45,10 @@ packer.init {
 packer.startup(function(use)
 	use "lewis6991/impatient.nvim"
 	use "wbthomason/packer.nvim"
-	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
+	use {
+		"pgdouyon/vim-yin-yang",
+		{ "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" },
+	}
 	use "famiu/feline.nvim"
 	use { "folke/tokyonight.nvim", opt = true }
 	use "folke/which-key.nvim"
@@ -80,34 +83,6 @@ packer.startup(function(use)
 		},
 	}
 	use "ms-jpq/coq_nvim"
-	use {
-		"hrsh7th/nvim-cmp",
-		requires = {
-			"hrsh7th/vim-vsnip",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-nvim-lsp",
-		},
-		config = function()
-			local cmp = require "cmp"
-			cmp.setup {
-				snippet = {
-					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body)
-					end,
-				},
-				mapping = {
-					["<c-y>"] = cmp.mapping.confirm { select = true },
-				},
-				sources = {
-					{ name = "buffer" },
-					{ name = "path" },
-					{ name = "nvim_lsp" },
-				},
-			}
-		end,
-		opt = true,
-	}
 	use "tpope/vim-fugitive"
 	use { "rbong/vim-flog", opt = true }
 	use { "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" }

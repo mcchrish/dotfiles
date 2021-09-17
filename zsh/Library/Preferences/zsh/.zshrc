@@ -43,7 +43,7 @@ zstyle :prompt:pure:git:stash show yes
 zinit ice compile"(pure|async).zsh" pick"async.zsh" src"pure.zsh"
 zinit light sindresorhus/pure
 
-export FZF_DEFAULT_OPTS="--color=16 --color='fg:bright-white,fg+:white:bold,bg+:bright-black,hl:magenta:bold,marker:black:bold,prompt:blue,info:yellow' --bind=down:half-page-down,up:half-page-up"
+export FZF_DEFAULT_OPTS="--color=16 --color='fg:white,fg+:white:bold,bg+:bright-black,hl:magenta:bold,marker:white:bold,prompt:blue,info:yellow' --bind=down:half-page-down,up:half-page-up"
 export FZF_DEFAULT_COMMAND="fd --type f \
   --hidden \
   --exclude .git \

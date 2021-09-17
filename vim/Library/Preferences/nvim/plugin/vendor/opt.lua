@@ -134,7 +134,7 @@ require("fzf-lua").setup {
 	grep = {
 		file_icons = false,
 		git_icons = false,
-		rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white'",
+		rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white' --colors='path:style:intense'",
 	},
 	buffers = {
 		file_icons = false,
@@ -155,4 +155,4 @@ require("fzf-lua").setup {
 
 require("which-key").setup {}
 
-require("mcchrish.feline").setup()
+-- require("mcchrish.feline").setup()
