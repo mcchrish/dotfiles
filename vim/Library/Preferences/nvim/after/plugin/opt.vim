@@ -4,9 +4,6 @@ autocmd VimResized * :wincmd =
 " :h lua-highlight
 autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 
-autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | startinsert | endif
-autocmd BufLeave * if &buftype == 'terminal' | stopinsert | endif
-
 autocmd InsertEnter * ++once lua require("coq").Now "--shut-up"
 
 autocmd ColorScheme * lua require("mcchrish.feline").setup()
