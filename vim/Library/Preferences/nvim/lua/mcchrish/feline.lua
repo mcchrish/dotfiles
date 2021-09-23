@@ -186,9 +186,7 @@ local force_inactive = {
 
 M.setup = function()
 	local t, p
-
-	local colors_name = string.sub(vim.g.colors_name, 1, 8)
-	if colors_name == "zenbones" then
+	if vim.opt.background:get() == "light" then
 		t = require "zenbones"
 		p = require "zenbones.palette"
 	else

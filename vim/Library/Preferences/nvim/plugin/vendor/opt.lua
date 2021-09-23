@@ -47,9 +47,8 @@ g.coq_settings = {
 			fast_close = false,
 		},
 		icons = {
-			-- mode = "none",
-			mode = "short",
-			alias = {
+			mode = "long",
+			aliases = {
 				Enum = "Value",
 				EnumMember = "Value",
 				Method = "Constructor",
@@ -286,4 +285,4 @@ require("fzf-lua").setup {
 
 require("which-key").setup {}
 
--- require("mcchrish.feline").setup()
+require("mcchrish.feline").setup(vim.g.colors_name)

@@ -6,7 +6,7 @@ autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 
 autocmd InsertEnter * ++once lua require("coq").Now "--shut-up"
 
-autocmd ColorScheme * lua require("mcchrish.feline").setup()
+autocmd ColorSchemePre * lua require("mcchrish.feline").setup()
 
 cnoreabbrev fz FzfLua
 cnoreabbrev pa FzfLua packadd
