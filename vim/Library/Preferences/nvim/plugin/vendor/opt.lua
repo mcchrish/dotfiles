@@ -132,19 +132,21 @@ require("fzf-lua").setup {
 		win_row = 0.50,
 		win_col = 0.50,
 	},
-	fzf_layout = "default",
-	fzf_info = "--info=default",
 	fzf_binds = {
-		"alt-a:select-all",
-		"alt-d:deselect-all",
-		"down:half-page-down",
-		"up:half-page-up",
-		"shift-down:preview-page-down",
-		"shift-up:preview-page-up",
+		["alt-a"] = "toggle-all",
+		["down"] = "half-page-down",
+		["up"] = "half-page-up",
+		["shift-down"] = "preview-page-down",
+		["shift-up"] = "preview-page-up",
+	},
+	fzf_opts = {
+		["--prompt"] = " ❫",
+		["--info"] = "default",
 	},
 	preview_horizontal = "right:50%",
 	previewers = {
 		builtin = {
+			scrollbar = false,
 			syntax = false,
 		},
 	},
@@ -285,4 +287,4 @@ require("fzf-lua").setup {
 
 require("which-key").setup {}
 
-require("mcchrish.feline").setup(vim.g.colors_name)
+require("mcchrish.feline").setup()
