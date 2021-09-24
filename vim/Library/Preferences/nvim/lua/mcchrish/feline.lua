@@ -20,11 +20,15 @@ components.active[1] = {
 		end,
 	},
 	{
-		provider = "file_info",
-		type = "relative",
+		provider = {
+			name = "file_info",
+			opts = {
+				type = "relative",
+				file_modified_icon = "●",
+				file_readonly_icon = " ",
+			},
+		},
 		hl = "StatusLine",
-		file_modified_icon = "●",
-		file_readonly_icon = " ",
 		icon = "",
 	},
 	{
@@ -120,10 +124,14 @@ components.inactive[1] = {
 		icon = "",
 	},
 	{
-		provider = "file_info",
-		type = "relative",
-		file_modified_icon = "●",
-		file_readonly_icon = " ",
+		provider = {
+			name = "file_info",
+			opts = {
+				type = "relative",
+				file_modified_icon = "●",
+				file_readonly_icon = " ",
+			},
+		},
 		hl = inactive_hl,
 		icon = "",
 	},
