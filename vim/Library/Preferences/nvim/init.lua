@@ -5,6 +5,7 @@ local g = vim.g
 g.mapleader = [[ ]]
 g.python3_host_prog = "/usr/bin/python3"
 g.did_install_default_menus = 1
+g.did_load_filetypes = 1
 
 local disabled_built_ins = {
 	"matchit",
@@ -44,12 +45,13 @@ packer.init {
 
 packer.startup(function(use)
 	use "lewis6991/impatient.nvim"
+	use "nathom/filetype.nvim"
 	use "wbthomason/packer.nvim"
 	use {
 		"pgdouyon/vim-yin-yang",
 		{ "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" },
 	}
-	use "famiu/feline.nvim"
+	use { "famiu/feline.nvim", tag = "v0.2" }
 	use { "folke/tokyonight.nvim", opt = true }
 	use "folke/which-key.nvim"
 	use { "dstein64/vim-startuptime", opt = true }

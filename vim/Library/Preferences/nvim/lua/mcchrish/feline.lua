@@ -184,7 +184,7 @@ local vi_mode_colors = {
 
 local force_inactive = {
 	filetypes = {
-		"packer",
+		"^packer$",
 	},
 	buftypes = {
 		"terminal",
@@ -219,6 +219,7 @@ M.setup = function()
 			diagnostic_information_fg = t.LspDiagnosticsDefaultInformation.fg.hex,
 		},
 		force_inactive = force_inactive,
+		update_triggers = { "WinEnter", "WinClosed" },
 	}
 end
 

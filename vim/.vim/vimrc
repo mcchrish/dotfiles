@@ -1,9 +1,6 @@
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
-set termguicolors
-colorscheme zenbones
-
 let mapleader = "\<space>"
 
 set noswapfile
@@ -17,3 +14,6 @@ Plug '~/vimming/zenbones.nvim'
 Plug '~/vimming/nnn.vim'
 
 call plug#end()
+
+set termguicolors
+colorscheme zenbones
