@@ -51,7 +51,7 @@
 [color "diff"]
 	meta = yellow
 	frag = magenta bold
-    func = white bold
+	func = white bold
 	commit = blue bold
 	whitespace = brightred reverse
 
@@ -69,3 +69,5 @@
 
 [commit]
 	gpgsign = true
+[tag]
+	gpgSign = true
