@@ -47,20 +47,11 @@ packer.startup(function(use)
 	use "lewis6991/impatient.nvim"
 	use "nathom/filetype.nvim"
 	use "wbthomason/packer.nvim"
-	use {
-		"pgdouyon/vim-yin-yang",
-		{ "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" },
-	}
+	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
 	use { "famiu/feline.nvim", tag = "v0.2" }
-	use { "folke/tokyonight.nvim", opt = true }
-	use "folke/which-key.nvim"
 	use { "dstein64/vim-startuptime", opt = true }
+	use "folke/which-key.nvim"
 	use "folke/trouble.nvim"
-	use {
-		"junegunn/fzf.vim",
-		requires = "/usr/local/opt/fzf",
-		opt = true,
-	}
 	use {
 		"ibhagwan/fzf-lua",
 		requires = "vijaymarupudi/nvim-fzf",
@@ -97,9 +88,9 @@ packer.startup(function(use)
 		end,
 		opt = true,
 	}
-	use { "mbbill/undotree", cmd = "UndotreeToggle" }
+	use "mbbill/undotree"
 	use {
-		"terrortylor/nvim-comment",
+		"winston0410/commented.nvim",
 		requires = "JoosepAlviste/nvim-ts-context-commentstring",
 	}
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
