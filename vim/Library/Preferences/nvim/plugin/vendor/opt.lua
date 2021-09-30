@@ -27,63 +27,6 @@ g.vim_vue_plugin_config = {
 	debug = 0,
 }
 
-g.coq_settings = {
-	-- conflicts with window nav keys. Disable for now
-	keymap = {
-		jump_to_mark = "",
-		bigger_preview = "",
-		recommended = false,
-	},
-	clients = {
-		tags = {
-			enabled = false,
-		},
-	},
-	display = {
-		ghost_text = {
-			enabled = false,
-		},
-		pum = {
-			fast_close = false,
-		},
-		icons = {
-			mode = "long",
-			aliases = {
-				Enum = "Value",
-				EnumMember = "Value",
-				Method = "Constructor",
-				Boolean = "Value",
-				Character = "Value",
-				String = "Value",
-			},
-			mappings = {
-				Class = "⬢",
-				Color = "❁",
-				Constant = "π",
-				Constructor = "⬡",
-				Event = "⤸",
-				Field = "◧",
-				File = "⟔",
-				Folder = "⧸",
-				Function = "λ",
-				Interface = "□",
-				Keyword = "ᴋ",
-				Module = "■",
-				Operator = "÷",
-				Property = "⋯",
-				Reference = "→",
-				Snippet = "◸",
-				Struct = "▣",
-				Text = "ᴀ",
-				TypeParameter = "ᴛ",
-				Unit = "␣",
-				Value = "🞇",
-				Variable = "𝑣",
-			},
-		},
-	},
-}
-
 require("commented").setup {
 	keybindings = { n = "gc", v = "gc", nl = "gcc" }, -- what key to toggle comment, nl is for mapping <leader>c$, just like dd for d
 	hooks = {
@@ -95,66 +38,6 @@ require("commented").setup {
 	},
 }
 
-require("fzf-lua").setup {
-	winopts = {
-		win_width = 0.9,
-		win_height = 0.6,
-		win_row = 0.50,
-		win_col = 0.50,
-	},
-	fzf_binds = {
-		["alt-a"] = "toggle-all",
-		["down"] = "half-page-down",
-		["up"] = "half-page-up",
-		["shift-down"] = "preview-page-down",
-		["shift-up"] = "preview-page-up",
-	},
-	fzf_opts = {
-		["--prompt"] = " ❫",
-		["--info"] = "default",
-		["--layout"] = "default",
-	},
-	preview_horizontal = "right:50%",
-	previewers = {
-		builtin = {
-			scrollbar = false,
-			syntax = false,
-		},
-	},
-	files = {
-		file_icons = false,
-		git_icons = false,
-	},
-	git = {
-		files = {
-			file_icons = false,
-		},
-		status = {
-			file_icons = false,
-		},
-	},
-	grep = {
-		file_icons = false,
-		git_icons = false,
-		rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white' --colors='path:style:intense'",
-	},
-	buffers = {
-		file_icons = false,
-		git_icons = false,
-	},
-	blines = {
-		previewer = false,
-	},
-	quickfix = {
-		file_icons = false,
-		git_icons = false,
-	},
-	lsp = {
-		file_icons = false,
-		git_icons = false,
-	},
-}
-
 require("gitsigns").setup {
 	signs = {
 		add = { text = "┃" },
@@ -162,28 +45,6 @@ require("gitsigns").setup {
 		delete = { text = "━" },
 		topdelete = { text = "━" },
 		changedelete = { text = "┳" },
-	},
-}
-
-require("nnn").setup {
-	command = "nnn -oCQ",
-	set_default_mappings = 0,
-	replace_netrw = 1,
-	action = {
-		["<c-t>"] = "tab split",
-		["<c-s>"] = "split",
-		["<c-v>"] = "vsplit",
-		["<c-o>"] = function(lines)
-			local joined_lines = table.concat(lines, "\n")
-			vim.fn.setreg("+", joined_lines)
-		end,
-		["<c-w>"] = function(lines)
-			local dir = lines[#lines]
-			if vim.fn.filereadable(dir) then
-				dir = vim.fn.fnamemodify(dir, ":h")
-			end
-			vim.api.nvim_command("cd " .. dir)
-		end,
 	},
 }
 

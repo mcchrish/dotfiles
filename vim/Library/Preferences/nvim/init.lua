@@ -95,11 +95,6 @@ packer.startup(function(use)
 	}
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 	use { "nvim-treesitter/playground", opt = true }
-	use {
-		"nvim-telescope/telescope.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		opt = true,
-	}
 	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
 	use "leafOfTree/vim-vue-plugin"
 	-- use 'mcchrish/fountain.vim'
