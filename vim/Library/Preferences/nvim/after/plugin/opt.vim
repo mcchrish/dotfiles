@@ -10,3 +10,6 @@ autocmd ColorSchemePre * lua require("mcchrish.feline").setup()
 
 cnoreabbrev fz FzfLua
 cnoreabbrev pa FzfLua packadd
+
+" Common typo
+cnoreabbrev w; w
