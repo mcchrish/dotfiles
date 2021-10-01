@@ -9,6 +9,8 @@ require("fzf-lua").setup {
 		["alt-a"] = "toggle-all",
 		["down"] = "half-page-down",
 		["up"] = "half-page-up",
+		["f2"] = "toggle-preview",
+		["f3"] = "toggle-preview-wrap",
 		["shift-down"] = "preview-page-down",
 		["shift-up"] = "preview-page-up",
 	},
