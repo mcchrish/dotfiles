@@ -64,6 +64,7 @@ opt.showbreak = "↪ "
 opt.selection = "exclusive"
 
 -- Wrapping
+opt.wrap = false
 opt.linebreak = true
 opt.textwidth = 80
 opt.formatoptions = "cqj1" -- format using textwidth, including comments and gq
@@ -73,7 +74,7 @@ opt.startofline = false
 
 -- Menu complete
 opt.wildignorecase = true
-opt.wildmode = { longest = "full", "full" }
+opt.wildmode = { "longest:full", "full" }
 opt.wildignore = opt.wildignore + { ".hg", ".git", ".svn", "*.pyc", "*.spl", "*.o", "*.out", "*.DS_Store" }
 opt.wildignore = opt.wildignore + { "*/node_modules/*" }
 

@@ -2,17 +2,20 @@ require("fzf-lua").setup {
 	winopts = {
 		win_width = 0.9,
 		win_height = 0.6,
-		win_row = 0.50,
-		win_col = 0.50,
+		win_row = 0.5,
+		win_col = 0.5,
+		hl_border = "FloatBorder",
 	},
-	fzf_binds = {
-		["alt-a"] = "toggle-all",
-		["down"] = "half-page-down",
-		["up"] = "half-page-up",
-		["f2"] = "toggle-preview",
-		["f3"] = "toggle-preview-wrap",
-		["shift-down"] = "preview-page-down",
-		["shift-up"] = "preview-page-up",
+	keymap = {
+		fzf = {
+			["alt-a"] = "toggle-all",
+			["down"] = "half-page-down",
+			["up"] = "half-page-up",
+			["f2"] = "toggle-preview",
+			["f3"] = "toggle-preview-wrap",
+			["shift-down"] = "preview-page-down",
+			["shift-up"] = "preview-page-up",
+		},
 	},
 	fzf_opts = {
 		["--prompt"] = " ❫",

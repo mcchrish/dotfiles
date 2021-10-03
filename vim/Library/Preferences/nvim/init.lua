@@ -48,6 +48,7 @@ packer.startup(function(use)
 	use "nathom/filetype.nvim"
 	use "wbthomason/packer.nvim"
 	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
+	use "ellisonleao/gruvbox.nvim"
 	use { "famiu/feline.nvim", tag = "v0.2" }
 	use { "dstein64/vim-startuptime", opt = true }
 	use "folke/which-key.nvim"
@@ -79,7 +80,6 @@ packer.startup(function(use)
 	use "tpope/vim-fugitive"
 	use { "rbong/vim-flog", opt = true }
 	use { "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" }
-	use "lukas-reineke/indent-blankline.nvim"
 	use {
 		"ruifm/gitlinker.nvim",
 		requires = "nvim-lua/plenary.nvim",
@@ -95,6 +95,8 @@ packer.startup(function(use)
 	}
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 	use { "nvim-treesitter/playground", opt = true }
+	use "romgrk/nvim-treesitter-context"
+	use "lukas-reineke/indent-blankline.nvim"
 	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
 	use "leafOfTree/vim-vue-plugin"
 	-- use 'mcchrish/fountain.vim'
