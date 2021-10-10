@@ -27,15 +27,12 @@ g.vim_vue_plugin_config = {
 	debug = 0,
 }
 
-require("commented").setup {
-	keybindings = { n = "gc", v = "gc", nl = "gcc" }, -- what key to toggle comment, nl is for mapping <leader>c$, just like dd for d
-	hooks = {
-		before_comment = function()
-			if vim.api.nvim_buf_get_option(0, "filetype") == "vue" then
-				require("ts_context_commentstring.internal").update_commentstring()
-			end
-		end,
-	},
+require("Comment").setup {
+	pre_hook = function()
+		if vim.api.nvim_buf_get_option(0, "filetype") == "vue" then
+			return require("ts_context_commentstring.internal").calculate_commentstring()
+		end
+	end,
 }
 
 require("gitsigns").setup {
@@ -53,5 +50,3 @@ g.indent_blankline_show_first_indent_level = false
 g.indent_blankline_use_treesitter = true
 
 require("which-key").setup {}
-
-require("mcchrish.feline").setup()

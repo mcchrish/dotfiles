@@ -193,13 +193,24 @@ local force_inactive = {
 }
 
 M.setup = function()
+	local util = require "zenbones.util"
+	local base_name = util.bg_to_base_name()
+
 	local t, p
-	if vim.opt.background:get() == "light" then
+	if vim.g.colors_name == "zenbones" then
 		t = require "zenbones"
 		p = require "zenbones.palette"
-	else
+	elseif vim.g.colors_name == "zenflesh" then
 		t = require "zenflesh"
 		p = require "zenflesh.palette"
+	elseif vim.g.colors_name == "rosebones" then
+		t = require "rosebones"
+		p = require("rosebones.palette")[base_name]
+	elseif vim.g.colors_name == "neobones" then
+		t = require "neobones"
+		p = require("neobones.palette")[base_name]
+	else
+		return
 	end
 
 	require("feline").setup {

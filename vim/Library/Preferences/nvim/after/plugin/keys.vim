@@ -109,6 +109,7 @@ nnoremap Q <cmd>lua require "fzf-lua".command_history()<cr>
 
 nnoremap <leader>nn <cmd>NnnPicker<cr>
 nnoremap <leader>nc <cmd>NnnPicker %:h<cr>
+autocmd FileType nnn tnoremap <nowait><buffer><silent> <C-]> q
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)

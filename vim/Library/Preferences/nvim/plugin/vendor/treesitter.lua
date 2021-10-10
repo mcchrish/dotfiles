@@ -12,6 +12,7 @@ require("nvim-treesitter.configs").setup {
 		"ruby",
 		"tsx",
 		"typescript",
+		"vim",
 		"vue",
 	},
 	matchup = {

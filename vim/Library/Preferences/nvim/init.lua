@@ -49,6 +49,7 @@ packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
 	use "ellisonleao/gruvbox.nvim"
+	use "rose-pine/neovim"
 	use { "famiu/feline.nvim", tag = "v0.2" }
 	use { "dstein64/vim-startuptime", opt = true }
 	use "folke/which-key.nvim"
@@ -66,6 +67,7 @@ packer.startup(function(use)
 	use "tpope/vim-unimpaired"
 	use "tpope/vim-repeat"
 	use "tpope/vim-sleuth"
+	use "gpanders/editorconfig.nvim"
 	use "tpope/vim-rsi"
 	use "machakann/vim-sandwich"
 	use {
@@ -90,7 +92,7 @@ packer.startup(function(use)
 	}
 	use "mbbill/undotree"
 	use {
-		"winston0410/commented.nvim",
+		"numToStr/Comment.nvim",
 		requires = "JoosepAlviste/nvim-ts-context-commentstring",
 	}
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
