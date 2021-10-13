@@ -50,7 +50,7 @@ packer.startup(function(use)
 	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
 	use "ellisonleao/gruvbox.nvim"
 	use "rose-pine/neovim"
-	use { "famiu/feline.nvim", tag = "v0.2" }
+	use { "famiu/feline.nvim", tag = "v0.3.1" }
 	use { "dstein64/vim-startuptime", opt = true }
 	use "folke/which-key.nvim"
 	use "folke/trouble.nvim"

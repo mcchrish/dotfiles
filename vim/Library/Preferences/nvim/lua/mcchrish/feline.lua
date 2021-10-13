@@ -193,22 +193,15 @@ local force_inactive = {
 }
 
 M.setup = function()
-	local util = require "zenbones.util"
-	local base_name = util.bg_to_base_name()
-
-	local t, p
+	local t
 	if vim.g.colors_name == "zenbones" then
 		t = require "zenbones"
-		p = require "zenbones.palette"
 	elseif vim.g.colors_name == "zenflesh" then
 		t = require "zenflesh"
-		p = require "zenflesh.palette"
 	elseif vim.g.colors_name == "rosebones" then
 		t = require "rosebones"
-		p = require("rosebones.palette")[base_name]
 	elseif vim.g.colors_name == "neobones" then
 		t = require "neobones"
-		p = require("neobones.palette")[base_name]
 	else
 		return
 	end
@@ -221,16 +214,15 @@ M.setup = function()
 			fg = t.StatusLine.fg.hex,
 			common_bg = t.PmenuSbar.bg.hex,
 			common_fg = t.Folded.fg.hex,
-			visual_bg = p.water.hex,
-			replace_bg = p.rose.hex,
-			insert_bg = p.leaf.hex,
+			visual_bg = t.DiagnosticInfo.hex,
+			replace_bg = t.DiagnosticError.fg.hex,
+			insert_bg = t.MoreMsg.fg.hex,
 			diagnostic_error_fg = t.LspDiagnosticsDefaultError.fg.hex,
 			diagnostic_warning_fg = t.LspDiagnosticsDefaultWarning.fg.hex,
 			diagnostic_hint_fg = t.LspDiagnosticsDefaultHint.fg.hex,
 			diagnostic_information_fg = t.LspDiagnosticsDefaultInformation.fg.hex,
 		},
 		force_inactive = force_inactive,
-		update_triggers = { "WinEnter", "WinClosed" },
 	}
 end
 

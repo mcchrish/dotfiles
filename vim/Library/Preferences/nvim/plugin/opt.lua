@@ -64,7 +64,6 @@ opt.showbreak = "↪ "
 opt.selection = "exclusive"
 
 -- Wrapping
-opt.wrap = false
 opt.linebreak = true
 opt.textwidth = 80
 opt.formatoptions = "cqj1" -- format using textwidth, including comments and gq

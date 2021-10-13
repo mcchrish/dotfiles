@@ -8,10 +8,10 @@ set termguicolors
 " let g:zenflesh_darkness = 'warm'
 " let g:zenflesh_lighten_noncurrent_window = v:true
 " let g:zenflesh_solid_vert_split = v:true
-colorscheme zenflesh
+" colorscheme zenflesh
 
-" set background=dark
+let g:rosebones_solid_vert_split = v:true
+set background=light
 " colorscheme rosebones
-
-" set background=light
 " colorscheme neobones
+colorscheme forestbones
