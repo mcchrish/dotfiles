@@ -8,7 +8,6 @@ null_ls.config {
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettier,
-		null_ls.builtins.diagnostics.eslint_d,
 	},
 }
 
@@ -65,16 +64,13 @@ local servers = {
 			client.resolved_capabilities.document_range_formatting = false
 
 			local ts_utils = require "nvim-lsp-ts-utils"
-			ts_utils.setup {
-				eslint_bin = "eslint_d",
-				eslint_enable_diagnostics = true,
-				eslint_show_rule_id = true,
-			}
+			ts_utils.setup {}
 			ts_utils.setup_client(client)
 
 			on_attach(client, bufnr)
 		end,
 	},
+	-- "eslint",
 	"vuels",
 	tailwindcss = {
 		root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts"),

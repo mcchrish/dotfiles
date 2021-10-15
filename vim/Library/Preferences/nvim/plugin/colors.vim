@@ -10,8 +10,9 @@ set termguicolors
 " let g:zenflesh_solid_vert_split = v:true
 " colorscheme zenflesh
 
-let g:rosebones_solid_vert_split = v:true
-set background=light
+" let g:rosebones_solid_vert_split = v:true
+" set background=light
 " colorscheme rosebones
 " colorscheme neobones
 colorscheme forestbones
+" colorscheme zenwritten
