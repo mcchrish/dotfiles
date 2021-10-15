@@ -200,6 +200,8 @@ M.setup = function()
 		t = require "zenflesh"
 	elseif vim.g.colors_name == "rosebones" then
 		t = require "rosebones"
+	elseif vim.g.colors_name == "forestbones" then
+		t = require "forestbones"
 	elseif vim.g.colors_name == "neobones" then
 		t = require "neobones"
 	else
@@ -214,7 +216,7 @@ M.setup = function()
 			fg = t.StatusLine.fg.hex,
 			common_bg = t.PmenuSbar.bg.hex,
 			common_fg = t.Folded.fg.hex,
-			visual_bg = t.DiagnosticInfo.hex,
+			visual_bg = t.DiagnosticInfo.fg.hex,
 			replace_bg = t.DiagnosticError.fg.hex,
 			insert_bg = t.MoreMsg.fg.hex,
 			diagnostic_error_fg = t.LspDiagnosticsDefaultError.fg.hex,
