@@ -29,9 +29,6 @@ nnoremap x  "_x
 xnoremap x  "_x
 nnoremap vD "_D
 
-" Actual Y
-nnoremap Y y$
-
 " Repeat substitution with flag
 nnoremap & <cmd>&&<CR>
 vnoremap & <cmd>&&<CR>

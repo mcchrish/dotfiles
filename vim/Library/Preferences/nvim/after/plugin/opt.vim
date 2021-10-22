@@ -4,7 +4,7 @@ autocmd VimResized * :wincmd =
 " :h lua-highlight
 autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 
-" autocmd InsertEnter * ++once lua require("coq").Now "--shut-up"
+autocmd InsertEnter * ++once lua require("coq").Now "--shut-up"
 
 autocmd VimEnter,ColorScheme * lua require("mcchrish.feline").setup()
 

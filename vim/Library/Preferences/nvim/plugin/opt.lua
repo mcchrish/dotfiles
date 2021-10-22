@@ -1,7 +1,6 @@
 local g = vim.g
 local opt = vim.opt
 
-opt.hidden = true
 opt.modelines = 1
 opt.fileformats = { "unix", "mac", "dos" }
 opt.fileformat = "unix"
@@ -39,8 +38,6 @@ opt.sidescrolloff = 10
 opt.synmaxcol = 500
 opt.history = 1000
 opt.tabpagemax = 50
-
-opt.joinspaces = false
 
 -- Nicer vertical splits
 opt.fillchars = { fold = "·" }

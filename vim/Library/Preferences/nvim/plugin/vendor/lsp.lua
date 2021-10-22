@@ -2,12 +2,12 @@ local lspconfig = require "lspconfig"
 local null_ls = require "null-ls"
 local coq = require "coq"
 
-table.insert(null_ls.builtins.formatting.prettier.filetypes, "php")
-
 null_ls.config {
 	sources = {
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.prettier,
+		null_ls.builtins.formatting.prettier.with {
+			filetypes = vim.list_extend({ "php" }, null_ls.builtins.formatting.prettier.filetypes),
+		},
 	},
 }
 
@@ -41,10 +41,10 @@ local function on_attach(client, bufnr, custom_opts)
 	buf_set_keymap("n", "<leader>rn",	"<cmd>lua vim.lsp.buf.rename()<cr>", map_opts)
 	buf_set_keymap("n", "<leader>ca",	"<cmd>lua vim.lsp.buf.code_action()<cr>", map_opts)
 	buf_set_keymap("n", "gr",			"<cmd>lua vim.lsp.buf.references()<cr>", map_opts)
-	buf_set_keymap("n", "<leader>e",	"<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })<cr>", map_opts)
-	buf_set_keymap("n", "[d",			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", map_opts)
-	buf_set_keymap("n", "]d",			"<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", map_opts)
-	buf_set_keymap("n", "<leader>q",	"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", map_opts)
+	buf_set_keymap("n", "<leader>e",	"<cmd>lua vim.diagnostic.open_float(0, { scope = 'line' })<cr>", map_opts)
+	buf_set_keymap("n", "[d",			"<cmd>lua vim.diagnostic.goto_prev()<cr>", map_opts)
+	buf_set_keymap("n", "]d",			"<cmd>lua vim.diagnostic.goto_next()<cr>", map_opts)
+	buf_set_keymap("n", "<leader>q",	"<cmd>lua vim.diagnostic.set_loclist()<cr>", map_opts)
 	buf_set_keymap("n", "<leader>p",	"<cmd>lua vim.lsp.buf.formatting()<cr>", map_opts)
 	-- stylua: ignore end
 
@@ -70,7 +70,7 @@ local servers = {
 			on_attach(client, bufnr)
 		end,
 	},
-	-- "eslint",
+	"eslint",
 	"vuels",
 	tailwindcss = {
 		root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts"),
@@ -83,6 +83,36 @@ local servers = {
 		end,
 	},
 }
+
+-- local runtime_path = vim.split(package.path, ";")
+-- table.insert(runtime_path, "lua/?.lua")
+-- table.insert(runtime_path, "lua/?/init.lua")
+--
+-- servers.sumneko_lua = {
+-- 	cmd = { "lua-language-server", "-E" },
+-- 	settings = {
+-- 		Lua = {
+-- 			runtime = {
+-- 				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+-- 				version = "LuaJIT",
+-- 				-- Setup your lua path
+-- 				path = runtime_path,
+-- 			},
+-- 			diagnostics = {
+-- 				-- Get the language server to recognize the `vim` global
+-- 				globals = { "vim" },
+-- 			},
+-- 			workspace = {
+-- 				-- Make the server aware of Neovim runtime files
+-- 				library = vim.api.nvim_get_runtime_file("", true),
+-- 			},
+-- 			-- Do not send telemetry data containing a randomized but unique identifier
+-- 			telemetry = {
+-- 				enable = false,
+-- 			},
+-- 		},
+-- 	},
+-- }
 
 local default_config = {
 	on_attach = on_attach,
@@ -98,10 +128,10 @@ for k, v in pairs(servers) do
 	)
 end
 
-local signs = { Error = "▬", Warning = "▪", Hint = "▪", Information = "⋅" }
+local signs = { Error = "▬", Warn = "▪", Hint = "▪", Info = "⋅" }
 
 for type, icon in pairs(signs) do
-	local hl = "LspDiagnosticsSign" .. type
+	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl })
 end
 

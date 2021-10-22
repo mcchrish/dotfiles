@@ -45,7 +45,7 @@ components.active[1] = {
 		enabled = function()
 			return lsp.diagnostics_exist "Warning"
 		end,
-		hl = { fg = "diagnostic_warning_fg" },
+		hl = { fg = "diagnostic_warn_fg" },
 		left_sep = " ",
 		icon = "▪",
 	},
@@ -63,7 +63,7 @@ components.active[1] = {
 		enabled = function()
 			return lsp.diagnostics_exist "Information"
 		end,
-		hl = { fg = "diagnostic_information_fg" },
+		hl = { fg = "diagnostic_info_fg" },
 		left_sep = " ",
 		icon = "⋅",
 	},
@@ -219,10 +219,10 @@ M.setup = function()
 			visual_bg = t.DiagnosticInfo.fg.hex,
 			replace_bg = t.DiagnosticError.fg.hex,
 			insert_bg = t.MoreMsg.fg.hex,
-			diagnostic_error_fg = t.LspDiagnosticsDefaultError.fg.hex,
-			diagnostic_warning_fg = t.LspDiagnosticsDefaultWarning.fg.hex,
-			diagnostic_hint_fg = t.LspDiagnosticsDefaultHint.fg.hex,
-			diagnostic_information_fg = t.LspDiagnosticsDefaultInformation.fg.hex,
+			diagnostic_error_fg = t.DiagnosticError.fg.hex,
+			diagnostic_warn_fg = t.DiagnosticWarn.fg.hex,
+			diagnostic_hint_fg = t.DiagnosticHint.fg.hex,
+			diagnostic_info_fg = t.DiagnosticInfo.fg.hex,
 		},
 		force_inactive = force_inactive,
 	}

@@ -3,7 +3,7 @@ require "impatient"
 local g = vim.g
 
 g.mapleader = [[ ]]
-g.python3_host_prog = "/usr/bin/python3"
+g.python3_host_prog = "/usr/local/bin/python3"
 g.did_install_default_menus = 1
 g.did_load_filetypes = 1
 
@@ -49,7 +49,7 @@ packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
 	use { "famiu/feline.nvim", tag = "v0.3.3" }
-	use { "dstein64/vim-startuptime", opt = true }
+	use { "dstein64/vim-startuptime", cmd = "StartupTime" }
 	use "folke/which-key.nvim"
 	use "folke/trouble.nvim"
 	use {
@@ -94,7 +94,7 @@ packer.startup(function(use)
 		requires = "JoosepAlviste/nvim-ts-context-commentstring",
 	}
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-	use { "nvim-treesitter/playground", opt = true }
+	use { "nvim-treesitter/playground", cmd = "TSHighlightCapturesUnderCursor" }
 	use "romgrk/nvim-treesitter-context"
 	use "lukas-reineke/indent-blankline.nvim"
 	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
