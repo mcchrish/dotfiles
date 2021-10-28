@@ -1,14 +1,16 @@
 vim.opt.termguicolors = true
 -- vim.g.zenbones_compat = 1
 
-function colorscheme(c)
+vim.api.nvim_command [[ autocmd ColorScheme *bones,zenflesh,zenwritten lua require("mcchrish.feline").setup()]]
+
+local function colorscheme(c)
 	vim.api.nvim_command(string.format("colorscheme %s", c))
 end
 
 vim.g.zenbones = {
-	lightness = "dim",
-	dim_noncurrent_window = true,
-	solid_vert_split = true,
+	-- lightness = "dim",
+	-- dim_noncurrent_window = true,
+	-- solid_vert_split = true,
 	solid_line_nr = true,
 	darken_non_text = 30,
 	-- italic_comments = false,

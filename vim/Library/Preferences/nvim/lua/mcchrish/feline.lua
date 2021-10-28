@@ -193,21 +193,7 @@ local force_inactive = {
 }
 
 M.setup = function()
-	local t
-	if vim.g.colors_name == "zenbones" then
-		t = require "zenbones"
-	elseif vim.g.colors_name == "zenflesh" then
-		t = require "zenflesh"
-	elseif vim.g.colors_name == "rosebones" then
-		t = require "rosebones"
-	elseif vim.g.colors_name == "forestbones" then
-		t = require "forestbones"
-	elseif vim.g.colors_name == "neobones" then
-		t = require "neobones"
-	else
-		return
-	end
-
+	local t = require(vim.fn.expand "<amatch>")
 	require("feline").setup {
 		components = components,
 		vi_mode_colors = vi_mode_colors,
