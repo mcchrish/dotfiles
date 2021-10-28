@@ -70,11 +70,8 @@ packer.startup(function(use)
 	use "machakann/vim-sandwich"
 	use {
 		"neovim/nvim-lspconfig",
-		requires = {
-			"jose-elias-alvarez/null-ls.nvim",
-			"jose-elias-alvarez/nvim-lsp-ts-utils",
-			"nvim-lua/plenary.nvim",
-		},
+		"williamboman/nvim-lsp-installer",
+		"jose-elias-alvarez/null-ls.nvim",
 	}
 	use "ms-jpq/coq_nvim"
 	use "tpope/vim-fugitive"

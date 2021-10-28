@@ -1,19 +1,5 @@
-local lspconfig = require "lspconfig"
-local null_ls = require "null-ls"
-local coq = require "coq"
-
-null_ls.config {
-	sources = {
-		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.prettier.with {
-			filetypes = vim.list_extend({ "php" }, null_ls.builtins.formatting.prettier.filetypes),
-		},
-	},
-}
-
-local default_config = { format_on_save = false }
 local function on_attach(client, bufnr, custom_opts)
-	local opts = vim.tbl_extend("force", default_config, custom_opts or {})
+	local opts = vim.tbl_extend("keep", custom_opts or {}, { format_on_save = false })
 
 	local function buf_set_keymap(...)
 		vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -23,7 +9,7 @@ local function on_attach(client, bufnr, custom_opts)
 	end
 
 	-- Enable completion triggered by <c-x><c-o>
-	-- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	local map_opts = { noremap = true }
 
@@ -55,86 +41,57 @@ local function on_attach(client, bufnr, custom_opts)
 	-- vim.api.nvim_command [[autocmd CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })]]
 end
 
-local servers = {
-	"null-ls",
-	tsserver = {
-		root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
-		on_attach = function(client, bufnr)
-			client.resolved_capabilities.document_formatting = false
-			client.resolved_capabilities.document_range_formatting = false
-
-			local ts_utils = require "nvim-lsp-ts-utils"
-			ts_utils.setup {}
-			ts_utils.setup_client(client)
-
-			on_attach(client, bufnr)
-		end,
-	},
-	"eslint",
-	"vuels",
-	tailwindcss = {
-		root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts"),
-	},
-	intelephense = {
-		on_attach = function(client, bufnr)
-			client.resolved_capabilities.document_formatting = false
-			client.resolved_capabilities.document_range_formatting = false
-			on_attach(client, bufnr)
-		end,
-	},
-}
-
--- local runtime_path = vim.split(package.path, ";")
--- table.insert(runtime_path, "lua/?.lua")
--- table.insert(runtime_path, "lua/?/init.lua")
---
--- servers.sumneko_lua = {
--- 	cmd = { "lua-language-server", "-E" },
--- 	settings = {
--- 		Lua = {
--- 			runtime = {
--- 				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
--- 				version = "LuaJIT",
--- 				-- Setup your lua path
--- 				path = runtime_path,
--- 			},
--- 			diagnostics = {
--- 				-- Get the language server to recognize the `vim` global
--- 				globals = { "vim" },
--- 			},
--- 			workspace = {
--- 				-- Make the server aware of Neovim runtime files
--- 				library = vim.api.nvim_get_runtime_file("", true),
--- 			},
--- 			-- Do not send telemetry data containing a randomized but unique identifier
--- 			telemetry = {
--- 				enable = false,
--- 			},
--- 		},
--- 	},
--- }
-
-local default_config = {
+local lspconfig = require "lspconfig"
+local default_opts = {
 	on_attach = on_attach,
 	flags = {
 		debounce_text_changes = 150,
 	},
 }
+require("nvim-lsp-installer").on_server_ready(function(server)
+	local opts = vim.tbl_extend("keep", {}, default_opts)
+	if server.name == "tsserver" then
+		opts.root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json")
+		opts.on_attach = function(client, bufnr)
+			client.resolved_capabilities.document_formatting = false
+			client.resolved_capabilities.document_range_formatting = false
+			on_attach(client, bufnr)
+		end
+		-- elseif server.name == "tailwindcss" then
+		-- 	opts.root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts")
+	elseif server.name == "intelephense" then
+		opts.on_attach = function(client, bufnr)
+			client.resolved_capabilities.document_formatting = false
+			client.resolved_capabilities.document_range_formatting = false
+			on_attach(client, bufnr)
+		end
+	end
 
-for k, v in pairs(servers) do
-	local key = type(k) == "number" and v or k
-	lspconfig[key].setup(
-		coq.lsp_ensure_capabilities(type(v) == "table" and vim.tbl_extend("force", default_config, v) or default_config)
-	)
-end
+	-- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
+	server:setup(require("coq").lsp_ensure_capabilities(opts))
+	vim.api.nvim_command [[ do User LspAttachBuffers ]]
+end)
 
+-- null-ls
+local null_ls = require "null-ls"
+null_ls.config {
+	sources = {
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.prettier.with {
+			filetypes = vim.list_extend({ "php" }, null_ls.builtins.formatting.prettier.filetypes),
+		},
+	},
+}
+lspconfig["null-ls"].setup(default_opts)
+
+-- signs
 local signs = { Error = "▬", Warn = "▪", Hint = "▪", Info = "⋅" }
-
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl })
 end
 
+-- trouble
 require("trouble").setup {
 	icons = false,
 	fold_open = "▶",
@@ -148,7 +105,6 @@ require("trouble").setup {
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	virtual_text = false,
 	update_in_insert = false,
