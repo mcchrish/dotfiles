@@ -76,6 +76,7 @@ end)
 local null_ls = require "null-ls"
 null_ls.config {
 	sources = {
+		null_ls.builtins.diagnostics.selene,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettier.with {
 			filetypes = vim.list_extend({ "php" }, null_ls.builtins.formatting.prettier.filetypes),
