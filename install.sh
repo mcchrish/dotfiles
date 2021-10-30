@@ -59,4 +59,16 @@ echo "Installing packer..."
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
   "$XDG_DATA_HOME"/nvim/site/pack/packer/start/packer.nvim
 
+# gem
+rbenv init
+rbenv install 2.7.2
+rbenv global 2.7.2
+rbenv shell 2.7.2
+
+gem install tmuxinator
+gem install cocoapods
+
+# rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
 echo "Done. :)"
