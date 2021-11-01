@@ -1,4 +1,5 @@
 # General
+autoload -Uz compinit; compinit
 autoload -Uz colors; colors
 autoload history-search-end
 
@@ -24,14 +25,7 @@ local srcdir="$XDG_CONFIG_HOME/zsh"
 # Shell options
 source "$srcdir/shelloptions.zsh"
 
-### Added by zinit's installer
-source "$srcdir/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-### End of zinit's installer chunk
-
 export PURE_PROMPT_SYMBOL="❫"
-
 zstyle :prompt:pure:path color white
 zstyle :prompt:pure:git:branch color green
 zstyle :prompt:pure:git:branch:cached color green
@@ -40,8 +34,8 @@ zstyle :prompt:pure:git:arrow color white
 zstyle :prompt:pure:git:stash color white
 zstyle :prompt:pure:prompt:error color red
 zstyle :prompt:pure:git:stash show yes
-zinit ice compile"(pure|async).zsh" pick"async.zsh" src"pure.zsh"
-zinit light sindresorhus/pure
+autoload -U promptinit; promptinit
+prompt pure
 
 export FZF_DEFAULT_OPTS="--color=16 --color='fg:white,fg+:white:bold,bg+:bright-black,hl:magenta:bold,marker:white:bold,prompt:blue,info:yellow' --bind=down:half-page-down,up:half-page-up"
 export FZF_DEFAULT_COMMAND="fd --type f \
@@ -51,14 +45,9 @@ export FZF_DEFAULT_COMMAND="fd --type f \
   --exclude .localized"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_PREVIEW_COMMAND="cat {}"
-zinit ice multisrc"shell/{key-bindings,completion}.zsh"
-zinit light junegunn/fzf
 
-zinit ice silent wait"0b"
-zinit light zsh-users/zsh-history-substring-search
-
-zinit ice silent wait"0a" atload"zicompinit; zicdreplay"
-zinit light zsh-users/zsh-completions
+[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 # Completions
 source "$srcdir/completions.zsh"
@@ -75,6 +64,8 @@ source "$srcdir/aliases.zsh"
 eval "$(zoxide init zsh --cmd j)"
 
 eval "$(rbenv init -)"
+
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Ensure unique path
 typeset -gU cdpath fpath mailpath path

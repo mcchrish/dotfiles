@@ -50,11 +50,6 @@ echo "Stowing config files..."
 /usr/local/bin/stow --restow --no-folding vim
 /usr/local/bin/stow --restow --no-folding zsh
 
-if ! (command -v zinit > /dev/null); then
-  echo "Installing zinit..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-fi
-
 echo "Installing packer..."
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
   "$XDG_DATA_HOME"/nvim/site/pack/packer/start/packer.nvim

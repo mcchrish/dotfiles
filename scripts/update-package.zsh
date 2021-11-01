@@ -19,12 +19,6 @@ printf "%s\\n" "Updating pip..."
 printf "%s\\n" "Updating neovim..."
 nvim --headless +PlugUpdate +PlugUpgrade +CocUpdateSync +qall
 
-printf "%s\\n" "Updating zsh..."
-source "$HOME/Library/Preferences/zsh/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-zinit update --all
-zinit self-update
-
 printf "%s\\n" "Cleaning up"
 brew cleanup
 
