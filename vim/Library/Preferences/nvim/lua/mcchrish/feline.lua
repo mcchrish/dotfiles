@@ -192,8 +192,8 @@ local force_inactive = {
 	bufnames = {},
 }
 
-M.setup = function()
-	local t = require(vim.fn.expand "<amatch>")
+M.setup = function(colors_name)
+	local t = require(colors_name)
 	require("feline").setup {
 		components = components,
 		vi_mode_colors = vi_mode_colors,

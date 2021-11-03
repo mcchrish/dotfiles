@@ -15,5 +15,6 @@ Plug '~/vimming/nnn.vim'
 
 call plug#end()
 
+set laststatus=2
 set termguicolors
 colorscheme zenbones
