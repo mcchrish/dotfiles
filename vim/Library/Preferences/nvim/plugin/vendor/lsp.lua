@@ -59,17 +59,42 @@ require("nvim-lsp-installer").on_server_ready(function(server)
 		end
 		-- elseif server.name == "tailwindcss" then
 		-- 	opts.root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts")
-	elseif server.name == "intelephense" then
+	elseif server.name == "volar" or server.name == "intelephense" then
 		opts.on_attach = function(client, bufnr)
 			client.resolved_capabilities.document_formatting = false
 			client.resolved_capabilities.document_range_formatting = false
 			on_attach(client, bufnr)
 		end
+	elseif server.name == "sumneko_lua" then
+		local runtime_path = vim.split(package.path, ";")
+		table.insert(runtime_path, "lua/?.lua")
+		table.insert(runtime_path, "lua/?/init.lua")
+		opts.settings = {
+			Lua = {
+				runtime = {
+					-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+					version = "LuaJIT",
+					-- Setup your lua path
+					path = runtime_path,
+				},
+				diagnostics = {
+					-- Get the language server to recognize the `vim` global
+					globals = { "vim" },
+				},
+				workspace = {
+					-- Make the server aware of Neovim runtime files
+					library = vim.api.nvim_get_runtime_file("", true),
+				},
+				-- Do not send telemetry data containing a randomized but unique identifier
+				telemetry = {
+					enable = false,
+				},
+			},
+		}
 	end
 
 	-- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
 	server:setup(require("coq").lsp_ensure_capabilities(opts))
-	vim.api.nvim_command [[ do User LspAttachBuffers ]]
 end)
 
 -- null-ls
