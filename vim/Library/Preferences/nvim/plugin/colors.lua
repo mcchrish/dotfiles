@@ -1,45 +1,20 @@
 vim.opt.termguicolors = true
--- vim.g.zenbones_compat = 1
+local colors_name = "rosebones"
+vim.opt.background = "light"
+-- vim.g[colors_name .. "_compat"] = 1
 
-vim.api.nvim_command [[ autocmd ColorScheme *bones,zenflesh,zenwritten lua require("mcchrish.feline").setup()]]
+vim.api.nvim_command [[autocmd ColorScheme *bones,zenburned,zenwritten lua require("mcchrish.feline").setup(vim.fn.expand "<amatch>")]]
 
-local function colorscheme(c)
-	vim.api.nvim_command(string.format("colorscheme %s", c))
-end
-
-vim.g.zenbones = {
+vim.g[colors_name] = {
 	-- lightness = "dim",
 	-- dim_noncurrent_window = true,
 	-- solid_vert_split = true,
 	solid_line_nr = true,
 	darken_non_text = 30,
 	-- italic_comments = false,
+	-- transparent_background = true,
+	-- lighten_cursor_line = 20,
+	-- darken_cursor_line = 20,
 }
-colorscheme "zenbones"
 
--- vim.g.zenflesh = {
--- 	darkness = "warm",
--- 	lighten_noncurrent_window = true,
--- 	solid_vert_split = true,
--- 	lighten_non_text = 60,
--- }
--- colorscheme "zenflesh"
-
--- vim.opt.background = "light"
-
--- colorscheme "rosebones"
--- colorscheme "forestbones"
--- colorscheme "zenwritten"
--- colorscheme "nordbones"
-
--- vim.g.neobones = {
--- 	darken_noncurrent_window = true,
--- 	lighten_line_nr = true,
--- 	solid_float_border = true,
--- 	solid_vert_split = true,
--- }
--- colorscheme "neobones"
-
-vim.g.tokyobones_darkness = "warm"
--- colorscheme "tokyobones"
--- colorscheme "tokyonight"
+vim.api.nvim_command("colorscheme " .. colors_name)
