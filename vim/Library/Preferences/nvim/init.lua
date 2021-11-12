@@ -48,6 +48,7 @@ packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use { "~/vimming/zenbones.nvim", requires = "~/vimming/lush.nvim" }
 	use { "famiu/feline.nvim", tag = "v0.3.3" }
+	use "nvim-lualine/lualine.nvim"
 	use { "dstein64/vim-startuptime", cmd = "StartupTime" }
 	use "folke/which-key.nvim"
 	use "folke/trouble.nvim"

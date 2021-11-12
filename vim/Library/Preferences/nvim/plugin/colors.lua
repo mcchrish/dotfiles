@@ -1,11 +1,13 @@
 vim.opt.termguicolors = true
-local colors_name = "rosebones"
+local colors_name = "seoulbones"
 vim.opt.background = "light"
 -- vim.g[colors_name .. "_compat"] = 1
 
-vim.api.nvim_command [[autocmd ColorScheme *bones,zenburned,zenwritten lua require("mcchrish.feline").setup(vim.fn.expand "<amatch>")]]
+vim.api.nvim_command [[autocmd ColorScheme *bones,zenburned,zenwritten lua require("mcchrish.statusline").setup(vim.fn.expand "<amatch>")]]
+-- vim.api.nvim_command [[autocmd ColorScheme *bones,zenburned,zenwritten lua require("mcchrish.feline").setup(vim.fn.expand "<amatch>")]]
 
 vim.g[colors_name] = {
+	-- darkness = "warm",
 	-- lightness = "dim",
 	-- dim_noncurrent_window = true,
 	-- solid_vert_split = true,
