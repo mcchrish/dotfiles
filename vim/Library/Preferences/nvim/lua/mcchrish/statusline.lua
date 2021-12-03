@@ -18,8 +18,11 @@ M.setup = function(colors_name)
 					end,
 				},
 			},
-			lualine_b = { { "filename", path = 1, color = "StatusLine" } },
-			lualine_c = { { "diagnostics", symbols = { error = "▬", warn = "▪", hint = "▪", info = "⋅" } } },
+			lualine_b = {},
+			lualine_c = {
+				{ "filename", path = 1 },
+				{ "diagnostics", symbols = { error = "▬", warn = "▪", hint = "▪", info = "⋅" } },
+			},
 			lualine_x = { { "filetype" } },
 			lualine_y = { { "branch" } },
 			lualine_z = {
