@@ -98,7 +98,7 @@ nnoremap <leader>b <cmd>lua require "fzf-lua".buffers()<cr>
 nnoremap <leader>l <cmd>lua require "fzf-lua".blines()<cr>
 nnoremap <leader>L <cmd>lua require "fzf-lua".lines()<cr>
 nnoremap <leader>m <cmd>lua require "fzf-lua".marks()<cr>
-nnoremap Q <cmd>lua require "fzf-lua".command_history()<cr>
+nnoremap gQ <cmd>lua require "fzf-lua".command_history()<cr>
 
 " imap <c-x><c-k> <plug>(fzf-complete-word)
 " imap <c-x><c-f> <plug>(fzf-complete-path)
