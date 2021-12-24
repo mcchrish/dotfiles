@@ -9,6 +9,7 @@ require("nvim-treesitter.configs").setup {
 		"html",
 		"javascript",
 		"lua",
+		"markdown",
 		"php",
 		"ruby",
 		"tsx",
@@ -21,7 +22,6 @@ require("nvim-treesitter.configs").setup {
 	},
 	highlight = {
 		enable = true,
-		disable = { "vue" },
 	},
 	indent = {
 		enable = true,

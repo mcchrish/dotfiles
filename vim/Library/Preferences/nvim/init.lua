@@ -46,18 +46,17 @@ packer.startup(function(use)
 	use "lewis6991/impatient.nvim"
 	use "nathom/filetype.nvim"
 	use "wbthomason/packer.nvim"
-	use { "~/vimming/zenbones.nvim", requires = "~/vimming/lush.nvim" }
-	use { "famiu/feline.nvim", tag = "v0.3.3" }
+	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
+	use { "rktjmp/shipwright.nvim", opt = true }
 	use "nvim-lualine/lualine.nvim"
 	use { "dstein64/vim-startuptime", cmd = "StartupTime" }
 	use "folke/which-key.nvim"
 	use "folke/trouble.nvim"
-	-- use "folke/tokyonight.nvim"
-	use "ellisonleao/gruvbox.nvim"
-	use {
-		"ibhagwan/fzf-lua",
-		requires = "vijaymarupudi/nvim-fzf",
-	}
+	use { "folke/tokyonight.nvim", opt = true }
+	-- use "ellisonleao/gruvbox.nvim"
+	-- use "sainnhe/everforest"
+	-- use "~/vimming/seoul256.vim"
+	use "ibhagwan/fzf-lua"
 	use { "junegunn/vim-easy-align", opt = true }
 	use "~/vimming/nnn.vim"
 	use "andymass/vim-matchup"
@@ -67,7 +66,6 @@ packer.startup(function(use)
 	use "tpope/vim-unimpaired"
 	use "tpope/vim-repeat"
 	use "tpope/vim-sleuth"
-	use "gpanders/editorconfig.nvim"
 	use "tpope/vim-rsi"
 	use "machakann/vim-sandwich"
 	use {
@@ -92,11 +90,11 @@ packer.startup(function(use)
 		"numToStr/Comment.nvim",
 		requires = "JoosepAlviste/nvim-ts-context-commentstring",
 	}
-	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-	use { "nvim-treesitter/playground", cmd = "TSHighlightCapturesUnderCursor" }
+	-- use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+	use { "~/vimming/nvim-treesitter", run = ":TSUpdate" }
+	use { "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor", "TSPlaygroundToggle" } }
 	use "romgrk/nvim-treesitter-context"
 	use "lukas-reineke/indent-blankline.nvim"
 	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
-	use "leafOfTree/vim-vue-plugin"
 	-- use 'mcchrish/fountain.vim'
 end)

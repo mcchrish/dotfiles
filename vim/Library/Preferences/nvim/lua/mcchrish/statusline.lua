@@ -3,6 +3,7 @@ local M = {}
 M.setup = function(colors_name)
 	require("lualine").setup {
 		options = {
+			icons_enabled = false,
 			theme = colors_name,
 			section_separators = "",
 			component_separators = "",
@@ -11,7 +12,6 @@ M.setup = function(colors_name)
 			lualine_a = {
 				{
 					"mode",
-					icons_enabled = false,
 					padding = 0,
 					fmt = function()
 						return " "
