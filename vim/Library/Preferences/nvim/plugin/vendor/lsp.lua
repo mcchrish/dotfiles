@@ -57,9 +57,23 @@ require("nvim-lsp-installer").on_server_ready(function(server)
 			client.resolved_capabilities.document_range_formatting = false
 			on_attach(client, bufnr)
 		end
-		-- elseif server.name == "tailwindcss" then
-		-- 	opts.root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts")
-	elseif server.name == "volar" or server.name == "intelephense" then
+	elseif server.name == "tailwindcss" then
+		opts.root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts")
+		return -- disable
+	elseif server.name == "volar" then
+		opts.filetypes = { "javascript", "vue", "json" }
+		opts.init_options = {
+			typescript = {
+				serverPath = vim.fn.expand "$VOLTA_HOME" .. "/tools/shared/typescript/lib/tsserverlibrary.js",
+			},
+		}
+		opts.on_attach = function(client, bufnr)
+			client.resolved_capabilities.document_formatting = false
+			client.resolved_capabilities.document_range_formatting = false
+			on_attach(client, bufnr)
+		end
+		return -- disable
+	elseif server.name == "intelephense" then
 		opts.on_attach = function(client, bufnr)
 			client.resolved_capabilities.document_formatting = false
 			client.resolved_capabilities.document_range_formatting = false
@@ -99,7 +113,7 @@ end)
 
 -- null-ls
 local null_ls = require "null-ls"
-null_ls.config {
+null_ls.setup {
 	sources = {
 		null_ls.builtins.diagnostics.selene,
 		null_ls.builtins.formatting.stylua,
@@ -107,8 +121,8 @@ null_ls.config {
 			filetypes = vim.list_extend({ "php" }, null_ls.builtins.formatting.prettier.filetypes),
 		},
 	},
+	on_attach = on_attach,
 }
-lspconfig["null-ls"].setup(default_opts)
 
 -- signs
 local signs = { Error = "▬", Warn = "▪", Hint = "▪", Info = "⋅" }
@@ -126,7 +140,7 @@ require("trouble").setup {
 		close = "gq",
 		open_split = { "<c-s>" },
 	},
-	use_lsp_diagnostic_signs = true,
+	use_diagnostic_signs = true,
 }
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
