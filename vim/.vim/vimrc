@@ -11,6 +11,7 @@ let g:nnn#layout = #{ window: #{ width: 0.9, height: 0.6 } }
 call plug#begin('$HOME/.vim/vendor')
 
 Plug '~/vimming/nnn.vim'
+Plug '~/vimming/zenbones.nvim'
 Plug 'lifepillar/vim-gruvbox8'
 
 call plug#end()
@@ -20,6 +21,7 @@ let &t_ZR="\e[23m"
 
 set laststatus=2
 set termguicolors
-colorscheme vimbones
+set background=dark
+colorscheme tokyobones
 let g:gruvbox_italics = 1
 " colorscheme gruvbox8

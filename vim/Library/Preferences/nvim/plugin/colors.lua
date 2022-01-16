@@ -3,10 +3,10 @@ local colors_name = "zenbones"
 vim.opt.background = "light"
 -- vim.g[colors_name .. "_compat"] = 1
 
-vim.api.nvim_command [[autocmd ColorScheme everforest,tokyonight,*bones,zenburned,zenwritten lua require("mcchrish.statusline").setup(vim.fn.expand "<amatch>")]]
+vim.api.nvim_command [[autocmd ColorScheme *bones,zenburned,zenwritten lua require("mcchrish.statusline").setup(vim.fn.expand "<amatch>")]]
 
 vim.g[colors_name] = {
-	darkness = "stark",
+	-- darkness = "stark",
 	-- lightness = "bright",
 	-- dim_noncurrent_window = true,
 	solid_vert_split = true,
