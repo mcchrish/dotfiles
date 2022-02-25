@@ -1,7 +1,7 @@
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
-let mapleader = "\<space>"
+" let mapleader = "\<space>"
 
 set noswapfile
 set viminfo+=n~/.vim/viminfo
@@ -12,7 +12,6 @@ call plug#begin('$HOME/.vim/vendor')
 
 Plug '~/vimming/nnn.vim'
 Plug '~/vimming/zenbones.nvim'
-Plug 'lifepillar/vim-gruvbox8'
 
 call plug#end()
 
@@ -23,5 +22,5 @@ set laststatus=2
 set termguicolors
 set background=dark
 colorscheme tokyobones
-let g:gruvbox_italics = 1
-" colorscheme gruvbox8
+
+nnoremap <silent> <leader>x :NnnExplorer<cr>
