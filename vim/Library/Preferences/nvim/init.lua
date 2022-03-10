@@ -15,7 +15,6 @@ packer.init {
 
 packer.startup(function(use)
 	use "lewis6991/impatient.nvim"
-	use "nathom/filetype.nvim"
 	use "wbthomason/packer.nvim"
 	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
 	use { "rktjmp/shipwright.nvim", opt = false }
@@ -57,7 +56,8 @@ packer.startup(function(use)
 		"numToStr/Comment.nvim",
 		requires = "JoosepAlviste/nvim-ts-context-commentstring",
 	}
-	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+	-- use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+	use { "~/vimming/nvim-treesitter", run = ":TSUpdate" }
 	use { "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor", "TSPlaygroundToggle" } }
 	use "romgrk/nvim-treesitter-context"
 	use "lukas-reineke/indent-blankline.nvim"
@@ -66,6 +66,8 @@ packer.startup(function(use)
 end)
 
 g.did_install_default_menus = 1
+g.do_filetype_lua = 1
+g.did_load_filetypes = 0
 
 local disabled_built_ins = {
 	"matchit",

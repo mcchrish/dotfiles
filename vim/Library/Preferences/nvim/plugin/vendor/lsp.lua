@@ -72,7 +72,7 @@ require("nvim-lsp-installer").on_server_ready(function(server)
 			client.resolved_capabilities.document_range_formatting = false
 			on_attach(client, bufnr)
 		end
-		return -- disable
+		-- return -- disable
 	elseif server.name == "intelephense" then
 		opts.on_attach = function(client, bufnr)
 			client.resolved_capabilities.document_formatting = false

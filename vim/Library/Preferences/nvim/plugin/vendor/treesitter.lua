@@ -11,6 +11,7 @@ require("nvim-treesitter.configs").setup {
 		"lua",
 		"markdown",
 		"php",
+		"query",
 		"ruby",
 		"tsx",
 		"typescript",
