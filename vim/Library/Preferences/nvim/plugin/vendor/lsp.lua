@@ -60,25 +60,6 @@ require("nvim-lsp-installer").on_server_ready(function(server)
 	elseif server.name == "tailwindcss" then
 		opts.root_dir = lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts")
 		return -- disable
-	elseif server.name == "volar" then
-		opts.filetypes = { "javascript", "vue", "json" }
-		opts.init_options = {
-			typescript = {
-				serverPath = vim.fn.expand "$VOLTA_HOME" .. "/tools/shared/typescript/lib/tsserverlibrary.js",
-			},
-		}
-		opts.on_attach = function(client, bufnr)
-			client.resolved_capabilities.document_formatting = false
-			client.resolved_capabilities.document_range_formatting = false
-			on_attach(client, bufnr)
-		end
-		-- return -- disable
-	elseif server.name == "intelephense" then
-		opts.on_attach = function(client, bufnr)
-			client.resolved_capabilities.document_formatting = false
-			client.resolved_capabilities.document_range_formatting = false
-			on_attach(client, bufnr)
-		end
 	elseif server.name == "sumneko_lua" then
 		local runtime_path = vim.split(package.path, ";")
 		table.insert(runtime_path, "lua/?.lua")

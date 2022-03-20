@@ -22,5 +22,3 @@ set laststatus=2
 set termguicolors
 set background=dark
 colorscheme tokyobones
-
-nnoremap <silent> <leader>x :NnnExplorer<cr>

@@ -1,13 +1,13 @@
 # Basics
 snippet for
   for (let i = 0, len = ${1:list}.length; i < len; i++) {
-    let ${2:item} = $1[i]
-    ${VISUAL}$0
+    let ${2:item} = ${1:list}[i]
+    ${0:body}
   }
 
 snippet fn
   function ${1:function_name} (${2:argument}) {
-    ${VISUAL}$0
+    ${body}
   }
 
 snippet fna

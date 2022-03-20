@@ -25,6 +25,7 @@ brew "tokei"
 brew "zoxide"
 brew "zsh-history-substring-search"
 
+cask "bitwarden"
 cask "calibre"
 cask "clipy"
 cask "dash"
@@ -39,7 +40,6 @@ cask "iterm2"
 cask "marked"
 cask "mullvadvpn"
 cask "obsidian"
-cask "qtpass"
 cask "signal"
 cask "spotify"
 cask "steam"
@@ -55,10 +55,12 @@ mas "FSNotes", id: 1277179284
 mas "HazeOver", id: 430798174
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
+mas "One Thing", id: 1604176982
 mas "Pages", id: 409201541
 mas "Pandan", id: 1569600264
 mas "Shareful", id: 1522267256
 mas "Silicio", id: 933627574
+mas "Speediness", id: 1596706466
 mas "The Unarchiver", id: 425424353
 mas "Things", id: 904280696
 mas "Xcode", id: 497799835

@@ -91,7 +91,6 @@ export VOLTA_HOME="$XDG_DATA_HOME"/volta
 
 # PATHs
 path=(
-  "$HOME"/Library/Python/3.8/bin
   "$XDG_DATA_HOME"/gem/bin
   "$XDG_DATA_HOME"/cargo/bin
   "$VOLTA_HOME"/bin
