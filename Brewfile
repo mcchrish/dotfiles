@@ -11,7 +11,6 @@ brew "mas"
 brew "neovim", args: ["HEAD"]
 brew "nnn"
 brew "node@16", link: true
-brew "openjdk"
 brew "pass"
 brew "pinentry-mac"
 brew "pure"
