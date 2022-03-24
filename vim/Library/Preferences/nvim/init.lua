@@ -1,9 +1,9 @@
-require "impatient"
+-- require "impatient"
 
 local g = vim.g
 
 g.mapleader = [[ ]]
-g.python3_host_prog = "/usr/local/bin/python3"
+g.python3_host_prog = "/usr/bin/python3"
 
 local packer = require "packer"
 local util = require "packer.util"
@@ -52,12 +52,8 @@ packer.startup(function(use)
 		opt = true,
 	}
 	use "mbbill/undotree"
-	use {
-		"numToStr/Comment.nvim",
-		requires = "JoosepAlviste/nvim-ts-context-commentstring",
-	}
-	-- use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-	use { "~/vimming/nvim-treesitter", run = ":TSUpdate" }
+	use "numToStr/Comment.nvim"
+	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 	use { "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor", "TSPlaygroundToggle" } }
 	use "romgrk/nvim-treesitter-context"
 	use "lukas-reineke/indent-blankline.nvim"

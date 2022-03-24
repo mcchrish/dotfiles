@@ -27,13 +27,7 @@ g.vim_vue_plugin_config = {
 	debug = 0,
 }
 
-require("Comment").setup {
-	pre_hook = function()
-		if vim.api.nvim_buf_get_option(0, "filetype") == "vue" then
-			return require("ts_context_commentstring.internal").calculate_commentstring()
-		end
-	end,
-}
+require("Comment").setup {}
 
 require("gitsigns").setup {
 	signs = {
