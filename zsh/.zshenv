@@ -93,7 +93,8 @@ export VOLTA_HOME="$XDG_DATA_HOME"/volta
 path=(
   "$XDG_DATA_HOME"/gem/bin
   "$XDG_DATA_HOME"/cargo/bin
-  "$VOLTA_HOME"/bin
+  "$XDG_DATA_HOME"/npm/bin
+  # "$VOLTA_HOME"/bin
   "$ANDROID_HOME"/{emulator,tools,tools/bin,platform-tools}
   /usr/local/sbin
   "$path"
