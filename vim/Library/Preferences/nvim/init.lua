@@ -1,4 +1,4 @@
--- require "impatient"
+require "impatient"
 
 local g = vim.g
 
@@ -27,35 +27,38 @@ packer.startup(function(use)
 	use "~/vimming/nnn.vim"
 	use "andymass/vim-matchup"
 	use "justinmk/vim-sneak"
+	use "ggandor/leap.nvim"
 	use "pgdouyon/vim-evanesco"
 	use "tpope/vim-eunuch"
 	use "tpope/vim-unimpaired"
 	use "tpope/vim-repeat"
 	use "tpope/vim-sleuth"
 	use "tpope/vim-rsi"
-	use "machakann/vim-sandwich"
+	use "kylechui/nvim-surround"
 	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
-		"williamboman/nvim-lsp-installer",
 		"jose-elias-alvarez/null-ls.nvim",
+		"nvim-lua/plenary.nvim",
+		"jose-elias-alvarez/typescript.nvim",
 	}
-	use "ms-jpq/coq_nvim"
-	use "tpope/vim-fugitive"
-	use { "rbong/vim-flog", opt = true }
-	use { "lewis6991/gitsigns.nvim", requires = "nvim-lua/plenary.nvim" }
 	use {
-		"ruifm/gitlinker.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("gitlinker").setup()
-		end,
-		opt = true,
+		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"hrsh7th/nvim-cmp",
 	}
+	use "tpope/vim-fugitive"
+	use "junegunn/gv.vim"
+	use "lewis6991/gitsigns.nvim"
 	use "mbbill/undotree"
-	use "numToStr/Comment.nvim"
+	use { "numToStr/Comment.nvim", "JoosepAlviste/nvim-ts-context-commentstring" }
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 	use { "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor", "TSPlaygroundToggle" } }
-	use "romgrk/nvim-treesitter-context"
+	use "nvim-treesitter/nvim-treesitter-context"
 	use "lukas-reineke/indent-blankline.nvim"
 	use { "mattn/emmet-vim", cmd = "EmmetInstall" }
 	-- use 'mcchrish/fountain.vim'

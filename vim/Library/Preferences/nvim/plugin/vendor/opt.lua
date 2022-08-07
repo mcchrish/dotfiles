@@ -13,21 +13,30 @@ g.undotree_SplitWidth = 40
 g["sneak#label"] = 1
 g["sneak#use_ic_scs"] = 1
 
-g.vim_vue_plugin_config = {
-	syntax = {
-		template = { "html" },
-		script = { "javascript" },
-		style = { "css", "scss" },
-	},
-	full_syntax = {},
-	initial_indent = {},
-	attribute = 1,
-	keyword = 0,
-	foldexpr = 0,
-	debug = 0,
-}
+require("Comment").setup {
+	pre_hook = function(ctx)
+		-- Only calculate commentstring for tsx filetypes
+		if vim.bo.filetype == "typescriptreact" then
+			local U = require "Comment.utils"
 
-require("Comment").setup {}
+			-- Determine whether to use linewise or blockwise commentstring
+			local type = ctx.ctype == U.ctype.line and "__default" or "__multiline"
+
+			-- Determine the location where to calculate commentstring from
+			local location = nil
+			if ctx.ctype == U.ctype.block then
+				location = require("ts_context_commentstring.utils").get_cursor_location()
+			elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+				location = require("ts_context_commentstring.utils").get_visual_start_location()
+			end
+
+			return require("ts_context_commentstring.internal").calculate_commentstring {
+				key = type,
+				location = location,
+			}
+		end
+	end,
+}
 
 require("gitsigns").setup {
 	signs = {
@@ -44,3 +53,13 @@ g.indent_blankline_show_first_indent_level = false
 g.indent_blankline_use_treesitter = true
 
 require("which-key").setup {}
+
+require("nvim-surround").setup {
+	keymaps = {
+		normal = "sa",
+		normal_cur = "saa",
+		visual = "s",
+		delete = "sd",
+		change = "sc",
+	},
+}

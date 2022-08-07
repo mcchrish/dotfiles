@@ -10,13 +10,10 @@ require("nvim-treesitter.configs").setup {
 		"javascript",
 		"lua",
 		"markdown",
-		"php",
 		"query",
-		"ruby",
 		"tsx",
 		"typescript",
 		"vim",
-		"vue",
 	},
 	matchup = {
 		enable = true,

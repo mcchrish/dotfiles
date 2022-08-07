@@ -57,10 +57,6 @@ nnoremap <leader>gb <cmd>G blame<cr>
 " undotree
 nnoremap <leader>u <cmd>UndotreeToggle<cr>
 
-" vim-sandwich
-nmap s <Nop>
-xmap s <Nop>
-
 " sneak
 nmap ss <Plug>Sneak_s
 xmap ss <Plug>Sneak_s
