@@ -1,5 +1,3 @@
-nnoremap <f2> <cmd>tabe $XDG_CONFIG_HOME/nvim/after/plugin/keys.vim<cr>
-
 " Move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -57,31 +55,26 @@ nnoremap <leader>gb <cmd>G blame<cr>
 " undotree
 nnoremap <leader>u <cmd>UndotreeToggle<cr>
 
-" sneak
-nmap ss <Plug>Sneak_s
-xmap ss <Plug>Sneak_s
-
-"replace 'f' with 1-char Sneak
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-omap f <Plug>Sneak_f
-omap F <Plug>Sneak_F
-"replace 't' with 1-char Sneak
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-omap t <Plug>Sneak_t
-omap T <Plug>Sneak_T
-
-nmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_;' : ':'
-vmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_;' : ':'
-
 " gitsigns
 nnoremap <leader>gg <cmd>Gitsigns toggle_signs<cr>
 nnoremap <leader>gh <cmd>Gitsigns toggle_linehl<cr>
+
+
+nmap ss <plug>(leap-forward)
+nmap S <plug>(leap-backward)
+
+xmap ss <plug>(leap-forward)
+xmap S <plug>(leap-backward)
+
+omap z <plug>(leap-forward)
+omap Z <plug>(leap-backward)
+
+omap x <plug>(leap-forward-x)
+omap X <plug>(leap-backward-x)
+
+nmap gs <plug>(leap-cross-window)
+xmap gs <plug>(leap-cross-window)
+omap gs <plug>(leap-cross-window)
 
 " Fzf
 nnoremap <leader>A <cmd>lua require "fzf-lua".grep({ search = "", rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white' --hidden" })<cr>
@@ -104,16 +97,10 @@ nnoremap <leader>nn <cmd>NnnPicker<cr>
 nnoremap <leader>nc <cmd>NnnPicker %:h<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
+xmap ga <plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-inoremap <silent><expr> <cr>  pumvisible() ? (complete_info().selected == -1 ? '<c-e><cr>' : '<c-y>') : '<cr>'
-inoremap <silent><expr> <esc> pumvisible() ? '<c-e><esc>' : '<esc>'
-inoremap <silent><expr> <bs>  pumvisible() ? '<c-e><bs>'  : '<bs>'
-inoremap <silent><expr> <c-w> pumvisible() ? '<c-e><c-w>' : '<c-w>'
-inoremap <silent><expr> <c-u> pumvisible() ? '<c-e><c-u>' : '<c-u>'
+nmap ga <plug>(EasyAlign)
 
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
 nnoremap <leader>xw <cmd>TroubleToggle lsp_workspace_diagnostics<cr>
@@ -121,3 +108,8 @@ nnoremap <leader>xd <cmd>TroubleToggle lsp_document_diagnostics<cr>
 nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+
+" press <tab> to expand or jump in a snippet. These can also be mapped separately
+" via <plug>luasnip-expand-snippet and <plug>luasnip-jump-next.
+imap <silent><expr> <tab> luasnip#expand_or_jumpable() ? '<plug>luasnip-expand-or-jump' : '<tab>' 
+imap <s-tab> <plug>luasnip-jump-prev

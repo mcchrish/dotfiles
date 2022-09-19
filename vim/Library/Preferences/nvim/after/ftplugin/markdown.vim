@@ -1,2 +1,2 @@
-setlocal spell
+" setlocal spell
 setlocal complete+=kspell

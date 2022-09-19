@@ -17,7 +17,7 @@ packer.startup(function(use)
 	use "lewis6991/impatient.nvim"
 	use "wbthomason/packer.nvim"
 	use { "~/vimming/zenbones.nvim", requires = "rktjmp/lush.nvim" }
-	use { "rktjmp/shipwright.nvim", opt = false }
+	use { "rktjmp/shipwright.nvim", opt = true }
 	use "nvim-lualine/lualine.nvim"
 	use { "dstein64/vim-startuptime", cmd = "StartupTime" }
 	use "folke/which-key.nvim"
@@ -26,7 +26,6 @@ packer.startup(function(use)
 	use { "junegunn/vim-easy-align", opt = true }
 	use "~/vimming/nnn.vim"
 	use "andymass/vim-matchup"
-	use "justinmk/vim-sneak"
 	use "ggandor/leap.nvim"
 	use "pgdouyon/vim-evanesco"
 	use "tpope/vim-eunuch"
@@ -39,12 +38,16 @@ packer.startup(function(use)
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
+		"glepnir/lspsaga.nvim",
 		"jose-elias-alvarez/null-ls.nvim",
 		"nvim-lua/plenary.nvim",
 		"jose-elias-alvarez/typescript.nvim",
 	}
 	use {
 		"L3MON4D3/LuaSnip",
+		"rafamadriz/friendly-snippets",
+	}
+	use {
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",

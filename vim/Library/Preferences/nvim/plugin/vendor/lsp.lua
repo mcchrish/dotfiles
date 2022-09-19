@@ -1,3 +1,6 @@
+-- local saga = require "lspsaga"
+-- saga.init_lsp_saga()
+
 local mapopts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>e", function()
 	vim.diagnostic.open_float(0, { scope = "line" })
@@ -29,15 +32,11 @@ local function on_attach(client, bufnr, custom_opts)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
-	vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
 	vim.keymap.set("n", "<leader>p", vim.lsp.buf.formatting, bufopts)
 
 	if client.resolved_capabilities.document_formatting and opts.format_on_save then
 		vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()]]
 	end
-
-	-- vim.api.nvim_command [[autocmd CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })]]
 end
 
 local lspconfig = require "lspconfig"
@@ -48,9 +47,6 @@ require("mason-lspconfig").setup {
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local default_opts = {
 	on_attach = on_attach,
-	flags = {
-		debounce_text_changes = 150,
-	},
 }
 
 require("typescript").setup {
