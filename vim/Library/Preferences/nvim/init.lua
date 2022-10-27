@@ -68,8 +68,6 @@ packer.startup(function(use)
 end)
 
 g.did_install_default_menus = 1
-g.do_filetype_lua = 1
-g.did_load_filetypes = 0
 
 local disabled_built_ins = {
 	"matchit",

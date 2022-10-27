@@ -45,8 +45,6 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-nnoremap <leader><cr> <cmd>call my#refresh()<cr>
-
 " vim-fugitive
 nnoremap <leader>gs <cmd>G<cr>
 nnoremap <leader>gd <cmd>Gdiffsplit<cr>
@@ -59,35 +57,24 @@ nnoremap <leader>u <cmd>UndotreeToggle<cr>
 nnoremap <leader>gg <cmd>Gitsigns toggle_signs<cr>
 nnoremap <leader>gh <cmd>Gitsigns toggle_linehl<cr>
 
+nmap ss <plug>(leap-forward-to)
+nmap S <plug>(leap-backward-to)
 
-nmap ss <plug>(leap-forward)
-nmap S <plug>(leap-backward)
+xmap ss <plug>(leap-forward-to)
+xmap S <plug>(leap-backward-to)
 
-xmap ss <plug>(leap-forward)
-xmap S <plug>(leap-backward)
+omap ss <plug>(leap-forward-to)
+omap S <plug>(leap-backward-to)
 
-omap z <plug>(leap-forward)
-omap Z <plug>(leap-backward)
+xmap x <plug>(leap-forward-till)
+xmap X <plug>(leap-backward-till)
 
-omap x <plug>(leap-forward-x)
-omap X <plug>(leap-backward-x)
+omap x <plug>(leap-forward-till)
+omap X <plug>(leap-backward-till)
 
 nmap gs <plug>(leap-cross-window)
 xmap gs <plug>(leap-cross-window)
 omap gs <plug>(leap-cross-window)
-
-" Fzf
-nnoremap <leader>A <cmd>lua require "fzf-lua".grep({ search = "", rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white' --hidden" })<cr>
-nnoremap <leader>a <cmd>lua require "fzf-lua".grep({ search = "" })<cr>
-nnoremap <leader>K <cmd>lua require "fzf-lua".grep_cword()<cr>
-vnoremap <leader>K <cmd>lua require "fzf-lua".grep_visual()<cr>
-nnoremap <leader>f <cmd>lua require "fzf-lua".files()<cr>
-nnoremap <leader>d <cmd>lua require "fzf-lua".files({ cwd = vim.fn.expand('%:h') })<cr>
-nnoremap <leader>b <cmd>lua require "fzf-lua".buffers()<cr>
-nnoremap <leader>l <cmd>lua require "fzf-lua".blines()<cr>
-nnoremap <leader>L <cmd>lua require "fzf-lua".lines()<cr>
-nnoremap <leader>m <cmd>lua require "fzf-lua".marks()<cr>
-nnoremap gQ <cmd>lua require "fzf-lua".command_history()<cr>
 
 " imap <c-x><c-k> <plug>(fzf-complete-word)
 " imap <c-x><c-f> <plug>(fzf-complete-path)

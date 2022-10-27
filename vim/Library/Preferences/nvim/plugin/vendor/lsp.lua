@@ -1,13 +1,25 @@
 -- local saga = require "lspsaga"
 -- saga.init_lsp_saga()
 
-local mapopts = { noremap = true, silent = true }
-vim.keymap.set("n", "<leader>e", function()
-	vim.diagnostic.open_float(0, { scope = "line" })
-end, mapopts)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, mapopts)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, mapopts)
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, mapopts)
+local wk = require "which-key"
+
+wk.register({
+	["<leader>"] = {
+		e = {
+			function()
+				vim.diagnostic.open_float(0, { scope = "line" })
+			end,
+			"Open diagnostics hover",
+		},
+		q = { vim.diagnostic.setloclist, "Open diagnostics location list" },
+	},
+	["["] = {
+		d = { vim.diagnostic.goto_prev, "Previous diagnostics" },
+	},
+	["]"] = {
+		d = { vim.diagnostic.goto_next, "Next diagnostics" },
+	},
+}, { noremap = true, silent = true })
 
 local function on_attach(client, bufnr, custom_opts)
 	local opts = vim.tbl_extend("keep", custom_opts or {}, { format_on_save = false })
@@ -15,27 +27,45 @@ local function on_attach(client, bufnr, custom_opts)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+	wk.register({
+		g = {
+			D = { vim.lsp.buf.declaration, "LSP declaration" },
+			d = { vim.lsp.buf.definition, "LSP definition" },
+			i = { vim.lsp.buf.implementation, "LSP implementation" },
+			r = { vim.lsp.buf.references, "LSP references" },
+		},
+		K = { vim.lsp.buf.hover, "LSP Hover" },
+		-- @todo must think another key as it conflicts with window nav
+		-- ["<c-k>"] = { vim.lsp.buf.signature_help },
+		["<leader>w"] = {
+			name = "+LSP workspace",
+			a = { vim.lsp.buf.add_workspace_folder, "add folder" },
+			r = { vim.lsp.buf.remove_workspace_folder, "remove folder" },
+			l = {
+				function()
+					print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+				end,
+				"list folders",
+			},
+		},
+		["<leader>D"] = { vim.lsp.buf.type_definition, "LSP type definition" },
+		["<leader>rn"] = { vim.lsp.buf.rename, "LSP rename" },
+		["<leader>ca"] = { vim.lsp.buf.code_action, "LSP code action" },
+		["<leader>p"] = {
+			function()
+				vim.lsp.buf.format { async = true }
+			end,
+			"LSP format",
+		},
+	}, { noremap = true, silent = true, buffer = bufnr })
 
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-	-- @todo must think another key as it conflicts with window nav
-	-- vim.keymap.set("n", "<c-k>", vim.lsp.buf.signature_help, bufopts)
-	vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-	vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-	vim.keymap.set("n", "<leader>wl", function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, bufopts)
-	vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
-	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
-	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
-	vim.keymap.set("n", "<leader>p", vim.lsp.buf.formatting, bufopts)
-
-	if client.resolved_capabilities.document_formatting and opts.format_on_save then
-		vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting()]]
+	if client.server_capabilities.documentFormattingProvider and opts.format_on_save then
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			buffer = bufnr,
+			callback = function()
+				vim.lsp.buf.format { async = true }
+			end,
+		})
 	end
 end
 
@@ -44,7 +74,7 @@ require("mason").setup {}
 require("mason-lspconfig").setup {
 	ensure_installed = { "eslint", "sumneko_lua", "tsserver" },
 }
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local default_opts = {
 	on_attach = on_attach,
 }
@@ -54,8 +84,8 @@ require("typescript").setup {
 		root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
 		capabilities = capabilities,
 		on_attach = function(client, bufnr)
-			client.resolved_capabilities.document_formatting = false
-			client.resolved_capabilities.document_range_formatting = false
+			client.server_capabilities.documentFormattingProvider = false
+			client.server_capabilities.documentRangeFormattingProvider = false
 			on_attach(client, bufnr)
 		end,
 	}, default_opts),
@@ -69,8 +99,8 @@ table.insert(runtime_path, "lua/?/init.lua")
 lspconfig.sumneko_lua.setup(vim.tbl_extend("keep", {
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentRangeFormattingProvider = false
 		on_attach(client, bufnr)
 	end,
 	settings = {
@@ -105,7 +135,9 @@ null_ls.setup {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettier,
 	},
-	on_attach = on_attach,
+	on_attach = function(client, bufnr)
+		on_attach(client, bufnr, { format_on_save = true })
+	end,
 }
 
 -- signs

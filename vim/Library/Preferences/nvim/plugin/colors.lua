@@ -1,9 +1,14 @@
-vim.opt.termguicolors = true
+vim.o.termguicolors = true
 local colors_name = "zenbones"
-vim.opt.background = "light"
+vim.o.background = "light"
 -- vim.g[colors_name .. "_compat"] = 1
 
-vim.api.nvim_command [[autocmd ColorScheme *bones,zenburned,zenwritten lua require("mcchrish.statusline").setup(vim.fn.expand "<amatch>")]]
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = { "*bones", "zenburned", "zenwritten" },
+	callback = function(params)
+		require("mcchrish.statusline").setup(params.match)
+	end,
+})
 
 vim.g[colors_name] = {
 	-- darkness = "stark",
@@ -19,4 +24,4 @@ vim.g[colors_name] = {
 	-- colorize_diagnostic_underline_text = true,
 }
 
-vim.api.nvim_command("colorscheme " .. colors_name)
+vim.cmd.colorscheme(colors_name)
