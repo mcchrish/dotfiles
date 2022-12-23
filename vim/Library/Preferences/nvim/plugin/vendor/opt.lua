@@ -23,6 +23,8 @@ require("gitsigns").setup {
 	},
 }
 
+require("gitlinker").setup()
+
 g.indent_blankline_filetype = { "yaml", "toml", "python" }
 g.indent_blankline_show_first_indent_level = false
 g.indent_blankline_use_treesitter = true

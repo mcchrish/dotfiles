@@ -1,7 +1,9 @@
 -- :h lua-highlight
 vim.api.nvim_create_autocmd("TextYankPost", {
 	pattern = "*",
-	callback = vim.highlight.on_yank,
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
 vim.cmd.cnoreabbrev "fz FzfLua"
 vim.cmd.cnoreabbrev "pa FzfLua packadd"
