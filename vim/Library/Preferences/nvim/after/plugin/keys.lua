@@ -9,7 +9,7 @@ wk.register({
 				vim.cmd.redraw()
 				print "Refreshed!"
 			end,
-			"Refresh"
+			"Refresh",
 		},
 		A = {
 			function()

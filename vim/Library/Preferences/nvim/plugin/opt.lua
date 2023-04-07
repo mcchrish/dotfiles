@@ -28,6 +28,7 @@ o.mouse = "a"
 -- Better splitting
 o.splitbelow = true
 o.splitright = true
+o.splitkeep = "screen"
 
 -- Diff Mode
 opt.diffopt = { "filler", "vertical" }

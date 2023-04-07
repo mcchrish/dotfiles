@@ -72,9 +72,9 @@ xmap X <plug>(leap-backward-till)
 omap x <plug>(leap-forward-till)
 omap X <plug>(leap-backward-till)
 
-nmap gs <plug>(leap-cross-window)
-xmap gs <plug>(leap-cross-window)
-omap gs <plug>(leap-cross-window)
+nmap gs <plug>(leap-from-window)
+xmap gs <plug>(leap-from-window)
+omap gs <plug>(leap-from-window)
 
 " imap <c-x><c-k> <plug>(fzf-complete-word)
 " imap <c-x><c-f> <plug>(fzf-complete-path)

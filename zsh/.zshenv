@@ -52,7 +52,7 @@ export VISUAL='nvim'
 export ANDROID_SDK_ROOT="$HOME"/Library/Android/sdk
 export ANDROID_HOME="$HOME"/Library/Android/sdk
 
-export RBENV_VERSION=2.7.2
+export RBENV_VERSION=3.1.1
 
 export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 

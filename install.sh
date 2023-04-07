@@ -50,10 +50,6 @@ echo "Stowing config files..."
 /usr/local/bin/stow --restow --no-folding vim
 /usr/local/bin/stow --restow --no-folding zsh
 
-echo "Installing packer..."
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-  "$XDG_DATA_HOME"/nvim/site/pack/packer/start/packer.nvim
-
 # gem
 rbenv init
 rbenv install 2.7.2

@@ -72,7 +72,7 @@ end
 local lspconfig = require "lspconfig"
 require("mason").setup {}
 require("mason-lspconfig").setup {
-	ensure_installed = { "eslint", "sumneko_lua", "tsserver" },
+	ensure_installed = { "eslint", "lua_ls", "tsserver" },
 }
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local default_opts = {
@@ -91,12 +91,14 @@ require("typescript").setup {
 	}, default_opts),
 }
 
-lspconfig.eslint.setup(vim.tbl_extend("keep", {}, default_opts))
+lspconfig.eslint.setup(vim.tbl_extend("keep", {
+	root_dir = lspconfig.util.root_pattern "package.json",
+}, default_opts))
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
-lspconfig.sumneko_lua.setup(vim.tbl_extend("keep", {
+lspconfig.lua_ls.setup(vim.tbl_extend("keep", {
 	capabilities = capabilities,
 	on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
@@ -136,12 +138,12 @@ null_ls.setup {
 		null_ls.builtins.formatting.prettier,
 	},
 	on_attach = function(client, bufnr)
-		on_attach(client, bufnr, { format_on_save = true })
+		on_attach(client, bufnr)
 	end,
 }
 
 -- signs
-local signs = { Error = "▬", Warn = "▪", Hint = "▪", Info = "⋅" }
+local signs = { Error = "🮇", Warn = "▪", Hint = "▪", Info = "⋅" }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl })

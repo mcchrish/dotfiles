@@ -17,7 +17,7 @@ g.mapleader = [[ ]]
 g.python3_host_prog = "/usr/bin/python3"
 
 require("lazy").setup({
-	{ dir = "~/vimming/zenbones.nvim", dependencies = "rktjmp/lush.nvim" },
+	{ dir = "~/vimming/zenbones.nvim", dependencies = "rktjmp/lush.nvim", lazy = true },
 	{ "rktjmp/shipwright.nvim", lazy = true },
 	"nvim-lualine/lualine.nvim",
 	{ "dstein64/vim-startuptime", cmd = "StartupTime" },
@@ -28,7 +28,6 @@ require("lazy").setup({
 	{ dir = "~/vimming/nnn.vim" },
 	"andymass/vim-matchup",
 	"ggandor/leap.nvim",
-	"pgdouyon/vim-evanesco",
 	"tpope/vim-eunuch",
 	"tpope/vim-unimpaired",
 	"tpope/vim-repeat",
@@ -63,7 +62,6 @@ require("lazy").setup({
 	"JoosepAlviste/nvim-ts-context-commentstring",
 
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-	{ "nvim-treesitter/playground", cmd = { "TSHighlightCapturesUnderCursor", "TSPlaygroundToggle" } },
 	"nvim-treesitter/nvim-treesitter-context",
 	"lukas-reineke/indent-blankline.nvim",
 	{ "mattn/emmet-vim", cmd = "EmmetInstall" },
