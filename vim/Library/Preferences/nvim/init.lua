@@ -16,57 +16,7 @@ local g = vim.g
 g.mapleader = [[ ]]
 g.python3_host_prog = "/usr/bin/python3"
 
-require("lazy").setup({
-	{ dir = "~/vimming/zenbones.nvim", dependencies = "rktjmp/lush.nvim", lazy = true },
-	{ "rktjmp/shipwright.nvim", lazy = true },
-	"nvim-lualine/lualine.nvim",
-	{ "dstein64/vim-startuptime", cmd = "StartupTime" },
-	"folke/which-key.nvim",
-	"folke/trouble.nvim",
-	"ibhagwan/fzf-lua",
-	{ "junegunn/vim-easy-align", lazy = true },
-	{ dir = "~/vimming/nnn.vim" },
-	"andymass/vim-matchup",
-	"ggandor/leap.nvim",
-	"tpope/vim-eunuch",
-	"tpope/vim-unimpaired",
-	"tpope/vim-repeat",
-	"tpope/vim-sleuth",
-	"tpope/vim-rsi",
-	"kylechui/nvim-surround",
-
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
-	"glepnir/lspsaga.nvim",
-	"jose-elias-alvarez/null-ls.nvim",
-	"nvim-lua/plenary.nvim",
-	"jose-elias-alvarez/typescript.nvim",
-
-	"L3MON4D3/LuaSnip",
-	"rafamadriz/friendly-snippets",
-
-	"saadparwaiz1/cmp_luasnip",
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/nvim-cmp",
-
-	"tpope/vim-fugitive",
-	"junegunn/gv.vim",
-	"lewis6991/gitsigns.nvim",
-	"ruifm/gitlinker.nvim",
-	"mbbill/undotree",
-
-	"numToStr/Comment.nvim",
-	"JoosepAlviste/nvim-ts-context-commentstring",
-
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-	"nvim-treesitter/nvim-treesitter-context",
-	"lukas-reineke/indent-blankline.nvim",
-	{ "mattn/emmet-vim", cmd = "EmmetInstall" },
-	-- "mcchrish/fountain.vim",
-}, {
+require("lazy").setup("mcchrish.plugins", {
 	ui = {
 		icons = {
 			cmd = "⌘",
