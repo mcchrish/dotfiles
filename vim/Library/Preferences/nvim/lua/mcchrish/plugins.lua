@@ -1,5 +1,4 @@
 return {
-	{ dir = "~/vimming/zenbones.nvim", dependencies = "rktjmp/lush.nvim", lazy = true },
 	{ "rktjmp/shipwright.nvim", lazy = true },
 	"nvim-lualine/lualine.nvim",
 	{ "dstein64/vim-startuptime", cmd = "StartupTime" },

@@ -66,5 +66,7 @@ return {
 	},
 	config = function(_, opts)
 		require("fzf-lua").setup(opts)
+		vim.cmd.cnoreabbrev "fz FzfLua"
+		vim.cmd.cnoreabbrev "pa FzfLua packadd"
 	end,
 }
