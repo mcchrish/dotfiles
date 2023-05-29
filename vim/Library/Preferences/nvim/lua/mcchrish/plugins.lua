@@ -1,7 +1,6 @@
 return {
 	{ "rktjmp/shipwright.nvim", lazy = true },
 	"nvim-lualine/lualine.nvim",
-	{ "dstein64/vim-startuptime", cmd = "StartupTime" },
 	{
 		"folke/which-key.nvim",
 		config = function()
@@ -59,28 +58,18 @@ return {
 			g.indent_blankline_use_treesitter = true
 		end,
 	},
-	{
-		"mattn/emmet-vim",
-		cmd = "EmmetInstall",
-		init = function()
-			vim.g.user_emmet_mode = "i"
-			vim.g.user_emmet_leader_key = "<c-s>"
-			vim.g.user_emmet_install_global = 0
 
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = {
-					"html",
-					"css",
-					"sass",
-					"scss",
-					"javascript",
-					"vue",
-					"typescriptreact",
-					"markdown",
-				},
-				command = "EmmetInstall",
-			})
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup {
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			}
 		end,
 	},
+
 	-- "mcchrish/fountain.vim",
 }

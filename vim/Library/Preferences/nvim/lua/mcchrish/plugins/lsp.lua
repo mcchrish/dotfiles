@@ -23,7 +23,7 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"jose-elias-alvarez/typescript.nvim",
-			"glepnir/lspsaga.nvim",
+			-- "glepnir/lspsaga.nvim",
 		},
 		init = function()
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
@@ -92,7 +92,7 @@ return {
 						end,
 						"LSP format",
 					},
-				}, { noremap = true, silent = true, buffer = bufnr })
+				}, { noremap = true, buffer = bufnr })
 
 				if client.server_capabilities.documentFormattingProvider and opts.format_on_save then
 					vim.api.nvim_create_autocmd("BufWritePre", {
@@ -109,7 +109,8 @@ return {
 			require("mason-lspconfig").setup {
 				ensure_installed = { "eslint", "lua_ls", "tsserver" },
 			}
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 			local default_opts = {
 				on_attach = on_attach,
 			}
@@ -128,6 +129,33 @@ return {
 
 			lspconfig.eslint.setup(vim.tbl_extend("keep", {
 				root_dir = lspconfig.util.root_pattern "package.json",
+			}, default_opts))
+
+			lspconfig.emmet_ls.setup(vim.tbl_extend("keep", {
+				on_attach = function(client, bufnr)
+					wk.register({
+						["<c-s>"] = {
+							[","] = {
+								function()
+									client.request(
+										"textDocument/completion",
+										vim.lsp.util.make_position_params(),
+										function(_, result)
+											local textEdit = result[1].textEdit
+											local snip_string = textEdit.newText
+											textEdit.newText = ""
+											vim.lsp.util.apply_text_edits({ textEdit }, bufnr, client.offset_encoding)
+											require("luasnip").lsp_expand(snip_string)
+										end,
+										bufnr
+									)
+								end,
+								"Expand emmet",
+							},
+						},
+					}, { mode = "i", noremap = true, buffer = bufnr })
+					on_attach(client, bufnr)
+				end,
 			}, default_opts))
 
 			local runtime_path = vim.split(package.path, ";")

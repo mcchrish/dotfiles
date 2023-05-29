@@ -47,6 +47,7 @@ return {
 				Unit = "␣",
 				Value = "🞇",
 				Variable = "𝑣",
+				Copilot = "⁖",
 			}
 
 			return {
@@ -77,12 +78,25 @@ return {
 				mapping = cmp.mapping.preset.insert {
 					["<c-b>"] = cmp.mapping.scroll_docs(-4),
 					["<c-f>"] = cmp.mapping.scroll_docs(4),
-					["<c-Space>"] = cmp.mapping.complete(),
+					["<a-space>"] = cmp.mapping.complete {},
 					["<c-e>"] = cmp.mapping.abort(),
 					["<cr>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				},
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
+					{
+						name = "nvim_lsp",
+						entry_filter = function(entry)
+							if
+								entry:get_kind() == require("cmp.types").lsp.CompletionItemKind.Snippet
+								and entry.source:get_debug_name() == "nvim_lsp:emmet_ls"
+							then
+								return false
+							end
+							return true
+						end,
+					},
+
+					{ name = "copilot" },
 					{ name = "luasnip" },
 				}, {
 					{
@@ -98,6 +112,13 @@ return {
 		end,
 		config = function(_, opts)
 			require("cmp").setup(opts)
+		end,
+	},
+
+	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			require("copilot_cmp").setup()
 		end,
 	},
 }
