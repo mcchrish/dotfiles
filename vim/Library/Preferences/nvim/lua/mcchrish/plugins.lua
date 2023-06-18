@@ -3,13 +3,14 @@ return {
 	"nvim-lualine/lualine.nvim",
 	{
 		"folke/which-key.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("which-key").setup {}
 		end,
 	},
-	{ "junegunn/vim-easy-align", lazy = true },
 	{
 		"andymass/vim-matchup",
+		event = "BufReadPost",
 		init = function()
 			local g = vim.g
 			g.matchup_matchparen_deferred = 1
@@ -18,27 +19,18 @@ return {
 	},
 	"ggandor/leap.nvim",
 	"tpope/vim-eunuch",
-	"tpope/vim-unimpaired",
 	"tpope/vim-repeat",
-	"tpope/vim-sleuth",
-	"tpope/vim-rsi",
 	{
-		"kylechui/nvim-surround",
-		opts = {
-			keymaps = {
-				normal = "sa",
-				normal_cur = "saa",
-				visual = "s",
-				delete = "sd",
-				change = "sr",
-			},
-		},
-		config = function(_, opts)
-			require("nvim-surround").setup(opts)
+		"tpope/vim-sleuth",
+		init = function()
+			-- https://github.com/tpope/vim-sleuth/issues/83
+			vim.g.editorconfig = false
 		end,
 	},
+	"tpope/vim-rsi",
 	{
 		"numToStr/Comment.nvim",
+		event = "VeryLazy",
 		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
 		opts = function()
 			return {
@@ -60,12 +52,31 @@ return {
 	},
 
 	{
+		"echasnovski/mini.nvim",
+		version = false,
+		config = function()
+			require("mini.bracketed").setup()
+			require("mini.surround").setup()
+		end,
+	},
+
+	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter",
 		config = function()
 			require("copilot").setup {
-				suggestion = { enabled = false },
+				suggestion = {
+					enabled = true,
+					keymap = {
+						accept = "<m-l>",
+						accept_word = false,
+						accept_line = false,
+						next = "<m-]>",
+						prev = "<m-[>",
+						dismiss = "<c-]>",
+					},
+				},
 				panel = { enabled = false },
 			}
 		end,

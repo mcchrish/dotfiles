@@ -1,14 +1,15 @@
 return {
 	{ "williamboman/mason.nvim", dependencies = { "williamboman/mason-lspconfig.nvim" }, build = ":MasonUpdate" },
-	{ "jose-elias-alvarez/null-ls.nvim", dependencies = {
-		"nvim-lua/plenary.nvim",
-	} },
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 	{
 		"folke/trouble.nvim",
+		cmd = { "TroubleToggle", "Trouble" },
 		opts = {
 			icons = false,
-			fold_open = "▶",
-			fold_closed = "▼",
 			action_keys = {
 				close = "gq",
 				open_split = { "<c-s>" },
@@ -21,8 +22,10 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"jose-elias-alvarez/typescript.nvim",
+			"yioneko/nvim-vtsls",
 			-- "glepnir/lspsaga.nvim",
 		},
 		init = function()
@@ -107,7 +110,7 @@ return {
 			local lspconfig = require "lspconfig"
 			require("mason").setup {}
 			require("mason-lspconfig").setup {
-				ensure_installed = { "eslint", "lua_ls", "tsserver" },
+				ensure_installed = { "eslint", "lua_ls", "tsserver", "vtsls" },
 			}
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -115,17 +118,27 @@ return {
 				on_attach = on_attach,
 			}
 
-			require("typescript").setup {
-				server = vim.tbl_extend("keep", {
-					root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
-					capabilities = capabilities,
-					on_attach = function(client, bufnr)
-						client.server_capabilities.documentFormattingProvider = false
-						client.server_capabilities.documentRangeFormattingProvider = false
-						on_attach(client, bufnr)
-					end,
-				}, default_opts),
-			}
+			-- require("typescript").setup {
+			-- 	server = vim.tbl_extend("keep", {
+			-- 		root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
+			-- 		capabilities = capabilities,
+			-- 		on_attach = function(client, bufnr)
+			-- 			client.server_capabilities.documentFormattingProvider = false
+			-- 			client.server_capabilities.documentRangeFormattingProvider = false
+			-- 			on_attach(client, bufnr)
+			-- 		end,
+			-- 	}, default_opts),
+			-- }
+
+			lspconfig.vtsls.setup(vim.tbl_extend("keep", {
+				root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
+				capabilities = capabilities,
+				on_attach = function(client, bufnr)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentRangeFormattingProvider = false
+					on_attach(client, bufnr)
+				end,
+			}, default_opts))
 
 			lspconfig.eslint.setup(vim.tbl_extend("keep", {
 				root_dir = lspconfig.util.root_pattern "package.json",
@@ -139,7 +152,7 @@ return {
 								function()
 									client.request(
 										"textDocument/completion",
-										vim.lsp.util.make_position_params(),
+										vim.lsp.util.make_position_params(0, client.offset_encoding),
 										function(_, result)
 											local textEdit = result[1].textEdit
 											local snip_string = textEdit.newText

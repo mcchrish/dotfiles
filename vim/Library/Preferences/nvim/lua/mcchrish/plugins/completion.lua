@@ -1,6 +1,7 @@
 return {
 	{
 		"L3MON4D3/LuaSnip",
+		event = "InsertEnter",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},
@@ -10,11 +11,13 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 		},
 		init = function()
 			vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -47,7 +50,6 @@ return {
 				Unit = "␣",
 				Value = "🞇",
 				Variable = "𝑣",
-				Copilot = "⁖",
 			}
 
 			return {
@@ -86,18 +88,14 @@ return {
 					{
 						name = "nvim_lsp",
 						entry_filter = function(entry)
-							if
+							return not (
 								entry:get_kind() == require("cmp.types").lsp.CompletionItemKind.Snippet
 								and entry.source:get_debug_name() == "nvim_lsp:emmet_ls"
-							then
-								return false
-							end
-							return true
+							)
 						end,
 					},
-
-					{ name = "copilot" },
 					{ name = "luasnip" },
+					{ name = "nvim_lsp_signature_help" },
 				}, {
 					{
 						name = "buffer",
@@ -112,13 +110,6 @@ return {
 		end,
 		config = function(_, opts)
 			require("cmp").setup(opts)
-		end,
-	},
-
-	{
-		"zbirenbaum/copilot-cmp",
-		config = function()
-			require("copilot_cmp").setup()
 		end,
 	},
 }
