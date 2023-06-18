@@ -10,16 +10,15 @@ brew "hyperfine"
 brew "mas"
 brew "neovim", args: ["HEAD"]
 brew "nnn"
-brew "node@16", link: true
+brew "node@18", link: true
 brew "pass"
 brew "pinentry-mac"
 brew "pure"
-brew "rbenv"
 brew "ripgrep"
 brew "selene"
 brew "stow"
 brew "stylua"
-brew "tmux"
+brew "tere"
 brew "tokei"
 brew "zoxide"
 brew "zsh-history-substring-search"
@@ -32,17 +31,19 @@ cask "firefox"
 cask "font-courier-prime"
 cask "font-iosevka-curly-slab"
 cask "font-iosevka-etoile"
+cask "font-symbols-only-nerd-font"
 cask "google-chrome"
 cask "handbrake"
 cask "insomnia"
 cask "iterm2"
+cask "kitty"
 cask "marked"
 cask "mullvadvpn"
 cask "obsidian"
+cask "qmk-toolbox"
 cask "signal"
 cask "spotify"
 cask "steam"
-cask "tableplus"
 cask "transmission"
 cask "unshaky"
 cask "vlc"
@@ -53,10 +54,12 @@ mas "Color Picker", id: 1545870783
 mas "FSNotes", id: 1277179284
 mas "HazeOver", id: 430798174
 mas "Keynote", id: 409183694
+mas "Magnet", id: 441258766
 mas "Numbers", id: 409203825
 mas "One Thing", id: 1604176982
 mas "Pages", id: 409201541
 mas "Pandan", id: 1569600264
+mas "Pure Paste", id: 1611378436
 mas "Shareful", id: 1522267256
 mas "Silicio", id: 933627574
 mas "Speediness", id: 1596706466

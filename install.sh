@@ -46,18 +46,11 @@ echo "Stowing config files..."
 /usr/local/bin/stow --restow --no-folding gnupg
 /usr/local/bin/stow --restow --no-folding rg
 /usr/local/bin/stow --restow --no-folding system
-/usr/local/bin/stow --restow --no-folding tmux
+# /usr/local/bin/stow --restow --no-folding tmux
+/usr/local/bin/stow --restow --no-folding wezterm
+/usr/local/bin/stow --restow --no-folding kitty
 /usr/local/bin/stow --restow --no-folding vim
 /usr/local/bin/stow --restow --no-folding zsh
-
-# gem
-rbenv init
-rbenv install 2.7.2
-rbenv global 2.7.2
-rbenv shell 2.7.2
-
-gem install tmuxinator
-gem install cocoapods
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

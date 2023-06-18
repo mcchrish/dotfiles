@@ -63,9 +63,9 @@ source "$srcdir/aliases.zsh"
 
 eval "$(zoxide init zsh --cmd j)"
 
-eval "$(rbenv init -)"
-
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+source <(kubectl completion zsh)
 
 # Ensure unique path
 typeset -gU cdpath fpath mailpath path

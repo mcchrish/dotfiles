@@ -57,8 +57,6 @@ export RBENV_VERSION=3.1.1
 export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 
 # Manually moving some to XDG
-export TERMINFO="$XDG_DATA_HOME"/terminfo
-export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/rg/config
 export npm_config_userconfig="$XDG_CONFIG_HOME"/npm/config
 export npm_config_cache="$XDG_CACHE_HOME"/npm

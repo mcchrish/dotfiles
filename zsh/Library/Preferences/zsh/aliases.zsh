@@ -28,10 +28,6 @@ alias -g C="| pbcopy"
 # Fzf
 alias ff="fzf"
 
-# Tmuxinator
-alias muxs="tmuxinator start"
-alias mxt="tmuxinator"
-
 # Cd
 alias ".."="cd .."
 alias "..."="cd ../.."
@@ -117,3 +113,5 @@ alias al='la'            # I often screw this up.
 # Clipboard
 alias pbc="pbcopy"
 alias pbp="pbpaste"
+
+alias k="kubectl"
