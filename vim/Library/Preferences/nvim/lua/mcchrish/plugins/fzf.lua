@@ -2,11 +2,10 @@ return {
 	"ibhagwan/fzf-lua",
 	opts = {
 		winopts = {
-			win_width = 0.9,
-			win_height = 0.6,
-			win_row = 0.5,
-			win_col = 0.5,
-			hl_border = "FloatBorder",
+			width = 0.9,
+			height = 0.6,
+			row = 0.5,
+			col = 0.5,
 		},
 		keymap = {
 			fzf = {

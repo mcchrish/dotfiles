@@ -20,6 +20,7 @@ return {
 	"ggandor/leap.nvim",
 	"tpope/vim-eunuch",
 	"tpope/vim-repeat",
+	"tpope/vim-unimpaired",
 	{
 		"tpope/vim-sleuth",
 		init = function()
@@ -52,11 +53,18 @@ return {
 	},
 
 	{
-		"echasnovski/mini.nvim",
-		version = false,
-		config = function()
-			require("mini.bracketed").setup()
-			require("mini.surround").setup()
+		"kylechui/nvim-surround",
+		opts = {
+			keymaps = {
+				normal = "sa",
+				normal_cur = "saa",
+				visual = "s",
+				delete = "sd",
+				change = "sr",
+			},
+		},
+		config = function(_, opts)
+			require("nvim-surround").setup(opts)
 		end,
 	},
 

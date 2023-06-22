@@ -1,5 +1,12 @@
 return {
-	{ "williamboman/mason.nvim", dependencies = { "williamboman/mason-lspconfig.nvim" }, build = ":MasonUpdate" },
+	{
+		"williamboman/mason.nvim",
+		dependencies = { "williamboman/mason-lspconfig.nvim" },
+		build = ":MasonUpdate",
+		config = function()
+			require("mason").setup()
+		end,
+	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -44,10 +51,8 @@ return {
 			wk.register({
 				["<leader>"] = {
 					e = {
-						function()
-							vim.diagnostic.open_float(0, { scope = "line" })
-						end,
-						"Open diagnostics hover",
+						vim.diagnostic.open_float,
+						"Line diagnostics",
 					},
 					q = { vim.diagnostic.setloclist, "Open diagnostics location list" },
 				},
@@ -67,12 +72,13 @@ return {
 
 				wk.register({
 					g = {
-						D = { vim.lsp.buf.declaration, "LSP declaration" },
-						d = { vim.lsp.buf.definition, "LSP definition" },
-						i = { vim.lsp.buf.implementation, "LSP implementation" },
-						r = { vim.lsp.buf.references, "LSP references" },
+						D = { vim.lsp.buf.declaration, "Declaration" },
+						d = { vim.lsp.buf.definition, "Definition" },
+						i = { vim.lsp.buf.implementation, "Implementation" },
+						r = { require("fzf-lua").lsp_references, "References" },
+						["<c-d>"] = { require("fzf-lua").lsp_typedefs, "Type definition" },
 					},
-					K = { vim.lsp.buf.hover, "LSP Hover" },
+					K = { vim.lsp.buf.hover, "Hover" },
 					-- @todo must think another key as it conflicts with window nav
 					-- ["<c-k>"] = { vim.lsp.buf.signature_help },
 					["<leader>w"] = {
@@ -86,14 +92,13 @@ return {
 							"list folders",
 						},
 					},
-					["<leader>D"] = { vim.lsp.buf.type_definition, "LSP type definition" },
-					["<leader>rn"] = { vim.lsp.buf.rename, "LSP rename" },
-					["<leader>ca"] = { vim.lsp.buf.code_action, "LSP code action" },
+					["<leader>rn"] = { vim.lsp.buf.rename, "Rename" },
+					["<leader>ca"] = { vim.lsp.buf.code_action, "Code action" },
 					["<leader>p"] = {
 						function()
 							vim.lsp.buf.format { async = true }
 						end,
-						"LSP format",
+						"Format",
 					},
 				}, { noremap = true, buffer = bufnr })
 
@@ -108,7 +113,6 @@ return {
 			end
 
 			local lspconfig = require "lspconfig"
-			require("mason").setup {}
 			require("mason-lspconfig").setup {
 				ensure_installed = { "eslint", "lua_ls", "tsserver", "vtsls" },
 			}
@@ -225,5 +229,22 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl })
 			end
 		end,
+	},
+	{
+		"glepnir/lspsaga.nvim",
+		event = "LspAttach",
+		opts = {
+			symbol_in_winbar = {
+				enable = false,
+			},
+			lightbulb = {
+				enable_in_insert = false,
+				virtual_text = false,
+			},
+		},
+		config = function(_, opts)
+			require("lspsaga").setup(opts)
+		end,
+		-- dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
 }
