@@ -39,7 +39,7 @@ if ! (command -v brew > /dev/null); then
 fi
 
 echo "Install all programs..."
-source "stash/brewfile.sh"
+/usr/local/bin/brew bundle install
 
 echo "Stowing config files..."
 /usr/local/bin/stow --restow --no-folding git
@@ -51,8 +51,5 @@ echo "Stowing config files..."
 /usr/local/bin/stow --restow --no-folding kitty
 /usr/local/bin/stow --restow --no-folding vim
 /usr/local/bin/stow --restow --no-folding zsh
-
-# rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 echo "Done. :)"
