@@ -22,7 +22,7 @@ return {
 				"tsx",
 				"typescript",
 				"vim",
-				"help",
+				"vimdoc",
 			},
 			matchup = {
 				enable = true,

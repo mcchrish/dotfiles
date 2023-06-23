@@ -113,5 +113,3 @@ alias al='la'            # I often screw this up.
 # Clipboard
 alias pbc="pbcopy"
 alias pbp="pbpaste"
-
-alias k="kubectl"
