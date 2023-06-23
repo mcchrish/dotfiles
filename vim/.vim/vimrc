@@ -20,5 +20,5 @@ let &t_ZR="\e[23m"
 
 set laststatus=2
 set termguicolors
-set background=dark
-colorscheme tokyobones
+set background=light
+colorscheme zenbones

@@ -1,6 +1,6 @@
 local wk = require "which-key"
 
-wk.register({
+wk.register {
 	["<leader>"] = {
 		["<cr>"] = {
 			function()
@@ -75,7 +75,7 @@ wk.register({
 		end,
 		"FZF command history",
 	},
-}, { noremap = true, silent = true })
+}
 
 wk.register({
 	["<leader>"] = {
@@ -86,4 +86,4 @@ wk.register({
 			"FZF with current selection",
 		},
 	},
-}, { mode = "v", noremap = true, silent = true })
+}, { mode = "v" })
