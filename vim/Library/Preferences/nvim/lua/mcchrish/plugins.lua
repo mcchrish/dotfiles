@@ -17,7 +17,47 @@ return {
 			g.matchup_matchparen_offscreen = {}
 		end,
 	},
-	"ggandor/leap.nvim",
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		opts = {
+			highlight = {
+				backdrop = false,
+			},
+			modes = {
+				char = {
+					highlight = { backdrop = true },
+				},
+			},
+		},
+		keys = {
+			{
+				"ss",
+				mode = { "n", "x", "o" },
+				function()
+					-- default options: exact mode, multi window, all directions, with a backdrop
+					require("flash").jump()
+				end,
+				desc = "Flash",
+			},
+			{
+				"S",
+				mode = { "n", "o", "x" },
+				function()
+					require("flash").treesitter()
+				end,
+				desc = "Flash Treesitter",
+			},
+			{
+				"r",
+				mode = "o",
+				function()
+					require("flash").remote()
+				end,
+				desc = "Remote Flash",
+			},
+		},
+	},
 	"tpope/vim-eunuch",
 	"tpope/vim-repeat",
 	"tpope/vim-unimpaired",
@@ -75,17 +115,45 @@ return {
 		opts = {
 			suggestion = {
 				enabled = true,
-				auto_trigger = true,
-				keymap = {
-					accept = "<m-l>",
-					accept_word = false,
-					accept_line = false,
-					next = "<m-]>",
-					prev = "<m-[>",
-					dismiss = "<c-]>",
-				},
+				keymap = false,
 			},
 			panel = { enabled = false },
+		},
+		keys = {
+			{
+				"<c-l>",
+				mode = { "i" },
+				function()
+					require("copilot.suggestion").accept()
+				end,
+				desc = "Copilot accept",
+			},
+			{
+				"<c-s>",
+				mode = { "i" },
+				function()
+					require("cmp").close()
+					require("copilot.suggestion").next()
+				end,
+				desc = "Copilot next",
+			},
+			{
+				"<c-S>",
+				mode = { "i" },
+				function()
+					require("cmp").close()
+					require("copilot.suggestion").prev()
+				end,
+				desc = "Copilot prev",
+			},
+			{
+				"<c-L>",
+				mode = { "i" },
+				function()
+					require("copilot.suggestion").dismiss()
+				end,
+				desc = "Copilot accept",
+			},
 		},
 		config = function(_, opts)
 			require("copilot").setup(opts)

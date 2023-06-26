@@ -57,25 +57,6 @@ nnoremap <leader>u <cmd>UndotreeToggle<cr>
 nnoremap <leader>gg <cmd>Gitsigns toggle_signs<cr>
 nnoremap <leader>gh <cmd>Gitsigns toggle_linehl<cr>
 
-nmap ss <plug>(leap-forward-to)
-nmap S <plug>(leap-backward-to)
-
-xmap ss <plug>(leap-forward-to)
-xmap S <plug>(leap-backward-to)
-
-omap ss <plug>(leap-forward-to)
-omap S <plug>(leap-backward-to)
-
-xmap x <plug>(leap-forward-till)
-xmap X <plug>(leap-backward-till)
-
-omap x <plug>(leap-forward-till)
-omap X <plug>(leap-backward-till)
-
-nmap gs <plug>(leap-from-window)
-xmap gs <plug>(leap-from-window)
-omap gs <plug>(leap-from-window)
-
 " imap <c-x><c-k> <plug>(fzf-complete-word)
 " imap <c-x><c-f> <plug>(fzf-complete-path)
 " imap <c-x><c-l> <plug>(fzf-complete-line)
