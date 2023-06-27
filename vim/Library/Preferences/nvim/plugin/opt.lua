@@ -8,7 +8,7 @@ o.fileformat = "unix"
 o.timeoutlen = 600
 o.ignorecase = true
 o.smartcase = true
-o.lazyredraw = true
+-- o.lazyredraw = true
 o.inccommand = "split"
 
 o.number = true

@@ -2,6 +2,18 @@ return {
 	{ "rktjmp/shipwright.nvim", lazy = true },
 	"nvim-lualine/lualine.nvim",
 	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		enabled = false,
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+		},
+	},
+	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		config = function()
