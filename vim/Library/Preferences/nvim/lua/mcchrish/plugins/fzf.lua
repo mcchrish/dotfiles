@@ -1,11 +1,29 @@
 return {
 	"ibhagwan/fzf-lua",
 	opts = {
+		global_git_icons = false,
+		global_file_icons = false,
 		winopts = {
 			width = 0.9,
 			height = 0.6,
 			row = 0.5,
 			col = 0.5,
+			-- border = "none",
+			border = { " ", " ", " ", " ", " ", " ", " ", " " },
+		},
+		hls = {
+			border = "LineNr",
+			preview_border = "NormalFloat",
+			preview_normal = "NormalFloat",
+			preview_title = "Title",
+		},
+		fzf_colors = {
+			["gutter"] = { "bg", "LineNr" },
+			["bg"] = { "bg", "LineNr" },
+			["bg+"] = { "bg", "NormalFloat" },
+			["fg+"] = { "fg", "NormalFloat" },
+			["border"] = { "fg", "Comment" },
+			["header"] = { "fg", "Comment" },
 		},
 		keymap = {
 			fzf = {
@@ -30,42 +48,15 @@ return {
 				syntax = false,
 			},
 		},
-		files = {
-			file_icons = false,
-			git_icons = false,
-		},
-		git = {
-			files = {
-				file_icons = false,
-			},
-			status = {
-				file_icons = false,
-			},
-		},
 		grep = {
-			file_icons = false,
-			git_icons = false,
 			rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white' --colors='path:style:intense'",
-		},
-		buffers = {
-			file_icons = false,
-			git_icons = false,
 		},
 		blines = {
 			previewer = false,
-		},
-		quickfix = {
-			file_icons = false,
-			git_icons = false,
-		},
-		lsp = {
-			file_icons = false,
-			git_icons = false,
 		},
 	},
 	config = function(_, opts)
 		require("fzf-lua").setup(opts)
 		vim.cmd.cnoreabbrev "fz FzfLua"
-		vim.cmd.cnoreabbrev "pa FzfLua packadd"
 	end,
 }
