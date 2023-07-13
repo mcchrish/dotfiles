@@ -5,13 +5,14 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "zenbones"
 -- https://github.com/wez/wezterm/issues/3616 font looks too thin
-config.font = wezterm.font("Iosevka Curly Slab", { weight = "Medium" })
+config.font = wezterm.font "Iosevka Curly Slab"
 config.font_size = 14
 config.initial_cols = 160
 config.initial_rows = 40
-config.front_end = "WebGpu"
+-- config.front_end = "WebGpu"
 -- config.automatically_reload_config = false
 -- config.freetype_load_target = "Light"
+-- config.freetype_load_flags = "NO_HINTING"
 -- config.freetype_render_target = "HorizontalLcd"
 
 config.keys = {
@@ -44,7 +45,7 @@ config.unix_domains = {
 }
 
 wezterm.on("gui-startup", function()
-	require("workspaces").setup()
+	-- require("workspaces").setup()
 end)
 
 config.window_frame = {
