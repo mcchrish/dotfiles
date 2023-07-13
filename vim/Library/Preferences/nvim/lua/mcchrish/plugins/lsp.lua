@@ -33,7 +33,6 @@ return {
 		dependencies = {
 			"jose-elias-alvarez/typescript.nvim",
 			"yioneko/nvim-vtsls",
-			-- "glepnir/lspsaga.nvim",
 		},
 		init = function()
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
@@ -93,7 +92,7 @@ return {
 						},
 					},
 					["<leader>rn"] = { vim.lsp.buf.rename, "Rename" },
-					["<leader>ca"] = { vim.lsp.buf.code_action, "Code action" },
+					["<leader>ca"] = { "<cmd>Lspsaga code_action<cr>", "Code action" },
 					["<leader>p"] = {
 						function()
 							vim.lsp.buf.format { async = true }
@@ -245,6 +244,5 @@ return {
 		config = function(_, opts)
 			require("lspsaga").setup(opts)
 		end,
-		-- dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
 }
