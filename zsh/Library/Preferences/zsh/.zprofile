@@ -55,6 +55,7 @@ path+=(
   "$XDG_DATA_HOME"/gem/bin
   "$XDG_DATA_HOME"/cargo/bin
   "$XDG_DATA_HOME"/npm/bin
+  "$HOME"/Library/Python/3.9/bin
   # "$VOLTA_HOME"/bin
   "$ANDROID_HOME"/{emulator,tools,tools/bin,platform-tools}
 )

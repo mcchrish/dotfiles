@@ -113,7 +113,7 @@ return {
 
 			local lspconfig = require "lspconfig"
 			require("mason-lspconfig").setup {
-				ensure_installed = { "eslint", "lua_ls", "tsserver", "vtsls" },
+				ensure_installed = { "eslint", "lua_ls", "tsserver", "vtsls", "emmet_language_server" },
 			}
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -147,7 +147,7 @@ return {
 				root_dir = lspconfig.util.root_pattern "package.json",
 			}, default_opts))
 
-			lspconfig.emmet_ls.setup(vim.tbl_extend("keep", {
+			lspconfig.emmet_language_server.setup(vim.tbl_extend("keep", {
 				on_attach = function(client, bufnr)
 					wk.register({
 						["<c-s>"] = {
