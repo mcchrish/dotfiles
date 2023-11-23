@@ -8,11 +8,6 @@ return {
 		end,
 	},
 	{
-		"jose-elias-alvarez/null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-	{
 		"folke/trouble.nvim",
 		cmd = { "TroubleToggle", "Trouble" },
 		opts = {
@@ -63,8 +58,7 @@ return {
 				},
 			}, { noremap = true, silent = true })
 
-			local function on_attach(client, bufnr, custom_opts)
-				local opts = vim.tbl_extend("keep", custom_opts or {}, { format_on_save = false })
+			local function on_attach(_client, bufnr, _opts)
 
 				-- Enable completion triggered by <c-x><c-o>
 				vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -92,23 +86,8 @@ return {
 						},
 					},
 					["<leader>rn"] = { vim.lsp.buf.rename, "Rename" },
-					["<leader>ca"] = { "<cmd>Lspsaga code_action<cr>", "Code action" },
-					["<leader>p"] = {
-						function()
-							vim.lsp.buf.format { async = true }
-						end,
-						"Format",
-					},
+					["<leader>ca"] = { vim.lsp.buf.code_action, "Code action" },
 				}, { noremap = true, buffer = bufnr })
-
-				if client.server_capabilities.documentFormattingProvider and opts.format_on_save then
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = bufnr,
-						callback = function()
-							vim.lsp.buf.format { async = true }
-						end,
-					})
-				end
 			end
 
 			local lspconfig = require "lspconfig"
@@ -157,7 +136,7 @@ return {
 										"textDocument/completion",
 										vim.lsp.util.make_position_params(0, client.offset_encoding),
 										function(_, result)
-											local textEdit = result[1].textEdit
+											local textEdit = result.items[1].textEdit
 											local snip_string = textEdit.newText
 											textEdit.newText = ""
 											vim.lsp.util.apply_text_edits({ textEdit }, bufnr, client.offset_encoding)
@@ -207,19 +186,6 @@ return {
 					},
 				},
 			}, default_opts))
-
-			-- null-ls
-			local null_ls = require "null-ls"
-			null_ls.setup {
-				sources = {
-					null_ls.builtins.diagnostics.selene,
-					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.prettier,
-				},
-				on_attach = function(client, bufnr)
-					on_attach(client, bufnr)
-				end,
-			}
 
 			-- signs
 			local signs = { Error = "🮇", Warn = "▪", Hint = "▪", Info = "⋅" }

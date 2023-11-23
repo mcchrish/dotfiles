@@ -90,7 +90,7 @@ return {
 						entry_filter = function(entry)
 							return not (
 								entry:get_kind() == require("cmp.types").lsp.CompletionItemKind.Snippet
-								and entry.source:get_debug_name() == "nvim_lsp:emmet_ls"
+								and entry.source:get_debug_name() == "nvim_lsp:emmet_language_server"
 							)
 						end,
 					},

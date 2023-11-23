@@ -23,6 +23,7 @@ return {
 				"typescript",
 				"vim",
 				"vimdoc",
+				"vue",
 			},
 			matchup = {
 				enable = true,
@@ -42,13 +43,10 @@ return {
 					node_decremental = "grm",
 				},
 			},
-			context_commentstring = {
-				enable = true,
-				enable_autocmd = false,
-			},
 		},
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
+			require("treesitter-context").setup()
 		end,
 	},
 }

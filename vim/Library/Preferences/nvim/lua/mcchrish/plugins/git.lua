@@ -19,9 +19,10 @@ return {
 		end,
 	},
 	{
-		"ruifm/gitlinker.nvim",
+		"linrongbin16/gitlinker.nvim",
 		keys = {
-			{ "<leader>gy", mode = { "n", "x" } },
+			{ "<leader>gl", "<cmd>GitLink<cr>", mode = { "n", "x" }, desc = "Copy git permlink to clipboard" },
+			{ "<leader>gL", "<cmd>GitLink!<cr>", mode = { "n", "x" }, desc = "Open git permlink in browser" },
 		},
 		config = function()
 			require("gitlinker").setup()

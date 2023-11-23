@@ -106,17 +106,30 @@ return {
 				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 			}
 		end,
+		init = function()
+			vim.g.skip_ts_context_commentstring_module = true
+		end,
 		config = function(_, opts)
 			require("Comment").setup(opts)
+			require("ts_context_commentstring").setup {
+				enable_autocmd = false,
+			}
 		end,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		init = function()
-			local g = vim.g
-			g.indent_blankline_filetype = { "yaml", "toml", "python" }
-			g.indent_blankline_show_first_indent_level = false
-			g.indent_blankline_use_treesitter = true
+		main = "ibl",
+		opts = {
+			enabled = false,
+			indent = {
+				char = "│",
+				tab_char = "│",
+			},
+		},
+		config = function(_, opts)
+			require("ibl").setup(opts)
+			local hooks = require "ibl.hooks"
+			hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
 		end,
 	},
 
@@ -186,6 +199,62 @@ return {
 		config = function(_, opts)
 			require("copilot").setup(opts)
 		end,
+	},
+
+	{
+		"j-hui/fidget.nvim",
+		opts = {},
+		config = function(_, opts)
+			require("fidget").setup(opts)
+		end,
+	},
+
+	{
+		"stevearc/conform.nvim",
+		event = { "BufWritePre" },
+		cmd = { "ConformInfo" },
+		keys = {
+			{
+				"<leader>p",
+				function()
+					require("conform").format { async = true, lsp_fallback = true }
+				end,
+				mode = "",
+				desc = "Format buffer",
+			},
+		},
+		opts = {
+			formatters_by_ft = {
+				lua = { "stylua" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
+				markdown = { "prettier" },
+			},
+		},
+	},
+
+	{
+		"mfussenegger/nvim-lint",
+		event = "BufReadPre",
+		opts = {
+			linters_by_ft = {
+				lua = { "selene" },
+			},
+		},
+		config = function(_, opts)
+			require("lint").linters_by_ft = opts.linters_by_ft
+			vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
+				callback = function()
+					require("lint").try_lint()
+				end,
+			})
+		end,
+	},
+
+	{
+		"stevearc/aerial.nvim",
+		opts = {},
 	},
 
 	-- "mcchrish/fountain.vim",
