@@ -6,7 +6,6 @@ brew "fzf"
 brew "gh"
 brew "hyperfine"
 brew "neovim"
-brew "nnn"
 brew "node@18", link: true
 brew "pass"
 brew "pinentry-mac"

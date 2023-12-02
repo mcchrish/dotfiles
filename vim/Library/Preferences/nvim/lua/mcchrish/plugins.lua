@@ -1,24 +1,11 @@
 return {
-	{ "rktjmp/shipwright.nvim", lazy = true },
-	"nvim-lualine/lualine.nvim",
 	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		enabled = false,
-		opts = {
-			-- add any options here
-		},
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-		},
+		"nvim-lualine/lualine.nvim",
+		opts = {},
 	},
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
-		config = function()
-			require("which-key").setup {}
-		end,
 	},
 	{
 		"andymass/vim-matchup",
@@ -144,9 +131,6 @@ return {
 				change = "sr",
 			},
 		},
-		config = function(_, opts)
-			require("nvim-surround").setup(opts)
-		end,
 	},
 
 	{
@@ -196,17 +180,11 @@ return {
 				desc = "Copilot accept",
 			},
 		},
-		config = function(_, opts)
-			require("copilot").setup(opts)
-		end,
 	},
 
 	{
 		"j-hui/fidget.nvim",
 		opts = {},
-		config = function(_, opts)
-			require("fidget").setup(opts)
-		end,
 	},
 
 	{
@@ -255,6 +233,44 @@ return {
 	{
 		"stevearc/aerial.nvim",
 		opts = {},
+	},
+
+	{
+		"echasnovski/mini.nvim",
+		keys = {
+			{
+				"<leader>nn",
+				function()
+					require("mini.files").open()
+				end,
+				mode = { "n" },
+				desc = "Open file browser",
+			},
+			{
+				"<leader>nc",
+				function()
+					require("mini.files").open(vim.api.nvim_buf_get_name(0))
+				end,
+				mode = { "n" },
+				desc = "Open file browser under current file",
+			},
+		},
+		opts = {
+			files = {
+				content = {
+					prefix = function(entry)
+						if entry.fs_type == "directory" then
+							-- NOTE: it is usually a good idea to use icon followed by space
+							return ">", "MiniFilesDirectory"
+						end
+					end,
+				},
+			},
+		},
+		version = false,
+		config = function(_, opts)
+			require("mini.files").setup(opts.files)
+		end,
 	},
 
 	-- "mcchrish/fountain.vim",

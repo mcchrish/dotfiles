@@ -1,15 +1,5 @@
 return {
-	{
-		"rebelot/kanagawa.nvim",
-		lazy = true,
-		opts = {
-			compile = true,
-		},
-		config = function(opts)
-			require("kanagawa").setup(opts)
-			-- vim.cmd.colorscheme "kanagawa"
-		end,
-	},
+	{ "rktjmp/shipwright.nvim", lazy = true },
 	{
 		dir = "~/vimming/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",

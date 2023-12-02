@@ -9,6 +9,56 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
+		keys = {
+			{
+				"<leader>xx",
+				function()
+					require("trouble").toggle()
+				end,
+				mode = { "n" },
+				desc = "Trouble",
+			},
+			{
+				"<leader>xw",
+				function()
+					require("trouble").toggle "workspace_diagnostics"
+				end,
+				mode = { "n" },
+				desc = "Trouble workspace diagnostics",
+			},
+			{
+				"<leader>xd",
+				function()
+					require("trouble").toggle "document_diagnostic"
+				end,
+				mode = { "n" },
+				desc = "Trouble document diagnostics",
+			},
+			{
+				"<leader>xq",
+				function()
+					require("trouble").toggle "quickfix"
+				end,
+				mode = { "n" },
+				desc = "Trouble quickfix",
+			},
+			{
+				"<leader>xl",
+				function()
+					require("trouble").toggle "loclist"
+				end,
+				mode = { "n" },
+				desc = "Trouble location list",
+			},
+			{
+				"gR",
+				function()
+					require("trouble").toggle "loclist"
+				end,
+				mode = { "n" },
+				desc = "lsp_references",
+			},
+		},
 		cmd = { "TroubleToggle", "Trouble" },
 		opts = {
 			icons = false,
@@ -18,15 +68,11 @@ return {
 			},
 			use_diagnostic_signs = true,
 		},
-		config = function(_, opts)
-			require("trouble").setup(opts)
-		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			"jose-elias-alvarez/typescript.nvim",
 			"yioneko/nvim-vtsls",
 		},
 		init = function()
@@ -59,7 +105,6 @@ return {
 			}, { noremap = true, silent = true })
 
 			local function on_attach(_client, bufnr, _opts)
-
 				-- Enable completion triggered by <c-x><c-o>
 				vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -100,18 +145,6 @@ return {
 				on_attach = on_attach,
 			}
 
-			-- require("typescript").setup {
-			-- 	server = vim.tbl_extend("keep", {
-			-- 		root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
-			-- 		capabilities = capabilities,
-			-- 		on_attach = function(client, bufnr)
-			-- 			client.server_capabilities.documentFormattingProvider = false
-			-- 			client.server_capabilities.documentRangeFormattingProvider = false
-			-- 			on_attach(client, bufnr)
-			-- 		end,
-			-- 	}, default_opts),
-			-- }
-
 			lspconfig.vtsls.setup(vim.tbl_extend("keep", {
 				root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
 				capabilities = capabilities,
@@ -125,6 +158,8 @@ return {
 			lspconfig.eslint.setup(vim.tbl_extend("keep", {
 				root_dir = lspconfig.util.root_pattern "package.json",
 			}, default_opts))
+
+			lspconfig.tailwindcss.setup(default_opts)
 
 			lspconfig.emmet_language_server.setup(vim.tbl_extend("keep", {
 				on_attach = function(client, bufnr)
@@ -207,8 +242,5 @@ return {
 				virtual_text = false,
 			},
 		},
-		config = function(_, opts)
-			require("lspsaga").setup(opts)
-		end,
 	},
 }

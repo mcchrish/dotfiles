@@ -9,9 +9,6 @@ alias which="command -v"
 # Vim
 alias v="nvim"
 
-# Nnn
-alias nn="nnn"
-
 # While in a nvim terminal, open file to current session
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
   alias nvh='nvr -o'

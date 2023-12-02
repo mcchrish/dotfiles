@@ -14,9 +14,6 @@ return {
 				changedelete = { text = "┳" },
 			},
 		},
-		config = function(_, opts)
-			require("gitsigns").setup(opts)
-		end,
 	},
 	{
 		"linrongbin16/gitlinker.nvim",
@@ -24,9 +21,6 @@ return {
 			{ "<leader>gl", "<cmd>GitLink<cr>", mode = { "n", "x" }, desc = "Copy git permlink to clipboard" },
 			{ "<leader>gL", "<cmd>GitLink!<cr>", mode = { "n", "x" }, desc = "Open git permlink in browser" },
 		},
-		config = function()
-			require("gitlinker").setup()
-		end,
 	},
 	{
 		"mbbill/undotree",

@@ -61,21 +61,11 @@ nnoremap <leader>gh <cmd>Gitsigns toggle_linehl<cr>
 " imap <c-x><c-f> <plug>(fzf-complete-path)
 " imap <c-x><c-l> <plug>(fzf-complete-line)
 
-nnoremap <leader>nn <cmd>NnnPicker<cr>
-nnoremap <leader>nc <cmd>NnnPicker %:h<cr>
-
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <plug>(EasyAlign)
-
-nnoremap <leader>xx <cmd>TroubleToggle<cr>
-nnoremap <leader>xw <cmd>TroubleToggle lsp_workspace_diagnostics<cr>
-nnoremap <leader>xd <cmd>TroubleToggle lsp_document_diagnostics<cr>
-nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
-nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
-nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 
 " press <tab> to expand or jump in a snippet. These can also be mapped separately
 " via <plug>luasnip-expand-snippet and <plug>luasnip-jump-next.

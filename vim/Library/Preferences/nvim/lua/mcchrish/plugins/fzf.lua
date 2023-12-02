@@ -1,5 +1,98 @@
 return {
 	"ibhagwan/fzf-lua",
+	keys = {
+		{
+			"<leader>a",
+			function()
+				require("fzf-lua").grep { search = "" }
+			end,
+			mode = { "n" },
+			desc = "FZF grep result",
+		},
+		{
+			"<leader>A",
+			function()
+				require("fzf-lua").grep {
+					search = "",
+					rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white' --hidden",
+				}
+			end,
+			mode = { "n" },
+			desc = "FZF grep result (include hidden)",
+		},
+		{
+			"<leader>K",
+			function()
+				require("fzf-lua").grep_cword()
+			end,
+			mode = { "n" },
+			desc = "FZF cword",
+		},
+		{
+			"<leader>K",
+			function()
+				require("fzf-lua").grep_visual()
+			end,
+			mode = { "v" },
+			desc = "FZF with current selection",
+		},
+		{
+			"<leader>f",
+			function()
+				require("fzf-lua").files()
+			end,
+			mode = { "n" },
+			desc = "FZF files",
+		},
+		{
+			"<leader>d",
+			function()
+				require("fzf-lua").files { cwd = vim.fn.expand "%:h" }
+			end,
+			mode = { "n" },
+			desc = "FZF files (active buffer dir)",
+		},
+		{
+			"<leader>b",
+			function()
+				require("fzf-lua").buffers()
+			end,
+			mode = { "n" },
+			desc = "FZF buffers",
+		},
+		{
+			"<leader>l",
+			function()
+				require("fzf-lua").blines()
+			end,
+			mode = { "n" },
+			desc = "FZF buffer lines",
+		},
+		{
+			"<leader>L",
+			function()
+				require("fzf-lua").lines()
+			end,
+			mode = { "n" },
+			desc = "FZF lines",
+		},
+		{
+			"<leader>m",
+			function()
+				require("fzf-lua").marks()
+			end,
+			mode = { "n" },
+			desc = "FZF marks",
+		},
+		{
+			"gQ",
+			function()
+				require("fzf-lua").command_history()
+			end,
+			mode = { "n" },
+			desc = "FZF command history",
+		},
+	},
 	opts = {
 		global_git_icons = false,
 		global_file_icons = false,
