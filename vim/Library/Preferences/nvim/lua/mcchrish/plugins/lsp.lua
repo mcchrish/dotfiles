@@ -73,7 +73,8 @@ return {
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			"yioneko/nvim-vtsls",
+			"pmizio/typescript-tools.nvim",
+			"nvim-lua/plenary.nvim",
 		},
 		init = function()
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
@@ -87,81 +88,27 @@ return {
 		end,
 		config = function()
 			local wk = require "which-key"
-
-			wk.register({
-				["<leader>"] = {
-					e = {
-						vim.diagnostic.open_float,
-						"Line diagnostics",
-					},
-					q = { vim.diagnostic.setloclist, "Open diagnostics location list" },
-				},
-				["["] = {
-					d = { vim.diagnostic.goto_prev, "Previous diagnostics" },
-				},
-				["]"] = {
-					d = { vim.diagnostic.goto_next, "Next diagnostics" },
-				},
-			}, { noremap = true, silent = true })
-
-			local function on_attach(_client, bufnr, _opts)
-				-- Enable completion triggered by <c-x><c-o>
-				vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-				wk.register({
-					g = {
-						D = { vim.lsp.buf.declaration, "Declaration" },
-						d = { vim.lsp.buf.definition, "Definition" },
-						i = { vim.lsp.buf.implementation, "Implementation" },
-						r = { require("fzf-lua").lsp_references, "References" },
-						["<c-d>"] = { require("fzf-lua").lsp_typedefs, "Type definition" },
-					},
-					K = { vim.lsp.buf.hover, "Hover" },
-					-- @todo must think another key as it conflicts with window nav
-					-- ["<c-k>"] = { vim.lsp.buf.signature_help },
-					["<leader>w"] = {
-						name = "+LSP workspace",
-						a = { vim.lsp.buf.add_workspace_folder, "add folder" },
-						r = { vim.lsp.buf.remove_workspace_folder, "remove folder" },
-						l = {
-							function()
-								print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-							end,
-							"list folders",
-						},
-					},
-					["<leader>rn"] = { vim.lsp.buf.rename, "Rename" },
-					["<leader>ca"] = { vim.lsp.buf.code_action, "Code action" },
-				}, { noremap = true, buffer = bufnr })
-			end
-
 			local lspconfig = require "lspconfig"
 			require("mason-lspconfig").setup {
-				ensure_installed = { "eslint", "lua_ls", "tsserver", "vtsls", "emmet_language_server" },
+				ensure_installed = { "eslint", "lua_ls", "emmet_language_server" },
 			}
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-			local default_opts = {
-				on_attach = on_attach,
-			}
 
-			lspconfig.vtsls.setup(vim.tbl_extend("keep", {
-				root_dir = lspconfig.util.root_pattern("tsconfig.json", "jsconfig.json"),
-				capabilities = capabilities,
-				on_attach = function(client, bufnr)
+			require("typescript-tools").setup {
+				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
-					on_attach(client, bufnr)
 				end,
-			}, default_opts))
+			}
 
-			lspconfig.eslint.setup(vim.tbl_extend("keep", {
+			lspconfig.eslint.setup {
 				root_dir = lspconfig.util.root_pattern "package.json",
-			}, default_opts))
+			}
 
-			lspconfig.tailwindcss.setup(default_opts)
+			lspconfig.tailwindcss.setup {}
 
-			lspconfig.emmet_language_server.setup(vim.tbl_extend("keep", {
+			lspconfig.emmet_language_server.setup {
 				on_attach = function(client, bufnr)
 					wk.register({
 						["<c-s>"] = {
@@ -184,19 +131,17 @@ return {
 							},
 						},
 					}, { mode = "i", noremap = true, buffer = bufnr })
-					on_attach(client, bufnr)
 				end,
-			}, default_opts))
+			}
 
 			local runtime_path = vim.split(package.path, ";")
 			table.insert(runtime_path, "lua/?.lua")
 			table.insert(runtime_path, "lua/?/init.lua")
-			lspconfig.lua_ls.setup(vim.tbl_extend("keep", {
+			lspconfig.lua_ls.setup {
 				capabilities = capabilities,
-				on_attach = function(client, bufnr)
+				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
-					on_attach(client, bufnr)
 				end,
 				settings = {
 					Lua = {
@@ -220,7 +165,55 @@ return {
 						},
 					},
 				},
-			}, default_opts))
+			}
+
+			wk.register({
+				["<leader>"] = {
+					e = {
+						vim.diagnostic.open_float,
+						"Line diagnostics",
+					},
+					q = { vim.diagnostic.setloclist, "Open diagnostics location list" },
+				},
+				["["] = {
+					d = { vim.diagnostic.goto_prev, "Previous diagnostics" },
+				},
+				["]"] = {
+					d = { vim.diagnostic.goto_next, "Next diagnostics" },
+				},
+			}, { noremap = true, silent = true })
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+				callback = function(ev)
+					-- Enable completion triggered by <c-x><c-o>
+					vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+					wk.register({
+						g = {
+							D = { vim.lsp.buf.declaration, "Declaration" },
+							d = { vim.lsp.buf.definition, "Definition" },
+							i = { vim.lsp.buf.implementation, "Implementation" },
+							r = { require("fzf-lua").lsp_references, "References" },
+							["<c-d>"] = { require("fzf-lua").lsp_typedefs, "Type definition" },
+						},
+						K = { vim.lsp.buf.hover, "Hover" },
+						-- @todo must think another key as it conflicts with window nav
+						-- ["<c-k>"] = { vim.lsp.buf.signature_help },
+						["<leader>w"] = {
+							name = "+LSP workspace",
+							a = { vim.lsp.buf.add_workspace_folder, "add folder" },
+							r = { vim.lsp.buf.remove_workspace_folder, "remove folder" },
+							l = {
+								function()
+									print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+								end,
+								"list folders",
+							},
+						},
+						["<leader>rn"] = { vim.lsp.buf.rename, "Rename" },
+						["<leader>ca"] = { vim.lsp.buf.code_action, "Code action" },
+					}, { noremap = true, buffer = ev.buf })
+				end,
+			})
 
 			-- signs
 			local signs = { Error = "🮇", Warn = "▪", Hint = "▪", Info = "⋅" }
