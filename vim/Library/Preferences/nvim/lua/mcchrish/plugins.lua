@@ -8,6 +8,10 @@ return {
 		event = "VeryLazy",
 	},
 	{
+		"stevearc/dressing.nvim",
+		opts = {},
+	},
+	{
 		"andymass/vim-matchup",
 		event = "BufReadPost",
 		init = function()
@@ -84,25 +88,6 @@ return {
 		end,
 	},
 	"tpope/vim-rsi",
-	{
-		"numToStr/Comment.nvim",
-		event = "VeryLazy",
-		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
-		opts = function()
-			return {
-				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-			}
-		end,
-		init = function()
-			vim.g.skip_ts_context_commentstring_module = true
-		end,
-		config = function(_, opts)
-			require("Comment").setup(opts)
-			require("ts_context_commentstring").setup {
-				enable_autocmd = false,
-			}
-		end,
-	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
@@ -236,41 +221,67 @@ return {
 	},
 
 	{
-		"echasnovski/mini.nvim",
+		"stevearc/oil.nvim",
+		event = "VeryLazy",
 		keys = {
 			{
 				"<leader>nn",
-				function()
-					require("mini.files").open()
-				end,
+				"<cmd>Oil --float<cr>",
 				mode = { "n" },
 				desc = "Open file browser",
 			},
 			{
 				"<leader>nc",
-				function()
-					require("mini.files").open(vim.api.nvim_buf_get_name(0))
-				end,
+				"<cmd>Oil --float %:h<cr>",
 				mode = { "n" },
 				desc = "Open file browser under current file",
 			},
 		},
 		opts = {
-			files = {
-				content = {
-					prefix = function(entry)
-						if entry.fs_type == "directory" then
-							-- NOTE: it is usually a good idea to use icon followed by space
-							return ">", "MiniFilesDirectory"
-						end
-					end,
-				},
+			keymaps = {
+				["gq"] = "actions.close",
+				["g?"] = "actions.show_help",
+				["<cr>"] = "actions.select",
+				["<c-s>"] = "actions.select_split",
+				["<c-v>"] = "actions.select_vsplit",
+				["<c-t>"] = "actions.select_tab",
+				["<c-p>"] = "actions.preview",
+				["<c-l>"] = "actions.refresh",
+				["-"] = "actions.parent",
+				["_"] = "actions.open_cwd",
+				["`"] = "actions.cd",
+				["~"] = "actions.tcd",
+				["gs"] = "actions.change_sort",
+				["gx"] = "actions.open_external",
+				["g."] = "actions.toggle_hidden",
+				["g\\"] = "actions.toggle_trash",
 			},
 		},
-		version = false,
-		config = function(_, opts)
-			require("mini.files").setup(opts.files)
-		end,
+	},
+
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		lazy = true,
+		opts = {
+			enable_autocmd = false,
+		},
+	},
+	{
+		"echasnovski/mini.comment",
+		opts = {
+			options = {
+				custom_commentstring = function()
+					return require("ts_context_commentstring.internal").calculate_commentstring()
+						or vim.bo.commentstring
+				end,
+			},
+		},
+	},
+
+	{
+		"echasnovski/mini.pairs",
+		event = "VeryLazy",
+		opts = {},
 	},
 
 	-- "mcchrish/fountain.vim",

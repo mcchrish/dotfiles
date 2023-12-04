@@ -61,12 +61,6 @@ nnoremap <leader>gh <cmd>Gitsigns toggle_linehl<cr>
 " imap <c-x><c-f> <plug>(fzf-complete-path)
 " imap <c-x><c-l> <plug>(fzf-complete-line)
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <plug>(EasyAlign)
-
 " press <tab> to expand or jump in a snippet. These can also be mapped separately
 " via <plug>luasnip-expand-snippet and <plug>luasnip-jump-next.
 imap <silent><expr> <tab> luasnip#expand_or_jumpable() ? '<plug>luasnip-expand-or-jump' : '<tab>' 
