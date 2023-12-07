@@ -45,23 +45,6 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-" vim-fugitive
-nnoremap <leader>gs <cmd>G<cr>
-nnoremap <leader>gd <cmd>Gdiffsplit<cr>
-nnoremap <leader>gb <cmd>G blame<cr>
-
-" undotree
-nnoremap <leader>u <cmd>UndotreeToggle<cr>
-
-" gitsigns
-nnoremap <leader>gg <cmd>Gitsigns toggle_signs<cr>
-nnoremap <leader>gh <cmd>Gitsigns toggle_linehl<cr>
-
 " imap <c-x><c-k> <plug>(fzf-complete-word)
 " imap <c-x><c-f> <plug>(fzf-complete-path)
 " imap <c-x><c-l> <plug>(fzf-complete-line)
-
-" press <tab> to expand or jump in a snippet. These can also be mapped separately
-" via <plug>luasnip-expand-snippet and <plug>luasnip-jump-next.
-imap <silent><expr> <tab> luasnip#expand_or_jumpable() ? '<plug>luasnip-expand-or-jump' : '<tab>' 
-imap <s-tab> <plug>luasnip-jump-prev

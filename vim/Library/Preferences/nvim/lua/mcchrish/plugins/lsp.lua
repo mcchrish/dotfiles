@@ -90,7 +90,7 @@ return {
 			local wk = require "which-key"
 			local lspconfig = require "lspconfig"
 			require("mason-lspconfig").setup {
-				ensure_installed = { "eslint", "lua_ls", "emmet_language_server" },
+				ensure_installed = { "eslint", "lua_ls", "emmet_language_server", "vale_ls" },
 			}
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -166,6 +166,8 @@ return {
 					},
 				},
 			}
+
+			lspconfig.vale_ls.setup {}
 
 			wk.register({
 				["<leader>"] = {

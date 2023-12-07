@@ -1,10 +1,47 @@
 return {
-	"tpope/vim-fugitive",
+	{
+		"tpope/vim-fugitive",
+		lazy = false,
+		keys = {
+			{
+				"<leader>gs",
+				mode = "n",
+				"<cmd>G<cr>",
+				desc = "Fugitive",
+			},
+			{
+				"<leader>gd",
+				mode = "n",
+				"<cmd>Gdiffsplit<cr>",
+				desc = "Fugitive diffsplit",
+			},
+			{
+				"<leader>gb",
+				mode = "n",
+				"<cmd>G blame<cr>",
+				desc = "Fugitive blame",
+			},
+		},
+	},
 	"junegunn/gv.vim",
 	"sindrets/diffview.nvim",
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
+		keys = {
+			{
+				"<leader>gg",
+				mode = "n",
+				"<cmd>Gitsigns toggle_signs<cr>",
+				desc = "Git signs toggle",
+			},
+			{
+				"<leader>gh",
+				mode = "n",
+				"<cmd>Gitsigns toggle_linehl<cr>",
+				desc = "Git signs toggle highlight",
+			},
+		},
 		opts = {
 			signs = {
 				add = { text = "┃" },
@@ -25,6 +62,14 @@ return {
 	{
 		"mbbill/undotree",
 		cmd = "UndotreeToggle",
+		keys = {
+			{
+				"<leader>u",
+				mode = "n",
+				"<cmd>UndotreeToggle<cr>",
+				desc = "Undotree toggle",
+			},
+		},
 		init = function()
 			local g = vim.g
 			g.undotree_WindowLayout = 2

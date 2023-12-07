@@ -77,7 +77,6 @@ return {
 			},
 		},
 	},
-	"tpope/vim-eunuch",
 	"tpope/vim-repeat",
 	"tpope/vim-unimpaired",
 	{
@@ -88,6 +87,9 @@ return {
 		end,
 	},
 	"tpope/vim-rsi",
+
+	{ "chrisgrieser/nvim-genghis", dependencies = "stevearc/dressing.nvim" },
+
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",

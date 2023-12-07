@@ -13,3 +13,8 @@ wk.register {
 		},
 	},
 }
+
+-- wk.register({
+-- 	["j"] = { "v:count == 0 ? 'gj' : 'j'" },
+-- 	["k"] = { "v:count == 0 ? 'gk' : 'k'" },
+-- }, { mode = { "n", "x" }, expr = true, silent = true, noremap = false })
