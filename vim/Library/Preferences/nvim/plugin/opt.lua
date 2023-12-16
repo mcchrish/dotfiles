@@ -31,7 +31,12 @@ o.splitright = true
 o.splitkeep = "screen"
 
 -- Diff Mode
-opt.diffopt = { "filler", "vertical" }
+opt.diffopt:append {
+	"linematch:50",
+	"vertical",
+	"foldcolumn:0",
+	"indent-heuristic",
+}
 
 o.cursorline = true
 
