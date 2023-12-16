@@ -92,6 +92,36 @@ return {
 			mode = { "n" },
 			desc = "FZF command history",
 		},
+		{
+			"<c-x><c-k>",
+			function()
+				require("fzf-lua").complete_bline()
+			end,
+			mode = { "i" },
+			silent = true,
+			desc = "FZF complete bline",
+			remap = true,
+		},
+		{
+			"<c-x><c-f>",
+			function()
+				require("fzf-lua").complete_path()
+			end,
+			mode = { "i" },
+			silent = true,
+			desc = "FZF complete path",
+			remap = true,
+		},
+		{
+			"<c-x><c-l>",
+			function()
+				require("fzf-lua").complete_line()
+			end,
+			mode = { "i" },
+			silent = true,
+			desc = "FZF complete line",
+			remap = true,
+		},
 	},
 	opts = {
 		global_git_icons = false,
