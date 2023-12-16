@@ -1,16 +1,7 @@
 return {
-	{
-		"nvim-lualine/lualine.nvim",
-		opts = {},
-	},
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-	},
-	{
-		"stevearc/dressing.nvim",
-		opts = {},
-	},
+	{ "nvim-lualine/lualine.nvim", opts = {} },
+	{ "folke/which-key.nvim", event = "VeryLazy" },
+	{ "stevearc/dressing.nvim", opts = {} },
 	{
 		"andymass/vim-matchup",
 		event = "BufReadPost",
@@ -24,6 +15,9 @@ return {
 		"folke/flash.nvim",
 		event = "VeryLazy",
 		opts = {
+			search = {
+				multi_window = false,
+			},
 			highlight = {
 				backdrop = false,
 			},
@@ -122,6 +116,7 @@ return {
 
 	{
 		"zbirenbaum/copilot.lua",
+		enabled = false,
 		cmd = "Copilot",
 		event = "InsertEnter",
 		opts = {
@@ -169,10 +164,7 @@ return {
 		},
 	},
 
-	{
-		"j-hui/fidget.nvim",
-		opts = {},
-	},
+	{ "j-hui/fidget.nvim", opts = {} },
 
 	{
 		"stevearc/conform.nvim",
@@ -217,10 +209,7 @@ return {
 		end,
 	},
 
-	{
-		"stevearc/aerial.nvim",
-		opts = {},
-	},
+	{ "stevearc/aerial.nvim", opts = {} },
 
 	{
 		"stevearc/oil.nvim",
@@ -280,11 +269,7 @@ return {
 		},
 	},
 
-	{
-		"echasnovski/mini.pairs",
-		event = "VeryLazy",
-		opts = {},
-	},
+	{ "echasnovski/mini.pairs", event = "VeryLazy", opts = {} },
 
 	-- "mcchrish/fountain.vim",
 }

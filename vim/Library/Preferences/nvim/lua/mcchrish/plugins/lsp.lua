@@ -1,12 +1,12 @@
 return {
 	{
 		"williamboman/mason.nvim",
-		dependencies = { "williamboman/mason-lspconfig.nvim" },
 		build = ":MasonUpdate",
 		config = function()
 			require("mason").setup()
 		end,
 	},
+
 	{
 		"folke/trouble.nvim",
 		keys = {
@@ -69,10 +69,13 @@ return {
 			use_diagnostic_signs = true,
 		},
 	},
+
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+			{ "folke/neodev.nvim", opts = {} },
 			"pmizio/typescript-tools.nvim",
 			"nvim-lua/plenary.nvim",
 		},
@@ -92,21 +95,21 @@ return {
 			require("mason-lspconfig").setup {
 				ensure_installed = { "eslint", "lua_ls", "emmet_language_server", "vale_ls" },
 			}
+
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 			require("typescript-tools").setup {
+				capabilities = capabilities,
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
 				end,
 			}
 
-			lspconfig.eslint.setup {
-				root_dir = lspconfig.util.root_pattern "package.json",
-			}
+			lspconfig.eslint.setup { root_dir = lspconfig.util.root_pattern "package.json" }
 
-			lspconfig.tailwindcss.setup {}
+			lspconfig.tailwindcss.setup { capabilities = capabilities }
 
 			lspconfig.emmet_language_server.setup {
 				on_attach = function(client, bufnr)
@@ -134,9 +137,6 @@ return {
 				end,
 			}
 
-			local runtime_path = vim.split(package.path, ";")
-			table.insert(runtime_path, "lua/?.lua")
-			table.insert(runtime_path, "lua/?/init.lua")
 			lspconfig.lua_ls.setup {
 				capabilities = capabilities,
 				on_attach = function(client)
@@ -145,21 +145,12 @@ return {
 				end,
 				settings = {
 					Lua = {
-						runtime = {
-							-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-							version = "LuaJIT",
-							-- Setup your lua path
-							path = runtime_path,
-						},
-						diagnostics = {
-							-- Get the language server to recognize the `vim` global
-							globals = { "vim" },
-						},
 						workspace = {
-							-- Make the server aware of Neovim runtime files
-							library = vim.api.nvim_get_runtime_file("", true),
+							checkThirdParty = false,
 						},
-						-- Do not send telemetry data containing a randomized but unique identifier
+						completion = {
+							callSnippet = "Replace",
+						},
 						telemetry = {
 							enable = false,
 						},
@@ -167,7 +158,7 @@ return {
 				},
 			}
 
-			lspconfig.vale_ls.setup {}
+			lspconfig.vale_ls.setup { capabilities = capabilities }
 
 			wk.register({
 				["<leader>"] = {
@@ -184,6 +175,7 @@ return {
 					d = { vim.diagnostic.goto_next, "Next diagnostics" },
 				},
 			}, { noremap = true, silent = true })
+
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 				callback = function(ev)
@@ -212,7 +204,7 @@ return {
 							},
 						},
 						["<leader>rn"] = { vim.lsp.buf.rename, "Rename" },
-						["<leader>ca"] = { vim.lsp.buf.code_action, "Code action" },
+						["<leader>ca"] = { require("fzf-lua").lsp_code_actions, "Code action" },
 					}, { noremap = true, buffer = ev.buf })
 				end,
 			})
@@ -224,18 +216,5 @@ return {
 				vim.fn.sign_define(hl, { text = icon, texthl = hl })
 			end
 		end,
-	},
-	{
-		"glepnir/lspsaga.nvim",
-		event = "LspAttach",
-		opts = {
-			symbol_in_winbar = {
-				enable = false,
-			},
-			lightbulb = {
-				enable_in_insert = false,
-				virtual_text = false,
-			},
-		},
 	},
 }

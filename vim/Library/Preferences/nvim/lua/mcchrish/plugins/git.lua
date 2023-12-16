@@ -24,7 +24,7 @@ return {
 		},
 	},
 	"junegunn/gv.vim",
-	"sindrets/diffview.nvim",
+	{ "sindrets/diffview.nvim", event = "VeryLazy" },
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
