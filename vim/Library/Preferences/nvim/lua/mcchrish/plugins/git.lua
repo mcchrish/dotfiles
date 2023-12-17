@@ -23,7 +23,11 @@ return {
 			},
 		},
 	},
-	"junegunn/gv.vim",
+	{
+		"rbong/vim-flog",
+		lazy = true,
+		cmd = { "Flog", "Flogsplit", "Floggit" },
+	},
 	{ "sindrets/diffview.nvim", event = "VeryLazy" },
 	{
 		"lewis6991/gitsigns.nvim",

@@ -87,8 +87,9 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
+		cmd = { "IBLToggle", "IBLToggleScope" },
 		opts = {
-			enabled = false,
+			-- enabled = false,
 			indent = {
 				char = "│",
 				tab_char = "│",
@@ -209,7 +210,7 @@ return {
 		end,
 	},
 
-	{ "stevearc/aerial.nvim", opts = {} },
+	{ "stevearc/aerial.nvim", event = "VeryLazy", opts = {} },
 
 	{
 		"stevearc/oil.nvim",
@@ -259,6 +260,7 @@ return {
 	},
 	{
 		"echasnovski/mini.comment",
+		event = "VeryLazy",
 		opts = {
 			options = {
 				custom_commentstring = function()
