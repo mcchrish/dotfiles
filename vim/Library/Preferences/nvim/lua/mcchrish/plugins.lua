@@ -273,5 +273,33 @@ return {
 
 	{ "echasnovski/mini.pairs", event = "VeryLazy", opts = {} },
 
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*",
+		lazy = true,
+		ft = "markdown",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {
+			ui = {
+				-- enable = false,
+			},
+			workspaces = {
+				{
+					name = "Stuff",
+					path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Stuff",
+				},
+			},
+		},
+	},
+
+	{
+		"echasnovski/mini.align",
+		opts = {},
+		keys = {
+			{ "ga", mode = { "n", "v" } },
+			{ "gA", mode = { "n", "v" } },
+		},
+	},
+
 	-- "mcchrish/fountain.vim",
 }

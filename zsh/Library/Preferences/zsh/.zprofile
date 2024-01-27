@@ -46,9 +46,9 @@ export MBOX="$XDG_DATA_HOME"/mail/mbox
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 # export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME"/android
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
-export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
-export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
-export VOLTA_HOME="$XDG_DATA_HOME"/volta
+# export VAGRANT_HOME="$XDG_DATA_HOME"/vagrant
+# export VAGRANT_ALIAS_FILE="$XDG_DATA_HOME"/vagrant/aliases
+# export VOLTA_HOME="$XDG_DATA_HOME"/volta
 
 
 path+=(
@@ -60,7 +60,7 @@ path+=(
   "$ANDROID_HOME"/{emulator,tools,tools/bin,platform-tools}
 )
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
 
 # Ensure unique path
 typeset -gU cdpath fpath mailpath path
