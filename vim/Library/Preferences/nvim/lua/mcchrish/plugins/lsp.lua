@@ -183,15 +183,14 @@ return {
 					vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 					wk.register({
 						g = {
-							D = { vim.lsp.buf.declaration, "Declaration" },
-							d = { vim.lsp.buf.definition, "Definition" },
-							i = { vim.lsp.buf.implementation, "Implementation" },
+							D = { require("fzf-lua").lsp_declarations, "Declaration" },
+							d = { require("fzf-lua").lsp_definitions, "Definition" },
+							i = { require("fzf-lua").lsp_implementations, "Implementation" },
 							r = { require("fzf-lua").lsp_references, "References" },
 							["<c-d>"] = { require("fzf-lua").lsp_typedefs, "Type definition" },
 						},
 						K = { vim.lsp.buf.hover, "Hover" },
-						-- @todo must think another key as it conflicts with window nav
-						-- ["<c-k>"] = { vim.lsp.buf.signature_help },
+						gK = { vim.lsp.buf.signature_help, 'Signature Help' },
 						["<leader>w"] = {
 							name = "+LSP workspace",
 							a = { vim.lsp.buf.add_workspace_folder, "add folder" },

@@ -168,7 +168,6 @@ return {
 		previewers = {
 			builtin = {
 				scrollbar = false,
-				syntax = false,
 			},
 		},
 		grep = {
