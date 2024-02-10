@@ -60,7 +60,7 @@ path+=(
   "$ANDROID_HOME"/{emulator,tools,tools/bin,platform-tools}
 )
 
-eval "$(/usr/local/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Ensure unique path
 typeset -gU cdpath fpath mailpath path
