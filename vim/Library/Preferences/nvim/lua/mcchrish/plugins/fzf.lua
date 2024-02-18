@@ -4,7 +4,7 @@ return {
 		{
 			"<leader>a",
 			function()
-				require("fzf-lua").grep { search = "", resume = true }
+				require("fzf-lua").grep { search = "", resume = false }
 			end,
 			mode = { "n" },
 			desc = "FZF grep result",
@@ -14,7 +14,7 @@ return {
 			function()
 				require("fzf-lua").grep {
 					search = "",
-					resume = true,
+					resume = false,
 					rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white' --hidden",
 				}
 			end,
@@ -40,7 +40,7 @@ return {
 		{
 			"<leader>f",
 			function()
-				require("fzf-lua").files { resume = true }
+				require("fzf-lua").files { resume = false }
 			end,
 			mode = { "n" },
 			desc = "FZF files",
@@ -56,7 +56,7 @@ return {
 		{
 			"<leader>b",
 			function()
-				require("fzf-lua").buffers { resume = true }
+				require("fzf-lua").buffers { resume = false }
 			end,
 			mode = { "n" },
 			desc = "FZF buffers",
@@ -64,7 +64,7 @@ return {
 		{
 			"<leader>l",
 			function()
-				require("fzf-lua").blines { resume = true }
+				require("fzf-lua").blines { resume = false }
 			end,
 			mode = { "n" },
 			desc = "FZF buffer lines",
@@ -72,7 +72,7 @@ return {
 		{
 			"<leader>L",
 			function()
-				require("fzf-lua").lines { resume = true }
+				require("fzf-lua").lines { resume = false }
 			end,
 			mode = { "n" },
 			desc = "FZF lines",
@@ -88,7 +88,7 @@ return {
 		{
 			"gQ",
 			function()
-				require("fzf-lua").command_history { resume = true }
+				require("fzf-lua").command_history { resume = false }
 			end,
 			mode = { "n" },
 			desc = "FZF command history",
