@@ -111,6 +111,34 @@ return {
 
 			lspconfig.tailwindcss.setup { capabilities = capabilities }
 
+			lspconfig.volar.setup {
+				capabilities = capabilities,
+				on_attach = function(client, bufnr)
+					wk.register({
+						["<leader>gr"] = {
+							function()
+								client.request(
+									"volar/client/findFileReference",
+									{ textDocument = vim.lsp.util.make_text_document_params(bufnr) },
+									function(_, locations, context)
+										local items = vim.lsp.util.locations_to_items(locations, client.offset_encoding)
+										vim.fn.setqflist(
+											{},
+											" ",
+											{ title = "Vue File References", items = items, context = context }
+										)
+										require("fzf-lua").quickfix()
+										-- vim.api.nvim_command "copen"
+									end,
+									bufnr
+								)
+							end,
+							"Vue file references",
+						},
+					}, { mode = "n", noremap = true, buffer = bufnr })
+				end,
+			}
+
 			lspconfig.emmet_language_server.setup {
 				on_attach = function(client, bufnr)
 					wk.register({
@@ -190,7 +218,7 @@ return {
 							["<c-d>"] = { require("fzf-lua").lsp_typedefs, "Type definition" },
 						},
 						K = { vim.lsp.buf.hover, "Hover" },
-						gK = { vim.lsp.buf.signature_help, 'Signature Help' },
+						gK = { vim.lsp.buf.signature_help, "Signature Help" },
 						["<leader>w"] = {
 							name = "+LSP workspace",
 							a = { vim.lsp.buf.add_workspace_folder, "add folder" },
