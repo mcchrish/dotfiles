@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.api.nvim_create_user_command("VsSnitch", function(opts)
+vim.api.nvim_create_user_command("Snitch", function(opts)
 	local cmd = { "code" }
 	if opts.args == "" then
 		local fname = vim.api.nvim_buf_get_name(0)

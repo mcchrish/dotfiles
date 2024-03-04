@@ -47,6 +47,15 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
+			{
+
+				"roobert/tailwindcss-colorizer-cmp.nvim",
+				config = function()
+					require("tailwindcss-colorizer-cmp").setup {
+						color_square_width = 2,
+					}
+				end,
+			},
 		},
 		init = function()
 			vim.opt.completeopt = { "menu", "menuone", "noselect" }
@@ -83,18 +92,18 @@ return {
 
 			return {
 				formatting = {
-					format = function(entry, vim_item)
+					format = function(entry, item)
 						-- Kind icons
-						vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+						item.kind = string.format("%s %s", kind_icons[item.kind], item.kind) -- This concatonates the icons with the name of the item kind
 						-- Source
-						vim_item.menu = ({
+						item.menu = ({
 							buffer = "[Buffer]",
 							nvim_lsp = "[LSP]",
 							luasnip = "[LuaSnip]",
 							nvim_lua = "[Lua]",
 							latex_symbols = "[LaTeX]",
 						})[entry.source.name]
-						return vim_item
+						return require("tailwindcss-colorizer-cmp").formatter(entry, item)
 					end,
 				},
 				window = {

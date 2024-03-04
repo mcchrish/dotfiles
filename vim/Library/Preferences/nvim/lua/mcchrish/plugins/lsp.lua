@@ -80,16 +80,24 @@ return {
 			"nvim-lua/plenary.nvim",
 		},
 		init = function()
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-			vim.lsp.handlers["textDocument/signatureHelp"] =
-				vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-			vim.lsp.handlers["textDocument/publishDiagnostics"] =
-				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-					virtual_text = false,
-					update_in_insert = false,
-				})
+			-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+			-- vim.lsp.handlers["textDocument/signatureHelp"] =
+			-- 	vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 		end,
-		config = function()
+		opts = {
+			diagnostics = {
+				update_in_insert = false,
+				virtual_text = {
+					spacing = 4,
+					source = "if_many",
+				},
+				severity_sort = true,
+			},
+			signs = { Error = "🮇", Warn = "▪", Hint = "▪", Info = "⋅" },
+		},
+		config = function(_, opts)
+			vim.diagnostic.config(opts.diagnostics)
+
 			local wk = require "which-key"
 			local lspconfig = require "lspconfig"
 			require("mason-lspconfig").setup {
@@ -237,8 +245,7 @@ return {
 			})
 
 			-- signs
-			local signs = { Error = "🮇", Warn = "▪", Hint = "▪", Info = "⋅" }
-			for type, icon in pairs(signs) do
+			for type, icon in pairs(opts.signs) do
 				local hl = "DiagnosticSign" .. type
 				vim.fn.sign_define(hl, { text = icon, texthl = hl })
 			end
