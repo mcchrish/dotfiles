@@ -63,38 +63,38 @@ return {
 		opts = function()
 			local cmp = require "cmp"
 			local kind_icons = {
-				Class = "⬢",
-				Color = "❁",
-				Constant = "π",
-				Constructor = "⬡",
-				Enum = "☷",
-				EnumMember = "☷",
-				Event = "⤸",
-				Field = "◧",
-				File = "⟔",
-				Folder = "⧸",
-				Function = "λ",
-				Interface = "□",
-				Keyword = "ᴋ",
-				Method = "λ",
-				Module = "■",
-				Operator = "÷",
-				Property = "⋯",
-				Reference = "→",
-				Snippet = "◸",
-				Struct = "▣",
-				Text = "ᴀ",
-				TypeParameter = "ᴛ",
-				Unit = "␣",
-				Value = "🞇",
-				Variable = "𝑣",
+				Text = "",
+				Method = "",
+				Function = "",
+				Constructor = "",
+				Field = "",
+				Variable = "",
+				Class = "",
+				Interface = "",
+				Module = "",
+				Property = "",
+				Unit = "",
+				Value = "",
+				Enum = "",
+				Keyword = "",
+				Snippet = "",
+				Color = "",
+				File = "",
+				Reference = "",
+				Folder = "",
+				EnumMember = "",
+				Constant = "",
+				Struct = "",
+				Event = "",
+				Operator = "",
+				TypeParameter = "",
 			}
 
 			return {
 				formatting = {
 					format = function(entry, item)
 						-- Kind icons
-						item.kind = string.format("%s %s", kind_icons[item.kind], item.kind) -- This concatonates the icons with the name of the item kind
+						item.kind = string.format("%s  %s", kind_icons[item.kind], item.kind) -- This concatonates the icons with the name of the item kind
 						-- Source
 						item.menu = ({
 							buffer = "[Buffer]",

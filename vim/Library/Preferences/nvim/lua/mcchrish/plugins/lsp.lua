@@ -208,10 +208,10 @@ return {
 			}, { noremap = true, silent = true })
 
 			vim.api.nvim_create_autocmd("LspAttach", {
-				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-				callback = function(ev)
+				group = vim.api.nvim_create_augroup("lsp-attach", {}),
+				callback = function(event)
 					-- Enable completion triggered by <c-x><c-o>
-					vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+					vim.bo[event.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 					wk.register({
 						g = {
 							D = { require("fzf-lua").lsp_declarations, "Declaration" },
@@ -235,7 +235,20 @@ return {
 						},
 						["<leader>rn"] = { vim.lsp.buf.rename, "Rename" },
 						["<leader>ca"] = { require("fzf-lua").lsp_code_actions, "Code action" },
-					}, { noremap = true, buffer = ev.buf })
+					}, { noremap = true, buffer = event.buf })
+
+					local client = vim.lsp.get_client_by_id(event.data.client_id)
+					if client and client.server_capabilities.documentHighlightProvider then
+						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+							buffer = event.buf,
+							callback = vim.lsp.buf.document_highlight,
+						})
+
+						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+							buffer = event.buf,
+							callback = vim.lsp.buf.clear_references,
+						})
+					end
 				end,
 			})
 
