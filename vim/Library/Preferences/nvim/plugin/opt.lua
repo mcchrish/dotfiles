@@ -1,34 +1,32 @@
-local g = vim.g
-local o = vim.o
 local opt = vim.opt
 
-o.modelines = 1
+opt.modelines = 1
 opt.fileformats = { "unix", "mac", "dos" }
-o.fileformat = "unix"
-o.timeoutlen = 600
-o.ignorecase = true
-o.smartcase = true
--- o.lazyredraw = true
-o.inccommand = "split"
+opt.fileformat = "unix"
+opt.ignorecase = true
+opt.smartcase = true
+-- opt.lazyredraw = true
+opt.inccommand = "split"
 
-o.number = true
-o.signcolumn = "yes"
-o.updatetime = 250
+opt.number = true
+opt.signcolumn = "yes"
+opt.updatetime = 250
+opt.timeoutlen = 600
 
 -- Flash matching parenthesis
-o.showmatch = true
-o.matchtime = 2
+opt.showmatch = true
+opt.matchtime = 2
 
 -- Shorter messages
-o.shortmess = "aIToOc"
+opt.shortmess = "aIToOc"
 
 -- Allow all mouse
-o.mouse = "a"
+opt.mouse = "a"
 
 -- Better splitting
-o.splitbelow = true
-o.splitright = true
-o.splitkeep = "screen"
+opt.splitbelow = true
+opt.splitright = true
+opt.splitkeep = "screen"
 
 -- Diff Mode
 opt.diffopt:append {
@@ -38,60 +36,60 @@ opt.diffopt:append {
 	"indent-heuristic",
 }
 
-o.cursorline = true
+opt.cursorline = true
 
-o.scrolloff = 8
-o.sidescrolloff = 10
-o.synmaxcol = 500
-o.history = 1000
-o.tabpagemax = 50
+opt.scrolloff = 8
+opt.sidescrolloff = 10
+opt.synmaxcol = 500
+opt.history = 1000
+opt.tabpagemax = 50
 
 -- Nicer vertical splits
 opt.fillchars = { fold = "·" }
 opt.listchars = { tab = "| ", eol = "¬", trail = "⣿", extends = "→", precedes = "←" }
 
 -- Better completion
-o.pumheight = 20
+opt.pumheight = 20
 
 -- Visual-block can free move
-o.virtualedit = "block"
+opt.virtualedit = "block"
 
 -- 4 spaces indentation, no tabs
-o.shiftwidth = 4
-o.shiftround = true
-o.tabstop = 4
-o.softtabstop = 4
-o.expandtab = true
-o.breakindent = true
-o.showbreak = "↪ "
+opt.shiftwidth = 4
+opt.shiftround = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.expandtab = true
+opt.breakindent = true
+opt.showbreak = "↪ "
 
-o.selection = "exclusive"
+opt.selection = "exclusive"
 
 -- Wrapping
-o.linebreak = true
-o.textwidth = 80
-o.formatoptions = "cqj1" -- format using textwidth, including comments and gq
+opt.linebreak = true
+opt.textwidth = 80
+opt.formatoptions = "cqj1" -- format using textwidth, including comments and gq
 
 -- Stay on the same column if possible
-o.startofline = false
+opt.startofline = false
 
 -- Menu complete
-o.wildignorecase = true
+opt.wildignorecase = true
 opt.wildmode = { "longest:full", "full" }
 opt.wildignore:append { ".hg", ".git", ".svn", "*.pyc", "*.spl", "*.o", "*.out", "*.DS_Store" }
 opt.wildignore:append { "*/node_modules/*" }
 
 -- Dictionary
-o.dictionary = "/usr/share/dict/words"
+opt.dictionary = "/usr/share/dict/words"
 
 -- No need
-o.swapfile = false
+opt.swapfile = false
 
 -- Persistent undo and swap files directory
-o.undofile = true
+opt.undofile = true
 
-o.backup = false
-o.writebackup = false
+opt.backup = false
+opt.writebackup = false
 
 opt.guicursor = {
 	"n-v-c:block",
@@ -103,4 +101,4 @@ opt.guicursor = {
 	"sm:block-blinkwait175-blinkoff150-blinkon175",
 }
 
-g.PHP_noArrowMatching = 1
+vim.g.PHP_noArrowMatching = 1

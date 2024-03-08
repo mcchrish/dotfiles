@@ -4,8 +4,8 @@ return {
 		dir = "~/vimming/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",
 		init = function()
-			vim.o.termguicolors = true
-			vim.o.background = "light"
+			vim.opt.termguicolors = true
+			vim.opt.background = "light"
 			vim.api.nvim_create_autocmd("ColorScheme", {
 				pattern = { "*bones", "zenburned", "zenwritten" },
 				callback = function(params)
