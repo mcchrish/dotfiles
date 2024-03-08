@@ -20,7 +20,6 @@ M.setup = function(colors_name)
 				},
 			},
 			lualine_b = {
-				{ "filename", path = 1, color = "lualine_c_normal" },
 				{
 					"diagnostics",
 					symbols = { error = "▬", warn = "▪", hint = "▪", info = "⋅" },
@@ -48,7 +47,15 @@ M.setup = function(colors_name)
 		},
 
 		winbar = {
-			lualine_a = {},
+			lualine_a = {
+				{
+					"mode",
+					padding = 0,
+					fmt = function()
+						return " "
+					end,
+				},
+			},
 			lualine_b = {},
 			lualine_c = { { "filename", path = 1 } },
 			lualine_x = {},
@@ -59,7 +66,7 @@ M.setup = function(colors_name)
 		inactive_winbar = {
 			lualine_a = {},
 			lualine_b = {},
-			lualine_c = { { "filename", path = 1 } },
+			lualine_c = { { "filename", path = 1, padding = { left = 2 } } },
 			lualine_x = {},
 			lualine_y = {},
 			lualine_z = {},
