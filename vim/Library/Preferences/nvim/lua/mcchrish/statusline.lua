@@ -19,14 +19,13 @@ M.setup = function(colors_name)
 					end,
 				},
 			},
-			lualine_b = {
+			lualine_b = {},
+			lualine_c = {
 				{
 					"diagnostics",
 					symbols = { error = "▬", warn = "▪", hint = "▪", info = "⋅" },
-					color = "lualine_c_normal",
 				},
 			},
-			lualine_c = {},
 			lualine_x = { { "filetype" } },
 			lualine_y = { { "branch" } },
 			lualine_z = {
