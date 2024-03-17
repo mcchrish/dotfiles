@@ -57,9 +57,6 @@ return {
 				end,
 			},
 		},
-		init = function()
-			vim.opt.completeopt = { "menu", "menuone", "noselect" }
-		end,
 		opts = function()
 			local cmp = require "cmp"
 			local kind_icons = {
@@ -91,6 +88,9 @@ return {
 			}
 
 			return {
+				completion = {
+					completeopt = "menu,menuone,noinsert",
+				},
 				formatting = {
 					format = function(entry, item)
 						-- Kind icons
@@ -120,7 +120,7 @@ return {
 					["<c-f>"] = cmp.mapping.scroll_docs(4),
 					["<a-space>"] = cmp.mapping.complete {},
 					["<c-e>"] = cmp.mapping.abort(),
-					["<cr>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					["<c-y>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				},
 				sources = cmp.config.sources({
 					{

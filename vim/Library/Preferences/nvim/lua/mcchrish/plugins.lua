@@ -72,7 +72,6 @@ return {
 		},
 	},
 	"tpope/vim-repeat",
-	"tpope/vim-unimpaired",
 	{
 		"tpope/vim-sleuth",
 		init = function()
@@ -103,16 +102,8 @@ return {
 	},
 
 	{
-		"kylechui/nvim-surround",
-		opts = {
-			keymaps = {
-				normal = "sa",
-				normal_cur = "saa",
-				visual = "s",
-				delete = "sd",
-				change = "sr",
-			},
-		},
+		"echasnovski/mini.surround",
+		opts = {},
 	},
 
 	{
@@ -230,6 +221,10 @@ return {
 			},
 		},
 		opts = {
+			float = {
+				max_width = 120,
+				height = 0.7,
+			},
 			keymaps = {
 				["gq"] = "actions.close",
 				["g?"] = "actions.show_help",
@@ -271,7 +266,11 @@ return {
 		},
 	},
 
-	{ "echasnovski/mini.pairs", event = "VeryLazy", opts = {} },
+	{
+		"echasnovski/mini.pairs",
+		event = "VeryLazy",
+		opts = {},
+	},
 
 	{
 		"epwalsh/obsidian.nvim",
@@ -299,6 +298,23 @@ return {
 			{ "ga", mode = { "n", "v" } },
 			{ "gA", mode = { "n", "v" } },
 		},
+	},
+
+	{
+		"echasnovski/mini.basics",
+		opts = {
+			options = {
+				basic = false,
+			},
+			autocommands = {
+				basic = false,
+			},
+		},
+	},
+
+	{
+		"echasnovski/mini.bracketed",
+		opts = {},
 	},
 
 	-- "mcchrish/fountain.vim",

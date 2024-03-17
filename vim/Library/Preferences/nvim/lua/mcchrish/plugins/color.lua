@@ -20,7 +20,7 @@ return {
 				-- darkness = "stark",
 				-- lightness = "bright",
 				-- dim_noncurrent_window = true,
-				solid_vert_split = true,
+				-- solid_vert_split = true,
 				solid_line_nr = true,
 				-- darken_non_text = 30,
 				-- italic_comments = false,
