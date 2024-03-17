@@ -48,9 +48,6 @@ export FZF_DEFAULT_COMMAND="fd --type f \
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_PREVIEW_COMMAND="cat {}"
 
-[[ $- == *i* ]] && source "$(brew --prefix)/fzf/shell/completion.zsh" 2> /dev/null
-source "/$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
-
 # Completions
 source "$srcdir/completions.zsh"
 
@@ -62,6 +59,8 @@ for fn ($srcdir/functions/*.zsh) source $fn
 
 # Aliases
 source "$srcdir/aliases.zsh"
+
+eval "$(fzf --zsh)"
 
 eval "$(zoxide init zsh --cmd j)"
 
