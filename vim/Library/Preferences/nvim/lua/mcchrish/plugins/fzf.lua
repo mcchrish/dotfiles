@@ -1,5 +1,6 @@
 return {
 	"ibhagwan/fzf-lua",
+	cmd = { "FzfLua" },
 	keys = {
 		{
 			"<leader>a",
@@ -170,6 +171,9 @@ return {
 			builtin = {
 				scrollbar = false,
 			},
+		},
+		files = {
+			formatter = "path.filename_first",
 		},
 		grep = {
 			rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white' --colors='path:style:intense'",
