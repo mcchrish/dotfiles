@@ -61,7 +61,7 @@ return {
 		},
 		cmd = { "TroubleToggle", "Trouble" },
 		opts = {
-			icons = false,
+			-- icons = false,
 			action_keys = {
 				close = "gq",
 				open_split = { "<c-s>" },
@@ -75,8 +75,7 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
-			{ "folke/neodev.nvim", opts = {} },
-			"pmizio/typescript-tools.nvim",
+			"yioneko/nvim-vtsls",
 			"nvim-lua/plenary.nvim",
 		},
 		opts = {
@@ -102,21 +101,49 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-			require("typescript-tools").setup {
+			lspconfig.vtsls.setup {
+				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 				capabilities = capabilities,
+				settings = {
+					vtsls = { tsserver = { globalPlugins = {} } },
+					typescript = {
+						inlayHints = {
+							parameterNames = { enabled = "literals" },
+							parameterTypes = { enabled = true },
+							variableTypes = { enabled = true },
+							propertyDeclarationTypes = { enabled = true },
+							functionLikeReturnTypes = { enabled = true },
+							enumMemberValues = { enabled = true },
+						},
+					},
+				},
+				before_init = function(params, config)
+					local result = vim.system(
+						{ "npm", "query", "#vue" },
+						{ cwd = params.workspaceFolders[1].name, text = true }
+					)
+						:wait()
+					if result.stdout ~= "[]" then
+						table.insert(config.settings.vtsls.tsserver.globalPlugins, {
+							name = "@vue/typescript-plugin",
+							location = require("mason-registry").get_package("vue-language-server"):get_install_path()
+								.. "/node_modules/@vue/language-server",
+							languages = { "vue" },
+							configNamespace = "typescript",
+							enableForWorkspaceTypeScriptVersions = true,
+						})
+					end
+				end,
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
 				end,
 			}
 
-			lspconfig.eslint.setup { root_dir = lspconfig.util.root_pattern "package.json" }
-
-			lspconfig.tailwindcss.setup { capabilities = capabilities }
-
 			lspconfig.volar.setup {
-				capabilities = capabilities,
 				on_attach = function(client, bufnr)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentRangeFormattingProvider = false
 					wk.register({
 						["<leader>gr"] = {
 							function()
@@ -141,6 +168,10 @@ return {
 					}, { mode = "n", noremap = true, buffer = bufnr })
 				end,
 			}
+
+			lspconfig.eslint.setup { root_dir = lspconfig.util.root_pattern "package.json" }
+
+			lspconfig.tailwindcss.setup { capabilities = capabilities }
 
 			lspconfig.emmet_language_server.setup {
 				on_attach = function(client, bufnr)
@@ -199,12 +230,6 @@ return {
 					},
 					q = { vim.diagnostic.setloclist, "Open diagnostics location list" },
 				},
-				["["] = {
-					d = { vim.diagnostic.goto_prev, "Previous diagnostics" },
-				},
-				["]"] = {
-					d = { vim.diagnostic.goto_next, "Next diagnostics" },
-				},
 			}, { noremap = true, silent = true })
 
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -217,11 +242,12 @@ return {
 							D = { require("fzf-lua").lsp_declarations, "Declaration" },
 							d = { require("fzf-lua").lsp_definitions, "Definition" },
 							i = { require("fzf-lua").lsp_implementations, "Implementation" },
-							r = { require("fzf-lua").lsp_references, "References" },
+							rr = { require("fzf-lua").lsp_references, "References" },
+							rn = { vim.lsp.buf.rename, "Rename" },
+							ca = { require("fzf-lua").lsp_code_actions, "Code action" },
+							K = { vim.lsp.buf.signature_help, "Signature Help" },
 							["<c-d>"] = { require("fzf-lua").lsp_typedefs, "Type definition" },
 						},
-						K = { vim.lsp.buf.hover, "Hover" },
-						gK = { vim.lsp.buf.signature_help, "Signature Help" },
 						["<leader>w"] = {
 							name = "+LSP workspace",
 							a = { vim.lsp.buf.add_workspace_folder, "add folder" },
@@ -233,8 +259,6 @@ return {
 								"list folders",
 							},
 						},
-						["<leader>rn"] = { vim.lsp.buf.rename, "Rename" },
-						["<leader>ca"] = { require("fzf-lua").lsp_code_actions, "Code action" },
 					}, { noremap = true, buffer = event.buf })
 
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
