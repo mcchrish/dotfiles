@@ -1,4 +1,4 @@
-vim.keymap("n", "<leader><cr>", function()
+vim.keymap.set("n", "<leader><cr>", function()
 	vim.cmd.nohlsearch()
 	vim.cmd.checktime()
 	vim.cmd.redraw()
