@@ -7,7 +7,7 @@ return {
 
 	{
 		"folke/trouble.nvim",
-		cmd = { "Trouble" },
+		cmd = { "Trouble", "TSC" },
 		keys = {
 			{
 				"<leader>xx",
@@ -58,20 +58,8 @@ return {
 			"yioneko/nvim-vtsls",
 			"nvim-lua/plenary.nvim",
 		},
-		opts = {
-			diagnostics = {
-				update_in_insert = false,
-				virtual_text = {
-					spacing = 4,
-					source = "if_many",
-				},
-				severity_sort = true,
-			},
-			signs = { Error = "🮇", Warn = "▪", Hint = "▪", Info = "⋅" },
-		},
-		config = function(_, opts)
-			vim.diagnostic.config(opts.diagnostics)
-
+		opts = {},
+		config = function()
 			local lspconfig = require "lspconfig"
 			require("mason-lspconfig").setup {
 				ensure_installed = { "eslint", "lua_ls", "emmet_language_server", "vale_ls" },
@@ -244,12 +232,6 @@ return {
 					end
 				end,
 			})
-
-			-- signs
-			for type, icon in pairs(opts.signs) do
-				local hl = "DiagnosticSign" .. type
-				vim.fn.sign_define(hl, { text = icon, texthl = hl })
-			end
 		end,
 	},
 }
