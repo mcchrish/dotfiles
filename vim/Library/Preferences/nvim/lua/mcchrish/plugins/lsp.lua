@@ -2,64 +2,44 @@ return {
 	{
 		"williamboman/mason.nvim",
 		build = ":MasonUpdate",
-		config = function()
-			require("mason").setup()
-		end,
+		opts = {},
 	},
 
 	{
 		"folke/trouble.nvim",
+		cmd = { "Trouble" },
 		keys = {
 			{
 				"<leader>xx",
-				function()
-					require("trouble").toggle()
-				end,
-				mode = { "n" },
-				desc = "Trouble",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
 			},
 			{
-				"<leader>xw",
-				function()
-					require("trouble").toggle "workspace_diagnostics"
-				end,
-				mode = { "n" },
-				desc = "Trouble workspace diagnostics",
+				"<leader>xX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
 			},
 			{
-				"<leader>xd",
-				function()
-					require("trouble").toggle "document_diagnostic"
-				end,
-				mode = { "n" },
-				desc = "Trouble document diagnostics",
+				"<leader>cs",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
 			},
 			{
-				"<leader>xq",
-				function()
-					require("trouble").toggle "quickfix"
-				end,
-				mode = { "n" },
-				desc = "Trouble quickfix",
+				"<leader>cl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
 			},
 			{
-				"<leader>xl",
-				function()
-					require("trouble").toggle "loclist"
-				end,
-				mode = { "n" },
-				desc = "Trouble location list",
+				"<leader>xL",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
 			},
 			{
-				"gR",
-				function()
-					require("trouble").toggle "loclist"
-				end,
-				mode = { "n" },
-				desc = "lsp_references",
+				"<leader>xQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
 			},
 		},
-		cmd = { "TroubleToggle", "Trouble" },
 		opts = {
 			-- icons = false,
 			action_keys = {
@@ -224,13 +204,13 @@ return {
 					local fzf = require "fzf-lua"
 
 					map("gd", fzf.lsp_definitions, "[G]oto [D]efinition")
-					map("gr", fzf.lsp_references, "[G]oto [R]eferences")
+					map("grr", fzf.lsp_references, "[G]oto [R]eferences")
 					map("gI", fzf.lsp_implementations, "[G]oto [I]mplementation")
-					map("<leader>D", fzf.lsp_typedefs, "Type [D]efinition")
+					map("g<c-d>", fzf.lsp_typedefs, "Type [D]efinition")
 					map("<leader>ds", fzf.lsp_document_symbols, "[D]ocument [S]ymbols")
 					map("<leader>ws", fzf.lsp_live_workspace_symbols, "[W]orkspace [S]ymbols")
-					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-					map("<leader>ca", fzf.lsp_code_actions, "[C]ode [A]ction")
+					map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+					map("gca", fzf.lsp_code_actions, "[C]ode [A]ction")
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
@@ -257,10 +237,6 @@ return {
 						})
 					end
 
-					-- The following autocommand is used to enable inlay hints in your
-					-- code, if the language server you are using supports them
-					--
-					-- This may be unwanted, since they displace some of your code
 					if client and client.server_capabilities.inlayHintProvider then
 						map("<leader>th", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())

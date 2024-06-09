@@ -1,14 +1,10 @@
 return {
-	{ "nvim-lualine/lualine.nvim", opts = {} },
-	{ "folke/which-key.nvim", event = "VeryLazy" },
-	{ "stevearc/dressing.nvim", opts = {} },
 	{
 		"andymass/vim-matchup",
 		event = "BufReadPost",
 		init = function()
-			local g = vim.g
-			g.matchup_matchparen_deferred = 1
-			g.matchup_matchparen_offscreen = {}
+			vim.g.matchup_matchparen_deferred = 1
+			vim.g.matchup_matchparen_offscreen = {}
 		end,
 	},
 	{
@@ -101,10 +97,9 @@ return {
 		end,
 	},
 
-	{
-		"echasnovski/mini.surround",
-		opts = {},
-	},
+	{ "echasnovski/mini.ai", opts = {} },
+
+	{ "echasnovski/mini.surround", opts = {} },
 
 	{
 		"zbirenbaum/copilot.lua",
@@ -156,8 +151,6 @@ return {
 		},
 	},
 
-	{ "j-hui/fidget.nvim", opts = {} },
-
 	{
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
@@ -200,8 +193,6 @@ return {
 			})
 		end,
 	},
-
-	{ "stevearc/aerial.nvim", event = "VeryLazy", opts = {} },
 
 	{
 		"stevearc/oil.nvim",
@@ -267,12 +258,6 @@ return {
 	},
 
 	{
-		"echasnovski/mini.pairs",
-		event = "VeryLazy",
-		opts = {},
-	},
-
-	{
 		"epwalsh/obsidian.nvim",
 		version = "*",
 		lazy = true,
@@ -312,10 +297,9 @@ return {
 		},
 	},
 
-	{
-		"echasnovski/mini.bracketed",
-		opts = {},
-	},
+	{ "echasnovski/mini.bracketed", opts = {} },
+
+	{ "rcarriga/nvim-notify" },
 
 	-- "mcchrish/fountain.vim",
 }
