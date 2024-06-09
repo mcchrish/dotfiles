@@ -5,7 +5,7 @@ g.python3_host_prog = "/usr/bin/python3"
 g.did_install_default_menus = 1
 
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
 	vim.fn.system {
 		"git",
 		"clone",
@@ -15,7 +15,7 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	}
 end
-vim.opt.runtimepath:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("mcchrish.plugins", {
 	change_detection = {

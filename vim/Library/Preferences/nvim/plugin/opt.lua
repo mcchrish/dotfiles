@@ -44,9 +44,8 @@ opt.synmaxcol = 500
 opt.history = 1000
 opt.tabpagemax = 50
 
--- Nicer vertical splits
 opt.fillchars = { fold = "·" }
-opt.listchars = { tab = "| ", eol = "¬", trail = "⣿", extends = "→", precedes = "←" }
+opt.listchars = { tab = "| ", nbsp = "␣", eol = "¬", trail = "⣿", extends = "→", precedes = "←" }
 
 -- Better completion
 opt.pumheight = 20
