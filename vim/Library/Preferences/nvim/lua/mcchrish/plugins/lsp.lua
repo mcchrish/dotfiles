@@ -101,19 +101,13 @@ return {
 						})
 					end
 				end,
-				on_attach = function(client)
-					client.server_capabilities.documentFormattingProvider = false
-					client.server_capabilities.documentRangeFormattingProvider = false
-				end,
-			}
-
-			lspconfig.volar.setup {
 				on_attach = function(client, bufnr)
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
-					vim.keymap.set("n", "<leader>gr", function()
+					vim.keymap.set("n", "grR", function()
 						client.request(
-							"volar/client/findFileReference",
+							-- "volar/client/findFileReference",
+							"textDocument/reference",
 							{ textDocument = vim.lsp.util.make_text_document_params(bufnr) },
 							function(_, locations, context)
 								local items = vim.lsp.util.locations_to_items(locations, client.offset_encoding)
@@ -127,9 +121,11 @@ return {
 							end,
 							bufnr
 						)
-					end, { buffer = bufnr, desc = "Vue file references" })
+					end, { desc = "Vue file reference" })
 				end,
 			}
+
+			lspconfig.volar.setup {}
 
 			lspconfig.eslint.setup { root_dir = lspconfig.util.root_pattern "package.json" }
 
