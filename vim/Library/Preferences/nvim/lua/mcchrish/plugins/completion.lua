@@ -63,15 +63,6 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
-			{
-
-				"roobert/tailwindcss-colorizer-cmp.nvim",
-				config = function()
-					require("tailwindcss-colorizer-cmp").setup {
-						color_square_width = 2,
-					}
-				end,
-			},
 		},
 		opts = function(_, opts)
 			local cmp = require "cmp"
@@ -125,7 +116,7 @@ return {
 							nvim_lua = "[Lua]",
 							latex_symbols = "[LaTeX]",
 						})[entry.source.name]
-						return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+						return require("nvim-highlight-colors").format(entry, item)
 					end,
 				},
 				window = {

@@ -309,5 +309,9 @@ return {
 		},
 	},
 
+	{ "brenoprata10/nvim-highlight-colors", opts = {} },
+
+	{ "chrisgrieser/nvim-chainsaw", opts = {} },
+
 	-- "mcchrish/fountain.vim",
 }
