@@ -77,7 +77,22 @@ return {
 	},
 	"tpope/vim-rsi",
 
-	{ "chrisgrieser/nvim-genghis", dependencies = "stevearc/dressing.nvim" },
+	{ "chrisgrieser/nvim-genghis", dependencies = "stevearc/dressing.nvim", opts = {} },
+	{ "chrisgrieser/nvim-chainsaw", opts = {} },
+	{
+		"chrisgrieser/nvim-rip-substitute",
+		cmd = "RipSubstitute",
+		keys = {
+			{
+				"<leader>sr",
+				function()
+					require("rip-substitute").sub()
+				end,
+				mode = { "n", "x" },
+				desc = " rip substitute",
+			},
+		},
+	},
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -97,9 +112,48 @@ return {
 		end,
 	},
 
+	{ "echasnovski/mini.bracketed", opts = {} },
 	{ "echasnovski/mini.ai", opts = {} },
-
 	{ "echasnovski/mini.surround", opts = {} },
+	{
+		"echasnovski/mini.align",
+		opts = {},
+		keys = {
+			{ "ga", mode = { "n", "v" } },
+			{ "gA", mode = { "n", "v" } },
+		},
+	},
+	{
+		"echasnovski/mini.basics",
+		opts = {
+			options = {
+				basic = false,
+			},
+			autocommands = {
+				basic = false,
+			},
+		},
+	},
+	{
+		"echasnovski/mini.comment",
+		event = "VeryLazy",
+		dependencies = {
+			{
+				"JoosepAlviste/nvim-ts-context-commentstring",
+				opts = {
+					enable_autocmd = false,
+				},
+			},
+		},
+		opts = {
+			options = {
+				custom_commentstring = function()
+					return require("ts_context_commentstring.internal").calculate_commentstring()
+						or vim.bo.commentstring
+				end,
+			},
+		},
+	},
 
 	{
 		"zbirenbaum/copilot.lua",
@@ -238,26 +292,6 @@ return {
 	},
 
 	{
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		lazy = true,
-		opts = {
-			enable_autocmd = false,
-		},
-	},
-	{
-		"echasnovski/mini.comment",
-		event = "VeryLazy",
-		opts = {
-			options = {
-				custom_commentstring = function()
-					return require("ts_context_commentstring.internal").calculate_commentstring()
-						or vim.bo.commentstring
-				end,
-			},
-		},
-	},
-
-	{
 		"epwalsh/obsidian.nvim",
 		version = "*",
 		lazy = true,
@@ -276,29 +310,6 @@ return {
 		},
 	},
 
-	{
-		"echasnovski/mini.align",
-		opts = {},
-		keys = {
-			{ "ga", mode = { "n", "v" } },
-			{ "gA", mode = { "n", "v" } },
-		},
-	},
-
-	{
-		"echasnovski/mini.basics",
-		opts = {
-			options = {
-				basic = false,
-			},
-			autocommands = {
-				basic = false,
-			},
-		},
-	},
-
-	{ "echasnovski/mini.bracketed", opts = {} },
-
 	{ "rcarriga/nvim-notify" },
 
 	{
@@ -310,8 +321,6 @@ return {
 	},
 
 	{ "brenoprata10/nvim-highlight-colors", opts = {} },
-
-	{ "chrisgrieser/nvim-chainsaw", opts = {} },
 
 	-- "mcchrish/fountain.vim",
 }
