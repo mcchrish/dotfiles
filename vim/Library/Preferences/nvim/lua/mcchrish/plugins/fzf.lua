@@ -173,7 +173,7 @@ return {
 			},
 		},
 		files = {
-			formatter = "path.filename_first",
+			formatter = { "path.filename_first", 2 },
 		},
 		grep = {
 			rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white' --colors='path:style:intense'",
