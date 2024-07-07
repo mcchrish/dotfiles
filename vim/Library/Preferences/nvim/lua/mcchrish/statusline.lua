@@ -26,7 +26,13 @@ M.setup = function(colors_name)
 					symbols = { error = "▬", warn = "▪", hint = "▪", info = "⋅" },
 				},
 			},
-			lualine_x = { { "filetype" } },
+			lualine_x = {
+				{
+					"filetype",
+					colored = false,
+					icon_only = true,
+				},
+			},
 			lualine_y = { { "branch" } },
 			lualine_z = {
 				{ "location", separator = "|", padding = { left = 1 } },
