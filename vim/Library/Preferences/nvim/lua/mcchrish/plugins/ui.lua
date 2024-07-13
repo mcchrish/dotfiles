@@ -11,11 +11,11 @@ return {
 		},
 		keys = {
 			{
-				"<leader>?",
+				"<leader>@",
 				function()
 					require("which-key").show { global = false }
 				end,
-				desc = "Buffer Local Keymaps (which-key)",
+				desc = "Buffer local keymaps (which-key)",
 			},
 		},
 	},

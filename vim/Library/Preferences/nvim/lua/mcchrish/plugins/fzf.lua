@@ -226,7 +226,7 @@ return {
 		{
 			"<leader>s%",
 			function()
-				require("fzf-lua").grep_curbuf {
+				require("fzf-lua").lgrep_curbuf {
 					prompt = "Buffer❫ ",
 				}
 			end,

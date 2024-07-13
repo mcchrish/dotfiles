@@ -2,5 +2,5 @@ vim.keymap.set("n", "<leader><cr>", function()
 	vim.cmd.nohlsearch()
 	vim.cmd.checktime()
 	vim.cmd.redraw()
-	print "Refreshed!"
+	vim.notify("Refreshed!", vim.log.INFO)
 end, { desc = "Refresh" })
