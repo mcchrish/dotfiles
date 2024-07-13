@@ -1,99 +1,325 @@
 return {
 	"ibhagwan/fzf-lua",
-	cmd = { "FzfLua" },
+	cmd = "FzfLua",
+	opts = function()
+		local actions = require "fzf-lua.actions"
+		return {
+			global_git_icons = false,
+			global_file_icons = false,
+			winopts = {
+				width = 0.9,
+				height = 0.6,
+				row = 0.5,
+				col = 0.5,
+				-- border = "none",
+				border = { " ", " ", " ", " ", " ", " ", " ", " " },
+			},
+			hls = {
+				border = "LineNr",
+				preview_border = "NormalFloat",
+				preview_normal = "NormalFloat",
+				preview_title = "Title",
+			},
+			fzf_colors = {
+				["gutter"] = { "bg", "LineNr" },
+				["bg"] = { "bg", "LineNr" },
+				["bg+"] = { "bg", "NormalFloat" },
+				["fg+"] = { "fg", "NormalFloat" },
+				["border"] = { "fg", "Comment" },
+				["header"] = { "fg", "Comment" },
+			},
+			keymap = {
+				fzf = {
+					["alt-a"] = "toggle-all",
+					["down"] = "half-page-down",
+					["up"] = "half-page-up",
+					["f2"] = "toggle-preview",
+					["f3"] = "toggle-preview-wrap",
+					["shift-down"] = "preview-page-down",
+					["shift-up"] = "preview-page-up",
+				},
+			},
+			fzf_opts = {
+				["--prompt"] = " ❫",
+				["--info"] = "default",
+				["--layout"] = "default",
+			},
+			preview_horizontal = "right:50%",
+			previewers = {
+				builtin = {
+					scrollbar = false,
+				},
+			},
+			files = {
+				formatter = { "path.filename_first", 2 },
+				actions = {
+					["alt-i"] = { actions.toggle_ignore },
+					["alt-h"] = { actions.toggle_hidden },
+				},
+			},
+			git = {
+				files = {
+					prompt = "Tracked files❫ ",
+				},
+				status = {
+					prompt = "Status❫ ",
+				},
+				commits = {
+					prompt = "Commits❫ ",
+				},
+				bcommits = {
+					prompt = "Bcommits❫ ",
+				},
+				branches = {
+					prompt = "Branches❫ ",
+				},
+				tags = {
+					prompt = "Tags❫ ",
+				},
+				stash = {
+					prompt = "Stash❫ ",
+				},
+			},
+			grep = {
+				prompt = "Grep❫ ",
+				input_prompt = "Grep for❫ ",
+				rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --colors='path:fg:white' --colors='path:style:intense' -e",
+				actions = {
+					["alt-i"] = { actions.toggle_ignore },
+					["alt-h"] = { actions.toggle_hidden },
+				},
+			},
+			args = {
+				prompt = "Args❫ ",
+			},
+			oldfiles = {
+				prompt = "History❫ ",
+			},
+			buffers = {
+				prompt = "Buffers❫ ",
+			},
+			tabs = {
+				prompt = "Tabs❫ ",
+			},
+			lines = {
+				prompt = "Lines❫ ",
+			},
+			blines = {
+				previewer = false,
+				prompt = "Blines❫ ",
+			},
+			keymaps = {
+				prompt = "Keymaps❫ ",
+			},
+			quickfix_stack = {
+				prompt = "Quickfix stack❫ ",
+			},
+			lsp = {
+				prompt_postfix = "❫ ",
+			},
+			code_actions = {
+				prompt = "Code actions❫ ",
+			},
+			finder = {
+				prompt = "LSP finder❫ ",
+			},
+			diagnostics = {
+				prompt = "Diagnostics❫ ",
+			},
+			marks = {
+				prompt = "Marks❫ ",
+			},
+		}
+	end,
+	init = function()
+		vim.cmd.cnoreabbrev "fz FzfLua"
+	end,
+	config = function(_, opts)
+		require("fzf-lua").setup(opts)
+	end,
 	keys = {
 		{
-			"<leader>a",
+			"<leader><space>",
 			function()
-				require("fzf-lua").grep { search = "", resume = false }
+				require("fzf-lua").resume()
 			end,
-			mode = { "n" },
-			desc = "FZF grep result",
+			desc = "Resume",
 		},
 		{
-			"<leader>A",
+			"<leader>,",
 			function()
-				require("fzf-lua").grep {
-					search = "",
-					resume = false,
-					rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white' --hidden",
-				}
+				require("fzf-lua").buffers()
 			end,
-			mode = { "n" },
-			desc = "FZF grep result (include hidden)",
+			desc = "Buffers",
 		},
 		{
-			"<leader>K",
+			"<leader>/",
+			function()
+				require("fzf-lua").live_grep()
+			end,
+			desc = "Grep (root dir)",
+		},
+		{
+			"<leader>:",
+			function()
+				require("fzf-lua").command_history()
+			end,
+			desc = "Command History",
+		},
+		{
+			"<leader>sf",
+			function()
+				require("fzf-lua").files()
+			end,
+			desc = "Find files (root dir)",
+		},
+		{
+			"<leader>sF",
+			function()
+				require("fzf-lua").files { cwd = vim.uv.cwd() }
+			end,
+			desc = "Files (cwd)",
+		},
+		{
+			"<leader>sg",
+			function()
+				require("fzf-lua").git_files()
+			end,
+			desc = "Files (git)",
+		},
+		{
+			"<leader>sh",
+			function()
+				require("fzf-lua").oldfiles()
+			end,
+			desc = "Recent files",
+		},
+		{
+			"<leader>sH",
+			function()
+				require("fzf-lua").oldfiles { cwd = vim.uv.cwd() }
+			end,
+			desc = "Recent files (cwd)",
+		},
+		{
+			"<leader>sw",
 			function()
 				require("fzf-lua").grep_cword()
 			end,
-			mode = { "n" },
-			desc = "FZF cword",
+			desc = "Grep cword",
 		},
 		{
-			"<leader>K",
+			"<leader>sW",
+			function()
+				require("fzf-lua").grep_cWORD()
+			end,
+			desc = "Grep cWORD",
+		},
+		{
+			"<leader>ss",
 			function()
 				require("fzf-lua").grep_visual()
 			end,
-			mode = { "v" },
-			desc = "FZF with current selection",
+			mode = "v",
+			desc = "Grep selection",
 		},
 		{
-			"<leader>f",
+			"<leader>s%",
 			function()
-				require("fzf-lua").files { resume = false }
+				require("fzf-lua").grep_curbuf {
+					prompt = "Buffer❫ ",
+				}
 			end,
-			mode = { "n" },
-			desc = "FZF files",
+			desc = "Grep buffer",
 		},
 		{
-			"<leader>d",
+			"<leader>s*",
 			function()
-				require("fzf-lua").files { cwd = vim.fn.expand "%:h" }
+				require("fzf-lua").grep_curbuf {
+					prompt = "Buffer❫ ",
+					search = vim.fn.expand "<cword>",
+				}
 			end,
-			mode = { "n" },
-			desc = "FZF files (active buffer dir)",
+			desc = "Grep buffer with cword",
 		},
 		{
-			"<leader>b",
+			"<leader>sl",
 			function()
-				require("fzf-lua").buffers { resume = false }
+				require("fzf-lua").blines()
 			end,
-			mode = { "n" },
-			desc = "FZF buffers",
+			desc = "Buffer lines",
 		},
 		{
-			"<leader>l",
+			"<leader>sL",
 			function()
-				require("fzf-lua").blines { resume = false }
+				require("fzf-lua").lines()
 			end,
-			mode = { "n" },
-			desc = "FZF buffer lines",
+			desc = "Lines",
 		},
 		{
-			"<leader>L",
+			"<leader>sc",
 			function()
-				require("fzf-lua").lines { resume = false }
+				require("fzf-lua").commands()
 			end,
-			mode = { "n" },
-			desc = "FZF lines",
+			desc = "Word",
 		},
 		{
-			"<leader>m",
+			"<leader>sm",
 			function()
 				require("fzf-lua").marks()
 			end,
-			mode = { "n" },
-			desc = "FZF marks",
+			desc = "Marks",
 		},
 		{
-			"gQ",
+			"<leader>sh",
 			function()
-				require("fzf-lua").command_history { resume = false }
+				require("fzf-lua").help_tags()
 			end,
-			mode = { "n" },
-			desc = "FZF command history",
+			desc = "Help",
 		},
+		{
+			"<leader>sH",
+			function()
+				require("fzf-lua").man_pages()
+			end,
+			desc = "Man pages",
+		},
+		{
+			"<leader>sj",
+			function()
+				require("fzf-lua").jumps()
+			end,
+			desc = "Jumplist",
+		},
+		{
+			"<leader>sk",
+			function()
+				require("fzf-lua").keymaps()
+			end,
+			desc = "Keymaps",
+		},
+		{
+			"<leader>sq",
+			function()
+				require("fzf-lua").quickfix()
+			end,
+			desc = "Quickfix",
+		},
+		{
+			"<leader>sQ",
+			function()
+				require("fzf-lua").loclist()
+			end,
+			desc = "Location list",
+		},
+		{
+			[[<leader>s"]],
+			function()
+				require("fzf-lua").registers()
+			end,
+			desc = "Registers",
+		},
+
 		{
 			"<c-x><c-k>",
 			function()
@@ -101,7 +327,7 @@ return {
 			end,
 			mode = { "i" },
 			silent = true,
-			desc = "FZF complete bline",
+			desc = "Complete bline",
 			remap = true,
 		},
 		{
@@ -111,7 +337,7 @@ return {
 			end,
 			mode = { "i" },
 			silent = true,
-			desc = "FZF complete path",
+			desc = "Complete path",
 			remap = true,
 		},
 		{
@@ -121,69 +347,8 @@ return {
 			end,
 			mode = { "i" },
 			silent = true,
-			desc = "FZF complete line",
+			desc = "Complete line",
 			remap = true,
 		},
 	},
-	opts = {
-		global_git_icons = false,
-		global_file_icons = false,
-		winopts = {
-			width = 0.9,
-			height = 0.6,
-			row = 0.5,
-			col = 0.5,
-			-- border = "none",
-			border = { " ", " ", " ", " ", " ", " ", " ", " " },
-		},
-		hls = {
-			border = "LineNr",
-			preview_border = "NormalFloat",
-			preview_normal = "NormalFloat",
-			preview_title = "Title",
-		},
-		fzf_colors = {
-			["gutter"] = { "bg", "LineNr" },
-			["bg"] = { "bg", "LineNr" },
-			["bg+"] = { "bg", "NormalFloat" },
-			["fg+"] = { "fg", "NormalFloat" },
-			["border"] = { "fg", "Comment" },
-			["header"] = { "fg", "Comment" },
-		},
-		keymap = {
-			fzf = {
-				["alt-a"] = "toggle-all",
-				["down"] = "half-page-down",
-				["up"] = "half-page-up",
-				["f2"] = "toggle-preview",
-				["f3"] = "toggle-preview-wrap",
-				["shift-down"] = "preview-page-down",
-				["shift-up"] = "preview-page-up",
-			},
-		},
-		fzf_opts = {
-			["--prompt"] = " ❫",
-			["--info"] = "default",
-			["--layout"] = "default",
-		},
-		preview_horizontal = "right:50%",
-		previewers = {
-			builtin = {
-				scrollbar = false,
-			},
-		},
-		files = {
-			formatter = { "path.filename_first", 2 },
-		},
-		grep = {
-			rg_opts = "--column --line-number --no-heading --color=always --smart-case --colors='path:fg:white' --colors='path:style:intense'",
-		},
-		blines = {
-			previewer = false,
-		},
-	},
-	config = function(_, opts)
-		require("fzf-lua").setup(opts)
-		vim.cmd.cnoreabbrev "fz FzfLua"
-	end,
 }

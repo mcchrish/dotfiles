@@ -15,10 +15,10 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Remap esc
-inoremap jk <esc>
+" inoremap jk <esc>
 
 " Faster save
-nnoremap <leader>w <cmd>silent update<cr>
+nnoremap <leader>ww <cmd>silent update<cr>
 
 " Delete without overwriting default register
 nnoremap vd "_d

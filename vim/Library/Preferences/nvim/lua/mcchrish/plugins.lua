@@ -67,7 +67,6 @@ return {
 			},
 		},
 	},
-	"tpope/vim-repeat",
 	{
 		"tpope/vim-sleuth",
 		init = function()
@@ -253,16 +252,18 @@ return {
 		event = "VeryLazy",
 		keys = {
 			{
-				"<leader>nn",
-				"<cmd>Oil --float<cr>",
-				mode = { "n" },
-				desc = "Open file browser",
+				"-",
+				function()
+					require("oil").open_float()
+				end,
+				desc = "Browse dir",
 			},
 			{
-				"<leader>nc",
-				"<cmd>Oil --float %:h<cr>",
-				mode = { "n" },
-				desc = "Open file browser under current file",
+				"_",
+				function()
+					require("oil").open_float(vim.uv.cwd())
+				end,
+				desc = "Browse dir (cwd)",
 			},
 		},
 		opts = {
