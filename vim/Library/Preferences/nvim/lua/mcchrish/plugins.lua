@@ -83,12 +83,12 @@ return {
 		cmd = "RipSubstitute",
 		keys = {
 			{
-				"<leader>sr",
+				"<leader>%",
 				function()
 					require("rip-substitute").sub()
 				end,
 				mode = { "n", "x" },
-				desc = " rip substitute",
+				desc = " Rip substitute",
 			},
 		},
 	},
