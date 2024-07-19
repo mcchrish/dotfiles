@@ -63,6 +63,13 @@ return {
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
+			{
+				"zbirenbaum/copilot-cmp",
+				opts = {},
+				config = function(_, opts)
+					require("copilot_cmp").setup(opts)
+				end,
+			},
 		},
 		opts = function(_, opts)
 			local cmp = require "cmp"
@@ -115,6 +122,7 @@ return {
 							luasnip = "[LuaSnip]",
 							nvim_lua = "[Lua]",
 							latex_symbols = "[LaTeX]",
+							copilot = "[Copilot]",
 						})[entry.source.name]
 						return require("nvim-highlight-colors").format(entry, item)
 					end,
@@ -136,6 +144,7 @@ return {
 					["<c-y>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				},
 				sources = cmp.config.sources({
+					{ name = "copilot" },
 					{
 						name = "nvim_lsp",
 						entry_filter = function(entry)

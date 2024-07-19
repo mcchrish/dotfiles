@@ -156,51 +156,22 @@ return {
 
 	{
 		"zbirenbaum/copilot.lua",
-		enabled = false,
 		cmd = "Copilot",
 		event = "InsertEnter",
 		opts = {
 			suggestion = {
-				enabled = true,
-				keymap = false,
+				enabled = false,
+				hide_during_completion = false,
+				keymap = {
+					accept = "<m-l>",
+					accept_word = false,
+					accept_line = false,
+					next = "<m-]>",
+					prev = "<m-[>",
+					dismiss = "<m-L>",
+				},
 			},
 			panel = { enabled = false },
-		},
-		keys = {
-			{
-				"<c-l>",
-				mode = { "i" },
-				function()
-					require("copilot.suggestion").accept()
-				end,
-				desc = "Copilot accept",
-			},
-			{
-				"<c-s>",
-				mode = { "i" },
-				function()
-					require("cmp").close()
-					require("copilot.suggestion").next()
-				end,
-				desc = "Copilot next",
-			},
-			{
-				"<c-S>",
-				mode = { "i" },
-				function()
-					require("cmp").close()
-					require("copilot.suggestion").prev()
-				end,
-				desc = "Copilot prev",
-			},
-			{
-				"<c-L>",
-				mode = { "i" },
-				function()
-					require("copilot.suggestion").dismiss()
-				end,
-				desc = "Copilot accept",
-			},
 		},
 	},
 
@@ -323,18 +294,6 @@ return {
 
 	{ "brenoprata10/nvim-highlight-colors", opts = {} },
 
-	{
-		"echasnovski/mini.icons",
-		opts = {},
-		lazy = true,
-		specs = { { "nvim-tree/nvim-web-devicons", enabled = false, optional = true } },
-		init = function()
-			-- needed since it will be false when loading and mini will fail package.loaded["nvim-web-devicons"] = {}
-			package.preload["nvim-web-devicons"] = function()
-				require("mini.icons").mock_nvim_web_devicons()
-				return package.loaded["nvim-web-devicons"]
-			end
-		end,
-	},
+	{ "echasnovski/mini.icons", lazy = true, opts = {} },
 	-- "mcchrish/fountain.vim",
 }
