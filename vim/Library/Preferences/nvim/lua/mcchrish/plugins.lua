@@ -295,5 +295,20 @@ return {
 	{ "brenoprata10/nvim-highlight-colors", opts = {} },
 
 	{ "echasnovski/mini.icons", lazy = true, opts = {} },
+
+	{
+		"tris203/precognition.nvim",
+		cmd = "Precognition",
+		keys = {
+			{
+				"<leader>!",
+				function()
+					require("precognition").toggle()
+				end,
+				desc = "Buffers",
+			},
+		},
+		opts = {},
+	},
 	-- "mcchrish/fountain.vim",
 }

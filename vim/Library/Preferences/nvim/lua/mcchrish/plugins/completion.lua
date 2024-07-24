@@ -140,11 +140,24 @@ return {
 					["<c-b>"] = cmp.mapping.scroll_docs(-4),
 					["<c-f>"] = cmp.mapping.scroll_docs(4),
 					["<a-space>"] = cmp.mapping.complete {},
+					["<a-i>"] = cmp.mapping.complete {
+						config = {
+							sources = cmp.config.sources {
+								{ name = "copilot" },
+							},
+						},
+					},
+					["<a-s>"] = cmp.mapping.complete {
+						config = {
+							sources = cmp.config.sources {
+								{ name = "luasnip" },
+							},
+						},
+					},
 					["<c-e>"] = cmp.mapping.abort(),
 					["<c-y>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				},
 				sources = cmp.config.sources({
-					{ name = "copilot" },
 					{
 						name = "nvim_lsp",
 						entry_filter = function(entry)
@@ -155,6 +168,7 @@ return {
 						end,
 					},
 					{ name = "luasnip" },
+					{ name = "copilot" },
 					{ name = "path" },
 					{ name = "nvim_lsp_signature_help" },
 				}, {
