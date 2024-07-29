@@ -167,6 +167,13 @@ return {
 			desc = "Command History",
 		},
 		{
+			"<leader>sb",
+			function()
+				require("fzf-lua").builtin()
+			end,
+			desc = "Builtin commands",
+		},
+		{
 			"<leader>sf",
 			function()
 				require("fzf-lua").files()
