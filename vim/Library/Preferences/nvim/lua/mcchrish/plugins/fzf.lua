@@ -162,6 +162,13 @@ return {
 		{
 			"<leader>:",
 			function()
+				require("fzf-lua").commands()
+			end,
+			desc = "Command",
+		},
+		{
+			"<leader>s:",
+			function()
 				require("fzf-lua").command_history()
 			end,
 			desc = "Command History",
@@ -262,13 +269,6 @@ return {
 				require("fzf-lua").lines()
 			end,
 			desc = "Lines",
-		},
-		{
-			"<leader>sc",
-			function()
-				require("fzf-lua").commands()
-			end,
-			desc = "Word",
 		},
 		{
 			"<leader>sm",
