@@ -20,5 +20,12 @@ return {
 		},
 	},
 	{ "stevearc/dressing.nvim", opts = {} },
-	{ "j-hui/fidget.nvim", opts = {} },
+	{
+		"j-hui/fidget.nvim",
+		opts = {
+			notification = {
+				override_vim_notify = true,
+			},
+		},
+	},
 }
