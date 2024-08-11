@@ -1,42 +1,4 @@
 return {
-	{
-		"L3MON4D3/LuaSnip",
-		event = "InsertEnter",
-		dependencies = {
-			"rafamadriz/friendly-snippets",
-			config = function()
-				require("luasnip.loaders.from_vscode").lazy_load()
-			end,
-		},
-		keys = {
-			{
-				"<tab>",
-				function()
-					return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-				end,
-				expr = true,
-				silent = true,
-				mode = "i",
-			},
-			{
-				"<tab>",
-				function()
-					require("luasnip").jump(1)
-				end,
-				mode = "s",
-			},
-			{
-				"<s-tab>",
-				function()
-					require("luasnip").jump(-1)
-				end,
-				mode = { "i", "s" },
-			},
-		},
-		config = function()
-			require("luasnip.loaders.from_vscode").lazy_load()
-		end,
-	},
 
 	{
 		"folke/lazydev.nvim",
@@ -64,6 +26,19 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 			{
+				"L3MON4D3/LuaSnip",
+				dependencies = {
+					"rafamadriz/friendly-snippets",
+					config = function()
+						require("luasnip.loaders.from_vscode").lazy_load()
+					end,
+				},
+				config = function()
+					local luasnip = require "luasnip"
+					luasnip.config.setup {}
+				end,
+			},
+			{
 				"zbirenbaum/copilot-cmp",
 				opts = {},
 				config = function(_, opts)
@@ -73,6 +48,7 @@ return {
 		},
 		opts = function(_, opts)
 			local cmp = require "cmp"
+			local luasnip = require "luasnip"
 			local kind_icons = {
 				Text = "",
 				Method = "",
@@ -156,6 +132,16 @@ return {
 					},
 					["<c-e>"] = cmp.mapping.abort(),
 					["<c-y>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					["<C-l>"] = cmp.mapping(function()
+						if luasnip.expand_or_locally_jumpable() then
+							luasnip.expand_or_jump()
+						end
+					end, { "i", "s" }),
+					["<C-h>"] = cmp.mapping(function()
+						if luasnip.locally_jumpable(-1) then
+							luasnip.jump(-1)
+						end
+					end, { "i", "s" }),
 				},
 				sources = cmp.config.sources({
 					{
@@ -168,7 +154,7 @@ return {
 						end,
 					},
 					{ name = "luasnip" },
-					{ name = "copilot" },
+					-- { name = "copilot" },
 					{ name = "path" },
 					{ name = "nvim_lsp_signature_help" },
 				}, {

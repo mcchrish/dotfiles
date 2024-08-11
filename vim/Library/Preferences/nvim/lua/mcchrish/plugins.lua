@@ -160,15 +160,16 @@ return {
 		event = "InsertEnter",
 		opts = {
 			suggestion = {
-				enabled = false,
-				hide_during_completion = false,
+				enabled = true,
+				-- auto_trigger = true,
+				-- hide_during_completion = false,
 				keymap = {
-					accept = "<m-l>",
+					accept = "<m-y>",
 					accept_word = false,
 					accept_line = false,
 					next = "<m-]>",
 					prev = "<m-[>",
-					dismiss = "<m-L>",
+					dismiss = "<m-Y>",
 				},
 			},
 			panel = { enabled = false },
