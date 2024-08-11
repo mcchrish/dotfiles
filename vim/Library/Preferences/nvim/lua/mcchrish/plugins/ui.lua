@@ -28,4 +28,37 @@ return {
 			},
 		},
 	},
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false,
+		enabled = false,
+		opts = {
+			hybrid_modes = { "n" },
+		},
+	},
+	{
+		"echasnovski/mini.icons",
+		lazy = true,
+		init = function()
+			package.preload["nvim-web-devicons"] = function()
+				require("mini.icons").mock_nvim_web_devicons()
+				return package.loaded["nvim-web-devicons"]
+			end
+		end,
+		opts = {},
+	},
+	{
+		"tris203/precognition.nvim",
+		cmd = "Precognition",
+		keys = {
+			{
+				"<leader>!",
+				function()
+					require("precognition").toggle()
+				end,
+				desc = "Buffers",
+			},
+		},
+		opts = {},
+	},
 }
