@@ -10,11 +10,11 @@ config.font_size = 13
 config.line_height = 1.04
 config.initial_cols = 160
 config.initial_rows = 40
--- config.front_end = "WebGpu"
--- config.automatically_reload_config = false
--- config.freetype_load_target = "Light"
+config.front_end = "OpenGL"
+config.freetype_load_target = "Light"
 config.freetype_load_flags = "NO_HINTING"
--- config.freetype_render_target = "HorizontalLcd"
+config.freetype_render_target = "HorizontalLcd"
+-- config.automatically_reload_config = false
 
 config.keys = {
 	{
@@ -50,7 +50,7 @@ wezterm.on("gui-startup", function()
 end)
 
 config.window_frame = {
-	font = wezterm.font { family = "Iosevka Curly Slab", weight = "Bold" },
+	font = wezterm.font { family = "Zenbones Mono", weight = "Bold" },
 }
 
 config.window_padding = {
