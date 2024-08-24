@@ -25,16 +25,15 @@ return {
 		},
 		keys = {
 			{
-				"sf",
+				"s",
 				mode = { "n", "x", "o" },
 				function()
-					-- default options: exact mode, multi window, all directions, with a backdrop
 					require("flash").jump()
 				end,
 				desc = "Flash",
 			},
 			{
-				"st",
+				"S",
 				mode = { "n", "o", "x" },
 				function()
 					require("flash").treesitter()
@@ -42,7 +41,7 @@ return {
 				desc = "Flash Treesitter",
 			},
 			{
-				"sw",
+				"r",
 				mode = "o",
 				function()
 					require("flash").remote()
@@ -50,7 +49,7 @@ return {
 				desc = "Remote Flash",
 			},
 			{
-				"sT",
+				"R",
 				mode = { "o", "x" },
 				function()
 					require("flash").treesitter_search()
@@ -78,17 +77,26 @@ return {
 
 	{ "chrisgrieser/nvim-genghis", dependencies = "stevearc/dressing.nvim", opts = {} },
 	{ "chrisgrieser/nvim-chainsaw", opts = {} },
+
 	{
-		"chrisgrieser/nvim-rip-substitute",
-		cmd = "RipSubstitute",
+		"MagicDuck/grug-far.nvim",
+		opts = { headerMaxWidth = 80 },
+		cmd = "GrugFar",
 		keys = {
 			{
 				"<leader>%",
 				function()
-					require("rip-substitute").sub()
+					local grug = require "grug-far"
+					local ext = vim.bo.buftype == "" and vim.fn.expand "%:e"
+					grug.grug_far {
+						transient = true,
+						prefills = {
+							filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+						},
+					}
 				end,
-				mode = { "n", "x" },
-				desc = " Rip substitute",
+				mode = { "n", "v" },
+				desc = "Search and Replace",
 			},
 		},
 	},
