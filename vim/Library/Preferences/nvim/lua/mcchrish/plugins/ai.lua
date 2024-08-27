@@ -23,7 +23,7 @@ return {
 
 	{
 		"yetone/avante.nvim",
-		-- enabled = false,
+		enabled = false,
 		event = "VeryLazy",
 		build = "make",
 		opts = {
@@ -65,6 +65,18 @@ return {
 					adapter = "anthropic",
 				},
 			},
+		},
+	},
+
+	{
+		"magicalne/nvim.ai",
+		enabled = false,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {
+			provider = "anthropic",
 		},
 	},
 }

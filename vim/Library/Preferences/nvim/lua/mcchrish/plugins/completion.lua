@@ -155,6 +155,7 @@ return {
 						end,
 					},
 					{ name = "luasnip" },
+					-- { name = "nvimai_cmp_source" },
 					-- { name = "copilot" },
 					{ name = "path" },
 					{ name = "nvim_lsp_signature_help" },
