@@ -33,6 +33,7 @@ return {
 		lazy = false,
 		enabled = false,
 		opts = {
+			filetypes = { "markdown", "Avante", "codecompanion" },
 			hybrid_modes = { "n" },
 		},
 	},
