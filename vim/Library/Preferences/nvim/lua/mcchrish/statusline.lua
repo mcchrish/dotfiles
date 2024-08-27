@@ -4,10 +4,12 @@ M.setup = function(colors_name)
 	require("lualine").setup {
 		options = {
 			globalstatus = true,
-			icons_enabled = true,
 			theme = colors_name,
 			section_separators = "",
 			component_separators = "",
+			disabled_filetypes = {
+				winbar = { "Avante", "AvanteInput" },
+			},
 		},
 		sections = {
 			lualine_a = {
