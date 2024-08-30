@@ -269,8 +269,6 @@ return {
 		},
 	},
 
-	{ "rcarriga/nvim-notify" },
-
 	{
 		"dmmulroy/tsc.nvim",
 		cmd = { "TSC" },
