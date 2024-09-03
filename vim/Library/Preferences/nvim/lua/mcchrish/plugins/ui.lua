@@ -30,13 +30,24 @@ return {
 	},
 	{
 		"OXY2DEV/markview.nvim",
-		lazy = false,
-		enabled = false,
+		lazy = true,
+		ft = { "markdown", "Avante", "codecompanion" },
 		opts = {
+			-- hybrid_modes = { "n" },
 			filetypes = { "markdown", "Avante", "codecompanion" },
-			hybrid_modes = { "n" },
+			buf_ignore = {},
 		},
 	},
+
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		lazy = true,
+		-- ft = { "markdown", "Avante" },
+		opts = {
+			file_types = { "markdown", "Avante" },
+		},
+	},
+
 	{
 		"echasnovski/mini.icons",
 		lazy = true,
