@@ -110,3 +110,5 @@ alias al='la'            # I often screw this up.
 # Clipboard
 alias pbc="pbcopy"
 alias pbp="pbpaste"
+
+alias s="kitten ssh"
