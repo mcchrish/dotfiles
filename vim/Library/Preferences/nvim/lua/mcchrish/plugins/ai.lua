@@ -23,23 +23,32 @@ return {
 
 	{
 		"yetone/avante.nvim",
-		enabled = false,
-		event = "VeryLazy",
+		-- lazy = true,
 		build = "make",
-		opts = {
-			-- provider = "claude",
-			provider = "copilot",
-		},
 		dependencies = {
 			"stevearc/dressing.nvim",
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
 		},
+		opts = {
+			-- provider = "claude",
+			provider = "copilot",
+			hints = {
+				enabled = false,
+			},
+			windows = {
+				width = 40,
+				sidebar_header = {
+					align = "right",
+					rounded = false,
+				},
+			},
+		},
 	},
 
 	{
 		"olimorris/codecompanion.nvim",
-		enabled = false,
+		lazy = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
@@ -47,7 +56,7 @@ return {
 		opts = {
 			adapters = {
 				anthropic = function()
-					return require("codecompanion.adapters").use("anthropic", {
+					return require("codecompanion.adapters").extend("anthropic", {
 						env = {
 							api_key = vim.env.ANTHROPIC_API_KEY,
 						},
@@ -56,13 +65,13 @@ return {
 			},
 			strategies = {
 				chat = {
-					adapter = "anthropic",
+					adapter = "copilot",
 				},
 				inline = {
-					adapter = "anthropic",
+					adapter = "copilot",
 				},
 				agent = {
-					adapter = "anthropic",
+					adapter = "copilot",
 				},
 			},
 		},
@@ -70,7 +79,7 @@ return {
 
 	{
 		"magicalne/nvim.ai",
-		enabled = false,
+		lazy = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",

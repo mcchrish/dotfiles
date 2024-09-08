@@ -1,5 +1,5 @@
 return {
-	{ "nvim-lualine/lualine.nvim", opts = {} },
+	{ "nvim-lualine/lualine.nvim", opts = {}, dependencies = { "AndreM222/copilot-lualine" } },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -31,20 +31,48 @@ return {
 	{
 		"OXY2DEV/markview.nvim",
 		lazy = true,
-		ft = { "markdown", "Avante", "codecompanion" },
+		-- ft = { "markdown", "Avante", "codecompanion" },
 		opts = {
 			-- hybrid_modes = { "n" },
 			filetypes = { "markdown", "Avante", "codecompanion" },
 			buf_ignore = {},
+			code_blocks = {
+				style = "simple",
+			},
+			list_items = {
+				marker_minus = {
+					text = "•",
+				},
+				marker_plus = {
+					text = "◆",
+				},
+				marker_star = {
+					text = "⬣",
+				},
+			},
 		},
 	},
 
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		lazy = true,
-		-- ft = { "markdown", "Avante" },
+		ft = { "markdown", "Avante" },
 		opts = {
 			file_types = { "markdown", "Avante" },
+			heading = {
+				width = "block",
+				left_pad = 2,
+				right_pad = 2,
+			},
+			bullet = {
+				icons = { "•", "◦", "◆", "◇" },
+			},
+			sign = { enabled = false },
+			code = {
+				width = "block",
+				left_pad = 2,
+				right_pad = 4,
+			},
 		},
 	},
 
