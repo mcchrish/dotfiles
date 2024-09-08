@@ -39,13 +39,6 @@ return {
 					luasnip.config.setup {}
 				end,
 			},
-			{
-				"zbirenbaum/copilot-cmp",
-				opts = {},
-				config = function(_, opts)
-					require("copilot_cmp").setup(opts)
-				end,
-			},
 		},
 		opts = function(_, opts)
 			local cmp = require "cmp"
@@ -99,7 +92,6 @@ return {
 							luasnip = "[LuaSnip]",
 							nvim_lua = "[Lua]",
 							latex_symbols = "[LaTeX]",
-							copilot = "[Copilot]",
 						})[entry.source.name]
 						return require("nvim-highlight-colors").format(entry, item)
 					end,
@@ -117,13 +109,6 @@ return {
 					["<c-b>"] = cmp.mapping.scroll_docs(-4),
 					["<c-f>"] = cmp.mapping.scroll_docs(4),
 					["<a-space>"] = cmp.mapping.complete {},
-					["<a-i>"] = cmp.mapping.complete {
-						config = {
-							sources = cmp.config.sources {
-								{ name = "copilot" },
-							},
-						},
-					},
 					["<a-s>"] = cmp.mapping.complete {
 						config = {
 							sources = cmp.config.sources {
@@ -155,8 +140,7 @@ return {
 						end,
 					},
 					{ name = "luasnip" },
-					-- { name = "nvimai_cmp_source" },
-					-- { name = "copilot" },
+					{ name = "nvimai_cmp_source" },
 					{ name = "path" },
 					{ name = "nvim_lsp_signature_help" },
 				}, {

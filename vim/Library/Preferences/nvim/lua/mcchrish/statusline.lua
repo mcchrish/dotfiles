@@ -29,6 +29,7 @@ M.setup = function(colors_name)
 				},
 			},
 			lualine_x = {
+				"copilot",
 				{
 					"filetype",
 					colored = false,
