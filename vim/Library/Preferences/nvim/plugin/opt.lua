@@ -47,9 +47,6 @@ opt.tabpagemax = 50
 opt.fillchars = { fold = "·" }
 opt.listchars = { tab = "| ", nbsp = "␣", eol = "¬", trail = "⣿", extends = "→", precedes = "←" }
 
--- Better completion
-opt.pumheight = 20
-
 -- Visual-block can free move
 opt.virtualedit = "block"
 
@@ -58,7 +55,6 @@ opt.shiftwidth = 4
 opt.shiftround = true
 opt.tabstop = 4
 opt.softtabstop = 4
-opt.expandtab = true
 opt.breakindent = true
 opt.showbreak = "↪ "
 
