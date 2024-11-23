@@ -103,16 +103,6 @@ return {
 		},
 	},
 	{
-		"linrongbin16/gitlinker.nvim",
-		keys = {
-			{ "<leader>gl", "<cmd>GitLink<cr>", mode = { "n", "x" }, desc = "Copy git permlink to clipboard" },
-			{ "<leader>gL", "<cmd>GitLink!<cr>", mode = { "n", "x" }, desc = "Open git permlink in browser" },
-		},
-		config = function()
-			require("gitlinker").setup()
-		end,
-	},
-	{
 		"mbbill/undotree",
 		cmd = "UndotreeToggle",
 		keys = {

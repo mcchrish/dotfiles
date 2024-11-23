@@ -88,7 +88,7 @@ return {
 				function()
 					local grug = require "grug-far"
 					local ext = vim.bo.buftype == "" and vim.fn.expand "%:e"
-					grug.grug_far {
+					grug.open {
 						transient = true,
 						prefills = {
 							filesFilter = ext and ext ~= "" and "*." .. ext or nil,
@@ -281,6 +281,30 @@ return {
 	},
 
 	{ "brenoprata10/nvim-highlight-colors", opts = {} },
+
+	{
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
+		opts = {
+			bigfile = { enabled = true },
+			notifier = { enabled = true },
+			quickfile = { enabled = true },
+			statuscolumn = { enabled = true },
+			words = { enabled = true },
+			dashboard = { enabled = true },
+		},
+		keys = {
+			{
+				"<leader>gl",
+				function()
+					require("snacks").gitbrowse()
+				end,
+				mode = { "n", "x" },
+				desc = "Copy git permlink to clipboard",
+			},
+		},
+	},
 
 	-- "mcchrish/fountain.vim",
 }
