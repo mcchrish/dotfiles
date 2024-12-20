@@ -75,7 +75,7 @@ return {
 	},
 	"tpope/vim-rsi",
 
-	{ "chrisgrieser/nvim-genghis", dependencies = "stevearc/dressing.nvim", opts = {} },
+	{ "chrisgrieser/nvim-genghis", opts = {} },
 	{ "chrisgrieser/nvim-chainsaw", opts = {} },
 
 	{
@@ -99,24 +99,6 @@ return {
 				desc = "Search and Replace",
 			},
 		},
-	},
-
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		cmd = { "IBLToggle", "IBLToggleScope" },
-		opts = {
-			-- enabled = false,
-			indent = {
-				char = "│",
-				tab_char = "│",
-			},
-		},
-		config = function(_, opts)
-			require("ibl").setup(opts)
-			local hooks = require "ibl.hooks"
-			hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
-		end,
 	},
 
 	{ "echasnovski/mini.bracketed", opts = {} },
@@ -286,19 +268,23 @@ return {
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
+		---@type snacks.Config
 		opts = {
 			bigfile = { enabled = true },
+			dashboard = { enabled = true },
+			indent = { enabled = true },
+			input = { enabled = true },
 			notifier = { enabled = true },
 			quickfile = { enabled = true },
+			scroll = { enabled = false },
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
-			dashboard = { enabled = true },
 		},
 		keys = {
 			{
 				"<leader>gl",
 				function()
-					require("snacks").gitbrowse()
+					Snacks.gitbrowse()
 				end,
 				mode = { "n", "x" },
 				desc = "Copy git permlink to clipboard",
