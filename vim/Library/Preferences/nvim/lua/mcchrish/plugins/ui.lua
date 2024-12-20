@@ -19,15 +19,7 @@ return {
 			},
 		},
 	},
-	{ "stevearc/dressing.nvim", opts = {} },
-	{
-		"j-hui/fidget.nvim",
-		opts = {
-			notification = {
-				override_vim_notify = true,
-			},
-		},
-	},
+	{ "j-hui/fidget.nvim", opts = {} },
 	{
 		"OXY2DEV/markview.nvim",
 		lazy = true,
@@ -38,6 +30,24 @@ return {
 			buf_ignore = {},
 			code_blocks = {
 				style = "simple",
+			},
+			links = {
+				hyperlinks = {
+					icon = "",
+					corner_left = "",
+					padding_right = "",
+					corner_right = "󰌷 ",
+				},
+				images = {
+					icon = "",
+					corner_left = "",
+					corner_right = "󰥶 ",
+				},
+				emails = {
+					icon = "",
+					corner_left = "",
+					corner_right = " ",
+				},
 			},
 			list_items = {
 				marker_minus = {
@@ -56,9 +66,9 @@ return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		lazy = true,
-		ft = { "markdown", "Avante" },
+		ft = { "Avante", "codecompanion" },
 		opts = {
-			file_types = { "markdown", "Avante" },
+			file_types = { "markdown", "Avante", "codecompanion" },
 			heading = {
 				width = "block",
 				left_pad = 2,
@@ -70,8 +80,6 @@ return {
 			sign = { enabled = false },
 			code = {
 				width = "block",
-				left_pad = 2,
-				right_pad = 4,
 			},
 		},
 	},
