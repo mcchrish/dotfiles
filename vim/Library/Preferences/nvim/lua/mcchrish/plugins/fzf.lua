@@ -13,6 +13,9 @@ return {
 				col = 0.5,
 				-- border = "none",
 				border = { " ", " ", " ", " ", " ", " ", " ", " " },
+				preview = {
+					horizontal = "right:50%",
+				},
 			},
 			hls = {
 				border = "LineNr",
@@ -44,7 +47,6 @@ return {
 				["--info"] = "default",
 				["--layout"] = "default",
 			},
-			preview_horizontal = "right:50%",
 			previewers = {
 				builtin = {
 					scrollbar = false,
