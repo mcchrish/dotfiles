@@ -1,0 +1,16 @@
+font-family = Zenbones Mono
+font-family-bold = Zenbones Mono Semibold
+font-family-bold-italic = Zenbones Mono Semibold Italic
+theme = light:zenbones_light,dark:zenbones_dark
+window-height = 48
+window-width = 160
+adjust-cell-height = 2
+adjust-cursor-height = 2
+adjust-cursor-thickness = 2
+
+font-feature = TXTR
+# doesn't work at the moment
+font-feature = cv07=10
+font-feature = cv10=13
+
+cursor-color = 2c363c
