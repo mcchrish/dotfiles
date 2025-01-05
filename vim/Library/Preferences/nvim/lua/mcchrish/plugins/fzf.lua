@@ -4,8 +4,10 @@ return {
 	opts = function()
 		local actions = require "fzf-lua.actions"
 		return {
-			global_git_icons = false,
-			global_file_icons = false,
+			defaults = {
+				git_icons = false,
+				file_icons = false,
+			},
 			winopts = {
 				width = 0.9,
 				height = 0.6,
