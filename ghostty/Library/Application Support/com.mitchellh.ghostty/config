@@ -1,6 +1,7 @@
 font-family = Zenbones Mono
-font-family-bold = Zenbones Mono Semibold
-font-family-bold-italic = Zenbones Mono Semibold Italic
+font-style-bold = Semibold
+font-style-bold-italic = Semibold Italic
+font-synthetic-style = false
 theme = light:zenbones_light,dark:zenbones_dark
 window-height = 48
 window-width = 160
