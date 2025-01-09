@@ -13,26 +13,18 @@ return {
 				height = 0.6,
 				row = 0.5,
 				col = 0.5,
-				-- border = "none",
 				border = { " ", " ", " ", " ", " ", " ", " ", " " },
 				preview = {
+					border = { " ", " ", " ", " ", " ", " ", " ", " " },
 					horizontal = "right:50%",
 				},
 			},
 			hls = {
-				border = "LineNr",
-				preview_border = "NormalFloat",
-				preview_normal = "NormalFloat",
-				preview_title = "Title",
+				title = "FloatTitle",
+				preview_border = "LineNr",
+				preview_normal = "LineNr",
 			},
-			fzf_colors = {
-				["gutter"] = { "bg", "LineNr" },
-				["bg"] = { "bg", "LineNr" },
-				["bg+"] = { "bg", "NormalFloat" },
-				["fg+"] = { "fg", "NormalFloat" },
-				["border"] = { "fg", "Comment" },
-				["header"] = { "fg", "Comment" },
-			},
+			fzf_colors = true,
 			keymap = {
 				fzf = {
 					["alt-a"] = "toggle-all",
