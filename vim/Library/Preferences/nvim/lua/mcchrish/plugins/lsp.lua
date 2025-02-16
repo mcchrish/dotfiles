@@ -63,10 +63,14 @@ return {
 			local lspconfig = require "lspconfig"
 			require("mason-lspconfig").setup {
 				ensure_installed = { "eslint", "lua_ls", "emmet_language_server", "vale_ls" },
+				automatic_installation = false,
 			}
 
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+			-- lspconfig.denols.setup {
+			-- 	capabilities = capabilities,
+			-- }
 
 			lspconfig.vtsls.setup {
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
@@ -101,27 +105,9 @@ return {
 						})
 					end
 				end,
-				on_attach = function(client, bufnr)
+				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
-					vim.keymap.set("n", "grR", function()
-						client.request(
-							-- "volar/client/findFileReference",
-							"textDocument/reference",
-							{ textDocument = vim.lsp.util.make_text_document_params(bufnr) },
-							function(_, locations, context)
-								local items = vim.lsp.util.locations_to_items(locations, client.offset_encoding)
-								vim.fn.setqflist(
-									{},
-									" ",
-									{ title = "Vue File References", items = items, context = context }
-								)
-								require("fzf-lua").quickfix()
-								-- vim.api.nvim_command "copen"
-							end,
-							bufnr
-						)
-					end, { desc = "Vue file reference" })
 				end,
 			}
 
