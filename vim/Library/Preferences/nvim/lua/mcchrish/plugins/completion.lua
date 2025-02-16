@@ -1,159 +1,74 @@
 return {
+	{
+		"saghen/blink.cmp",
+		dependencies = "rafamadriz/friendly-snippets",
+
+		-- use a release tag to download pre-built binaries
+		version = "v0.*",
+		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+		-- build = 'cargo build --release',
+		-- If you use nix, you can build from source using latest nightly rust with:
+		-- build = 'nix run .#build-plugin',
+
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			keymap = {
+				preset = "default",
+				["<a-space>"] = { "show", "show_documentation", "hide_documentation" },
+				["<c-e>"] = { "hide" },
+				["<c-y>"] = { "select_and_accept" },
+
+				["<c-p>"] = { "select_prev", "fallback" },
+				["<c-n>"] = { "select_next", "fallback" },
+
+				["<c-b>"] = { "scroll_documentation_up", "fallback" },
+				["<c-f>"] = { "scroll_documentation_down", "fallback" },
+
+				["<c-l>"] = { "snippet_forward", "fallback" },
+				["<c-h>"] = { "snippet_backward", "fallback" },
+			},
+			appearance = {
+				-- Sets the fallback highlight groups to nvim-cmp's highlight groups
+				-- Useful for when your theme doesn't support blink.cmp
+				-- will be removed in a future release
+				use_nvim_cmp_as_default = true,
+				-- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+				-- Adjusts spacing to ensure icons are aligned
+				nerd_font_variant = "mono",
+			},
+			-- default list of enabled providers defined so that you can extend it
+			-- elsewhere in your config, without redefining it, due to `opts_extend`
+			sources = {
+				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						-- make lazydev completions top priority (see `:h blink.cmp`)
+						score_offset = 100,
+					},
+				},
+				-- optionally disable cmdline completions
+			},
+
+			-- experimental signature help support
+			signature = { enabled = true },
+		},
+		-- allows extending the providers array elsewhere in your config
+		-- without having to redefine it
+		opts_extend = { "sources.default" },
+	},
 
 	{
 		"folke/lazydev.nvim",
 		ft = "lua", -- only load on lua files
 		opts = {
 			library = {
-				-- Library items can be absolute paths
-				-- "~/projects/my-awesome-lib",
-				-- Or relative, which means they will be resolved as a plugin
-				-- "LazyVim",
-				-- When relative, you can also provide a path to the library in the plugin dir
-				"luvit-meta/library", -- see below
+				-- See the configuration section for more details
+				-- Load luvit types when the `vim.uv` word is found
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
 		},
-	},
-	{ "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
-
-	{
-		"yioneko/nvim-cmp",
-		branch = "perf",
-		event = "InsertEnter",
-		dependencies = {
-			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
-			{
-				"L3MON4D3/LuaSnip",
-				dependencies = {
-					"rafamadriz/friendly-snippets",
-					config = function()
-						require("luasnip.loaders.from_vscode").lazy_load()
-					end,
-				},
-				config = function()
-					local luasnip = require "luasnip"
-					luasnip.config.setup {}
-				end,
-			},
-		},
-		opts = function(_, opts)
-			local cmp = require "cmp"
-			local luasnip = require "luasnip"
-			local kind_icons = {
-				Text = "",
-				Method = "",
-				Function = "",
-				Constructor = "",
-				Field = "",
-				Variable = "",
-				Class = "",
-				Interface = "",
-				Module = "",
-				Property = "",
-				Unit = "",
-				Value = "",
-				Enum = "",
-				Keyword = "",
-				Snippet = "",
-				Color = "",
-				File = "",
-				Reference = "",
-				Folder = "",
-				EnumMember = "",
-				Constant = "",
-				Struct = "",
-				Event = "",
-				Operator = "",
-				TypeParameter = "",
-			}
-
-			opts.sources = opts.sources or {}
-			table.insert(opts.sources, {
-				name = "lazydev",
-				group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-			})
-
-			return {
-				completion = {
-					completeopt = "menu,menuone,noinsert",
-				},
-				formatting = {
-					format = function(entry, item)
-						-- Kind icons
-						item.kind = string.format("%s  %s", kind_icons[item.kind], item.kind) -- This concatonates the icons with the name of the item kind
-						-- Source
-						item.menu = ({
-							buffer = "[Buffer]",
-							nvim_lsp = "[LSP]",
-							luasnip = "[LuaSnip]",
-							nvim_lua = "[Lua]",
-							latex_symbols = "[LaTeX]",
-						})[entry.source.name]
-						return require("nvim-highlight-colors").format(entry, item)
-					end,
-				},
-				window = {
-					-- completion = cmp.config.window.bordered(),
-					-- documentation = cmp.config.window.bordered(),
-				},
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-				mapping = cmp.mapping.preset.insert {
-					["<c-b>"] = cmp.mapping.scroll_docs(-4),
-					["<c-f>"] = cmp.mapping.scroll_docs(4),
-					["<a-space>"] = cmp.mapping.complete {},
-					["<a-s>"] = cmp.mapping.complete {
-						config = {
-							sources = cmp.config.sources {
-								{ name = "luasnip" },
-							},
-						},
-					},
-					["<c-e>"] = cmp.mapping.abort(),
-					["<c-y>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-					["<C-l>"] = cmp.mapping(function()
-						if luasnip.expand_or_locally_jumpable() then
-							luasnip.expand_or_jump()
-						end
-					end, { "i", "s" }),
-					["<C-h>"] = cmp.mapping(function()
-						if luasnip.locally_jumpable(-1) then
-							luasnip.jump(-1)
-						end
-					end, { "i", "s" }),
-				},
-				sources = cmp.config.sources({
-					{
-						name = "nvim_lsp",
-						entry_filter = function(entry)
-							return not (
-								entry:get_kind() == require("cmp.types").lsp.CompletionItemKind.Snippet
-								and entry.source:get_debug_name() == "nvim_lsp:emmet_language_server"
-							)
-						end,
-					},
-					{ name = "luasnip" },
-					{ name = "nvimai_cmp_source" },
-					{ name = "path" },
-					{ name = "nvim_lsp_signature_help" },
-				}, {
-					{
-						name = "buffer",
-						option = {
-							get_bufnrs = function()
-								return vim.api.nvim_list_bufs()
-							end,
-						},
-					},
-				}),
-			}
-		end,
 	},
 }
