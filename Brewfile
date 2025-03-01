@@ -19,7 +19,6 @@ brew "tokei"
 brew "zoxide"
 brew "zsh-history-substring-search"
 
-cask "bitwarden"
 cask "calibre"
 cask "darktable"
 cask "firefox"

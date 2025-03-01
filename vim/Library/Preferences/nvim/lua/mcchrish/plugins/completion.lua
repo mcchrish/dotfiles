@@ -15,12 +15,6 @@ return {
 				["<c-h>"] = { "snippet_backward", "fallback" },
 			},
 
-			cmdline = {
-				keymap = {
-					preset = "super-tab",
-				},
-			},
-
 			completion = {
 				menu = {
 					draw = {

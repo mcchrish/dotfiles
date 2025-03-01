@@ -23,15 +23,15 @@ return {
 
 	{
 		"yetone/avante.nvim",
-		-- lazy = true,
+		event = "VeryLazy",
+		lazy = false,
+		version = false,
 		build = "make",
 		dependencies = {
-			"stevearc/dressing.nvim",
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
 		},
 		opts = {
-			-- provider = "claude",
 			provider = "copilot",
 			hints = {
 				enabled = false,
@@ -48,7 +48,7 @@ return {
 
 	{
 		"olimorris/codecompanion.nvim",
-		lazy = true,
+		-- lazy = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
@@ -66,6 +66,18 @@ return {
 			strategies = {
 				chat = {
 					adapter = "copilot",
+					slash_commands = {
+						buffer = {
+							opts = {
+								provider = "fzf_lua",
+							},
+						},
+						file = {
+							opts = {
+								provider = "fzf_lua",
+							},
+						},
+					},
 				},
 				inline = {
 					adapter = "copilot",
@@ -74,18 +86,6 @@ return {
 					adapter = "copilot",
 				},
 			},
-		},
-	},
-
-	{
-		"magicalne/nvim.ai",
-		lazy = true,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {
-			provider = "anthropic",
 		},
 	},
 }

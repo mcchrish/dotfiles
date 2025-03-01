@@ -210,9 +210,11 @@ return {
 			},
 		},
 		opts = {
+			delete_to_trash = true,
 			float = {
 				max_width = 120,
 				height = 0.7,
+				-- border = { " ", " ", " ", " ", " ", " ", " ", " " },
 			},
 			keymaps = {
 				["gq"] = "actions.close",
@@ -279,6 +281,14 @@ return {
 			scroll = { enabled = false },
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
+			picker = {
+				prompt = "❫ ",
+				formatters = {
+					file = {
+						filename_first = true,
+					},
+				},
+			},
 		},
 		keys = {
 			{
@@ -289,6 +299,13 @@ return {
 				mode = { "n", "x" },
 				desc = "Copy git permlink to clipboard",
 			},
+			-- {
+			-- 	"<leader>sf",
+			-- 	function()
+			-- 		Snacks.picker.files()
+			-- 	end,
+			-- 	desc = "Find files (root dir)",
+			-- },
 		},
 	},
 

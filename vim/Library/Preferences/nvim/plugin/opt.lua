@@ -29,7 +29,7 @@ opt.splitright = true
 opt.splitkeep = "screen"
 
 -- Diff Mode
-opt.diffopt:append {
+vim.opt.diffopt:append {
 	"linematch:50",
 	"vertical",
 	"foldcolumn:0",
@@ -71,8 +71,8 @@ opt.startofline = false
 -- Menu complete
 opt.wildignorecase = true
 opt.wildmode = { "longest:full", "full" }
-opt.wildignore:append { ".hg", ".git", ".svn", "*.pyc", "*.spl", "*.o", "*.out", "*.DS_Store" }
-opt.wildignore:append { "*/node_modules/*" }
+vim.opt.wildignore:append { ".hg", ".git", ".svn", "*.pyc", "*.spl", "*.o", "*.out", "*.DS_Store" }
+vim.opt.wildignore:append { "*/node_modules/*" }
 
 -- Dictionary
 opt.dictionary = "/usr/share/dict/words"

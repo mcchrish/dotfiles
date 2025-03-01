@@ -19,49 +19,8 @@ return {
 			},
 		},
 	},
+
 	{ "j-hui/fidget.nvim", opts = {} },
-	{
-		"OXY2DEV/markview.nvim",
-		lazy = true,
-		-- ft = { "markdown", "Avante", "codecompanion" },
-		opts = {
-			-- hybrid_modes = { "n" },
-			filetypes = { "markdown", "Avante", "codecompanion" },
-			buf_ignore = {},
-			code_blocks = {
-				style = "simple",
-			},
-			links = {
-				hyperlinks = {
-					icon = "",
-					corner_left = "",
-					padding_right = "",
-					corner_right = "󰌷 ",
-				},
-				images = {
-					icon = "",
-					corner_left = "",
-					corner_right = "󰥶 ",
-				},
-				emails = {
-					icon = "",
-					corner_left = "",
-					corner_right = " ",
-				},
-			},
-			list_items = {
-				marker_minus = {
-					text = "•",
-				},
-				marker_plus = {
-					text = "◆",
-				},
-				marker_star = {
-					text = "⬣",
-				},
-			},
-		},
-	},
 
 	{
 		"MeanderingProgrammer/render-markdown.nvim",

@@ -4,8 +4,8 @@ return {
 		dir = "~/vimming/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",
 		init = function()
-			vim.opt.termguicolors = true
-			vim.opt.background = "light"
+			vim.o.termguicolors = true
+			vim.o.background = "light"
 			vim.api.nvim_create_autocmd("ColorScheme", {
 				pattern = { "*bones", "zenburned", "zenwritten" },
 				callback = function(params)
@@ -30,6 +30,13 @@ return {
 				-- colorize_diagnostic_underline_text = true,
 			}
 			vim.cmd.colorscheme(colors_name)
+		end,
+	},
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			-- vim.cmd "colorscheme rose-pine"
 		end,
 	},
 }
