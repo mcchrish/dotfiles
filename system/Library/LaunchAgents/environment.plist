@@ -11,7 +11,7 @@
       <string>sh</string>
       <string>-c</string>
       <string>
-        launchctl setenv GNUPGHOME /Users/mcchris/.config/gnupg
+        launchctl setenv GNUPGHOME /Users/mcchris/.local/share/gnupg
       </string>
     </array>
     <key>RunAtLoad</key>
