@@ -2,19 +2,19 @@
 
 # XDG
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
-  export XDG_CONFIG_HOME="$HOME/Library/Preferences"
+  export XDG_CONFIG_HOME="$HOME/.config"
 fi
 
 if [[ -z "$XDG_CACHE_HOME" ]]; then
-  export XDG_CACHE_HOME="$HOME/Library/Caches"
+  export XDG_CACHE_HOME="$HOME/.cache"
 fi
 
 if [[ -z "$XDG_DATA_HOME" ]]; then
-  export XDG_DATA_HOME="$HOME/Library/Application\ Support"
+  export XDG_DATA_HOME="$HOME/.local/share"
 fi
 
 if [[ -z "$XDG_STATE_HOME" ]]; then
-  export XDG_STATE_HOME="$HOME/Library/Application\ Support"
+  export XDG_STATE_HOME="$HOME/.local/state"
 fi
 
 if [[ -z "$XDG_DATA_DIRS" ]]; then
@@ -22,9 +22,9 @@ if [[ -z "$XDG_DATA_DIRS" ]]; then
 fi
 
 if [[ -z "$XDG_CONFIG_DIRS" ]]; then
-  export XDG_CONFIG_DIRS="/Library/Preferences"
+  export XDG_CONFIG_DIRS="/etc/xdg"
 else
-  export XDG_CONFIG_DIRS="/Library/Preferences:$XDG_CONFIG_DIRS"
+  export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
 fi
 
 cd "$HOME" || exit
