@@ -41,15 +41,7 @@ fi
 echo "Install all programs..."
 /usr/local/bin/brew bundle install
 
-echo "Stowing config files..."
-/usr/local/bin/stow --restow --no-folding git
-/usr/local/bin/stow --restow --no-folding gnupg
-/usr/local/bin/stow --restow --no-folding rg
-/usr/local/bin/stow --restow --no-folding system
-# /usr/local/bin/stow --restow --no-folding tmux
-/usr/local/bin/stow --restow --no-folding wezterm
-/usr/local/bin/stow --restow --no-folding kitty
-/usr/local/bin/stow --restow --no-folding vim
-/usr/local/bin/stow --restow --no-folding zsh
+echo "Apply config files..."
+/opt/homebrew/bin/chezmoi apply
 
 echo "Done. :)"

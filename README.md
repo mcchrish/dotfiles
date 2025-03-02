@@ -1,6 +1,6 @@
 # dotfiles
 
-Managed by GNU Stow. Primarily configured for macOS system.
+Managed by Chezmoi. Primarily configured for macOS system.
 
 ## Install
 
@@ -12,7 +12,7 @@ Managed by GNU Stow. Primarily configured for macOS system.
 
 - XDG Base Directories
 - [Homebrew](Brewfile)
-- [GNU Stow](install.sh)
+- [Chezmoi](install.sh)
 - [Git](git/Library/Preferences/git)
 - [Neovim](vim/Library/Preferences/nvim)
 - [Kitty](kitty/.config/kitty)
