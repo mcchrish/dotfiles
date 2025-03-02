@@ -299,6 +299,12 @@ return {
 				mode = { "n", "x" },
 				desc = "Copy git permlink to clipboard",
 			},
+			{
+				"<leader>n",
+				function()
+					Snacks.notifier.show_history()
+				end,
+			},
 			-- {
 			-- 	"<leader>sf",
 			-- 	function()
