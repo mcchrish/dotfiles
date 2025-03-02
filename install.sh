@@ -39,7 +39,7 @@ if ! (command -v brew > /dev/null); then
 fi
 
 echo "Install all programs..."
-/usr/local/bin/brew bundle install
+/opt/homebrew/bin/brew bundle install
 
 echo "Apply config files..."
 /opt/homebrew/bin/chezmoi apply
