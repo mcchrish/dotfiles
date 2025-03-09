@@ -283,9 +283,53 @@ return {
 			words = { enabled = true },
 			picker = {
 				prompt = "❫ ",
+				layout = {
+					layout = {
+						box = "horizontal",
+						width = 0.9,
+						min_width = 120,
+						height = 0.6,
+						{
+							box = "vertical",
+							border = "solid",
+							title = "{title} {live} {flags}",
+							wo = {
+								winhighlight = "NormalFloat:Normal,FloatBorder:Normal",
+							},
+							{
+								win = "input",
+								height = 1,
+								border = "bottom",
+								wo = {
+									winhighlight = "NormalFloat:Normal",
+								},
+							},
+							{
+								win = "list",
+								border = "none",
+								wo = {
+									winhighlight = "NormalFloat:Normal",
+								},
+							},
+						},
+						{
+							win = "preview",
+							title = "{preview}",
+							border = "solid",
+							width = 0.5,
+						},
+					},
+				},
 				formatters = {
 					file = {
 						filename_first = true,
+					},
+				},
+				win = {
+					input = {
+						keys = {
+							["<esc>"] = { "close", mode = { "n", "i" } },
+						},
 					},
 				},
 			},
@@ -302,16 +346,193 @@ return {
 			{
 				"<leader>n",
 				function()
-					Snacks.notifier.show_history()
+					Snacks.picker.notifications()
 				end,
 			},
-			-- {
-			-- 	"<leader>sf",
-			-- 	function()
-			-- 		Snacks.picker.files()
-			-- 	end,
-			-- 	desc = "Find files (root dir)",
-			-- },
+			{
+				"<leader><space>",
+				function()
+					Snacks.picker.resume()
+				end,
+				desc = "Resume",
+			},
+			{
+				"<leader>,",
+				function()
+					Snacks.picker.buffers()
+				end,
+				desc = "Buffers",
+			},
+			{
+				"<leader>/",
+				function()
+					Snacks.picker.grep()
+				end,
+				desc = "Grep",
+			},
+			{
+				"<leader>:",
+				function()
+					Snacks.picker.commands()
+				end,
+				desc = "Command",
+			},
+
+			{
+				"<leader>s:",
+				function()
+					Snacks.picker.command_history()
+				end,
+				desc = "Command History",
+			},
+			{
+				"<leader>sp",
+				function()
+					Snacks.picker.pickers()
+				end,
+				desc = "Pickers",
+			},
+			{
+				"<leader>sf",
+				function()
+					Snacks.picker.files()
+				end,
+				desc = "Find files (root dir)",
+			},
+			{
+				"<leader>sF",
+				function()
+					Snacks.picker.files { cwd = vim.uv.cwd() }
+				end,
+				desc = "Files (cwd)",
+			},
+			{
+				"<leader>sg",
+				function()
+					Snacks.picker.git_files()
+				end,
+				desc = "Files (git)",
+			},
+			{
+				"<leader>sr",
+				function()
+					Snacks.picker.recent()
+				end,
+				desc = "Recent files",
+			},
+			{
+				"<leader>sR",
+				function()
+					Snacks.picker.recent { cwd = vim.uv.cwd() }
+				end,
+				desc = "Recent files (cwd)",
+			},
+			{
+				"<leader>sw",
+				function()
+					Snacks.picker.grep_word()
+				end,
+				desc = "Visual selection or word",
+				mode = { "n", "x" },
+			},
+			{
+				"<leader>s%",
+				function()
+					Snacks.picker.grep_buffers()
+				end,
+				desc = "Grep buffer with cword",
+			},
+			{
+				"<leader>sl",
+				function()
+					Snacks.picker.lines()
+				end,
+				desc = "Buffer lines",
+			},
+			{
+				"<leader>sm",
+				function()
+					Snacks.picker.marks()
+				end,
+				desc = "Marks",
+			},
+			{
+				"<leader>sh",
+				function()
+					Snacks.picker.help()
+				end,
+				desc = "Help",
+			},
+			{
+				"<leader>sH",
+				function()
+					Snacks.picker.man()
+				end,
+				desc = "Man pages",
+			},
+			{
+				"<leader>sj",
+				function()
+					Snacks.picker.jumps()
+				end,
+				desc = "Jumplist",
+			},
+			{
+				"<leader>sk",
+				function()
+					Snacks.picker.keymaps()
+				end,
+				desc = "Keymaps",
+			},
+			{
+				"<leader>sq",
+				function()
+					Snacks.picker.qflist()
+				end,
+				desc = "Quickfix",
+			},
+			{
+				"<leader>sQ",
+				function()
+					Snacks.picker.loclist()
+				end,
+				desc = "Location list",
+			},
+			{
+				[[<leader>s"]],
+				function()
+					Snacks.picker.registers()
+				end,
+				desc = "Registers",
+			},
+			{
+				"<leader>s/",
+				function()
+					Snacks.picker.search_history()
+				end,
+				desc = "Search History",
+			},
+			{
+				"<leader>sd",
+				function()
+					Snacks.picker.diagnostics()
+				end,
+				desc = "Diagnostics",
+			},
+			{
+				"<leader>sD",
+				function()
+					Snacks.picker.diagnostics_buffer()
+				end,
+				desc = "Buffer Diagnostics",
+			},
+			{
+				"<leader>su",
+				function()
+					Snacks.picker.undo()
+				end,
+				desc = "Undotree",
+			},
 		},
 	},
 
