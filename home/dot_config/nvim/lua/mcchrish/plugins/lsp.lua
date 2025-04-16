@@ -60,21 +60,14 @@ return {
 		},
 		opts = {},
 		config = function()
-			local lspconfig = require "lspconfig"
 			require("mason-lspconfig").setup {
 				ensure_installed = { "eslint", "lua_ls", "emmet_language_server", "vale_ls" },
 				automatic_installation = false,
 			}
 
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-			-- lspconfig.denols.setup {
-			-- 	capabilities = capabilities,
-			-- }
-
-			lspconfig.vtsls.setup {
+			vim.lsp.enable "vtsls"
+			vim.lsp.config("vtsls", {
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-				capabilities = capabilities,
 				settings = {
 					vtsls = { tsserver = { globalPlugins = {} } },
 					typescript = {
@@ -109,15 +102,14 @@ return {
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
 				end,
-			}
+			})
 
-			lspconfig.volar.setup {}
-
-			lspconfig.eslint.setup { root_dir = lspconfig.util.root_pattern "package.json" }
-
-			lspconfig.tailwindcss.setup { capabilities = capabilities }
-
-			lspconfig.emmet_language_server.setup {
+			vim.lsp.enable "volar"
+			vim.lsp.enable "eslint"
+			vim.lsp.enable "tailwindcss"
+			vim.lsp.enable "vale_ls"
+			vim.lsp.enable "emmet_language_server"
+			vim.lsp.config("emmet_language_server", {
 				on_attach = function(client, bufnr)
 					vim.keymap.set("i", "<c-s>,", function()
 						client.request(
@@ -134,10 +126,10 @@ return {
 						)
 					end, { noremap = true, buffer = bufnr, desc = "Expand emmet" })
 				end,
-			}
+			})
 
-			lspconfig.lua_ls.setup {
-				capabilities = capabilities,
+			vim.lsp.enable "lua_ls"
+			vim.lsp.config("lua_ls", {
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
@@ -155,9 +147,7 @@ return {
 						},
 					},
 				},
-			}
-
-			lspconfig.vale_ls.setup { capabilities = capabilities }
+			})
 
 			vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
@@ -179,19 +169,6 @@ return {
 					map("<leader>ws", Snacks.picker.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
-					---@param client vim.lsp.Client
-					---@param method vim.lsp.protocol.Method
-					---@param bufnr? integer some lsp support methods only in specific files
-					---@return boolean
-					local function client_supports_method(client, method, bufnr)
-						if vim.fn.has "nvim-0.11" == 1 then
-							return client:supports_method(method, bufnr)
-						else
-							return client.supports_method(method, { bufnr = bufnr })
-						end
-					end
-
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
 					--    See `:help CursorHold` for information about when this is executed
@@ -200,11 +177,7 @@ return {
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if
 						client
-						and client_supports_method(
-							client,
-							vim.lsp.protocol.Methods.textDocument_documentHighlight,
-							event.buf
-						)
+						and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)
 					then
 						local highlight_augroup =
 							vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
@@ -235,7 +208,7 @@ return {
 					-- This may be unwanted, since they displace some of your code
 					if
 						client
-						and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
+						and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
 					then
 						map("<leader>th", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
