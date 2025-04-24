@@ -154,6 +154,7 @@ return {
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("lsp-attach", {}),
 				callback = function(event)
+					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					-- Enable completion triggered by <c-x><c-o>
 					vim.bo[event.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
@@ -161,20 +162,25 @@ return {
 						vim.keymap.set(mode or "n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
-					local Snacks = require "snacks"
+					local fzf = require "fzf-lua"
 
-					map("gd", Snacks.picker.lsp_definitions, "[G]oto [D]efinition")
-					map("g<c-d>", Snacks.picker.lsp_type_definitions, "Type [D]efinition")
-					map("<leader>ds", Snacks.picker.lsp_symbols, "[D]ocument [S]ymbols")
-					map("<leader>ws", Snacks.picker.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
-					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+					map("gd", function()
+						fzf.lsp_definitions { jump1 = true }
+					end, "[G]oto [D]efinition")
+					map("gD", function()
+						fzf.lsp_definitions { jump1 = false }
+					end, "Peek [D]efinition")
+					map("grr", fzf.lsp_references, "[G]oto [R]eferences")
+					map("g<c-d>", fzf.lsp_typedefs, "Type [D]efinition")
+					map("<leader>ds", fzf.lsp_document_symbols, "[D]ocument [S]ymbols")
+					map("<leader>ws", fzf.lsp_live_workspace_symbols, "[W]orkspace [S]ymbols")
+					map("gra", fzf.lsp_code_actions, "Code [A]ction")
 
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
 					--    See `:help CursorHold` for information about when this is executed
 					--
 					-- When you move your cursor, the highlights will be cleared (the second autocommand).
-					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if
 						client
 						and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)
