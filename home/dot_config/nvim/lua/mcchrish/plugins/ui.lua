@@ -1,5 +1,4 @@
 return {
-	{ "nvim-lualine/lualine.nvim", opts = {}, dependencies = { "AndreM222/copilot-lualine" } },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -25,9 +24,9 @@ return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		lazy = true,
-		ft = { "Avante", "codecompanion" },
+		ft = { "codecompanion" },
 		opts = {
-			file_types = { "markdown", "Avante", "codecompanion" },
+			file_types = { "markdown", "codecompanion" },
 			heading = {
 				width = "block",
 				left_pad = 2,

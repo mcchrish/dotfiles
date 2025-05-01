@@ -65,7 +65,6 @@ return {
 				automatic_installation = false,
 			}
 
-			vim.lsp.enable "vtsls"
 			vim.lsp.config("vtsls", {
 				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 				settings = {
@@ -103,12 +102,12 @@ return {
 					client.server_capabilities.documentRangeFormattingProvider = false
 				end,
 			})
+			vim.lsp.enable "vtsls"
 
 			vim.lsp.enable "volar"
 			vim.lsp.enable "eslint"
 			vim.lsp.enable "tailwindcss"
 			vim.lsp.enable "vale_ls"
-			vim.lsp.enable "emmet_language_server"
 			vim.lsp.config("emmet_language_server", {
 				on_attach = function(client, bufnr)
 					vim.keymap.set("i", "<c-s>,", function()
@@ -127,8 +126,8 @@ return {
 					end, { noremap = true, buffer = bufnr, desc = "Expand emmet" })
 				end,
 			})
+			vim.lsp.enable "emmet_language_server"
 
-			vim.lsp.enable "lua_ls"
 			vim.lsp.config("lua_ls", {
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
@@ -148,6 +147,7 @@ return {
 					},
 				},
 			})
+			vim.lsp.enable "lua_ls"
 
 			vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 

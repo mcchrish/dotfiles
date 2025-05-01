@@ -22,31 +22,6 @@ return {
 	},
 
 	{
-		"yetone/avante.nvim",
-		event = "VeryLazy",
-		lazy = false,
-		version = false,
-		build = "make",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-		},
-		opts = {
-			provider = "copilot",
-			hints = {
-				enabled = false,
-			},
-			windows = {
-				width = 40,
-				sidebar_header = {
-					align = "right",
-					rounded = false,
-				},
-			},
-		},
-	},
-
-	{
 		"olimorris/codecompanion.nvim",
 		-- lazy = true,
 		dependencies = {

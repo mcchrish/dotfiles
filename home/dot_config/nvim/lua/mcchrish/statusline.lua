@@ -7,9 +7,6 @@ M.setup = function(colors_name)
 			theme = colors_name,
 			section_separators = "",
 			component_separators = "",
-			disabled_filetypes = {
-				winbar = { "Avante", "AvanteInput" },
-			},
 		},
 		sections = {
 			lualine_a = {
@@ -29,7 +26,6 @@ M.setup = function(colors_name)
 				},
 			},
 			lualine_x = {
-				"copilot",
 				{
 					"filetype",
 					colored = false,
