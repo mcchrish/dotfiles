@@ -31,6 +31,7 @@ return {
 			},
 			highlight = {
 				enable = true,
+				disable = { "yaml" },
 			},
 			indent = {
 				enable = true,
