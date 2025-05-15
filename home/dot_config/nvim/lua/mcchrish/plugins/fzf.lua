@@ -42,6 +42,7 @@ return {
 			previewers = {
 				builtin = {
 					scrollbar = false,
+					snacks_image = { enabled = false },
 				},
 			},
 			files = {
