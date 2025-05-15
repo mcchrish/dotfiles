@@ -1,6 +1,6 @@
 return {
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		build = ":MasonUpdate",
 		opts = {},
 	},
@@ -54,14 +54,23 @@ return {
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
+			"mason-org/mason-lspconfig.nvim",
 			"yioneko/nvim-vtsls",
 			"nvim-lua/plenary.nvim",
 		},
 		opts = {},
 		config = function()
 			require("mason-lspconfig").setup {
-				ensure_installed = { "eslint", "lua_ls", "emmet_language_server", "vale_ls" },
+				ensure_installed = {
+					"vtsls",
+					"volar",
+					"eslint",
+					"tailwindcss",
+					"vale_ls",
+					"emmet_language_server",
+					"lua_ls",
+				},
+				automatic_enable = true,
 				automatic_installation = false,
 			}
 
@@ -80,34 +89,20 @@ return {
 						},
 					},
 				},
-				before_init = function(params, config)
-					local result = vim.system(
-						{ "npm", "query", "#vue" },
-						{ cwd = params.workspaceFolders[1].name, text = true }
-					)
-						:wait()
-					if result.stdout ~= "[]" then
-						table.insert(config.settings.vtsls.tsserver.globalPlugins, {
-							name = "@vue/typescript-plugin",
-							location = require("mason-registry").get_package("vue-language-server"):get_install_path()
-								.. "/node_modules/@vue/language-server",
-							languages = { "vue" },
-							configNamespace = "typescript",
-							enableForWorkspaceTypeScriptVersions = true,
-						})
-					end
+				before_init = function(_params, config)
+					table.insert(config.settings.vtsls.tsserver.globalPlugins, {
+						name = "@vue/typescript-plugin",
+						location = vim.fn.expand "$MASON/packages/vue-language-server/node_modules/@vue/language-server",
+						languages = { "vue" },
+						configNamespace = "typescript",
+						enableForWorkspaceTypeScriptVersions = true,
+					})
 				end,
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
 				end,
 			})
-			vim.lsp.enable "vtsls"
-
-			vim.lsp.enable "volar"
-			vim.lsp.enable "eslint"
-			vim.lsp.enable "tailwindcss"
-			vim.lsp.enable "vale_ls"
 			vim.lsp.config("emmet_language_server", {
 				on_attach = function(client, bufnr)
 					vim.keymap.set("i", "<c-s>,", function()
@@ -126,7 +121,6 @@ return {
 					end, { noremap = true, buffer = bufnr, desc = "Expand emmet" })
 				end,
 			})
-			vim.lsp.enable "emmet_language_server"
 
 			vim.lsp.config("lua_ls", {
 				on_attach = function(client)
@@ -147,7 +141,6 @@ return {
 					},
 				},
 			})
-			vim.lsp.enable "lua_ls"
 
 			vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
