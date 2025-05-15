@@ -39,7 +39,7 @@ zstyle :prompt:pure:git:stash show yes
 autoload -U promptinit; promptinit
 prompt pure
 
-export FZF_DEFAULT_OPTS="--color=16 --color='fg:white,fg+:white:bold,bg+:bright-black,hl:magenta:bold,marker:white:bold,prompt:blue,info:yellow' --bind=down:half-page-down,up:half-page-up"
+export FZF_DEFAULT_OPTS="--color='fg:white,fg+:white:bold,bg+:bright-black,hl:magenta:bold,marker:white:bold,prompt:blue,info:yellow' --bind=down:half-page-down,up:half-page-up"
 export FZF_DEFAULT_COMMAND="fd --type f \
   --hidden \
   --exclude .git \
