@@ -22,19 +22,13 @@ return {
 				solid_line_nr = true,
 				-- darken_non_text = 30,
 				-- italic_comments = false,
+				italic_strings = false,
 				-- transparent_background = true,
 				-- lighten_cursor_line = 20,
 				-- darken_cursor_line = 20,
 				-- colorize_diagnostic_underline_text = true,
 			}
 			vim.cmd.colorscheme(colors_name)
-		end,
-	},
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		config = function()
-			-- vim.cmd "colorscheme rose-pine"
 		end,
 	},
 }
