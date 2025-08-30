@@ -101,11 +101,11 @@ return {
 		},
 	},
 
-	{ "echasnovski/mini.bracketed", opts = {} },
-	{ "echasnovski/mini.ai", opts = {} },
-	{ "echasnovski/mini.surround", opts = {} },
+	{ "nvim-mini/mini.bracketed", opts = {} },
+	{ "nvim-mini/mini.ai", opts = {} },
+	{ "nvim-mini/mini.surround", opts = {} },
 	{
-		"echasnovski/mini.align",
+		"nvim-mini/mini.align",
 		opts = {},
 		keys = {
 			{ "ga", mode = { "n", "v" } },
@@ -113,7 +113,7 @@ return {
 		},
 	},
 	{
-		"echasnovski/mini.basics",
+		"nvim-mini/mini.basics",
 		opts = {
 			options = {
 				basic = false,
@@ -124,24 +124,9 @@ return {
 		},
 	},
 	{
-		"echasnovski/mini.comment",
+		"nvim-mini/mini.comment",
 		event = "VeryLazy",
-		dependencies = {
-			{
-				"JoosepAlviste/nvim-ts-context-commentstring",
-				opts = {
-					enable_autocmd = false,
-				},
-			},
-		},
-		opts = {
-			options = {
-				custom_commentstring = function()
-					return require("ts_context_commentstring.internal").calculate_commentstring()
-						or vim.bo.commentstring
-				end,
-			},
-		},
+		opts = {},
 	},
 
 	{
@@ -242,7 +227,6 @@ return {
 		version = "*",
 		lazy = true,
 		ft = "markdown",
-		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
 			ui = {
 				enable = false,
