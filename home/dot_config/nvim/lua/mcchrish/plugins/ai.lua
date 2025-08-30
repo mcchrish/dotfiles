@@ -30,13 +30,15 @@ return {
 		},
 		opts = {
 			adapters = {
-				anthropic = function()
-					return require("codecompanion.adapters").extend("anthropic", {
-						env = {
-							api_key = vim.env.ANTHROPIC_API_KEY,
-						},
-					})
-				end,
+				http = {
+					anthropic = function()
+						return require("codecompanion.adapters").extend("anthropic", {
+							env = {
+								api_key = vim.env.ANTHROPIC_API_KEY,
+							},
+						})
+					end,
+				},
 			},
 			strategies = {
 				chat = {

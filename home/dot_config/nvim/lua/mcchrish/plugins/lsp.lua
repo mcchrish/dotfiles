@@ -56,26 +56,25 @@ return {
 		dependencies = {
 			"mason-org/mason-lspconfig.nvim",
 			"yioneko/nvim-vtsls",
-			"nvim-lua/plenary.nvim",
 		},
 		opts = {},
 		config = function()
 			require("mason-lspconfig").setup {
 				ensure_installed = {
 					"vtsls",
-					"volar",
 					"eslint",
 					"tailwindcss",
 					"vale_ls",
 					"emmet_language_server",
 					"lua_ls",
+					"tsp_server",
 				},
 				automatic_enable = true,
 				automatic_installation = false,
 			}
 
 			vim.lsp.config("vtsls", {
-				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+				filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
 				settings = {
 					vtsls = { tsserver = { globalPlugins = {} } },
 					typescript = {
@@ -89,15 +88,6 @@ return {
 						},
 					},
 				},
-				before_init = function(_params, config)
-					table.insert(config.settings.vtsls.tsserver.globalPlugins, {
-						name = "@vue/typescript-plugin",
-						location = vim.fn.expand "$MASON/packages/vue-language-server/node_modules/@vue/language-server",
-						languages = { "vue" },
-						configNamespace = "typescript",
-						enableForWorkspaceTypeScriptVersions = true,
-					})
-				end,
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
 					client.server_capabilities.documentRangeFormattingProvider = false
