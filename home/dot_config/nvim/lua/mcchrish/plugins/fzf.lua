@@ -46,7 +46,6 @@ return {
 				},
 			},
 			files = {
-				formatter = "path.filename_first",
 				actions = {
 					["alt-i"] = { actions.toggle_ignore },
 					["alt-h"] = { actions.toggle_hidden },
@@ -55,7 +54,6 @@ return {
 			git = {
 				files = {
 					prompt = "Tracked files❫ ",
-					formatter = { "path.filename_first", 2 },
 				},
 				status = {
 					prompt = "Status❫ ",
@@ -79,7 +77,6 @@ return {
 			grep = {
 				prompt = "Grep❫ ",
 				input_prompt = "Grep for❫ ",
-				formatter = { "path.filename_first", 2 },
 				rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 --colors='path:fg:white' --colors='path:style:intense' -e",
 				actions = {
 					["alt-i"] = { actions.toggle_ignore },
@@ -180,9 +177,9 @@ return {
 		{
 			"<leader>sf",
 			function()
-				require("fzf-lua").files()
+				require("fzf-lua").global()
 			end,
-			desc = "Find files (root dir)",
+			desc = "Find global",
 		},
 		{
 			"<leader>sF",
