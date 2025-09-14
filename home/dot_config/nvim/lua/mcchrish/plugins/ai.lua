@@ -20,49 +20,4 @@ return {
 			panel = { enabled = false },
 		},
 	},
-
-	{
-		"olimorris/codecompanion.nvim",
-		-- lazy = true,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {
-			adapters = {
-				http = {
-					anthropic = function()
-						return require("codecompanion.adapters").extend("anthropic", {
-							env = {
-								api_key = vim.env.ANTHROPIC_API_KEY,
-							},
-						})
-					end,
-				},
-			},
-			strategies = {
-				chat = {
-					adapter = "copilot",
-					slash_commands = {
-						buffer = {
-							opts = {
-								provider = "fzf_lua",
-							},
-						},
-						file = {
-							opts = {
-								provider = "fzf_lua",
-							},
-						},
-					},
-				},
-				inline = {
-					adapter = "copilot",
-				},
-				agent = {
-					adapter = "copilot",
-				},
-			},
-		},
-	},
 }
