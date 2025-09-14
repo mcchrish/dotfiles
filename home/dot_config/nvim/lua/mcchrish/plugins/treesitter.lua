@@ -6,13 +6,19 @@ return {
 		build = ":TSUpdate",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-context",
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
-		opts = {
-			playground = {
-				enable = false,
+			{
+				"nvim-treesitter/nvim-treesitter-textobjects",
+				branch = "main",
+				opts = {},
 			},
-			ensure_installed = {
+		},
+		opts = {},
+		config = function(_, opts)
+			local ts = require "nvim-treesitter"
+			ts.setup(opts)
+			require("treesitter-context").setup()
+
+			local parsers = {
 				"css",
 				"diff",
 				"html",
@@ -20,36 +26,22 @@ return {
 				"jsdoc",
 				"json",
 				"luadoc",
-				"luap",
+				"lua",
 				"toml",
 				"tsx",
 				"typescript",
 				"vue",
 				"yaml",
-			},
-			matchup = {
-				enable = true,
-			},
-			highlight = {
-				enable = true,
-				disable = { "yaml" },
-			},
-			indent = {
-				enable = true,
-			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "gnn",
-					node_incremental = "grn",
-					scope_incremental = "grc",
-					node_decremental = "grm",
-				},
-			},
-		},
-		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
-			require("treesitter-context").setup()
+			}
+			ts.install(parsers)
+
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = parsers,
+				callback = function()
+					vim.treesitter.start()
+					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				end,
+			})
 		end,
 	},
 }
