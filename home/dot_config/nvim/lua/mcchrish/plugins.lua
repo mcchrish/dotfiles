@@ -322,10 +322,16 @@ return {
 			{
 				"<leader>gl",
 				function()
-					Snacks.gitbrowse()
+					Snacks.gitbrowse {
+						what = "permalink",
+						open = function(url)
+							vim.fn.setreg("+", url, "c")
+							vim.ui.open(url)
+						end,
+					}
 				end,
 				mode = { "n", "x" },
-				desc = "Copy git permlink to clipboard",
+				desc = "Copy git permalink to clipboard",
 			},
 			{
 				"<leader>n",
