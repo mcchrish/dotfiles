@@ -19,6 +19,7 @@ return {
 			require("treesitter-context").setup()
 
 			local parsers = {
+				"bash",
 				"css",
 				"diff",
 				"html",

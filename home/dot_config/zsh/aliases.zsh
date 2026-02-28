@@ -8,6 +8,7 @@ alias which="command -v"
 
 # Vim
 alias v="nvim"
+alias vim="nvim"
 
 # While in a nvim terminal, open file to current session
 if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
