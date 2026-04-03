@@ -22,7 +22,6 @@ return {
 		lazy = true,
 		cmd = { "Flog", "Flogsplit", "Floggit" },
 	},
-	{ "sindrets/diffview.nvim", event = "VeryLazy" },
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -100,23 +99,5 @@ return {
 				map("n", "<leader>tD", gitsigns.preview_hunk_inline, { desc = "[T]oggle git show [D]eleted" })
 			end,
 		},
-	},
-	{
-		"mbbill/undotree",
-		cmd = "UndotreeToggle",
-		keys = {
-			{
-				"<leader>u",
-				mode = "n",
-				"<cmd>UndotreeToggle<cr>",
-				desc = "Undotree toggle",
-			},
-		},
-		init = function()
-			local g = vim.g
-			g.undotree_WindowLayout = 2
-			g.undotree_SetFocusWhenToggle = 1
-			g.undotree_SplitWidth = 40
-		end,
 	},
 }

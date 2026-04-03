@@ -51,3 +51,6 @@ require("lazy").setup("mcchrish.plugins", {
 		},
 	},
 })
+
+vim.cmd.packadd "nvim.undotree"
+vim.cmd.packadd "nohlsearch"
